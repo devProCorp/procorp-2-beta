@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#d11026",
+                "background-light": "#f8f6f6",
+                "background-dark": "#221012",
+              },
+              fontFamily: {
+                "display": ["Space Grotesk", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .diagonal-cut {
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        .diagonal-bg {
+            background: linear-gradient(115deg, transparent 75%, rgba(209, 16, 38, 0.05) 75.1%);
+        }
+        .border-left-accent {
+            border-left: 1px solid rgba(209, 16, 38, 0.3);
+        }
+        .monochrome-img {
+            filter: grayscale(100%) contrast(110%);
+        }
+    </style>
+<title>PRO CORP Studio &amp; Philosophy</title>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-stone-900 dark:text-stone-100 antialiased overflow-x-hidden">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary flex items-center justify-center">
+<span class="text-white font-bold text-xl">P</span>
+</div>
+<span class="text-xl font-bold tracking-tighter uppercase">PRO CORP</span>
+</div>
+<div class="hidden md:flex space-x-12 text-sm font-medium uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Studio</a>
+<a class="hover:text-primary transition-colors" href="#">Procesos</a>
+<a class="hover:text-primary transition-colors" href="#">Portfolio</a>
+<a class="bg-primary text-white px-6 py-2 rounded-sm hover:bg-red-700 transition-all" href="#">Contacto</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section: Split Screen -->
+<section class="relative min-h-screen pt-20 flex flex-col md:flex-row overflow-hidden">
+<!-- Left: Imagery -->
+<div class="w-full md:w-1/2 relative min-h-[50vh] md:min-h-screen overflow-hidden">
+<img alt="Professional office environment" class="absolute inset-0 w-full h-full object-cover monochrome-img" data-alt="Monochrome professional high-end office architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfASzBgLrhWIyE8UmOOhjs7pfOsFEL8EhDc7Hlc5Frumknzj3cUXVUlwmgfoFuePsuoBGZG3RH_1jVpCXPeo0savLZi_MZopr6oYU6I3Q-Duz8ZMt8rvR3RjXGSA_Rsj6nm4-7zWtbXKwZE6uMX6Ral3B9Yyn9Lt3cvFINFTcWNlmZ0yECaHTgkVWzz5zgmvSnW4nboOVD05JXb3oHAmGHUO-etiJGwuCsH-Z0eh1oVgfaPvO4NPFegF5jZ1n6Cdcla5JMwmfF2C8"/>
+<div class="absolute inset-0 bg-stone-900/10"></div>
+<!-- Diagonal Overlay Element -->
+<div class="absolute right-0 top-0 bottom-0 w-24 bg-background-light dark:bg-background-dark diagonal-cut hidden md:block translate-x-12"></div>
+</div>
+<!-- Right: Content -->
+<div class="w-full md:w-1/2 flex items-center px-8 md:px-20 py-20 bg-background-light dark:bg-background-dark relative">
+<div class="max-w-xl">
+<div class="w-12 h-1 bg-primary mb-8"></div>
+<h1 class="text-5xl md:text-7xl font-bold text-primary mb-8 leading-tight uppercase tracking-tight">
+                    Ingeniería de lo <span class="block">invisible</span>
+</h1>
+<div class="space-y-6 text-lg md:text-xl font-light leading-relaxed text-stone-600 dark:text-stone-400">
+<p>
+                        En PRO CORP, no solo optimizamos; reestructuramos el tejido mismo de la operación corporativa. Nuestra filosofía se basa en la precisión arquitectónica del flujo de trabajo.
+                    </p>
+<p>
+                        Entendemos que el futuro de la competitividad reside en la simbiosis perfecta entre la inteligencia artificial y el desarrollo humano estratégico. Construimos los sistemas que otros consideran imposibles.
+                    </p>
+</div>
+<div class="mt-12">
+<button class="group flex items-center space-x-4 border-b-2 border-primary pb-2 hover:translate-x-2 transition-transform">
+<span class="uppercase tracking-widest font-bold text-sm">Nuestra Metodología</span>
+<span class="material-symbols-outlined group-hover:text-primary">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Diagonal Accent Divider -->
+<div class="h-24 w-full bg-stone-100 dark:bg-stone-900/50 diagonal-bg"></div>
+<!-- Section: Services (Audit, Build, Control) -->
+<section class="py-24 px-6 md:px-20 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-center">
+<h2 class="text-sm font-bold tracking-[0.5em] uppercase text-stone-400 mb-4">Core Ecosystem</h2>
+<h3 class="text-3xl md:text-4xl font-light">Estructura Modular de Crecimiento</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-px md:bg-stone-200 dark:md:bg-stone-800">
+<!-- Audit -->
+<div class="bg-background-light dark:bg-background-dark p-12 hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors group">
+<div class="mb-8">
+<span class="material-symbols-outlined text-5xl text-primary font-extralight">biotech</span>
+</div>
+<h4 class="text-2xl font-bold mb-4 uppercase tracking-tighter group-hover:text-primary transition-colors">01. Audit</h4>
+<p class="text-stone-600 dark:text-stone-400 font-light leading-relaxed mb-8">
+                        Diagnóstico quirúrgico de procesos. Identificamos las fricciones invisibles que detienen el escalamiento y mapeamos el flujo de datos integral.
+                    </p>
+<ul class="space-y-3 text-sm font-medium text-stone-500 uppercase tracking-wider">
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Data Analysis</li>
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Process Mapping</li>
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Gap Identification</li>
+</ul>
+</div>
+<!-- Build -->
+<div class="bg-background-light dark:bg-background-dark p-12 hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors group">
+<div class="mb-8">
+<span class="material-symbols-outlined text-5xl text-primary font-extralight">architecture</span>
+</div>
+<h4 class="text-2xl font-bold mb-4 uppercase tracking-tighter group-hover:text-primary transition-colors">02. Build</h4>
+<p class="text-stone-600 dark:text-stone-400 font-light leading-relaxed mb-8">
+                        Construcción de infraestructura inteligente. Implementamos soluciones de IA personalizadas y arquitecturas de automatización robustas.
+                    </p>
+<ul class="space-y-3 text-sm font-medium text-stone-500 uppercase tracking-wider">
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>AI Integration</li>
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Workflow Engine</li>
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Custom Dev</li>
+</ul>
+</div>
+<!-- Control -->
+<div class="bg-background-light dark:bg-background-dark p-12 hover:bg-stone-50 dark:hover:bg-stone-900 transition-colors group">
+<div class="mb-8">
+<span class="material-symbols-outlined text-5xl text-primary font-extralight">account_tree</span>
+</div>
+<h4 class="text-2xl font-bold mb-4 uppercase tracking-tighter group-hover:text-primary transition-colors">03. Control</h4>
+<p class="text-stone-600 dark:text-stone-400 font-light leading-relaxed mb-8">
+                        Gobernanza y optimización continua. Sistemas de monitoreo en tiempo real para asegurar que la eficiencia se mantenga y evolucione.
+                    </p>
+<ul class="space-y-3 text-sm font-medium text-stone-500 uppercase tracking-wider">
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Dashboarding</li>
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Managed Services</li>
+<li class="flex items-center"><span class="w-1.5 h-1.5 bg-primary mr-3"></span>Scalability Audit</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Split Screen: Leadership / Statement -->
+<section class="flex flex-col md:flex-row-reverse border-t border-stone-200 dark:border-stone-800">
+<div class="w-full md:w-1/2">
+<img alt="Leadership team" class="w-full h-[600px] object-cover monochrome-img" data-alt="Monochrome close up of professional business leadership team" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDozrEdrTU3W3H3ZqIMdXOyWxenZTWy6Z7TkY_ijTFPQ4rzAEiiLlVlviWRIQ19ZqYL_Fy-Np6nQHzyk0Lsr72oZ3_CYq6tZYFG4mAZXh0nILHnC4KNOmcXFP-UcSlB9eNz8lLwZ0MC6hktjX-Rsq155d-wH06QQ4GIM6FTEE1l3i8oFCFStPRVpLMYWvBN5OF2NgXphNuzBFIRVwtLIkA6jn9B1GlzBVhXY1Ibqi1k_4bMH19A1bKqCfGnVyQ0_HvIPwhQVf4DwUY"/>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center p-8 md:p-24 bg-stone-50 dark:bg-stone-900/30">
+<div class="border-left-accent pl-8 py-4">
+<span class="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Autoridad &amp; Precisión</span>
+<h3 class="text-4xl font-bold mb-8 leading-tight">Desarrollo corporativo bajo una lente de ingeniería.</h3>
+<p class="text-lg text-stone-600 dark:text-stone-400 font-light leading-loose mb-10">
+                    Nuestra dirección técnica combina décadas de experiencia en consultoría estratégica con el dominio de tecnologías emergentes. Creemos que cada proceso es una pieza de un engranaje mayor que debe ser diseñado con tolerancia cero al error.
+                </p>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<div class="text-3xl font-bold text-primary">150+</div>
+<div class="text-xs uppercase tracking-widest font-medium text-stone-500">Procesos Optimizados</div>
+</div>
+<div>
+<div class="text-3xl font-bold text-primary">35%</div>
+<div class="text-xs uppercase tracking-widest font-medium text-stone-500">Aumento Promedio Eficiencia</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark text-white py-20 px-6 md:px-20">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+<div class="mb-12 md:mb-0">
+<div class="flex items-center space-x-2 mb-6">
+<div class="w-8 h-8 bg-primary flex items-center justify-center">
+<span class="text-white font-bold text-xl">P</span>
+</div>
+<span class="text-2xl font-bold tracking-tighter uppercase">PRO CORP</span>
+</div>
+<p class="text-stone-500 max-w-sm font-light">
+                    Redefiniendo el estándar de la automatización corporativa a través del diseño sistémico y la inteligencia artificial.
+                </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm uppercase tracking-widest font-medium">
+<div class="flex flex-col space-y-4">
+<span class="text-primary mb-2">Legal</span>
+<a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="hover:text-primary transition-colors" href="#">Cookies</a>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="text-primary mb-2">Social</span>
+<a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-primary transition-colors" href="#">Twitter X</a>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="text-primary mb-2">Oficinas</span>
+<span class="text-stone-500">Madrid</span>
+<span class="text-stone-500">Mexico City</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-stone-800 flex justify-between items-center text-[10px] uppercase tracking-[0.3em] text-stone-600">
+<span>© 2024 PRO CORP STUDIO. ALL RIGHTS RESERVED.</span>
+<span class="hidden md:block italic">Ingeniería de lo invisible.</span>
+</div>
+</footer>
+</body></html>

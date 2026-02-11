@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PRO CORP | Projects Index</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d11026",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221012",
+                        "neutral-dark": "#1a0a0b",
+                        "neutral-gray": "#4a3c3d",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "ui": ["Montserrat", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .project-row:hover .project-image-preview {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .project-row:hover .project-number {
+            transform: translateX(10px);
+        }
+        .project-row:hover .project-details {
+            transform: translateX(15px);
+        }
+        .project-number, .project-details {
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .project-image-preview {
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d11026;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-dark dark:text-background-light antialiased transition-colors duration-300">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary flex items-center justify-center">
+<span class="text-white font-bold text-lg">P</span>
+</div>
+<span class="font-bold tracking-tighter text-2xl uppercase">PRO CORP</span>
+</div>
+<div class="hidden md:flex items-center space-x-12 font-ui text-sm font-semibold tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">STRATEGY</a>
+<a class="text-primary" href="#">PROJECTS</a>
+<a class="hover:text-primary transition-colors" href="#">INSIGHTS</a>
+<a class="hover:text-primary transition-colors" href="#">CONTACT</a>
+</div>
+<button class="md:hidden">
+<span class="material-icons">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-20 px-6">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-20">
+<h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-6 uppercase">
+                    Index<span class="text-primary">.</span>
+</h1>
+<p class="max-w-xl text-lg text-neutral-gray dark:text-background-light/70 font-light leading-relaxed">
+                    A curated archive of AI-driven transformation and corporate development initiatives across the European theater.
+                </p>
+</header>
+<!-- Filter Bar -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between py-6 border-y border-neutral-dark/10 dark:border-background-light/10 mb-12 gap-6">
+<div class="flex flex-wrap gap-8 font-ui text-[11px] font-semibold tracking-[0.2em] uppercase">
+<button class="text-primary border-b-2 border-primary pb-1">All Projects</button>
+<button class="text-neutral-gray hover:text-primary transition-colors pb-1">Sector</button>
+<button class="text-neutral-gray hover:text-primary transition-colors pb-1">Service</button>
+<button class="text-neutral-gray hover:text-primary transition-colors pb-1">Year</button>
+</div>
+<div class="flex items-center space-x-4">
+<span class="text-[10px] font-ui tracking-widest opacity-50 uppercase">Displaying 12 results</span>
+</div>
+</div>
+<!-- Project List -->
+<div class="space-y-0 relative">
+<!-- Project 01 -->
+<div class="project-row group relative border-b border-neutral-dark/5 dark:border-background-light/5 py-12 flex items-center cursor-pointer overflow-hidden">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-48 h-32 hidden lg:block project-image-preview pointer-events-none">
+<img alt="Modern office architecture Hamburg" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Modern architectural glass building in Hamburg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHfyFVGpCbjP10XYbdgBEzkqI6Dug3VrNa4neeD-e1hKg-zAoiH2qGpgD4Dg20JyS18r4vkAqq5hOjMEchNoai4KiB_SRIC2soV1o3bcfN2A4myEoWZD49rCE_cxc3ks51rv_mB5dAW0c2KtPcMnscJ4QsUGYjtmXJOhMqIklhVIJY8dOdU9SX14_dk6ItO87xz2CCMdPhLwUEafYiS0UPlm8AMsyzMoPAie3g-14QEZ2CtZfJpeOCRrrwqJZ2uMbrZ4IwRXIlTQY"/>
+</div>
+<div class="flex flex-col md:flex-row items-baseline w-full lg:pl-64">
+<span class="project-number text-primary font-display font-bold text-lg md:text-xl w-16">01</span>
+<div class="project-details flex flex-col md:flex-row md:items-center justify-between w-full">
+<h2 class="font-ui font-bold text-2xl md:text-4xl tracking-tight uppercase group-hover:text-primary transition-colors">
+                                NEXUS LOGISTICS CORE
+                            </h2>
+<div class="font-ui font-light text-sm md:text-lg tracking-wide opacity-60 mt-2 md:mt-0">
+                                Hamburg, Germany <span class="mx-3 text-primary">—</span> 2024
+                            </div>
+</div>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="project-row group relative border-b border-neutral-dark/5 dark:border-background-light/5 py-12 flex items-center cursor-pointer overflow-hidden">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-48 h-32 hidden lg:block project-image-preview pointer-events-none">
+<img alt="Corporate skyscraper Zurich" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Minimalist skyscraper facade in Zurich Switzerland" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAZ4Ki7iKrGBdLR_b0gujcyOc9djET-yN84zqDeYcI5T51Dg_WibImUU0vM362HpyaELNqntpnTqmObieZG3vSQuvHiqm9GzYCuCnyuyyObsJV2lQ97YBy21nwx3BaZCf_FPrSf538D7HdAXr6kaiUX14DmmZ5CB9GHrgLkQTwRtynGmmLjnoD86K8p3Bj_5ZC822GtozBX2qj21jhFFNZJGTizxE6xFqTw2HaQyQRCCWLnyTTV3Ie3MI-ciWf-foAxN-bqtvb2H8"/>
+</div>
+<div class="flex flex-col md:flex-row items-baseline w-full lg:pl-64">
+<span class="project-number text-primary font-display font-bold text-lg md:text-xl w-16">02</span>
+<div class="project-details flex flex-col md:flex-row md:items-center justify-between w-full">
+<h2 class="font-ui font-bold text-2xl md:text-4xl tracking-tight uppercase group-hover:text-primary transition-colors">
+                                STRATOS FINTECH AUTOMATION
+                            </h2>
+<div class="font-ui font-light text-sm md:text-lg tracking-wide opacity-60 mt-2 md:mt-0">
+                                Zurich, Switzerland <span class="mx-3 text-primary">—</span> 2023
+                            </div>
+</div>
+</div>
+</div>
+<!-- Project 03 -->
+<div class="project-row group relative border-b border-neutral-dark/5 dark:border-background-light/5 py-12 flex items-center cursor-pointer overflow-hidden">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-48 h-32 hidden lg:block project-image-preview pointer-events-none">
+<img alt="Clean interior retail space Milan" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Futuristic minimal retail store interior Milan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQoZCmCm1WSQCBQLbgYoozTOOnpnvBe4ykHJg5VBwK8qv8N20lkv7CY7Q6Ot8IZeIjDjPtbpq9O4qtTJRq5sVukoyOPrT41iwxwgysk5pluJgMHLvRXU4LAUc_Km6mdmApIiE5Qr2BP-sEKOAVzqvB2g55WDT2m07flvzRWeaGjnRWl2vaaeE8L9qA7LN8MYZxS7wcqievWI7_F8Vu1FXXiqcs2WZ2ICy0tZKiJlJj1xelA4AYo4U7PHjk2qJzaKucLXA-n2QFpoU"/>
+</div>
+<div class="flex flex-col md:flex-row items-baseline w-full lg:pl-64">
+<span class="project-number text-primary font-display font-bold text-lg md:text-xl w-16">03</span>
+<div class="project-details flex flex-col md:flex-row md:items-center justify-between w-full">
+<h2 class="font-ui font-bold text-2xl md:text-4xl tracking-tight uppercase group-hover:text-primary transition-colors">
+                                QUANTUM RETAIL GRID
+                            </h2>
+<div class="font-ui font-light text-sm md:text-lg tracking-wide opacity-60 mt-2 md:mt-0">
+                                Milan, Italy <span class="mx-3 text-primary">—</span> 2023
+                            </div>
+</div>
+</div>
+</div>
+<!-- Project 04 -->
+<div class="project-row group relative border-b border-neutral-dark/5 dark:border-background-light/5 py-12 flex items-center cursor-pointer overflow-hidden">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-48 h-32 hidden lg:block project-image-preview pointer-events-none">
+<img alt="Glass office building London" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Abstract reflection of clouds on glass building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXlsPLQx3rTZZCt2VRYGRuAlgtUS_a3ZMuLn6xDdKqx6haqQP8Gm5cf7RIBdKJ5iyRdJKwavhSL3rAXiUOU7vj3nNvwBEu6ve3i1C0vUUAVEuFeJQtDfR-EM6qNbCYqkdt2ZV5qRb039Ud3DMokxQw-Ks6NYQNV5CK_Ki-OqNknXorxHVS1_Vfak6puPl_aOAI56ISdygEjm2Ey3PKbyUbsb7cHfCMZIPQZ7A7xMpADYuD8GVWjgh26ToSTxBd_mwAWeW_-cufiGM"/>
+</div>
+<div class="flex flex-col md:flex-row items-baseline w-full lg:pl-64">
+<span class="project-number text-primary font-display font-bold text-lg md:text-xl w-16">04</span>
+<div class="project-details flex flex-col md:flex-row md:items-center justify-between w-full">
+<h2 class="font-ui font-bold text-2xl md:text-4xl tracking-tight uppercase group-hover:text-primary transition-colors">
+                                HELIOS ENERGY SYSTEMS
+                            </h2>
+<div class="font-ui font-light text-sm md:text-lg tracking-wide opacity-60 mt-2 md:mt-0">
+                                London, UK <span class="mx-3 text-primary">—</span> 2022
+                            </div>
+</div>
+</div>
+</div>
+<!-- Project 05 -->
+<div class="project-row group relative border-b border-neutral-dark/5 dark:border-background-light/5 py-12 flex items-center cursor-pointer overflow-hidden">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-48 h-32 hidden lg:block project-image-preview pointer-events-none">
+<img alt="Industrial modern site Lyon" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Sophisticated industrial facility architecture in Lyon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpyQq2K2sN9ZzwgAstfFGSLSVizhxBZnVgGC_0MI8Y11PYzgbESdJhu6XabcGW_aE6M0U9bMEPZt1ggvnmEZK5nWW3BxYMBMg15UnVxOU_hLGX-evLgJb0b1Xeu23pms63mGEwa2WzDAiAavinU_toPqM3T1MmFLFcqc_rNVHOosAj9wOm12dg967RwyVNSbTR_l6B89KPYLe1KNQY_XctguHOP32nSKJfXwaPX9weHoBirwEV5_bYv_8eQUA4iyaivkjicOKGBN4"/>
+</div>
+<div class="flex flex-col md:flex-row items-baseline w-full lg:pl-64">
+<span class="project-number text-primary font-display font-bold text-lg md:text-xl w-16">05</span>
+<div class="project-details flex flex-col md:flex-row md:items-center justify-between w-full">
+<h2 class="font-ui font-bold text-2xl md:text-4xl tracking-tight uppercase group-hover:text-primary transition-colors">
+                                VORTEX MANUFACTURING AI
+                            </h2>
+<div class="font-ui font-light text-sm md:text-lg tracking-wide opacity-60 mt-2 md:mt-0">
+                                Lyon, France <span class="mx-3 text-primary">—</span> 2022
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="mt-20 flex flex-col md:flex-row items-center justify-between text-[10px] font-ui tracking-[0.3em] uppercase opacity-40">
+<div class="mb-4 md:mb-0">PRO CORP / EUROPEAN OPERATIONS DIVISION</div>
+<div class="flex space-x-8">
+<a class="hover:text-primary transition-colors" href="#">Privacy Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Cookie Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Legal Archive</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Back to Top / Cursor Element -->
+<div class="fixed bottom-10 right-10 flex flex-col items-center space-y-4">
+<div class="w-px h-24 bg-primary/30"></div>
+<button class="bg-primary text-white p-4 rounded-full shadow-xl hover:scale-110 transition-transform duration-300">
+<span class="material-icons">arrow_upward</span>
+</button>
+</div>
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-5">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-[160px]"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-[160px]"></div>
+</div>
+</body></html>
