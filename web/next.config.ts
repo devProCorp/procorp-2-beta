@@ -61,7 +61,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.pro-corp.net https://secure.gravatar.com https://lh3.googleusercontent.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://*.elevenlabs.io https://*.n8n.cloud",
+              "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://*.elevenlabs.io https://*.n8n.cloud https://*.easypanel.host",
               "media-src 'self' https://www.pro-corp.net",
               "frame-src 'self'",
               "object-src 'none'",
