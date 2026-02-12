@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
         hostname: "secure.gravatar.com",
         pathname: "/avatar/**",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        pathname: "/aida-public/**",
+      },
     ],
   },
 
@@ -54,7 +59,7 @@ const nextConfig: NextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.pro-corp.net https://secure.gravatar.com",
+              "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.pro-corp.net https://secure.gravatar.com https://lh3.googleusercontent.com",
               "font-src 'self' https://fonts.gstatic.com",
               "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://*.elevenlabs.io https://*.n8n.cloud",
               "media-src 'self' https://www.pro-corp.net",
