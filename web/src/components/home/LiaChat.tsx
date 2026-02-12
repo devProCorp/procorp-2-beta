@@ -4,6 +4,9 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const WEBHOOK_URL = 'https://n8n-n8n.ukq6rz.easypanel.host/webhook/fd095693-99f0-472c-9d03-65426bd3fdb4';
+const ELEVENLABS_API_KEY = process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY ?? '';
+const ELEVENLABS_VOICE_ID_EN = process.env.NEXT_PUBLIC_ELEVENLABS_VOICE_ID_EN ?? '';
+const ELEVENLABS_VOICE_ID_ES = process.env.NEXT_PUBLIC_ELEVENLABS_VOICE_ID_ES ?? '';
 
 interface ChatMessage {
     role: 'user' | 'lia';
@@ -52,6 +55,35 @@ function getSpeechRecognition(): (new () => SpeechRecognitionInstance) | null {
     return w.SpeechRecognition || w.webkitSpeechRecognition || null;
 }
 
+async function speakWithElevenLabs(text: string, lang: string): Promise<void> {
+    const voiceId = lang === 'es' ? ELEVENLABS_VOICE_ID_ES : ELEVENLABS_VOICE_ID_EN;
+    if (!ELEVENLABS_API_KEY || !voiceId) return;
+
+    const res = await fetch(
+        `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
+        {
+            method: 'POST',
+            headers: {
+                'xi-api-key': ELEVENLABS_API_KEY,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text,
+                model_id: 'eleven_multilingual_v2',
+                voice_settings: { stability: 0.5, similarity_boost: 0.75 },
+            }),
+        }
+    );
+
+    if (!res.ok) return;
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const audio = new Audio(url);
+    audio.onended = () => URL.revokeObjectURL(url);
+    await audio.play();
+}
+
 const LiaChat = () => {
     const { t, lang } = useLanguage();
     const [isLive, setIsLive] = useState(false);
@@ -59,6 +91,8 @@ const LiaChat = () => {
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
     const [isListening, setIsListening] = useState(false);
+    const [voiceEnabled, setVoiceEnabled] = useState(false);
+    const [isSpeaking, setIsSpeaking] = useState(false);
     const chatContainerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const waIdRef = useRef('');
@@ -68,7 +102,6 @@ const LiaChat = () => {
         waIdRef.current = getOrCreateWaId();
     }, []);
 
-    // Cleanup speech recognition on unmount
     useEffect(() => {
         return () => {
             if (recognitionRef.current) {
@@ -144,6 +177,12 @@ const LiaChat = () => {
                     : item?.output ?? item?.response ?? item?.message ?? item?.content ?? item?.text ?? String(item);
 
             setMessages(prev => [...prev, { role: 'lia', content: liaResponse }]);
+
+            // Speak response if voice is enabled
+            if (voiceEnabled && liaResponse) {
+                setIsSpeaking(true);
+                speakWithElevenLabs(liaResponse, lang).finally(() => setIsSpeaking(false));
+            }
         } catch {
             setMessages(prev => [
                 ...prev,
@@ -154,10 +193,9 @@ const LiaChat = () => {
         } finally {
             setLoading(false);
         }
-    }, [loading, isLive, lang]);
+    }, [loading, isLive, lang, voiceEnabled]);
 
     const toggleVoice = useCallback(() => {
-        // If already listening, stop
         if (isListening && recognitionRef.current) {
             recognitionRef.current.stop();
             return;
@@ -212,6 +250,7 @@ const LiaChat = () => {
 
     const displayMessages = isLive ? messages : hardcodedMessages;
     const hasSpeech = typeof window !== 'undefined' && getSpeechRecognition() !== null;
+    const hasTTS = !!ELEVENLABS_API_KEY && !!(ELEVENLABS_VOICE_ID_EN || ELEVENLABS_VOICE_ID_ES);
 
     return (
         <section className="bg-background-light dark:bg-background-dark py-24 px-6 md:px-8">
@@ -256,10 +295,31 @@ const LiaChat = () => {
                                         <span className="text-[10px] text-gray-400 font-ui block tracking-wider uppercase">{t('lia.chat.subtitle')}</span>
                                     </div>
                                 </div>
-                                <div className="flex gap-1.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-                                    <div className="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
+
+                                <div className="flex items-center gap-3">
+                                    {/* Voice Response Toggle */}
+                                    {hasTTS && (
+                                        <button
+                                            type="button"
+                                            onClick={() => setVoiceEnabled(v => !v)}
+                                            className="flex items-center gap-2 group"
+                                            title={lang === 'es' ? 'Respuestas por voz' : 'Voice responses'}
+                                        >
+                                            <span className={`material-symbols-outlined text-sm transition-colors ${voiceEnabled ? 'text-primary' : 'text-gray-300 dark:text-gray-600'}`}>
+                                                {isSpeaking ? 'volume_up' : 'volume_up'}
+                                            </span>
+                                            {/* Toggle track */}
+                                            <div className={`relative w-8 h-[18px] rounded-full transition-colors ${voiceEnabled ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-700'}`}>
+                                                <div className={`absolute top-[2px] w-[14px] h-[14px] rounded-full bg-white shadow-sm transition-transform ${voiceEnabled ? 'translate-x-[16px]' : 'translate-x-[2px]'}`} />
+                                            </div>
+                                        </button>
+                                    )}
+
+                                    <div className="flex gap-1.5">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                                        <div className="w-2.5 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                                        <div className="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -289,6 +349,16 @@ const LiaChat = () => {
                                             <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '0ms' }}></div>
                                             <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '150ms' }}></div>
                                             <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Speaking indicator */}
+                                {isSpeaking && (
+                                    <div className="flex justify-start">
+                                        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-primary/60 font-ui">
+                                            <span className="material-symbols-outlined text-sm animate-pulse">graphic_eq</span>
+                                            {lang === 'es' ? 'Hablando...' : 'Speaking...'}
                                         </div>
                                     </div>
                                 )}
