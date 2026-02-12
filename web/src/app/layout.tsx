@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Space_Grotesk } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ClientProviders from "@/components/layout/ClientProviders";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -15,8 +16,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "PRO CORP | Corporate Development — Ciudadanía Europea, Inversión y Automatización",
-  description: "Desarrollo corporativo, ciudadanía europea por origen sefardí, Golden Visa, inversión en España y automatización de procesos. Presencia en Colombia, España, Portugal y Suiza.",
+  title: "PRO CORP | Technology-Based Orchestration — BPA, Legal Solutions & Sustainable Growth",
+  description: "Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.",
 };
 
 export default function RootLayout({
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0"
@@ -35,9 +36,11 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${spaceGrotesk.variable} antialiased font-ui`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ClientProviders>
+          <Navbar />
+          {children}
+          <Footer />
+        </ClientProviders>
       </body>
     </html>
   );

@@ -1,50 +1,52 @@
 'use client';
 
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const articles = [
     {
         id: 1,
-        title: "Nacionalidad Española por Origen Sefardí: Todo lo que Necesitas Saber",
-        date: "Ene 15, 2025",
-        category: "Ciudadanía"
+        title: "journal.a1.title",
+        date: "Jan 15, 2025",
+        category: "BPA"
     },
     {
         id: 2,
-        title: "Golden Visa en España: Requisitos y Oportunidades de Inversión",
-        date: "Dic 20, 2024",
-        category: "Inversión"
+        title: "journal.a2.title",
+        date: "Dec 20, 2024",
+        category: "Platform"
     },
     {
         id: 3,
-        title: "Ley de Memoria Democrática: Nueva Vía para la Nacionalidad Española",
+        title: "journal.a3.title",
         date: "Nov 28, 2024",
-        category: "Legislación"
+        category: "Methodology"
     },
     {
         id: 4,
-        title: "Visa Nómada Digital: Trabajar desde España con Residencia Legal",
+        title: "journal.a4.title",
         date: "Nov 10, 2024",
-        category: "Migración"
+        category: "IP2$"
     },
     {
         id: 5,
-        title: "Automatización de Procesos: Tecnología al Servicio de tu Crecimiento",
+        title: "journal.a5.title",
         date: "Oct 22, 2024",
-        category: "Tecnología"
+        category: "Legal Solutions"
     }
 ];
 
 export default function Journal() {
+    const { t } = useLanguage();
     return (
         <main className="min-h-screen bg-background-light dark:bg-background-dark pt-32 pb-20 px-6">
             <div className="max-w-7xl mx-auto">
                 <header className="mb-20">
                     <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 uppercase font-display text-neutral-dark dark:text-white">
-                        Blog<span className="text-primary">.</span>
+                        {t('journal.title')}<span className="text-primary">.</span>
                     </h1>
                     <p className="max-w-xl text-lg text-neutral-gray dark:text-white/70 font-light leading-relaxed font-ui">
-                        Artículos sobre ciudadanía europea, migración, inversión, legislación y desarrollo corporativo.
+                        {t('journal.desc')}
                     </p>
                 </header>
 
@@ -54,7 +56,7 @@ export default function Journal() {
                             <div className="mb-4 md:mb-0">
                                 <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">{article.category}</span>
                                 <h2 className="text-3xl md:text-4xl font-display font-bold uppercase text-neutral-dark dark:text-white group-hover:text-primary transition-colors">
-                                    {article.title}
+                                    {t(article.title)}
                                 </h2>
                             </div>
                             <div className="text-neutral-gray dark:text-gray-500 font-ui text-sm uppercase tracking-widest">

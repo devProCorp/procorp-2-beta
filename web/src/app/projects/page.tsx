@@ -2,51 +2,53 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 const services = [
     {
         id: '01',
-        title: 'NACIONALIDAD ESPAÑOLA POR ORIGEN SEFARDÍ',
-        description: 'España',
-        detail: 'Prueba genealógica y gestión integral',
+        title: 'svc.01.title',
+        description: 'svc.01.desc',
+        detail: 'svc.01.detail',
         image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHfyFVGpCbjP10XYbdgBEzkqI6Dug3VrNa4neeD-e1hKg-zAoiH2qGpgD4Dg20JyS18r4vkAqq5hOjMEchNoai4KiB_SRIC2soV1o3bcfN2A4myEoWZD49rCE_cxc3ks51rv_mB5dAW0c2KtPcMnscJ4QsUGYjtmXJOhMqIklhVIJY8dOdU9SX14_dk6ItO87xz2CCMdPhLwUEafYiS0UPlm8AMsyzMoPAie3g-14QEZ2CtZfJpeOCRrrwqJZ2uMbrZ4IwRXIlTQY',
-        slug: 'nacionalidad-espanola-sefardi',
+        slug: 'legal-solutions',
     },
     {
         id: '02',
-        title: 'NACIONALIDAD PORTUGUESA POR ORIGEN SEFARDÍ',
-        description: 'Portugal',
-        detail: 'Certificado de comunidad y pasaporte',
+        title: 'svc.02.title',
+        description: 'svc.02.desc',
+        detail: 'svc.02.detail',
         image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAZ4Ki7iKrGBdLR_b0gujcyOc9djET-yN84zqDeYcI5T51Dg_WibImUU0vM362HpyaELNqntpnTqmObieZG3vSQuvHiqm9GzYCuCnyuyyObsJV2lQ97YBy21nwx3BaZCf_FPrSf538D7HdAXr6kaiUX14DmmZ5CB9GHrgLkQTwRtynGmmLjnoD86K8p3Bj_5ZC822GtozBX2qj21jhFFNZJGTizxE6xFqTw2HaQyQRCCWLnyTTV3Ie3MI-ciWf-foAxN-bqtvb2H8',
-        slug: 'nacionalidad-portuguesa-sefardi',
+        slug: 'sustainable-growth',
     },
     {
         id: '03',
-        title: 'GOLDEN VISA & INVERSIÓN EN ESPAÑA',
-        description: 'España',
-        detail: 'Residencia por inversión desde €500.000',
+        title: 'svc.03.title',
+        description: 'svc.03.desc',
+        detail: 'svc.03.detail',
         image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCQoZCmCm1WSQCBQLbgYoozTOOnpnvBe4ykHJg5VBwK8qv8N20lkv7CY7Q6Ot8IZeIjDjPtbpq9O4qtTJRq5sVukoyOPrT41iwxwgysk5pluJgMHLvRXU4LAUc_Km6mdmApIiE5Qr2BP-sEKOAVzqvB2g55WDT2m07flvzRWeaGjnRWl2vaaeE8L9qA7LN8MYZxS7wcqievWI7_F8Vu1FXXiqcs2WZ2ICy0tZKiJlJj1xelA4AYo4U7PHjk2qJzaKucLXA-n2QFpoU',
-        slug: 'golden-visa-inversion',
+        slug: 'ip2-engineering',
     },
     {
         id: '04',
-        title: 'LEY DE MEMORIA DEMOCRÁTICA',
-        description: 'España',
-        detail: 'Nacionalidad para descendientes de españoles',
+        title: 'svc.04.title',
+        description: 'svc.04.desc',
+        detail: 'svc.04.detail',
         image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCXlsPLQx3rTZZCt2VRYGRuAlgtUS_a3ZMuLn6xDdKqx6haqQP8Gm5cf7RIBdKJ5iyRdJKwavhSL3rAXiUOU7vj3nNvwBEu6ve3i1C0vUUAVEuFeJQtDfR-EM6qNbCYqkdt2ZV5qRb039Ud3DMokxQw-Ks6NYQNV5CK_Ki-OqNknXorxHVS1_Vfak6puPl_aOAI56ISdygEjm2Ey3PKbyUbsb7cHfCMZIPQZ7A7xMpADYuD8GVWjgh26ToSTxBd_mwAWeW_-cufiGM',
-        slug: 'ley-memoria-democratica',
+        slug: 'exchange-platform',
     },
     {
         id: '05',
-        title: 'VISA NÓMADA DIGITAL',
-        description: 'España',
-        detail: 'Residencia para trabajadores remotos',
+        title: 'svc.05.title',
+        description: 'svc.05.desc',
+        detail: 'svc.05.detail',
         image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBpyQq2K2sN9ZzwgAstfFGSLSVizhxBZnVgGC_0MI8Y11PYzgbESdJhu6XabcGW_aE6M0U9bMEPZt1ggvnmEZK5nWW3BxYMBMg15UnVxOU_hLGX-evLgJb0b1Xeu23pms63mGEwa2WzDAiAavinU_toPqM3T1MmFLFcqc_rNVHOosAj9wOm12dg967RwyVNSbTR_l6B89KPYLe1KNQY_XctguHOP32nSKJfXwaPX9weHoBirwEV5_bYv_8eQUA4iyaivkjicOKGBN4',
-        slug: 'visa-nomada-digital',
+        slug: 'business-process-automation',
     },
 ];
 
 export default function ProjectsIndex() {
+    const { t } = useLanguage();
     const [showBackToTop, setShowBackToTop] = useState(false);
 
     useEffect(() => {
@@ -67,23 +69,23 @@ export default function ProjectsIndex() {
                 {/* Header Section */}
                 <header className="mb-20">
                     <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 uppercase font-display text-neutral-dark dark:text-white">
-                        Servicios<span className="text-primary">.</span>
+                        {t('projects.title')}<span className="text-primary">.</span>
                     </h1>
                     <p className="max-w-xl text-lg text-neutral-gray dark:text-white/70 font-light leading-relaxed font-ui">
-                        Soluciones legales, migratorias y de inversión para tu camino hacia la ciudadanía europea y el crecimiento corporativo.
+                        {t('projects.desc')}
                     </p>
                 </header>
 
                 {/* Filter Bar */}
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 border-y border-neutral-dark/10 dark:border-white/10 mb-12 gap-6">
                     <div className="flex flex-wrap gap-8 font-ui text-[11px] font-semibold tracking-[0.2em] uppercase">
-                        <button className="text-primary border-b-2 border-primary pb-1">Todos</button>
-                        <button className="text-neutral-gray dark:text-white/60 hover:text-primary transition-colors pb-1">Ciudadanía</button>
-                        <button className="text-neutral-gray dark:text-white/60 hover:text-primary transition-colors pb-1">Residencia</button>
-                        <button className="text-neutral-gray dark:text-white/60 hover:text-primary transition-colors pb-1">Inversión</button>
+                        <button className="text-primary border-b-2 border-primary pb-1">{t('projects.filter.all')}</button>
+                        <button className="text-neutral-gray dark:text-white/60 hover:text-primary transition-colors pb-1">{t('projects.filter.legal')}</button>
+                        <button className="text-neutral-gray dark:text-white/60 hover:text-primary transition-colors pb-1">{t('projects.filter.growth')}</button>
+                        <button className="text-neutral-gray dark:text-white/60 hover:text-primary transition-colors pb-1">{t('projects.filter.engineering')}</button>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <span className="text-[10px] font-ui tracking-widest opacity-50 uppercase text-neutral-gray dark:text-white">{services.length} servicios disponibles</span>
+                        <span className="text-[10px] font-ui tracking-widest opacity-50 uppercase text-neutral-gray dark:text-white">{services.length} {t('projects.count')}</span>
                     </div>
                 </div>
 
@@ -106,10 +108,10 @@ export default function ProjectsIndex() {
                                     <span className="project-number text-primary font-display font-bold text-lg md:text-xl w-16">{service.id}</span>
                                     <div className="project-details flex flex-col md:flex-row md:items-center justify-between w-full">
                                         <h2 className="font-ui font-bold text-2xl md:text-4xl tracking-tight uppercase group-hover:text-primary transition-colors text-neutral-dark dark:text-white">
-                                            {service.title}
+                                            {t(service.title)}
                                         </h2>
                                         <div className="font-ui font-light text-sm md:text-lg tracking-wide opacity-60 mt-2 md:mt-0 text-neutral-dark dark:text-white">
-                                            {service.description} <span className="mx-3 text-primary">&mdash;</span> {service.detail}
+                                            {t(service.description)} <span className="mx-3 text-primary">&mdash;</span> {t(service.detail)}
                                         </div>
                                     </div>
                                 </div>
@@ -120,11 +122,11 @@ export default function ProjectsIndex() {
 
                 {/* Footer Meta */}
                 <div className="mt-20 flex flex-col md:flex-row items-center justify-between text-[10px] font-ui tracking-[0.3em] uppercase opacity-40 text-neutral-dark dark:text-white">
-                    <div className="mb-4 md:mb-0">PRO CORP / CORPORATE DEVELOPMENT</div>
+                    <div className="mb-4 md:mb-0">{t('projects.footer')}</div>
                     <div className="flex space-x-8">
-                        <a className="hover:text-primary transition-colors" href="#">Política de Privacidad</a>
-                        <a className="hover:text-primary transition-colors" href="#">Tratamiento de Datos</a>
-                        <a className="hover:text-primary transition-colors" href="#">Términos Legales</a>
+                        <a className="hover:text-primary transition-colors" href="#">{t('projects.privacy')}</a>
+                        <a className="hover:text-primary transition-colors" href="#">{t('projects.data')}</a>
+                        <a className="hover:text-primary transition-colors" href="#">{t('projects.terms')}</a>
                     </div>
                 </div>
             </div>

@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { lang, toggleLang, t } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,9 +20,9 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Servicios', href: '/projects' },
-        { name: 'Nosotros', href: '/studio' },
-        { name: 'Blog', href: '/journal' },
+        { name: t('nav.services'), href: '/projects' },
+        { name: t('nav.about'), href: '/studio' },
+        { name: t('nav.journal'), href: '/journal' },
     ];
 
     return (
@@ -30,20 +32,24 @@ const Navbar = () => {
         >
             <div className="px-8 max-w-[1920px] mx-auto flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center space-x-2 group">
-                    <div className={`w-8 h-8 flex items-center justify-center rounded-sm transition-colors ${scrolled ? 'bg-primary text-white' : 'bg-white text-black'}`}>
-                        <span className="font-bold text-lg font-display">P</span>
-                    </div>
-                    <span className={`font-bold text-xl tracking-tighter uppercase font-display ${scrolled ? 'text-neutral-dark dark:text-white' : 'text-white'}`}>
-                        PRO CORP
-                    </span>
+                <Link href="/" className="relative h-10 w-40 block">
+                    <img
+                        src="/logo-blanco.png"
+                        alt="PRO CORP"
+                        className={`absolute inset-0 h-full w-auto object-contain transition-opacity duration-300 ${scrolled ? 'opacity-0' : 'opacity-100'}`}
+                    />
+                    <img
+                        src="/logo-negro.png"
+                        alt="PRO CORP"
+                        className={`absolute inset-0 h-full w-auto object-contain transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
+                    />
                 </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center space-x-12">
                     {navLinks.map((link) => (
                         <Link
-                            key={link.name}
+                            key={link.href}
                             href={link.href}
                             className={`text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest font-ui ${scrolled ? 'text-neutral-dark dark:text-white' : 'text-white'}`}
                         >
@@ -52,17 +58,37 @@ const Navbar = () => {
                     ))}
                     <Link
                         href="/contact"
-                        className={`text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest border px-6 py-2 rounded-sm hover:bg-white hover:text-black transition-all font-ui ${scrolled
-                                ? 'border-neutral-dark dark:border-white text-neutral-dark dark:text-white'
-                                : 'border-white text-white'
+                        className={`text-sm font-medium hover:text-primary uppercase tracking-widest border px-6 py-2 rounded-sm transition-all font-ui ${scrolled
+                                ? 'border-neutral-dark dark:border-white text-neutral-dark dark:text-white hover:bg-white hover:text-black'
+                                : 'border-white text-white hover:bg-white hover:text-black'
                             }`}
                     >
-                        Contacto
+                        {t('nav.contact')}
                     </Link>
+
+                    {/* Language Toggle */}
+                    <button
+                        onClick={toggleLang}
+                        className={`text-xs font-bold uppercase tracking-widest font-ui border rounded-sm px-3 py-1.5 transition-all ${scrolled
+                                ? 'border-neutral-dark/30 dark:border-white/30 text-neutral-dark dark:text-white hover:border-primary hover:text-primary'
+                                : 'border-white/40 text-white hover:border-white hover:text-white'
+                            }`}
+                    >
+                        {lang === 'en' ? 'ES' : 'EN'}
+                    </button>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <div className="md:hidden">
+                {/* Mobile Menu Button + Lang Toggle */}
+                <div className="md:hidden flex items-center space-x-4">
+                    <button
+                        onClick={toggleLang}
+                        className={`text-xs font-bold uppercase tracking-widest font-ui border rounded-sm px-2.5 py-1 transition-all ${scrolled
+                                ? 'border-neutral-dark/30 dark:border-white/30 text-neutral-dark dark:text-white'
+                                : 'border-white/40 text-white'
+                            }`}
+                    >
+                        {lang === 'en' ? 'ES' : 'EN'}
+                    </button>
                     <button
                         onClick={() => setIsOpen(!isOpen)}
                         className={`${scrolled ? 'text-neutral-dark dark:text-white' : 'text-white'} hover:text-primary transition-colors`}
@@ -84,7 +110,7 @@ const Navbar = () => {
                         <div className="flex flex-col space-y-8 mt-12">
                             {navLinks.map((link) => (
                                 <Link
-                                    key={link.name}
+                                    key={link.href}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
                                     className="text-4xl font-bold font-display uppercase tracking-tight text-neutral-dark dark:text-white hover:text-primary transition-colors"
@@ -97,7 +123,7 @@ const Navbar = () => {
                                 onClick={() => setIsOpen(false)}
                                 className="text-4xl font-bold font-display uppercase tracking-tight text-primary mt-8"
                             >
-                                Contacto
+                                {t('nav.contact')}
                             </Link>
                         </div>
                     </motion.div>
