@@ -153,9 +153,9 @@ const ScrollHero = () => {
                     </div>
                 </motion.div>
 
-                <motion.div style={{ opacity: scrollIndicatorOpacity }} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none">
-                    <span className="text-white/60 text-xs uppercase tracking-[0.4em] mb-4 font-display">{t('hero.scroll')}</span>
-                    <div className="w-px h-16 bg-gradient-to-b from-white/60 to-transparent"></div>
+                <motion.div style={{ opacity: scrollIndicatorOpacity }} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none mix-blend-difference">
+                    <span className="text-white text-xs uppercase tracking-[0.4em] mb-4 font-display">{t('hero.scroll')}</span>
+                    <div className="w-px h-16 bg-gradient-to-b from-white to-transparent"></div>
                 </motion.div>
             </div>
         </section>
