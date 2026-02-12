@@ -5,7 +5,7 @@ import CategoryFilter from "@/components/journal/CategoryFilter";
 import ArticleList from "@/components/journal/ArticleList";
 import Pagination from "@/components/journal/Pagination";
 
-export const revalidate = 600;
+export const revalidate = 60;
 
 interface JournalPageProps {
   searchParams: Promise<{ cat?: string; page?: string }>;

@@ -12,7 +12,7 @@ import {
   formatDate,
 } from "@/lib/wordpress";
 
-export const revalidate = 600;
+export const revalidate = 60;
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;

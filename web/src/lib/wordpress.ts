@@ -1,5 +1,11 @@
 const WP_API_URL = "https://www.pro-corp.net/wp-json/wp/v2";
 
+// Cache tags for on-demand revalidation
+export const CACHE_TAGS = {
+  posts: "wp-posts",
+  categories: "wp-categories",
+} as const;
+
 // ─── Types ────────────────────────────────────────────────────────
 
 export interface WPAuthor {
@@ -111,7 +117,7 @@ export async function getPosts(
   }
 
   const res = await fetch(`${WP_API_URL}/posts?${params}`, {
-    next: { revalidate: 600 },
+    next: { revalidate: 60, tags: [CACHE_TAGS.posts] },
   });
 
   if (!res.ok) {
@@ -132,7 +138,7 @@ export async function getPostBySlug(slug: string): Promise<WPPost | null> {
   });
 
   const res = await fetch(`${WP_API_URL}/posts?${params}`, {
-    next: { revalidate: 600 },
+    next: { revalidate: 60, tags: [CACHE_TAGS.posts] },
   });
 
   if (!res.ok) return null;
@@ -143,7 +149,7 @@ export async function getPostBySlug(slug: string): Promise<WPPost | null> {
 
 export async function getCategories(): Promise<WPCategory[]> {
   const res = await fetch(`${WP_API_URL}/categories?per_page=100`, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 60, tags: [CACHE_TAGS.categories] },
   });
 
   if (!res.ok) return [];
@@ -162,7 +168,7 @@ export async function getAllPostSlugs(): Promise<
   while (page <= totalPages) {
     const res = await fetch(
       `${WP_API_URL}/posts?per_page=100&page=${page}&_fields=slug,modified`,
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 60, tags: [CACHE_TAGS.posts] } }
     );
 
     if (!res.ok) break;
