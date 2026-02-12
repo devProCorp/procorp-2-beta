@@ -95,3 +95,187 @@ h6 {
   opacity: 0;
   transform: translateX(-20px);
 }
+
+/* ─── WordPress Content — Blogcast Audio Player ──────────────── */
+
+/* Hide WP inline <style> blocks injected per-post */
+.wp-content > style {
+  display: none;
+}
+
+/* Override all WP procorp-audio-container-* variants */
+.wp-content [class^="procorp-audio-container"] {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(145deg, var(--primary) 0%, #6e0915 100%);
+  border-radius: 16px;
+  padding: 32px 36px 28px;
+  margin: 48px 0;
+  max-width: 100%;
+  box-shadow:
+    0 12px 40px rgba(209, 16, 38, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.wp-content [class^="procorp-audio-container"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.wp-content [class^="procorp-audio-container"]:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 48px rgba(209, 16, 38, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Blogcast title — icon + label */
+.wp-content [class^="procorp-blogcast-title"] {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #ffffff !important;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 22px;
+  font-family: var(--font-display);
+  position: relative;
+  z-index: 1;
+}
+
+.wp-content [class^="procorp-blogcast-title"]::before {
+  content: "graphic_eq";
+  font-family: "Material Symbols Outlined";
+  font-size: 20px;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Audio player — inside procorp container */
+.wp-content [class^="procorp-audio-player"],
+.wp-content [class^="procorp-audio-container"] audio {
+  all: unset;
+  display: block !important;
+  width: 100% !important;
+  height: 52px !important;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+/* Standalone audio outside procorp container */
+.wp-content audio:not([class^="procorp-audio-player"]) {
+  all: unset;
+  display: block !important;
+  width: 100% !important;
+  height: 52px !important;
+  border-radius: 14px;
+  margin: 40px 0;
+  background: linear-gradient(145deg, rgba(209, 16, 38, 0.15) 0%, rgba(110, 9, 21, 0.25) 100%);
+  border: 1px solid rgba(209, 16, 38, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+/* Chrome/Safari audio player track color overrides */
+.wp-content audio::-webkit-media-controls-panel {
+  background: transparent;
+}
+
+/* Remove <p> wrappers that WP adds around audio */
+.wp-content [class^="procorp-audio-container"] p {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .wp-content [class^="procorp-audio-container"] {
+    padding: 24px 20px 20px;
+    border-radius: 12px;
+    margin: 32px 0;
+  }
+
+  .wp-content [class^="procorp-blogcast-title"] {
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .wp-content [class^="procorp-blogcast-title"]::before {
+    font-size: 16px;
+  }
+}
+
+/* ─── WordPress Content — Force text colors ──────────────────── */
+
+/* Force white text on ALL WP content to override inline styles */
+.wp-content,
+.wp-content p,
+.wp-content span,
+.wp-content li,
+.wp-content ol,
+.wp-content ul,
+.wp-content td,
+.wp-content th,
+.wp-content div:not([class^="procorp-audio-container"]):not([class^="procorp-blogcast-title"]),
+.wp-content blockquote,
+.wp-content figcaption {
+  color: #ffffff !important;
+}
+
+.wp-content strong,
+.wp-content b {
+  color: #ffffff !important;
+}
+
+.wp-content h1,
+.wp-content h2,
+.wp-content h3,
+.wp-content h4,
+.wp-content h5,
+.wp-content h6 {
+  color: #ffffff !important;
+}
+
+.wp-content a {
+  color: var(--primary) !important;
+}
+
+/* ─── WordPress Content — Inline styles cleanup ──────────────── */
+
+/* Override WP inline font-family/line-height on paragraphs */
+.wp-content p {
+  font-family: var(--font-ui) !important;
+  line-height: 1.75 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.wp-content p + p {
+  margin-top: 1.25em !important;
+}
+
+.wp-content p:empty {
+  display: none;
+}
+
+/* Dark mode adjustments for WP audio */
+.wp-content audio:not([class^="procorp-audio-player"]) {
+  background: rgba(255, 255, 255, 0.08);
+}
