@@ -103,6 +103,42 @@ const translations: Record<string, Record<Language, string>> = {
         es: 'Sistemas propietarios: simuladores financieros conversacionales, interfaces IA, motores de automatización de marketing, arquitectura de plataforma y motores narrativos. Aquí vive la tecnología.'
     },
 
+    // ── LIA Chat Section ──
+    'lia.label': { en: 'AI-Powered Agent', es: 'Agente Impulsado por IA' },
+    'lia.title': { en: 'Meet LIA', es: 'Conoce a LIA' },
+    'lia.desc': {
+        en: 'LIA is our intelligent orchestration agent. She navigates complex processes, automates workflows, and delivers structured answers in real time — turning operational complexity into conversational simplicity.',
+        es: 'LIA es nuestro agente inteligente de orquestación. Navega procesos complejos, automatiza flujos de trabajo y entrega respuestas estructuradas en tiempo real — convirtiendo la complejidad operativa en simplicidad conversacional.'
+    },
+    'lia.status': { en: 'Online', es: 'En línea' },
+    'lia.powered': { en: 'IP2$ Engine', es: 'Motor IP2$' },
+    'lia.chat.subtitle': { en: 'Orchestration Agent', es: 'Agente de Orquestación' },
+    'lia.chat.placeholder': { en: 'Ask LIA anything...', es: 'Pregúntale a LIA...' },
+    'lia.chat.user1': {
+        en: 'I need to set up a cross-border operation between Colombia and Spain. Where do I start?',
+        es: 'Necesito montar una operación transfronteriza entre Colombia y España. ¿Por dónde empiezo?'
+    },
+    'lia.chat.lia1': {
+        en: 'I can help with that. First, let me map the governance framework: entity structure, tax residency, and compliance requirements for both jurisdictions. I\'ll generate a diagnostic report in 48 hours.',
+        es: 'Puedo ayudarte con eso. Primero, permíteme mapear el marco de gobernanza: estructura de entidad, residencia fiscal y requisitos de cumplimiento para ambas jurisdicciones. Generaré un informe diagnóstico en 48 horas.'
+    },
+    'lia.chat.user2': {
+        en: 'Can you also simulate the financial impact?',
+        es: '¿Puedes también simular el impacto financiero?'
+    },
+    'lia.chat.lia2': {
+        en: 'Absolutely. I\'ll activate the conversational financial simulator — you\'ll be able to adjust variables like capital allocation, operational costs, and revenue projections interactively. Real-time results, no spreadsheets needed.',
+        es: 'Por supuesto. Activaré el simulador financiero conversacional — podrás ajustar variables como asignación de capital, costos operativos y proyecciones de ingresos de forma interactiva. Resultados en tiempo real, sin hojas de cálculo.'
+    },
+    'lia.chat.user3': {
+        en: 'This is exactly what we needed. How fast can we move?',
+        es: 'Esto es exactamente lo que necesitábamos. ¿Qué tan rápido podemos avanzar?'
+    },
+    'lia.chat.lia3': {
+        en: 'The 7-step methodology is already in motion: Diagnose → Map → Design → Re-engineer → Implement → Integrate → Amplify. I\'ll have your architecture blueprint ready for review by next week.',
+        es: 'La metodología de 7 pasos ya está en marcha: Diagnosticar → Mapear → Diseñar → Reingeniar → Implementar → Integrar → Amplificar. Tendré el plano de tu arquitectura listo para revisión la próxima semana.'
+    },
+
     // ── VisualDivider ──
     'divider.title': { en: 'Start your architecture.', es: 'Inicia tu arquitectura.' },
     'divider.cta': { en: 'Enter the Platform', es: 'Entra a la Plataforma' },
