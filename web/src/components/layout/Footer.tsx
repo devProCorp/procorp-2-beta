@@ -1,47 +1,65 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
     const { t } = useLanguage();
-
     return (
-        <footer className="bg-white dark:bg-background-dark py-20 px-8 border-t border-gray-100 dark:border-white/10">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-                <div>
-                    <div className="mb-8">
-                        <img
-                            src="/logo-negro.png"
-                            alt="PRO CORP"
-                            className="h-10 w-auto object-contain"
-                        />
-                    </div>
-                    <address className="not-italic text-gray-500 dark:text-gray-400 space-y-2 font-ui text-sm">
-                        <p>World Trade Center, Torre C, Of. 1013</p>
-                        <p>Bogotá, Colombia</p>
-                    </address>
-                </div>
-                <div className="flex flex-wrap gap-12 font-ui">
-                    <div className="space-y-4">
-                        <h5 className="text-xs font-bold uppercase tracking-widest text-primary">{t('footer.contact')}</h5>
-                        <a href="mailto:gestion@pro-corp.net" className="block text-xl text-neutral-dark dark:text-white hover:text-primary transition-colors font-display">
-                            gestion@pro-corp.net
-                        </a>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">+57 300 929 1891</p>
-                    </div>
-                    <div className="space-y-4">
-                        <h5 className="text-xs font-bold uppercase tracking-widest text-primary">{t('footer.follow')}</h5>
-                        <div className="flex space-x-6 text-gray-500 dark:text-gray-400 text-sm">
-                            <a href="https://www.linkedin.com/company/procorp-corporate-development" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
-                            <a href="https://www.instagram.com/pro.corp" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
+        <footer className="bg-[#0f0708] border-t border-surface-border text-secondary py-12 px-4 md:px-10">
+            <div className="max-w-[1440px] mx-auto w-full">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                    <div className="col-span-1 md:col-span-1">
+                        <div className="mb-6">
+                            <Image src="https://www.pro-corp.net/wp-content/uploads/2023/07/Signature_PCP.png" alt="Pro Corp" width={140} height={35} className="h-9 w-auto object-contain" />
+                        </div>
+                        <p className="text-sm leading-relaxed mb-6 font-medium text-secondary">
+                            {t('footer.desc')}
+                        </p>
+                        <div className="flex gap-4">
+                            <a href="https://www.linkedin.com/company/procorp-corporate-development" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                                <span className="material-symbols-outlined">public</span>
+                            </a>
+                            <a href="https://www.instagram.com/pro.corp" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                                <span className="material-symbols-outlined">work</span>
+                            </a>
                         </div>
                     </div>
+                    <div>
+                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">{t('footer.company')}</h4>
+                        <ul className="flex flex-col gap-3 text-sm font-medium">
+                            <li><Link href="/about" className="hover:text-primary transition-colors">{t('footer.about')}</Link></li>
+                            <li><Link href="/journal" className="hover:text-primary transition-colors">{t('footer.blog')}</Link></li>
+                            <li><Link href="/contact" className="hover:text-primary transition-colors">{t('footer.contact')}</Link></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">{t('footer.services')}</h4>
+                        <ul className="flex flex-col gap-3 text-sm font-medium">
+                            <li><Link href="/projects" className="hover:text-primary transition-colors">{t('footer.legal.solutions')}</Link></li>
+                            <li><Link href="/studio" className="hover:text-primary transition-colors">{t('footer.legal.growth')}</Link></li>
+                            <li><Link href="/contact" className="hover:text-primary transition-colors">{t('footer.legal.consulting')}</Link></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">{t('footer.legal.title')}</h4>
+                        <ul className="flex flex-col gap-3 text-sm font-medium">
+                            <li><a href="#" className="hover:text-primary transition-colors">{t('footer.legal.privacy')}</a></li>
+                            <li><a href="#" className="hover:text-primary transition-colors">{t('footer.legal.terms')}</a></li>
+                            <li><a href="#" className="hover:text-primary transition-colors">{t('footer.legal.cookies')}</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-gray-50 dark:border-white/5 flex flex-col md:flex-row justify-between text-[10px] uppercase tracking-[0.2em] text-gray-400 font-ui">
-                <span>&copy; {new Date().getFullYear()} PRO CORP SAS. {t('footer.rights')}</span>
-                <span>www.pro-corp.net</span>
+                <div className="border-t border-surface-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
+                    <p>&copy; {new Date().getFullYear()} Pro Corp. {t('footer.rights')}</p>
+                    <div className="flex gap-6">
+                        <span className="flex items-center gap-1">
+                            <span className="w-2 h-2 rounded-full bg-green-500"></span> {t('footer.system')}
+                        </span>
+                    </div>
+                </div>
             </div>
         </footer>
     );

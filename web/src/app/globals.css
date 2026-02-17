@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f6f6;
-  /* background-light */
-  --foreground: #1a0a0b;
-  /* neutral-dark */
+  --background: #1a0d0e;
+  --foreground: #ffffff;
 
-  /* PRO CORP Brand Colors from Stitch 2 */
-  --primary: #d11026;
+  /* PRO CORP Brand Colors 2026-2028 */
+  --primary: #CE1026;
+  --primary-dark: #9E0C1D;
+  --primary-light: #E04555;
+  --secondary: #8F9295;
   --background-light: #f8f6f6;
-  --background-dark: #221012;
+  --background-dark: #1a0d0e;
+  --surface-dark: #241213;
+  --surface-darker: #140a0b;
+  --surface-border: #472428;
   --neutral-dark: #1a0a0b;
   --neutral-gray: #4a3c3d;
 }
@@ -19,22 +23,19 @@
   --color-foreground: var(--foreground);
 
   --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
   --color-background-light: var(--background-light);
   --color-background-dark: var(--background-dark);
+  --color-surface-dark: var(--surface-dark);
+  --color-surface-darker: var(--surface-darker);
+  --color-surface-border: var(--surface-border);
   --color-neutral-dark: var(--neutral-dark);
   --color-neutral-gray: var(--neutral-gray);
 
-  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-display: var(--font-montserrat), sans-serif;
   --font-ui: var(--font-montserrat), sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #221012;
-    /* background-dark */
-    --foreground: #f8f6f6;
-    /* background-light */
-  }
 }
 
 body {
@@ -54,16 +55,43 @@ h6 {
 
 /* Form Input Custom - Contact Page */
 .form-input-custom {
-  background-color: #f5f5f5;
-  border: 1px solid transparent;
+  background-color: #221113;
+  border: 1px solid #472428;
+  color: #ffffff;
   transition: all 0.2s ease-in-out;
 }
 
 .form-input-custom:focus {
-  border-color: #d11026;
-  background-color: #ffffff;
+  border-color: #CE1026;
+  background-color: #221113;
   outline: none;
-  box-shadow: 0 0 0 1px #d11026;
+  box-shadow: 0 0 0 1px #CE1026;
+}
+
+/* Tech Grid Background */
+.tech-grid-bg {
+  background-image:
+    linear-gradient(rgba(206, 16, 38, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(206, 16, 38, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Tech dot background */
+.tech-bg {
+  background-color: #221113;
+  background-image: radial-gradient(circle at 1px 1px, rgba(206, 16, 38, 0.15) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Glow text */
+.text-glow {
+  text-shadow: 0 0 20px rgba(206, 16, 38, 0.5);
+}
+
+/* Logo font */
+.logo-font {
+  font-family: var(--font-ui);
+  letter-spacing: 0.05em;
 }
 
 /* Monochrome Image Filter */

@@ -1,154 +1,175 @@
 'use client';
 
-import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Contact() {
-    const { t } = useLanguage();
-    return (
-        <main className="flex-grow flex items-center justify-center py-32 px-4 md:px-8 min-h-screen bg-background-light dark:bg-background-dark">
-            <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                {/* Left Side: Information & Offices */}
-                <div className="space-y-12">
-                    <div className="space-y-6">
-                        <div className="w-12 h-1 bg-primary"></div>
-                        <h1 className="font-bold text-5xl md:text-6xl text-neutral-dark dark:text-white leading-tight font-display">
-                            {t('contact.title.1')} <br /><span className="text-primary">{t('contact.title.2')}</span>
-                        </h1>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-md leading-relaxed font-ui">
-                            {t('contact.desc')}
-                        </p>
-                    </div>
+  const { t } = useLanguage();
 
+  const infoCards = [
+    { icon: 'hub', title: t('contact.info1.title'), line1: t('contact.info1.line1'), line2: t('contact.info1.line2') },
+    { icon: 'mark_email_read', title: t('contact.info2.title'), line1: 'tech.support@procorp2028.com', line2: '', link: { text: t('contact.info2.link'), href: 'mailto:tech.support@procorp2028.com' } },
+    { icon: 'developer_board', title: t('contact.info3.title'), line1: '+34 930 000 999', line2: t('contact.info3.line2') },
+  ];
+
+  return (
+    <main className="relative flex-1 tech-bg min-h-screen text-white">
+      <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 -z-10 h-[500px] w-[500px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-20">
+        {/* Header */}
+        <div className="mb-16 max-w-3xl">
+          <div className="flex items-center gap-2 text-primary mb-4">
+            <span className="material-symbols-outlined text-sm">precision_manufacturing</span>
+            <span className="text-sm font-bold uppercase tracking-wider">{t('contact.badge')}</span>
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
+            {t('contact.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-400">{t('contact.title2')}</span>
+          </h1>
+          <p className="text-lg leading-relaxed text-[#8F9295] max-w-2xl">
+            {t('contact.desc2')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Form */}
+          <div className="lg:col-span-7">
+            <div className="rounded-2xl border border-[#472427] bg-[#2c181a]/50 backdrop-blur-sm p-8 shadow-xl">
+              <form className="flex flex-col gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-medium text-[#8F9295]">{t('contact.name')}</label>
                     <div className="relative group">
-                        <div className="absolute inset-0 bg-primary/5 rounded-xl -rotate-1 group-hover:rotate-0 transition-transform"></div>
-                        <div className="relative bg-white dark:bg-slate-900/50 p-8 rounded-xl border border-primary/10 space-y-8">
-                            <h2 className="font-bold text-xl uppercase tracking-wider border-b border-primary/20 pb-4 font-display">{t('contact.offices')}</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                                <div className="space-y-2">
-                                    <h3 className="font-bold text-primary font-display">{t('contact.hq')}</h3>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400 font-ui">
-                                        World Trade Center, Torre C, Of. 1013<br />
-                                        PBX: +57 601 915 6579<br />
-                                        gestion@pro-corp.net
-                                    </p>
-                                </div>
-                                <div className="space-y-2">
-                                    <h3 className="font-bold text-primary font-display">{t('contact.spain')}</h3>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400 font-ui">
-                                        {t('contact.spain.type')}<br />
-                                        WhatsApp: +57 300 929 0858<br />
-                                        www.pro-ley.es
-                                    </p>
-                                </div>
-                                <div className="space-y-2">
-                                    <h3 className="font-bold text-primary font-display">{t('contact.portugal')}</h3>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400 font-ui">
-                                        {t('contact.portugal.type')}<br />
-                                        WhatsApp: +57 311 516 3806<br />
-                                        lisbon@pro-corp.net
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Minimal Map Background */}
-                            <div className="mt-8 overflow-hidden rounded-lg h-40 relative opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    className="w-full h-full object-cover"
-                                    alt="Pro Corp Global Presence"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5J3kOx3dOI_ycRlwZFpw1k-henhnkKm2JG2q9VsRUlL3neBfEIne3-MKV-VkRC4tmM3MvdG60JeLWI2rcxoEW5pwCGT07Yl6nC1mevx9FPjKhhTvxiWa0Nuh7REtUmLRjrvca3RrHX5TSJsT2SlJdyiGPjksXqbE_6imZgo0g7nGYkPxZDsdxB2ctOGi3Fdy37rV6MXUZmsKrG3xBDXlahJaa5vUUmYuwAAVzD5zdn7hySD17VztfYF3mESHazEdJ5tTY4hsbFvs"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-background-dark to-transparent"></div>
-                            </div>
-                        </div>
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">person</span>
+                      </div>
+                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.name.ph')} type="text" />
                     </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-medium text-[#8F9295]">{t('contact.org')}</label>
+                    <div className="relative group">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">domain</span>
+                      </div>
+                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.org.ph')} type="text" />
+                    </div>
+                  </div>
                 </div>
 
-                {/* Right Side: Contact Form */}
-                <div className="bg-white dark:bg-slate-900/40 p-8 md:p-12 rounded-xl shadow-2xl shadow-primary/5 border border-primary/5">
-                    <form className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-widest text-slate-400 font-ui">{t('contact.form.name')}</label>
-                                <input
-                                    className="form-input-custom w-full p-4 rounded-lg font-ui text-slate-800 dark:text-white placeholder:text-slate-400"
-                                    placeholder={t('contact.form.name.placeholder')}
-                                    type="text"
-                                />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-widest text-slate-400 font-ui">{t('contact.form.company')}</label>
-                                <input
-                                    className="form-input-custom w-full p-4 rounded-lg font-ui text-slate-800 dark:text-white placeholder:text-slate-400"
-                                    placeholder={t('contact.form.company.placeholder')}
-                                    type="text"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-widest text-slate-400 font-ui">{t('contact.form.email')}</label>
-                            <input
-                                className="form-input-custom w-full p-4 rounded-lg font-ui text-slate-800 dark:text-white placeholder:text-slate-400"
-                                placeholder="email@example.com"
-                                type="email"
-                            />
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-widest text-slate-400 font-ui">{t('contact.form.vertical')}</label>
-                                <select
-                                    className="form-input-custom w-full p-4 rounded-lg font-ui text-slate-800 dark:text-white appearance-none cursor-pointer"
-                                    defaultValue=""
-                                >
-                                    <option disabled value="">{t('contact.form.vertical.placeholder')}</option>
-                                    <option>{t('contact.form.vertical.1')}</option>
-                                    <option>{t('contact.form.vertical.2')}</option>
-                                    <option>{t('contact.form.vertical.3')}</option>
-                                    <option>{t('contact.form.vertical.4')}</option>
-                                    <option>{t('contact.form.vertical.5')}</option>
-                                    <option>{t('contact.form.vertical.other')}</option>
-                                </select>
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-xs font-bold uppercase tracking-widest text-slate-400 font-ui">{t('contact.form.how')}</label>
-                                <select
-                                    className="form-input-custom w-full p-4 rounded-lg font-ui text-slate-800 dark:text-white appearance-none cursor-pointer"
-                                    defaultValue=""
-                                >
-                                    <option disabled value="">{t('contact.form.how.placeholder')}</option>
-                                    <option>{t('contact.form.how.social')}</option>
-                                    <option>{t('contact.form.how.google')}</option>
-                                    <option>{t('contact.form.how.referral')}</option>
-                                    <option>{t('contact.form.how.event')}</option>
-                                    <option>{t('contact.form.how.other')}</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-widest text-slate-400 font-ui">{t('contact.form.message')}</label>
-                            <textarea
-                                className="form-input-custom w-full p-4 rounded-lg font-ui text-slate-800 dark:text-white placeholder:text-slate-400 resize-none"
-                                placeholder={t('contact.form.message.placeholder')}
-                                rows={4}
-                            ></textarea>
-                        </div>
-
-                        <button
-                            className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-5 rounded-sm transition-all duration-300 transform active:scale-[0.98] shadow-lg shadow-primary/20 uppercase tracking-widest text-sm font-ui"
-                            type="submit"
-                        >
-                            {t('contact.form.submit')}
-                        </button>
-                        <p className="text-[10px] text-center text-slate-400 uppercase tracking-widest font-ui">
-                            {t('contact.form.disclaimer')}
-                        </p>
-                    </form>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-medium text-[#8F9295]">{t('contact.email')}</label>
+                    <div className="relative group">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">alternate_email</span>
+                      </div>
+                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.email.ph')} type="email" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-medium text-[#8F9295]">{t('contact.phone')}</label>
+                    <div className="relative group">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">phone_iphone</span>
+                      </div>
+                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.phone.ph')} type="tel" />
+                    </div>
+                  </div>
                 </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium text-[#8F9295]">{t('contact.area')}</label>
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
+                      <span className="material-symbols-outlined text-[20px]">settings_suggest</span>
+                    </div>
+                    <select className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer outline-none" defaultValue="">
+                      <option disabled value="">{t('contact.area.ph')}</option>
+                      <option value="bpa">{t('contact.area.1')}</option>
+                      <option value="governance">{t('contact.area.2')}</option>
+                      <option value="reengineering">{t('contact.area.3')}</option>
+                      <option value="lia">{t('contact.area.4')}</option>
+                      <option value="consulting">{t('contact.area.5')}</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-[#8F9295]">
+                      <span className="material-symbols-outlined">expand_more</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium text-[#8F9295]">{t('contact.level')}</label>
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
+                      <span className="material-symbols-outlined text-[20px]">bar_chart</span>
+                    </div>
+                    <select className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer outline-none" defaultValue="">
+                      <option disabled value="">{t('contact.level.ph')}</option>
+                      <option value="initial">{t('contact.level.1')}</option>
+                      <option value="developing">{t('contact.level.2')}</option>
+                      <option value="advanced">{t('contact.level.3')}</option>
+                      <option value="optimized">{t('contact.level.4')}</option>
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-[#8F9295]">
+                      <span className="material-symbols-outlined">expand_more</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium text-[#8F9295]">{t('contact.details')}</label>
+                  <textarea className="w-full rounded-lg border border-[#472427] bg-[#221113] p-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none outline-none" placeholder={t('contact.details.ph')} rows={4}></textarea>
+                </div>
+
+                <div className="flex flex-col gap-6 mt-2">
+                  <label className="flex items-start gap-3 cursor-pointer group">
+                    <input className="mt-1 h-4 w-4 rounded border-gray-600 bg-[#221113] text-primary focus:ring-primary transition-all" type="checkbox" />
+                    <span className="text-xs text-[#8F9295] leading-relaxed group-hover:text-gray-300 transition-colors">
+                      {t('contact.privacy')} <a className="text-primary hover:underline hover:text-red-400" href="#">{t('contact.privacy.link')}</a>. {t('contact.privacy.auth')}
+                    </span>
+                  </label>
+                  <button className="group relative flex w-full items-center justify-center overflow-hidden rounded-lg bg-primary py-4 text-base font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-[#A80D1F] hover:shadow-primary/40 active:scale-[0.99]" type="button">
+                    <span className="mr-2">{t('contact.submit')}</span>
+                    <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">memory</span>
+                  </button>
+                </div>
+              </form>
             </div>
-        </main>
-    );
+          </div>
+
+          {/* Right Side */}
+          <div className="lg:col-span-5 flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              {infoCards.map((card) => (
+                <div key={card.title} className="group flex items-start gap-4 rounded-xl border border-[#472427] bg-[#2c181a] p-6 transition-all hover:border-primary/50 hover:bg-[#361e21]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                    <span className="material-symbols-outlined">{card.icon}</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white">{card.title}</h3>
+                    <p className="mt-1 text-sm text-[#8F9295]">{card.line1}{card.line2 && <><br />{card.line2}</>}</p>
+                    {card.link && (
+                      <a className="text-xs font-semibold text-primary hover:text-red-300 transition-colors mt-2 inline-block" href={card.link.href}>{card.link.text}</a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Map placeholder */}
+            <div className="relative w-full h-64 rounded-xl overflow-hidden border border-[#472427] group">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#211112]/80 to-transparent z-10 pointer-events-none"></div>
+              <div className="w-full h-full bg-gradient-to-br from-[#2c181a] to-[#1a0d0e] opacity-60"></div>
+              <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-primary animate-ping"></div>
+                <div className="h-2 w-2 rounded-full bg-primary absolute"></div>
+                <span className="text-xs font-bold uppercase tracking-wider text-white bg-black/50 px-2 py-1 rounded backdrop-blur-sm ml-2">{t('contact.map')}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }

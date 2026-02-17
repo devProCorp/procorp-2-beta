@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2. Blog - Pro Corp 2026-2028</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#CE1026",
+                        "primary-hover": "#a30c1e",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1a1a1a",
+                        "surface-dark": "#262626",
+                        "text-muted": "#8F9295",
+                        "border-dark": "#333333",
+                    },
+                    fontFamily: {
+                        sans: ["Montserrat", "sans-serif"],
+                        display: ["Montserrat", "sans-serif"],
+                        body: ["Montserrat", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-sans text-white selection:bg-primary selection:text-white">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark bg-[#1a1a1a]/95 backdrop-blur-md px-10 py-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-10 text-primary">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_543)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_543"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-wide">PRO CORP</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal hover:border-b-2 hover:border-primary pb-0.5 border-b-2 border-transparent" href="#">Inicio</a>
+<a class="text-primary text-sm font-bold leading-normal relative after:content-[''] after:absolute after:-bottom-6 after:left-0 after:w-full after:h-0.5 after:bg-primary" href="#">Blog</a>
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal hover:border-b-2 hover:border-primary pb-0.5 border-b-2 border-transparent" href="#">Soluciones Legales</a>
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal hover:border-b-2 hover:border-primary pb-0.5 border-b-2 border-transparent" href="#">Crecimiento Sostenible</a>
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal hover:border-b-2 hover:border-primary pb-0.5 border-b-2 border-transparent" href="#">Sobre Nosotros</a>
+<a class="text-white/80 hover:text-white transition-colors text-sm font-medium leading-normal hover:border-b-2 hover:border-primary pb-0.5 border-b-2 border-transparent" href="#">Contacto</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-6 items-center">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64 group">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full border border-border-dark focus-within:border-primary transition-colors bg-[#262626]">
+<div class="text-text-muted flex items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 bg-transparent h-full placeholder:text-text-muted px-3 text-sm font-normal leading-normal" placeholder="Buscar..." value=""/>
+</div>
+</label>
+<button class="hidden sm:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-hover transition-colors text-white text-sm font-bold leading-normal tracking-wide shadow-lg shadow-primary/20">
+<span class="truncate">SUSCRÍBETE</span>
+</button>
+<button class="lg:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-4 md:px-10 lg:px-20 py-8">
+<section class="@container mb-16">
+<div class="flex flex-col lg:flex-row gap-8 bg-surface-dark rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border border-border-dark">
+<div class="flex-1 flex flex-col justify-center p-8 lg:p-12 gap-6 order-2 lg:order-1">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider border border-primary/20">Destacado</span>
+<span class="text-text-muted text-sm">Hace 2 horas</span>
+</div>
+<h1 class="text-white text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight font-display">
+                    Ingeniería de Procesos como Infraestructura
+                </h1>
+<p class="text-gray-300 text-base lg:text-lg leading-relaxed max-w-xl font-light">
+                    Explorando cómo la optimización de procesos (BPA) y la reingeniería corporativa se convierten en la base operativa para el crecimiento sostenible en la era digital 2026-2028.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg shadow-primary/20 uppercase tracking-wide text-sm">
+                        Leer artículo
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="flex items-center gap-2 text-white hover:text-primary px-4 py-3 font-medium transition-colors text-sm">
+<span class="material-symbols-outlined">bookmark_add</span>
+                        Guardar
+                    </button>
+</div>
+</div>
+<div class="lg:w-1/2 h-64 lg:h-auto order-1 lg:order-2 relative group overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dark via-transparent to-transparent opacity-80 lg:opacity-40 z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Abstract view of modern skyscrapers symbolizing corporate structure and growth" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBcEtKqNM89QGrUh55vibAxLH6ddI-E-JiFtpmPiPY7S4TgolD4PPTj4QJNK6LDb_xB0fLhCGz-6cyhr3jwTav5GSzhJERotiBXNcEtduJanUM6pqSzIzxFRCngXp7I0LbhP7pquuotse42jc2pdozORoPOkdDpiQ6C-lUO52frW1HPJl_NdUGYm2ikYI6XuXbAIZcyg9uSaKdF2soO0vbdWzkVGdNtWvx8z-z9eI7ZLIJy--Vxs6gwdv8D3SfCaxhw4waBjJn3bE');">
+</div>
+</div>
+</div>
+</section>
+<div class="sticky top-[73px] z-40 bg-background-dark/95 backdrop-blur-sm py-4 mb-8 -mx-4 px-4 md:px-0 md:mx-0 border-b border-border-dark/50">
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide items-center">
+<span class="text-text-muted text-sm font-medium mr-2 whitespace-nowrap uppercase tracking-wider text-xs">Filtrar por:</span>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white px-5 transition-transform hover:scale-105 active:scale-95 shadow-md shadow-primary/20">
+<span class="text-sm font-bold">Todos</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark hover:bg-[#333] border border-border-dark px-5 transition-all hover:border-primary/50 group">
+<span class="text-gray-300 group-hover:text-white text-sm font-medium">BPA &amp; Procesos</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark hover:bg-[#333] border border-border-dark px-5 transition-all hover:border-primary/50 group">
+<span class="text-gray-300 group-hover:text-white text-sm font-medium">Ingeniería</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark hover:bg-[#333] border border-border-dark px-5 transition-all hover:border-primary/50 group">
+<span class="text-gray-300 group-hover:text-white text-sm font-medium">Soluciones Legales</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark hover:bg-[#333] border border-border-dark px-5 transition-all hover:border-primary/50 group">
+<span class="text-gray-300 group-hover:text-white text-sm font-medium">Crecimiento Sostenible</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-surface-dark hover:bg-[#333] border border-border-dark px-5 transition-all hover:border-primary/50 group">
+<span class="text-gray-300 group-hover:text-white text-sm font-medium">Estrategia</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+<article class="flex flex-col group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-5 border border-border-dark group-hover:border-primary/50 transition-colors">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Futuristic cyber security interface with lock symbols representing digital legal protection" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJE4vv2g9FC6vNFMbHsyv5ohB3tVPtg0lqnWD76pSXeRJlURqe_D0SHOBFePp4dQVcxpGyBk2UX4hbhTKxwAov0Y-MnvOMoGhs73Oxj0bw9SubqmSN93Nzkx2idKAy-xbEacJ-XKrO6t1BIy2agbr9Fs34ZYn9lelF66NoSDlvs_KSbvSau3JirqZJ9xQHK_gbeQ97IcGrjQQFKuk0asWrQsDAXvQphP5k2GjdB3PeLlhO-PCZ37K1RaOUSt5LqXoBBABW5QNcyZE');">
+</div>
+<span class="absolute top-4 left-4 z-20 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white shadow-lg uppercase tracking-wide">
+                    Ingeniería
+                </span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-text-muted text-xs font-medium uppercase tracking-wide">
+<span>15 Oct, 2026</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>5 min lectura</span>
+</div>
+<h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                    Automatización en Análisis Predictivo
+                </h3>
+<p class="text-text-muted text-sm line-clamp-2 font-light">
+                    Cómo la ingeniería de datos transforma la preparación de casos y el análisis de riesgos en el sector legal moderno.
+                </p>
+<a class="inline-flex items-center text-primary font-bold text-sm mt-1 hover:text-white transition-colors uppercase tracking-wide" href="#">
+                    Leer más <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-5 border border-border-dark group-hover:border-primary/50 transition-colors">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Business team discussing strategy over architectural blueprints on a table" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpsSkSTnJToZLXZ9nrEP71AnZJer479Xfr-LKj_W_BWSIKQOxbM7tbEuj3yV3XVKBWNGWhK-vtGPaDi3QTxjTC9LflkatfQ6FRhRb3Yr3MSbFUJ6zY9WohgICch29iKySLOlBK_pfZGziEl7QfSGje8pcO79BKIZDLpeqvI43HgLj627lgVaKx7trP88Pyr8eSUar38MnGnHjXjIwLXjyd6OhZ4ZTJJcgK7nGXJc8pfiGimJh3v3ePwqwuYC_TVT6ZKbSC3cBq3_I');">
+</div>
+<span class="absolute top-4 left-4 z-20 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white shadow-lg uppercase tracking-wide">
+                    Estrategia
+                </span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-text-muted text-xs font-medium uppercase tracking-wide">
+<span>12 Oct, 2026</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>8 min lectura</span>
+</div>
+<h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                    Reingeniería de Procesos en Fusiones
+                </h3>
+<p class="text-text-muted text-sm line-clamp-2 font-light">
+                    El rol de la optimización operativa durante procesos de M&amp;A complejos y transfronterizos para asegurar la continuidad.
+                </p>
+<a class="inline-flex items-center text-primary font-bold text-sm mt-1 hover:text-white transition-colors uppercase tracking-wide" href="#">
+                    Leer más <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-5 border border-border-dark group-hover:border-primary/50 transition-colors">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Low angle view of modern glass building with reflections of sky" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHGQexXmiQTh0VRPuszYDtYVtrziJPF5UtXlh4DNChNYt-b6SWAK6GjbtOgpYfKkXW0VQPJGnWKQotWNGpp0cDCRuplQbibkLiDhr1CZzrIjZ-ZQTGESAK5MEwk1sba6wrupV9xclD0xD9XF5ZNE-PEpFjs4UPesqsOC4n3FqZs7rH7U7YlqEblMfI0zKmrzYp_5cIYS5HS_a9pIy9V9RhY0GKE1t5Oyief7_ITUUhpYOHD_eFNPXkrwbWjrzagIje9XPQAokFuSw');">
+</div>
+<span class="absolute top-4 left-4 z-20 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white shadow-lg uppercase tracking-wide">
+                    Legal
+                </span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-text-muted text-xs font-medium uppercase tracking-wide">
+<span>08 Oct, 2026</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>4 min lectura</span>
+</div>
+<h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                    Compliance Ambiental y BPA
+                </h3>
+<p class="text-text-muted text-sm line-clamp-2 font-light">
+                    Integrando Business Process Analysis para cumplir con el marco regulatorio ambiental más estricto de la década.
+                </p>
+<a class="inline-flex items-center text-primary font-bold text-sm mt-1 hover:text-white transition-colors uppercase tracking-wide" href="#">
+                    Leer más <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-5 border border-border-dark group-hover:border-primary/50 transition-colors">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Abstract financial graph showing upward growth with coins and digital overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6l3ZstFWHE9uZP1Z_ZOkA-SRgjiyDTrym8a-ClE5j9uwgIBfujopHjXzTFhM92cH02clp1sfQ0rr1Y4bXdfFrorLshguIq2od6L5NVOUEhK-VeBcgybw8ARYRIVrkqHgaBzbVDOLuJhgYen0Xw3TNrsBeF19cMNnN0ydsPml19NnJKn--KX-FMuBFAipH56vkajPh-BvSuo7mif0eXXJrJHSriND4ScKLPlEiIHCOmpMtJm_dGZhr_vTGcMBm3YboE-Ejc9gcV9Q');">
+</div>
+<span class="absolute top-4 left-4 z-20 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white shadow-lg uppercase tracking-wide">
+                    Crecimiento
+                </span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-text-muted text-xs font-medium uppercase tracking-wide">
+<span>01 Oct, 2026</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>6 min lectura</span>
+</div>
+<h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                    Ingeniería Financiera en LatAm
+                </h3>
+<p class="text-text-muted text-sm line-clamp-2 font-light">
+                    Análisis de modelos de eficiencia de capital y flujo de inversión hacia startups de infraestructura tecnológica.
+                </p>
+<a class="inline-flex items-center text-primary font-bold text-sm mt-1 hover:text-white transition-colors uppercase tracking-wide" href="#">
+                    Leer más <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-5 border border-border-dark group-hover:border-primary/50 transition-colors">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Digital network connections on a dark blue background representing data privacy" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-LzNrZd0oIFNbOh8z6OssZeJVBW--P4Sj1_AOOxLdMHpZ1BWwbHXKf1VelgcFQKkclJOKFwUfjYIf66RdTRP0zLvzZNWVFUhXvFA5C7FxvUd3jZRNLf4F-yQHn4GoOQDMkgtWLW8riGpNnggfk3iE06aAUCpilYzLLOf9_n47jXWAzWvzr0jA8dy7GhPnQaIYlBeIPTnwCEOLCl5NOhOK-LH6T-jQzmH5txzoPcsTOlhwjlsp0102EAlTo9zn8vuq9Zg-xFeRRjs');">
+</div>
+<span class="absolute top-4 left-4 z-20 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white shadow-lg uppercase tracking-wide">
+                    BPA
+                </span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-text-muted text-xs font-medium uppercase tracking-wide">
+<span>28 Sep, 2026</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>7 min lectura</span>
+</div>
+<h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                    Seguridad de Datos en Procesos Críticos
+                </h3>
+<p class="text-text-muted text-sm line-clamp-2 font-light">
+                    Protocolos de ingeniería para asegurar la integridad de la información en flujos de trabajo automatizados.
+                </p>
+<a class="inline-flex items-center text-primary font-bold text-sm mt-1 hover:text-white transition-colors uppercase tracking-wide" href="#">
+                    Leer más <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<article class="flex flex-col group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/3] mb-5 border border-border-dark group-hover:border-primary/50 transition-colors">
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10"></div>
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Clean minimal office interior with chairs and table representing corporate culture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWyeVySDOTLjakOWiP-WO9p_KKNoiEO8sny9J_sHd1TKZhCzpErjtRYUC75CwarBaOqHYUyukSVjVzY8xH0etPWcBExG9rpuvsQlQWeYZo29pWJ8rUz8Tr8GjNPEalZM-yObjtsjDVUmPIlDuHwPs4lpjsKLzEjht_53MmPdFZbdGeFFesW9gUfLHcCgagpNXI1Rm53hIy4kkZAqcXxiurSRD588M7Lq4UXqkWBoZm5x5r9zfMRD124ieaPzehrdSErOZloOQtOvM');">
+</div>
+<span class="absolute top-4 left-4 z-20 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white shadow-lg uppercase tracking-wide">
+                    Cultura
+                </span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-text-muted text-xs font-medium uppercase tracking-wide">
+<span>22 Sep, 2026</span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span>5 min lectura</span>
+</div>
+<h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                    Gestión del Cambio en Reestructuraciones
+                </h3>
+<p class="text-text-muted text-sm line-clamp-2 font-light">
+                    Estrategias para alinear equipos de ingeniería y legal en procesos de transformación digital.
+                </p>
+<a class="inline-flex items-center text-primary font-bold text-sm mt-1 hover:text-white transition-colors uppercase tracking-wide" href="#">
+                    Leer más <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+<section class="rounded-2xl bg-surface-dark border border-border-dark p-8 md:p-12 mb-16 relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex-1 text-center md:text-left">
+<h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Suscríbete a nuestra visión estratégica</h2>
+<p class="text-text-muted font-light">Recibe análisis profundo sobre ingeniería de procesos y tendencias legales.</p>
+</div>
+<div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
+<input class="h-12 px-4 rounded-lg bg-[#1a1a1a] border border-border-dark text-white placeholder:text-text-muted focus:border-primary focus:ring-1 focus:ring-primary outline-none min-w-[300px]" placeholder="Tu correo corporativo" type="email"/>
+<button class="h-12 px-6 rounded-lg bg-primary hover:bg-primary-hover text-white font-bold transition-all shadow-lg shadow-primary/20 whitespace-nowrap uppercase tracking-wide text-sm">
+                    Suscribirse
+                </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#111111] border-t border-border-dark text-white py-12 px-10">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-wide">PRO CORP</span>
+</div>
+<p class="text-sm text-text-muted mb-6 font-light">
+                Impulsando la eficiencia corporativa a través de ingeniería de procesos avanzada y soluciones legales estratégicas.
+            </p>
+<div class="flex gap-4">
+<a class="text-text-muted hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-text-muted hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-text-muted hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Explorar</h4>
+<ul class="flex flex-col gap-2 text-sm text-text-muted font-light">
+<li><a class="hover:text-primary transition-colors" href="#">Inicio</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Soluciones Legales</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Crecimiento Sostenible</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sobre Nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Legal</h4>
+<ul class="flex flex-col gap-2 text-sm text-text-muted font-light">
+<li><a class="hover:text-primary transition-colors" href="#">Política de Privacidad</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Términos de Uso</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookies</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contacto</h4>
+<p class="text-sm text-text-muted mb-2 font-light">Av. Reforma 222, CDMX</p>
+<p class="text-sm text-text-muted mb-2 font-light">+52 55 1234 5678</p>
+<p class="text-sm text-text-muted font-light">contacto@procorp.com</p>
+</div>
+</div>
+<div class="border-t border-border-dark mt-12 pt-8 text-center text-xs text-text-muted">
+        © 2026-2028 Pro Corp. Todos los derechos reservados.
+    </div>
+</footer>
+
+</body></html>

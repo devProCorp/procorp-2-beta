@@ -1,18 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useLanguage } from '@/context/LanguageContext';
+
+const services = [
+  { icon: 'diversity_3', title: 'Arraigo Social', desc: 'Gestión integral de regularización por arraigo. Automatizamos la documentación y el seguimiento de requisitos para asegurar la integración sociolaboral efectiva.', link: 'Ver Proceso' },
+  { icon: 'family_restroom', title: 'Arraigo Familiar', desc: 'Soluciones ágiles para la reagrupación y regularización de vínculos familiares. Procesos simplificados para familiares de ciudadanos españoles.', link: 'Ver Requisitos' },
+  { icon: 'badge', title: 'Tarjeta de Familiar Comunitario UE', desc: 'Tramitación experta para familiares de ciudadanos de la Unión Europea. Optimizamos los tiempos de obtención de residencia y derechos comunitarios.', link: 'Iniciar Trámite' },
+  { icon: 'beach_access', title: 'Residencia No Lucrativa', desc: 'Asesoría especializada para residir en España sin ejercer actividad laboral. Planificación financiera y documental para garantizar la aprobación.', link: 'Consultar' },
+];
 
 export default function Projects() {
-  const { t } = useLanguage();
-
-  const services = [
-    { icon: 'diversity_3', title: t('proj.s1.title'), desc: t('proj.s1.desc'), link: t('proj.s1.link') },
-    { icon: 'family_restroom', title: t('proj.s2.title'), desc: t('proj.s2.desc'), link: t('proj.s2.link') },
-    { icon: 'badge', title: t('proj.s3.title'), desc: t('proj.s3.desc'), link: t('proj.s3.link') },
-    { icon: 'beach_access', title: t('proj.s4.title'), desc: t('proj.s4.desc'), link: t('proj.s4.link') },
-  ];
-
   return (
     <main className="flex-grow flex flex-col relative tech-grid-bg min-h-screen bg-[#1a0f10] text-white">
       {/* Hero Section */}
@@ -26,22 +23,22 @@ export default function Projects() {
               <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary">
                 <span className="material-symbols-outlined text-sm">hub</span>
               </span>
-              <span className="text-primary font-bold uppercase tracking-widest text-xs">{t('proj.badge')}</span>
+              <span className="text-primary font-bold uppercase tracking-widest text-xs">Ingeniería Tecnológica BPA</span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-              {t('proj.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-secondary">{t('proj.title2')}</span>
+              Ingeniería de <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-secondary">Gobernanza y Procesos</span>
             </h1>
             <p className="text-secondary text-lg md:text-xl font-light leading-relaxed max-w-2xl">
-              {t('proj.desc')}
+              Automatización de flujos críticos de negocio. Realizamos ingeniería de marcos regulatorios mediante Business Process Automation (BPA) para convertir la eficiencia en su mayor activo estratégico.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <Link href="/contact" className="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-primary hover:bg-primary-dark transition-all shadow-[0_0_20px_rgba(206,16,38,0.3)] text-white text-base font-bold">
-                <span>{t('proj.cta1')}</span>
+                <span>Analizar Procesos</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
               <button className="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-transparent border border-gray-700 hover:border-gray-500 hover:bg-white/5 transition-all text-white text-base font-medium">
                 <span className="material-symbols-outlined text-sm">play_circle</span>
-                <span>{t('proj.cta2')}</span>
+                <span>Demo BPA</span>
               </button>
             </div>
           </div>
@@ -55,10 +52,10 @@ export default function Projects() {
                     <span className="material-symbols-outlined text-primary">account_tree</span>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs text-secondary">{t('proj.flow')}</div>
+                    <div className="text-xs text-secondary">Estado del Flujo</div>
                     <div className="text-sm font-bold text-green-400 flex items-center gap-1 justify-end">
                       <span className="block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                      {t('proj.synced')}
+                      Sincronizado
                     </div>
                   </div>
                 </div>
@@ -67,7 +64,7 @@ export default function Projects() {
                     <div className="h-full bg-gradient-to-r from-primary to-orange-500 w-[92%]"></div>
                   </div>
                   <div className="flex justify-between text-xs text-secondary font-mono">
-                    <span>{t('proj.efficiency')}</span>
+                    <span>Eficiencia Operativa</span>
                     <span>92%</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2 mt-4">
@@ -85,9 +82,9 @@ export default function Projects() {
                 </div>
                 <div className="bg-black/30 rounded p-3 backdrop-blur-md border border-white/5">
                   <p className="text-xs text-secondary font-mono">
-                    &gt; {t('proj.console1')}<br />
-                    &gt; {t('proj.console2')}<br />
-                    &gt; {t('proj.console3')}
+                    &gt; Ejecutando secuencia BPA...<br />
+                    &gt; Validación regulatoria: OK.<br />
+                    &gt; Ingeniería de nodos: Activa.
                   </p>
                 </div>
               </div>
@@ -101,11 +98,11 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">{t('proj.solutions')}</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Ecosistema de Soluciones</h2>
               <div className="h-1 w-20 bg-primary rounded-full"></div>
             </div>
             <p className="text-secondary max-w-md text-sm md:text-base text-right md:text-left">
-              {t('proj.solutions.desc')}
+              Infraestructura digital para la gestión automatizada de riesgos y procesos corporativos.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,13 +131,13 @@ export default function Projects() {
               <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                 <span className="material-symbols-outlined">gavel</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{t('proj.s5.title')}</h3>
+              <h3 className="text-xl font-bold text-white mb-3">Acompañamiento legal de inversiones</h3>
               <p className="text-secondary text-sm leading-relaxed mb-6 flex-grow">
-                {t('proj.s5.desc')}
+                Seguridad jurídica para su capital. Brindamos soporte legal integral en procesos de inversión inmobiliaria y empresarial, mitigando riesgos y asegurando el cumplimiento normativo.
               </p>
               <div className="mt-auto border-t border-white/5 pt-4">
                 <a className="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
-                  {t('proj.s5.link')} <span className="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
+                  Asesoría de Inversión <span className="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
                 </a>
               </div>
             </div>
@@ -155,17 +152,17 @@ export default function Projects() {
         </div>
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-wider mb-6">
-            {t('proj.cta.badge')}
+            Siguiente Nivel
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            {t('proj.cta.title')}
+            ¿Listo para realizar la ingeniería<br />de eficiencia de sus procesos?
           </h2>
           <p className="text-secondary text-lg mb-10 max-w-2xl mx-auto">
-            {t('proj.cta.desc')}
+            Solicite una evaluación técnica de sus flujos de trabajo actuales y descubra cómo la automatización BPA puede reducir riesgos y costes operativos.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white hover:bg-gray-100 text-[#1a0f10] text-base font-bold transition-all transform hover:scale-105">
-              <span>{t('proj.cta.button')}</span>
+              <span>Contactanos</span>
             </Link>
           </div>
         </div>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Soluciones Legales (Ingeniería de Gobernanza) - Pro Corp 2028</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#CE1026",
+                        "primary-hover": "#b00d20",
+                        "secondary": "#8F9295",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#1a0f10",
+                        "surface-dark": "#2a1517",
+                        "surface-darker": "#140a0b",
+                    },
+                    fontFamily: {
+                        "display": ["Montserrat", "sans-serif"],
+                        "body": ["Montserrat", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a0f10; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #472427; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CE1026; 
+        }
+        .tech-grid-bg {
+            background-image: 
+                linear-gradient(rgba(206, 16, 38, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(206, 16, 38, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen flex flex-col font-body selection:bg-primary selection:text-white overflow-x-hidden">
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#472427] bg-[#1a0f10]/90 backdrop-blur-md px-6 py-3 md:px-10">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_543)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_543"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Pro Corp</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-secondary hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Inicio</a>
+<a class="text-secondary hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Blog</a>
+<a class="text-primary text-sm font-bold leading-normal relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-primary after:-bottom-2 after:left-0" href="#">Soluciones Legales</a>
+<a class="text-secondary hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Crecimiento Sostenible</a>
+<a class="text-secondary hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Sobre Nosotros</a>
+<a class="text-secondary hover:text-white text-sm font-medium leading-normal transition-colors" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-hover transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Solicitar Auditoría</span>
+</button>
+<button class="lg:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow flex flex-col relative tech-grid-bg">
+<section class="relative px-6 py-16 md:px-10 lg:py-24 overflow-hidden">
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-radial from-primary/10 to-transparent rounded-full translate-x-1/3 -translate-y-1/4 blur-3xl"></div>
+<svg class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 h-full w-auto opacity-10" fill="none" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<circle cx="200" cy="200" r="100" stroke="#CE1026" stroke-width="2"></circle>
+<circle cx="200" cy="200" r="150" stroke="#CE1026" stroke-dasharray="10 10" stroke-width="1"></circle>
+<path d="M200 50 L200 100" stroke="#CE1026" stroke-width="1"></path>
+<path d="M200 300 L200 350" stroke="#CE1026" stroke-width="1"></path>
+<path d="M50 200 L100 200" stroke="#CE1026" stroke-width="1"></path>
+<path d="M300 200 L350 200" stroke="#CE1026" stroke-width="1"></path>
+<circle cx="200" cy="50" fill="#CE1026" r="5"></circle>
+<circle cx="350" cy="200" fill="#CE1026" r="5"></circle>
+<circle cx="200" cy="350" fill="#CE1026" r="5"></circle>
+<circle cx="50" cy="200" fill="#CE1026" r="5"></circle>
+</svg>
+</div>
+<div class="layout-content-container max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12">
+<div class="flex-1 flex flex-col gap-6 text-left">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-sm">hub</span>
+</span>
+<span class="text-primary font-bold uppercase tracking-widest text-xs">Ingeniería Tecnológica BPA</span>
+</div>
+<h1 class="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-[-0.033em]">
+                        Ingeniería de <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-secondary">Gobernanza y Procesos</span>
+</h1>
+<p class="text-secondary text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                        Automatización de flujos críticos de negocio. Realizamos ingeniería de marcos regulatorios mediante Business Process Automation (BPA) para convertir la eficiencia en su mayor activo estratégico.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-primary hover:bg-primary-hover transition-all shadow-[0_0_20px_rgba(206,16,38,0.3)] text-white text-base font-bold">
+<span>Analizar Procesos</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-transparent border border-gray-700 hover:border-gray-500 hover:bg-white/5 transition-all text-white text-base font-medium">
+<span class="material-symbols-outlined text-sm">play_circle</span>
+<span>Demo BPA</span>
+</button>
+</div>
+</div>
+<div class="flex-1 w-full lg:h-auto min-h-[300px] relative flex items-center justify-center">
+<div class="relative w-full max-w-md aspect-square bg-gradient-to-br from-surface-dark to-surface-darker rounded-2xl border border-[#472427] p-1 shadow-2xl">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&amp;w=1000&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-20 rounded-xl" data-alt="Abstract network of glowing digital nodes representing data governance"></div>
+<div class="relative z-10 w-full h-full flex flex-col justify-between p-6">
+<div class="flex justify-between items-start">
+<div class="bg-primary/20 p-2 rounded-lg border border-primary/30 backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary">account_tree</span>
+</div>
+<div class="text-right">
+<div class="text-xs text-secondary">Estado del Flujo</div>
+<div class="text-sm font-bold text-green-400 flex items-center gap-1 justify-end">
+<span class="block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                                        Sincronizado
+                                    </div>
+</div>
+</div>
+<div class="space-y-4 my-4">
+<div class="h-2 bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-orange-500 w-[92%]"></div>
+</div>
+<div class="flex justify-between text-xs text-secondary font-mono">
+<span>Eficiencia Operativa</span>
+<span>92%</span>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-4">
+<div class="h-16 bg-white/5 rounded border border-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-lg">settings_suggest</span>
+</div>
+<div class="h-16 bg-white/5 rounded border border-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-lg">dataset</span>
+</div>
+<div class="h-16 bg-primary/20 rounded border border-primary/50 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-primary text-lg">autorenew</span>
+<div class="absolute top-1 right-1 w-1.5 h-1.5 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-black/30 rounded p-3 backdrop-blur-md border border-white/5">
+<p class="text-xs text-secondary font-mono">
+                                    &gt; Ejecutando secuencia BPA...<br/>
+                                    &gt; Validación regulatoria: OK.<br/>
+                                    &gt; Ingeniería de nodos: Activa.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-12 md:px-10 bg-surface-dark/50 border-t border-[#472427]">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Ecosistema de Soluciones</h2>
+<div class="h-1 w-20 bg-primary rounded-full"></div>
+</div>
+<p class="text-secondary max-w-md text-sm md:text-base text-right md:text-left">
+                        Infraestructura digital para la gestión automatizada de riesgos y procesos corporativos.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="group relative bg-surface-dark border border-[#472427] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">diversity_3</span>
+</div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Arraigo Social</h3>
+<p class="text-secondary text-sm leading-relaxed mb-6 flex-grow">
+            Gestión integral de regularización por arraigo. Automatizamos la documentación y el seguimiento de requisitos para asegurar la integración sociolaboral efectiva.
+        </p>
+<div class="mt-auto border-t border-white/5 pt-4">
+<a class="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
+                Ver Proceso <span class="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+<div class="group relative bg-surface-dark border border-[#472427] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">family_restroom</span>
+</div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">family_restroom</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Arraigo Familiar</h3>
+<p class="text-secondary text-sm leading-relaxed mb-6 flex-grow">
+            Soluciones ágiles para la reagrupación y regularización de vínculos familiares. Procesos simplificados para familiares de ciudadanos españoles.
+        </p>
+<div class="mt-auto border-t border-white/5 pt-4">
+<a class="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
+                Ver Requisitos <span class="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+<div class="group relative bg-surface-dark border border-[#472427] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">euro_symbol</span>
+</div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Tarjeta de Familiar Comunitario UE</h3>
+<p class="text-secondary text-sm leading-relaxed mb-6 flex-grow">
+            Tramitación experta para familiares de ciudadanos de la Unión Europea. Optimizamos los tiempos de obtención de residencia y derechos comunitarios.
+        </p>
+<div class="mt-auto border-t border-white/5 pt-4">
+<a class="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
+                Iniciar Trámite <span class="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+<div class="group relative bg-surface-dark border border-[#472427] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">account_balance_wallet</span>
+</div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">beach_access</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Residencia No Lucrativa</h3>
+<p class="text-secondary text-sm leading-relaxed mb-6 flex-grow">
+            Asesoría especializada para residir en España sin ejercer actividad laboral. Planificación financiera y documental para garantizar la aprobación.
+        </p>
+<div class="mt-auto border-t border-white/5 pt-4">
+<a class="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
+                Consultar <span class="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+<div class="group relative bg-surface-dark border border-[#472427] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full lg:col-span-2">
+<div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white">trending_up</span>
+</div>
+<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Acompañamiento legal de inversiones</h3>
+<p class="text-secondary text-sm leading-relaxed mb-6 flex-grow">
+            Seguridad jurídica para su capital. Brindamos soporte legal integral en procesos de inversión inmobiliaria y empresarial, mitigando riesgos y asegurando el cumplimiento normativo.
+        </p>
+<div class="mt-auto border-t border-white/5 pt-4">
+<a class="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
+                Asesoría de Inversión <span class="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-surface-dark z-0">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay" data-alt="Dark abstract technology background with subtle geometric patterns"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+</div>
+<div class="max-w-4xl mx-auto relative z-10 text-center">
+<span class="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-wider mb-6">
+                    Siguiente Nivel
+                </span>
+<h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    ¿Listo para realizar la ingeniería <br/>de eficiencia de sus procesos?
+                </h2>
+<p class="text-secondary text-lg mb-10 max-w-2xl mx-auto">
+                    Solicite una evaluación técnica de sus flujos de trabajo actuales y descubra cómo la automatización BPA puede reducir riesgos y costes operativos.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white hover:bg-gray-100 text-background-dark text-base font-bold leading-normal tracking-[0.015em] transition-all transform hover:scale-105">
+<span class="truncate">Contactanos</span>
+</button>
+</div>
+</div>
+</section>
+<footer class="bg-surface-darker border-t border-[#472427] pt-12 pb-8 px-6 md:px-10 mt-auto">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-3 text-white mb-6">
+<div class="size-6 text-primary">
+<svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_543_footer)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+</svg>
+</div>
+<h2 class="text-xl font-bold">Pro Corp</h2>
+</div>
+<p class="text-secondary text-sm leading-relaxed max-w-sm">
+                        Pro Corp lidera la transformación empresarial a través de la automatización de procesos y ingeniería tecnológica avanzada. Redefiniendo el estándar BPA desde 2026.
+                    </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Soluciones BPA</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Ingeniería Regulatoria</a></li>
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Gestión de Riesgos BPA</a></li>
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Automatización Compliance</a></li>
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Auditoría de Procesos</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Compañía</h4>
+<ul class="flex flex-col gap-3">
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Sobre Nosotros</a></li>
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Crecimiento Sostenible</a></li>
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Blog</a></li>
+<li><a class="text-secondary hover:text-primary text-sm transition-colors" href="#">Carreras</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-500 text-xs">© 2028 Pro Corp. Todos los derechos reservados.</p>
+<div class="flex gap-4">
+<a class="text-gray-500 hover:text-white text-xs" href="#">Privacidad</a>
+<a class="text-gray-500 hover:text-white text-xs" href="#">Términos</a>
+<a class="text-gray-500 hover:text-white text-xs" href="#">Seguridad</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

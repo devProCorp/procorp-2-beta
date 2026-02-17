@@ -5,7 +5,6 @@ import {
   getFeaturedImageUrl,
   getFeaturedImageAlt,
   getPostCategories,
-  getPostAuthor,
   stripHtml,
   formatDate,
 } from "@/lib/wordpress";
@@ -17,82 +16,63 @@ interface ArticleListProps {
 export default function ArticleList({ posts }: ArticleListProps) {
   if (posts.length === 0) {
     return (
-      <p className="text-white/50 font-ui text-lg py-20 text-center">
-        No articles found.
+      <p className="text-secondary text-lg py-20 text-center">
+        No se encontraron artículos.
       </p>
     );
   }
 
   return (
-    <div className="space-y-0">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
       {posts.map((post) => {
         const imageUrl = getFeaturedImageUrl(post, "medium_large");
         const imageAlt = getFeaturedImageAlt(post);
         const categories = getPostCategories(post);
-        const author = getPostAuthor(post);
         const excerpt = stripHtml(post.excerpt.rendered);
 
         return (
           <Link
             key={post.id}
             href={`/journal/${post.slug}`}
-            className="group border-t border-white/10 py-10 md:py-12 flex flex-col md:flex-row md:items-center gap-6 md:gap-10 cursor-pointer hover:bg-white/5 transition-colors px-4 -mx-4 rounded-sm"
+            className="flex flex-col group cursor-pointer"
           >
-            {imageUrl && (
-              <div className="relative w-full md:w-48 lg:w-56 aspect-[16/10] md:aspect-[4/3] flex-shrink-0 overflow-hidden rounded-sm bg-white/10">
+            <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-5 border border-surface-border group-hover:border-primary/50 transition-colors">
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors z-10"></div>
+              {imageUrl ? (
                 <Image
                   src={imageUrl}
                   alt={imageAlt || stripHtml(post.title.rendered)}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  sizes="(max-width: 768px) 100vw, 224px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
+              ) : (
+                <div className="w-full h-full bg-surface-dark"></div>
+              )}
+              {categories.length > 0 && (
+                <span className="absolute top-4 left-4 z-20 bg-primary/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-white shadow-lg uppercase tracking-wide">
+                  {categories[0].name}
+                </span>
+              )}
+            </div>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3 text-secondary text-xs font-medium uppercase tracking-wide">
+                <span>{formatDate(post.date, "es-ES")}</span>
+                <span className="w-1 h-1 rounded-full bg-primary"></span>
+                <span>5 min lectura</span>
               </div>
-            )}
-
-            <div className="flex-1 min-w-0">
-              <div className="flex flex-wrap items-center gap-3 mb-3">
-                {categories.map((cat) => (
-                  <span
-                    key={cat.id}
-                    className="text-xs font-bold uppercase tracking-widest text-primary font-ui"
-                  >
-                    {cat.name}
-                  </span>
-                ))}
-              </div>
-
-              <h2
-                className="text-2xl md:text-3xl lg:text-4xl font-display font-bold uppercase text-white group-hover:text-primary transition-colors leading-tight"
+              <h3
+                className="text-xl font-bold text-white group-hover:text-primary transition-colors leading-snug"
                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
               />
-
               {excerpt && (
-                <p className="mt-3 text-sm text-white/50 font-ui line-clamp-2 max-w-2xl">
+                <p className="text-secondary text-sm line-clamp-2 font-light">
                   {excerpt}
                 </p>
               )}
-
-              {author && (
-                <div className="flex items-center gap-2 mt-4">
-                  {author.avatar_urls["48"] && (
-                    <Image
-                      src={author.avatar_urls["48"]}
-                      alt={author.name}
-                      width={24}
-                      height={24}
-                      className="rounded-full ring-1 ring-white/10"
-                    />
-                  )}
-                  <span className="text-xs text-white/50 font-ui">
-                    {author.name}
-                  </span>
-                </div>
-              )}
-            </div>
-
-            <div className="text-white/40 font-ui text-sm uppercase tracking-widest whitespace-nowrap flex-shrink-0">
-              {formatDate(post.date, "en-US")}
+              <span className="inline-flex items-center text-primary font-bold text-sm mt-1 hover:text-white transition-colors uppercase tracking-wide">
+                Leer más <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+              </span>
             </div>
           </Link>
         );
