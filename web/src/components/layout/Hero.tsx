@@ -18,6 +18,7 @@ const Hero = () => {
 
                 {/* Text Content */}
                 <div className="w-full md:w-1/2 pt-10 md:pt-0 space-y-8">
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -56,6 +57,7 @@ const Hero = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="flex items-center gap-6 text-sm text-gray-500 pt-4"
+                        a
                     >
                         <div className="flex items-center">
                             <CheckCircle size={16} className="text-[var(--pro-red)] mr-2" />
