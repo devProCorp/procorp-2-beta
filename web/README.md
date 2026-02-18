@@ -10,6 +10,11 @@ This is the Next.js implementation of the PRO CORP 2.0 website, featuring a scro
 
 ### Installation
 
+
+
+
+
+
 1. Navigate to the `web` directory:
    ```bash
    cd web
