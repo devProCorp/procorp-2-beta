@@ -277,6 +277,99 @@ export default function Studio() {
         </div>
       </section>
 
+      {/* Investment Portfolio */}
+      <section className="py-24 px-6 md:px-10 lg:px-40 bg-[#1a1a1a] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-16">
+            <div className="max-w-2xl">
+              <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">{t('studio.inv.label')}</span>
+              <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+                {t('studio.inv.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-800">{t('studio.inv.title2')}</span>
+              </h2>
+              <p className="text-gray-400 text-lg font-medium leading-relaxed border-l-4 border-primary pl-6">
+                {t('studio.inv.desc')}
+              </p>
+            </div>
+            {/* Stats mini */}
+            <div className="flex gap-6 lg:gap-10 flex-wrap">
+              <div className="text-center">
+                <p className="text-3xl font-black text-white">{t('studio.inv.stat1.value')}</p>
+                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat1.label')}</p>
+              </div>
+              <div className="w-px bg-gray-800 hidden lg:block"></div>
+              <div className="text-center">
+                <p className="text-3xl font-black text-primary">{t('studio.inv.stat2.value')}</p>
+                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat2.label')}</p>
+              </div>
+              <div className="w-px bg-gray-800 hidden lg:block"></div>
+              <div className="text-center">
+                <p className="text-3xl font-black text-white">{t('studio.inv.stat3.value')}</p>
+                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat3.label')}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Sector Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: 'apartment', title: t('studio.inv.re.title'), desc: t('studio.inv.re.desc'), tag: t('studio.inv.re.tag'), accent: 'primary' },
+              { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), accent: 'amber' },
+              { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), accent: 'green' },
+              { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), accent: 'blue' },
+              { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), accent: 'purple' },
+              { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), accent: 'orange' },
+              { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), accent: 'primary' },
+            ].map((sector, i) => (
+              <div key={i} className="group relative bg-[#222] rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10 p-8 flex flex-col h-full">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] border border-gray-700 flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
+                      <span className="material-symbols-outlined text-primary text-2xl">{sector.icon}</span>
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-[#1a1a1a] border border-gray-700 px-2.5 py-1 rounded-full">
+                      {sector.tag}
+                    </span>
+                  </div>
+                  <h4 className="text-lg font-bold text-white mb-3 uppercase tracking-wide">{sector.title}</h4>
+                  <p className="text-sm text-gray-400 leading-relaxed flex-1">{sector.desc}</p>
+                  <div className="mt-6 pt-4 border-t border-gray-800/50 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase text-gray-500 tracking-wider">{String(i + 1).padStart(2, '0')} / 07</span>
+                    <span className="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Trust Banner */}
+          <div className="mt-12 flex flex-col md:flex-row gap-6 items-center justify-between bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 rounded-xl p-8">
+            <div className="flex items-center gap-6 flex-wrap">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary">verified_user</span>
+                </div>
+                <span className="text-sm font-bold text-white uppercase tracking-wide">{t('studio.inv.security')}</span>
+              </div>
+              <div className="hidden md:block w-px h-8 bg-gray-700"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary">public</span>
+                </div>
+                <span className="text-sm font-bold text-white uppercase tracking-wide">{t('studio.inv.international')}</span>
+              </div>
+            </div>
+            <Link href="/contact" className="w-full md:w-auto bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all text-sm uppercase tracking-wide flex items-center justify-center gap-2">
+              <span>{t('studio.inv.cta')}</span>
+              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-24 px-6 md:px-10 lg:px-40 relative overflow-hidden bg-[#1a1a1a]">
         <div className="max-w-[800px] mx-auto text-center relative z-10">

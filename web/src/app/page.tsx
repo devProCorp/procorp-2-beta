@@ -1,10 +1,78 @@
 'use client';
 
+import { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
+const LIA_WEBHOOK = 'https://n8n-n8n.ukq6rz.easypanel.host/webhook/fd095693-99f0-472c-9d03-65426bd3fdb4';
+
+interface ChatMsg { role: 'user' | 'lia'; content: string; }
+
+function getWaId(): string {
+  if (typeof window === 'undefined') return '';
+  const s = localStorage.getItem('lia_wa_id');
+  if (s) return s;
+  const id = Date.now().toString() + Math.random().toString(36).slice(2, 8);
+  localStorage.setItem('lia_wa_id', id);
+  return id;
+}
+
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const heroRef = useRef<HTMLDivElement>(null);
+  const chatRef = useRef<HTMLDivElement>(null);
+  const waIdRef = useRef('');
+  const [chatMsgs, setChatMsgs] = useState<ChatMsg[]>([]);
+  const [chatInput, setChatInput] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
+
+  useEffect(() => { waIdRef.current = getWaId(); }, []);
+  useEffect(() => { if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight; }, [chatMsgs, chatLoading]);
+
+  const sendChat = useCallback(async (text: string) => {
+    if (!text.trim() || chatLoading) return;
+    const msg = text.trim();
+    setChatMsgs(p => [...p, { role: 'user', content: msg }]);
+    setChatInput('');
+    setChatLoading(true);
+    try {
+      const res = await fetch(LIA_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: { id: Date.now().toString(), content: msg, role: 'user', timestamp: Date.now(), wa_id: waIdRef.current, passaport: waIdRef.current, meta: { uuid: crypto.randomUUID(), ip: '', userAgent: navigator.userAgent, language: navigator.language, platform: navigator.platform, url: window.location.href, referrer: document.referrer, screen: { width: window.screen.width, height: window.screen.height } } } }),
+      });
+      const data = await res.json();
+      const item = Array.isArray(data) ? data[0] : data;
+      const reply = typeof item === 'string' ? item : item?.output ?? item?.response ?? item?.message ?? item?.content ?? item?.text ?? String(item);
+      setChatMsgs(p => [...p, { role: 'lia', content: reply }]);
+    } catch {
+      setChatMsgs(p => [...p, { role: 'lia', content: lang === 'es' ? 'Error de conexión. Intenta de nuevo.' : 'Connection error. Try again.' }]);
+    } finally { setChatLoading(false); }
+  }, [chatLoading, lang]);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  // PHASE 0: Logo — visible at start, stays, then fades out (~12-18%)
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.12, 0.18], [1, 1, 0]);
+  const logoY = useTransform(scrollYProgress, [0, 0.12, 0.18], [0, 0, -40]);
+  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.10], [1, 0]);
+
+  // PHASE 1: Badge + Title — appears after logo fades, stays, then fades out (~18-40%)
+  const phase1Opacity = useTransform(scrollYProgress, [0.18, 0.25, 0.35, 0.40], [0, 1, 1, 0]);
+  const phase1Y = useTransform(scrollYProgress, [0.18, 0.25, 0.35, 0.40], [40, 0, 0, -40]);
+
+  // PHASE 2: Description — appears after title fades, stays, then fades out (~45-65%)
+  const phase2Opacity = useTransform(scrollYProgress, [0.45, 0.50, 0.60, 0.65], [0, 1, 1, 0]);
+  const phase2Y = useTransform(scrollYProgress, [0.45, 0.50, 0.60, 0.65], [40, 0, 0, -40]);
+
+  // PHASE 3: CTAs — appears last, stays visible until section ends (~70-90%)
+  const phase3Opacity = useTransform(scrollYProgress, [0.70, 0.75, 0.85, 0.90], [0, 1, 1, 0]);
+  const phase3Y = useTransform(scrollYProgress, [0.70, 0.75, 0.85, 0.90], [40, 0, 0, -40]);
 
   const pillars = [
     { icon: 'balance', title: t('home.pillar1.title'), desc: t('home.pillar1.desc'), href: '/projects' },
@@ -19,38 +87,104 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-background-dark text-white overflow-x-hidden flex flex-col">
-      {/* Hero Section */}
-      <section className="relative w-full overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-background-dark via-surface-dark to-background-dark"></div>
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background-dark via-background-dark/95 to-background-dark/60"></div>
-        <div className="relative z-20 flex flex-col items-start justify-center min-h-[600px] px-4 md:px-10 py-20 max-w-[1440px] mx-auto w-full">
-          <div className="flex flex-col gap-6 max-w-[800px]">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 w-fit">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="text-xs font-bold text-primary-light tracking-wide uppercase">{t('home.badge')}</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-white uppercase">
-              {t('home.title1')}<br />
-              <span className="text-primary">{t('home.title2')}</span>
-            </h1>
-            <p className="text-lg md:text-xl text-secondary max-w-[600px] leading-relaxed font-medium">
-              {t('home.desc')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <Link href="/projects" className="h-12 px-8 rounded-lg bg-primary hover:bg-primary-light text-white font-bold transition-all shadow-[0_0_20px_rgba(206,16,38,0.5)] hover:shadow-[0_0_30px_rgba(206,16,38,0.7)] flex items-center justify-center gap-2 uppercase text-sm tracking-wide">
-                <span>{t('home.cta1')}</span>
-                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-              </Link>
-              <Link href="/studio" className="h-12 px-8 rounded-lg border border-surface-border bg-surface-dark/50 hover:bg-surface-dark text-white font-medium transition-colors backdrop-blur-sm uppercase text-sm tracking-wide flex items-center justify-center">
-                {t('home.cta2')}
-              </Link>
-            </div>
+    <main className="min-h-screen bg-background-dark text-white flex flex-col">
+      {/* Hero Section - Scroll Animated (same pattern as opcion-daniel ScrollHero) */}
+      <section ref={heroRef} className="relative h-[500vh] w-full bg-background-dark">
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
+          {/* Background */}
+          <div className="absolute inset-0 z-0 bg-gradient-to-br from-background-dark via-surface-dark to-background-dark"></div>
+          <div className="absolute inset-0 z-[1] bg-gradient-to-r from-background-dark via-background-dark/95 to-background-dark/60"></div>
+          <div className="absolute bottom-0 right-0 w-1/3 h-full z-[1] hidden lg:block pointer-events-none opacity-40">
+            <div className="h-full w-full bg-gradient-to-t from-background-dark to-transparent"></div>
+            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#CE1026 1px, transparent 1px)', backgroundSize: '40px 40px', maskImage: 'linear-gradient(to left, black, transparent)' }}></div>
           </div>
-        </div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-full z-10 hidden lg:block pointer-events-none opacity-40">
-          <div className="h-full w-full bg-gradient-to-t from-background-dark to-transparent"></div>
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#CE1026 1px, transparent 1px)', backgroundSize: '40px 40px', maskImage: 'linear-gradient(to left, black, transparent)' }}></div>
+
+          {/* PHASE 0: Logo centrado — primera impresión */}
+          <motion.div
+            style={{ opacity: logoOpacity, y: logoY }}
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
+          >
+            <Image
+              src="https://www.pro-corp.net/wp-content/uploads/2023/07/Signature_PCP.png"
+              alt="Pro Corp"
+              width={320}
+              height={80}
+              className="h-16 md:h-20 w-auto object-contain mb-8"
+              priority
+            />
+            <motion.div
+              style={{ opacity: scrollHintOpacity }}
+              className="flex flex-col items-center gap-4 mt-4"
+            >
+              <span className="text-secondary text-sm md:text-base uppercase tracking-[0.3em] font-semibold">
+                {t('home.scrollHint')}
+              </span>
+              <div className="flex flex-col items-center gap-1 animate-bounce">
+                <span className="material-symbols-outlined text-primary text-2xl">keyboard_arrow_down</span>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* PHASE 1: Badge + Title */}
+          <motion.div
+            style={{ opacity: phase1Opacity, y: phase1Y }}
+            className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-8"
+          >
+            <div className="text-center max-w-[900px]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                <span className="text-xs font-bold text-primary-light tracking-wide uppercase">{t('home.badge')}</span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-white uppercase">
+                {t('home.title1')}<br />
+                <span className="text-primary">{t('home.title2')}</span>
+              </h1>
+            </div>
+          </motion.div>
+
+          {/* PHASE 2: Description */}
+          <motion.div
+            style={{ opacity: phase2Opacity, y: phase2Y }}
+            className="absolute inset-0 z-20 flex items-center pointer-events-none px-8 md:px-16 lg:px-24"
+          >
+            <div className="w-full md:w-1/2 lg:w-5/12">
+              <span className="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-6 block">
+                {t('home.badge')}
+              </span>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/90 leading-relaxed mb-8">
+                {t('home.desc')}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* PHASE 3: CTAs */}
+          <motion.div
+            style={{ opacity: phase3Opacity, y: phase3Y }}
+            className="absolute inset-0 z-20 flex items-center justify-center px-8"
+          >
+            <div className="text-center max-w-[700px]">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-white uppercase mb-8">
+                {t('home.title1')} <span className="text-primary">{t('home.title2')}</span>
+              </h2>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/projects" className="h-12 px-8 rounded-lg bg-primary hover:bg-primary-light text-white font-bold transition-all shadow-[0_0_20px_rgba(206,16,38,0.5)] hover:shadow-[0_0_30px_rgba(206,16,38,0.7)] flex items-center justify-center gap-2 uppercase text-sm tracking-wide">
+                  <span>{t('home.cta1')}</span>
+                  <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                </Link>
+                <Link href="/studio" className="h-12 px-8 rounded-lg border border-surface-border bg-surface-dark/50 hover:bg-surface-dark text-white font-medium transition-colors backdrop-blur-sm uppercase text-sm tracking-wide flex items-center justify-center">
+                  {t('home.cta2')}
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            style={{ opacity: scrollHintOpacity }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center pointer-events-none"
+          >
+            <div className="w-px h-16 bg-gradient-to-b from-white to-transparent"></div>
+          </motion.div>
         </div>
       </section>
 
@@ -137,8 +271,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1200px]">
-            {/* Main Dashboard */}
-            <div className="lg:col-span-8 bg-surface-dark border border-surface-border rounded-2xl p-0 shadow-2xl relative overflow-hidden group hover:border-primary/40 transition-colors duration-300">
+            {/* LIA Chat */}
+            <div className="lg:col-span-8 bg-surface-dark border border-surface-border rounded-2xl shadow-2xl overflow-hidden hover:border-primary/40 transition-colors duration-300">
+              {/* Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-surface-border bg-background-dark/50 backdrop-blur-sm">
                 <div className="flex items-center gap-3">
                   <span className="flex h-2 w-2 relative">
@@ -147,52 +282,94 @@ export default function Home() {
                   </span>
                   <span className="text-xs text-primary font-mono font-bold tracking-wider">LIA_BPA_ENGINE // RUNNING</span>
                 </div>
-                <div className="flex gap-4 text-xs font-mono text-secondary">
-                  <span className="hidden sm:inline">CPU: 34%</span>
-                  <span className="hidden sm:inline">MEM: 12GB</span>
-                  <span>LATENCY: 12ms</span>
-                </div>
-              </div>
-              <div className="relative h-[400px] w-full bg-[#130b0c] p-6 overflow-hidden">
-                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#2a1517 1px, transparent 1px), linear-gradient(90deg, #2a1517 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                <div className="relative z-10 flex flex-col justify-between h-full">
-                  <div className="flex justify-between items-center px-8">
-                    <div className="relative">
-                      <div className="w-16 h-16 rounded-xl bg-surface-dark border border-primary/50 flex items-center justify-center shadow-[0_0_15px_rgba(206,16,38,0.2)]">
-                        <span className="material-symbols-outlined text-primary">cloud_upload</span>
-                      </div>
-                      <div className="absolute top-20 left-1/2 -translate-x-1/2 text-xs text-secondary whitespace-nowrap">{t('home.bpa.ingest')}</div>
-                    </div>
-                    <div className="text-primary/50 animate-pulse">
-                      <span className="material-symbols-outlined">chevron_right</span>
-                    </div>
-                    <div className="relative">
-                      <div className="w-24 h-24 rounded-full bg-background-dark border-2 border-primary flex items-center justify-center shadow-[0_0_30px_rgba(206,16,38,0.4)] relative">
-                        <div className="absolute inset-0 rounded-full border border-primary animate-ping opacity-20"></div>
-                        <span className="material-symbols-outlined text-white text-4xl">neurology</span>
-                      </div>
-                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-primary text-white text-[10px] font-bold rounded uppercase">LIA Core</div>
-                      <div className="absolute top-28 left-1/2 -translate-x-1/2 text-xs text-primary font-bold whitespace-nowrap">{t('home.bpa.analysis')}</div>
-                    </div>
-                    <div className="text-primary/50 animate-pulse">
-                      <span className="material-symbols-outlined">chevron_right</span>
-                    </div>
-                    <div className="relative">
-                      <div className="w-16 h-16 rounded-xl bg-surface-dark border border-green-500/30 flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.1)]">
-                        <span className="material-symbols-outlined text-green-500">rocket_launch</span>
-                      </div>
-                      <div className="absolute top-20 left-1/2 -translate-x-1/2 text-xs text-secondary whitespace-nowrap">{t('home.bpa.execution')}</div>
-                    </div>
-                  </div>
-                  <div className="mt-8 bg-background-dark/80 border border-surface-border rounded-lg p-3 font-mono text-[10px] sm:text-xs text-gray-400 h-32 overflow-hidden flex flex-col justify-end">
-                    <div className="opacity-50">10:42:12 [INFO] Ingesta completada: Lote #4922 (Finanzas)</div>
-                    <div className="opacity-70">10:42:15 [PROC] LIA detecta anomalía en flujo de caja - Regla #B7</div>
-                    <div className="text-primary-light">10:42:16 [ACTN] Iniciando protocolo de re-validación automática...</div>
-                    <div className="text-green-400">10:42:18 [SUCC] Proceso optimizado. Ahorro estimado: 12% tiempo.</div>
-                    <div className="animate-pulse text-primary">&gt; Esperando nueva instrucción...</div>
+                <div className="flex items-center gap-3">
+                  <span className="text-[10px] font-mono text-secondary hidden sm:inline">ONLINE</span>
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-surface-border"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-surface-border"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-primary/60"></div>
                   </div>
                 </div>
               </div>
+
+              {/* Messages */}
+              <div ref={chatRef} className="relative h-[400px] w-full bg-[#130b0c] px-6 py-5 overflow-y-auto scroll-smooth space-y-4">
+                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#2a1517 1px, transparent 1px), linear-gradient(90deg, #2a1517 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <div className="relative z-10 space-y-4">
+                  {chatMsgs.length === 0 && (
+                    <div className="flex flex-col items-center justify-center h-[340px] gap-4">
+                      <div className="w-16 h-16 rounded-full bg-background-dark border-2 border-primary/30 flex items-center justify-center shadow-[0_0_20px_rgba(206,16,38,0.2)]">
+                        <span className="material-symbols-outlined text-primary text-3xl">neurology</span>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-sm font-bold text-white uppercase tracking-wide">LIA</p>
+                        <p className="text-xs text-secondary mt-1">
+                          {lang === 'es' ? 'Habla con LIA, tu asistente de procesos' : 'Talk to LIA, your process assistant'}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-2 justify-center mt-2">
+                        {[
+                          lang === 'es' ? '¿Qué es BPA?' : 'What is BPA?',
+                          lang === 'es' ? '¿Cómo optimizar procesos?' : 'How to optimize processes?',
+                        ].map(q => (
+                          <button key={q} onClick={() => sendChat(q)} className="px-3 py-1.5 rounded-full border border-surface-border text-xs text-secondary hover:border-primary/50 hover:text-white transition-colors">
+                            {q}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {chatMsgs.map((msg, i) => (
+                    <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      {msg.role === 'lia' && (
+                        <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center mr-2 mt-0.5 shrink-0">
+                          <span className="material-symbols-outlined text-primary text-sm">neurology</span>
+                        </div>
+                      )}
+                      <div className={`max-w-[75%] px-4 py-2.5 text-sm leading-relaxed ${
+                        msg.role === 'user'
+                          ? 'bg-primary text-white rounded-2xl rounded-br-sm'
+                          : 'bg-background-dark/80 border border-surface-border text-gray-300 rounded-2xl rounded-bl-sm'
+                      }`}>
+                        {msg.content}
+                      </div>
+                    </div>
+                  ))}
+                  {chatLoading && (
+                    <div className="flex justify-start">
+                      <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center mr-2 shrink-0">
+                        <span className="material-symbols-outlined text-primary text-sm">neurology</span>
+                      </div>
+                      <div className="bg-background-dark/80 border border-surface-border px-4 py-3 rounded-2xl rounded-bl-sm flex items-center gap-1.5">
+                        <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                        <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                        <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Input */}
+              <form onSubmit={(e) => { e.preventDefault(); sendChat(chatInput); }} className="px-5 py-3 border-t border-surface-border bg-background-dark/50">
+                <div className="flex items-center gap-3 bg-[#130b0c] border border-surface-border rounded-xl px-4 py-2 focus-within:border-primary/50 transition-colors">
+                  <input
+                    type="text"
+                    value={chatInput}
+                    onChange={e => setChatInput(e.target.value)}
+                    onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(chatInput); } }}
+                    placeholder={lang === 'es' ? 'Escribe a LIA...' : 'Message LIA...'}
+                    className="flex-1 bg-transparent text-sm text-white placeholder:text-gray-600 outline-none"
+                  />
+                  <button
+                    type="submit"
+                    disabled={!chatInput.trim() || chatLoading}
+                    className="w-8 h-8 rounded-lg bg-primary hover:bg-primary-light flex items-center justify-center transition-colors disabled:opacity-20 disabled:cursor-not-allowed shadow-[0_0_10px_rgba(206,16,38,0.3)]"
+                  >
+                    <span className="material-symbols-outlined text-white text-sm">arrow_upward</span>
+                  </button>
+                </div>
+              </form>
             </div>
 
             {/* Side Stats */}
