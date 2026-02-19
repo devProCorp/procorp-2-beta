@@ -188,37 +188,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <div className="w-full border-y border-surface-border bg-surface-dark/30 backdrop-blur-md">
-        <div className="flex flex-wrap justify-around items-center gap-8 px-4 py-8 max-w-[1440px] mx-auto">
-          <div className="flex items-center gap-4">
-            <span className="material-symbols-outlined text-primary text-4xl">trending_up</span>
-            <div>
-              <p className="text-3xl font-bold text-white tracking-tight">{t('home.stat1.value')}</p>
-              <p className="text-sm text-secondary uppercase tracking-wide font-semibold">{t('home.stat1.label')}</p>
-            </div>
-          </div>
-          <div className="hidden md:block w-px h-12 bg-surface-border"></div>
-          <div className="flex items-center gap-4">
-            <span className="material-symbols-outlined text-primary text-4xl">groups</span>
-            <div>
-              <p className="text-3xl font-bold text-white tracking-tight">{t('home.stat2.value')}</p>
-              <p className="text-sm text-secondary uppercase tracking-wide font-semibold">{t('home.stat2.label')}</p>
-            </div>
-          </div>
-          <div className="hidden md:block w-px h-12 bg-surface-border"></div>
-          <div className="flex items-center gap-4">
-            <span className="material-symbols-outlined text-primary text-4xl">gavel</span>
-            <div>
-              <p className="text-3xl font-bold text-white tracking-tight">{t('home.stat3.value')}</p>
-              <p className="text-sm text-secondary uppercase tracking-wide font-semibold">{t('home.stat3.label')}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Strategic Pillars */}
-      <section className="py-24 px-4 md:px-10 bg-background-dark relative">
+      <section className="px-4 md:px-10 bg-background-dark relative pt-12 pb-24">
         <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-16">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-surface-border pb-8">
             <div className="flex flex-col gap-3 max-w-[700px]">
@@ -254,185 +225,123 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BPA Automation Section */}
+      {/* LIA Section */}
       <section className="py-20 px-4 md:px-10 bg-background-dark border-t border-surface-border relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
-        <div className="max-w-[1440px] mx-auto w-full relative z-10 flex flex-col items-center">
-          <div className="text-center mb-16 max-w-4xl">
+        <div className="max-w-[1440px] mx-auto w-full relative z-10">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-2 uppercase">
-              {t('home.bpa.title1')} <br className="md:hidden" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white">{t('home.bpa.title2')}</span>
+              {t('home.lia.title1')} <span className="text-primary">{t('home.lia.title2')}</span>
             </h2>
             <p className="text-xl md:text-2xl text-secondary mt-6 font-light">
-              {t('home.bpa.desc1')} <span className="text-primary font-bold">{t('home.bpa.desc2')}</span> {t('home.bpa.desc3')}
+              {t('home.lia.desc1')} <span className="text-primary font-bold">{t('home.lia.desc2')}</span> {t('home.lia.desc3')}
             </p>
             <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full mt-8"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1200px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1200px] mx-auto">
             {/* LIA Chat */}
-            <div className="lg:col-span-8 bg-surface-dark border border-surface-border rounded-2xl shadow-2xl overflow-hidden hover:border-primary/40 transition-colors duration-300">
-              {/* Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-surface-border bg-background-dark/50 backdrop-blur-sm">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-primary opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                  </span>
-                  <span className="text-xs text-primary font-mono font-bold tracking-wider">LIA_BPA_ENGINE // RUNNING</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-mono text-secondary hidden sm:inline">ONLINE</span>
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-surface-border"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-surface-border"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-primary/60"></div>
-                  </div>
-                </div>
+            <div className="lg:col-span-7 bg-surface-dark border border-surface-border rounded-2xl shadow-2xl overflow-hidden">
+              <div className="flex items-center gap-2 px-6 py-4 border-b border-surface-border">
+                <div className="size-2 rounded-full bg-red-500"></div>
+                <div className="size-2 rounded-full bg-yellow-500"></div>
+                <div className="size-2 rounded-full bg-green-500"></div>
+                <span className="ml-auto text-[10px] font-mono text-secondary uppercase">LIA_Interface_v1.0</span>
               </div>
 
-              {/* Messages */}
-              <div ref={chatRef} className="relative h-[400px] w-full bg-[#130b0c] px-6 py-5 overflow-y-auto scroll-smooth space-y-4">
-                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#2a1517 1px, transparent 1px), linear-gradient(90deg, #2a1517 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                <div className="relative z-10 space-y-4">
-                  {chatMsgs.length === 0 && (
-                    <div className="flex flex-col items-center justify-center h-[340px] gap-4">
-                      <div className="w-16 h-16 rounded-full bg-background-dark border-2 border-primary/30 flex items-center justify-center shadow-[0_0_20px_rgba(206,16,38,0.2)]">
-                        <span className="material-symbols-outlined text-primary text-3xl">neurology</span>
+              <div ref={chatRef} className="px-6 py-5 h-[350px] overflow-y-auto scroll-smooth space-y-4">
+                {chatMsgs.length === 0 && (
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="size-8 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+                        <span className="material-symbols-outlined text-primary text-sm">smart_toy</span>
                       </div>
-                      <div className="text-center">
-                        <p className="text-sm font-bold text-white uppercase tracking-wide">LIA</p>
-                        <p className="text-xs text-secondary mt-1">
-                          {lang === 'es' ? 'Habla con LIA, tu asistente de procesos' : 'Talk to LIA, your process assistant'}
+                      <div className="bg-background-dark border border-surface-border p-3 rounded-lg rounded-tl-none max-w-[80%]">
+                        <p className="text-xs text-secondary">
+                          {lang === 'es' ? 'Hola, soy LIA. ¿En qué puedo ayudarte hoy?' : 'Hi, I\'m LIA. How can I help you today?'}
                         </p>
                       </div>
-                      <div className="flex flex-wrap gap-2 justify-center mt-2">
-                        {[
-                          lang === 'es' ? '¿Qué es BPA?' : 'What is BPA?',
-                          lang === 'es' ? '¿Cómo optimizar procesos?' : 'How to optimize processes?',
-                        ].map(q => (
-                          <button key={q} onClick={() => sendChat(q)} className="px-3 py-1.5 rounded-full border border-surface-border text-xs text-secondary hover:border-primary/50 hover:text-white transition-colors">
-                            {q}
-                          </button>
-                        ))}
-                      </div>
                     </div>
-                  )}
-                  {chatMsgs.map((msg, i) => (
-                    <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      {msg.role === 'lia' && (
-                        <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center mr-2 mt-0.5 shrink-0">
-                          <span className="material-symbols-outlined text-primary text-sm">neurology</span>
-                        </div>
-                      )}
-                      <div className={`max-w-[75%] px-4 py-2.5 text-sm leading-relaxed ${
-                        msg.role === 'user'
-                          ? 'bg-primary text-white rounded-2xl rounded-br-sm'
-                          : 'bg-background-dark/80 border border-surface-border text-gray-300 rounded-2xl rounded-bl-sm'
-                      }`}>
-                        {msg.content}
-                      </div>
+                    <div className="flex flex-wrap gap-2 pl-11">
+                      {[
+                        lang === 'es' ? 'Analiza un documento legal' : 'Analyze a legal document',
+                        lang === 'es' ? '¿Qué servicios ofrece Pro Corp?' : 'What services does Pro Corp offer?',
+                      ].map(q => (
+                        <button key={q} onClick={() => sendChat(q)} className="px-3 py-1.5 rounded-full border border-surface-border text-xs text-secondary hover:border-primary/50 hover:text-white transition-colors">
+                          {q}
+                        </button>
+                      ))}
                     </div>
-                  ))}
-                  {chatLoading && (
-                    <div className="flex justify-start">
-                      <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center mr-2 shrink-0">
-                        <span className="material-symbols-outlined text-primary text-sm">neurology</span>
-                      </div>
-                      <div className="bg-background-dark/80 border border-surface-border px-4 py-3 rounded-2xl rounded-bl-sm flex items-center gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                        <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                        <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                      </div>
+                  </div>
+                )}
+                {chatMsgs.map((msg, i) => (
+                  <div key={i} className={`flex items-start gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+                    <div className={`size-8 rounded-lg flex items-center justify-center shrink-0 ${msg.role === 'user' ? 'bg-surface-border' : 'bg-primary/20'}`}>
+                      <span className={`material-symbols-outlined text-sm ${msg.role === 'user' ? 'text-secondary' : 'text-primary'}`}>
+                        {msg.role === 'user' ? 'person' : 'smart_toy'}
+                      </span>
                     </div>
-                  )}
-                </div>
+                    <div className={`max-w-[80%] p-3 rounded-lg text-xs leading-relaxed ${
+                      msg.role === 'user'
+                        ? 'bg-primary/10 border border-primary/20 text-white rounded-tr-none'
+                        : 'bg-background-dark border border-surface-border text-secondary rounded-tl-none'
+                    }`}>
+                      {msg.content}
+                    </div>
+                  </div>
+                ))}
+                {chatLoading && (
+                  <div className="flex items-start gap-3">
+                    <div className="size-8 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-primary text-sm">smart_toy</span>
+                    </div>
+                    <div className="bg-background-dark border border-surface-border p-3 rounded-lg rounded-tl-none flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                      <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                      <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Input */}
-              <form onSubmit={(e) => { e.preventDefault(); sendChat(chatInput); }} className="px-5 py-3 border-t border-surface-border bg-background-dark/50">
-                <div className="flex items-center gap-3 bg-[#130b0c] border border-surface-border rounded-xl px-4 py-2 focus-within:border-primary/50 transition-colors">
-                  <input
-                    type="text"
-                    value={chatInput}
-                    onChange={e => setChatInput(e.target.value)}
-                    onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(chatInput); } }}
-                    placeholder={lang === 'es' ? 'Escribe a LIA...' : 'Message LIA...'}
-                    className="flex-1 bg-transparent text-sm text-white placeholder:text-gray-600 outline-none"
-                  />
-                  <button
-                    type="submit"
-                    disabled={!chatInput.trim() || chatLoading}
-                    className="w-8 h-8 rounded-lg bg-primary hover:bg-primary-light flex items-center justify-center transition-colors disabled:opacity-20 disabled:cursor-not-allowed shadow-[0_0_10px_rgba(206,16,38,0.3)]"
-                  >
-                    <span className="material-symbols-outlined text-white text-sm">arrow_upward</span>
-                  </button>
-                </div>
+              <form onSubmit={(e) => { e.preventDefault(); sendChat(chatInput); }} className="px-6 py-4 border-t border-surface-border relative">
+                <input
+                  type="text"
+                  value={chatInput}
+                  onChange={e => setChatInput(e.target.value)}
+                  onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(chatInput); } }}
+                  placeholder={lang === 'es' ? 'Escribe un mensaje...' : 'Type a message...'}
+                  className="w-full bg-background-dark border border-surface-border rounded-lg py-3 px-4 text-sm text-white focus:outline-none focus:border-primary transition-colors"
+                />
+                <button type="submit" disabled={!chatInput.trim() || chatLoading} className="absolute right-8 top-1/2 -translate-y-1/2 text-primary disabled:opacity-20">
+                  <span className="material-symbols-outlined">send</span>
+                </button>
               </form>
             </div>
 
             {/* Side Stats */}
-            <div className="lg:col-span-4 flex flex-col gap-6">
-              <div className="bg-surface-dark border border-surface-border rounded-2xl p-6 shadow-xl hover:border-primary/30 transition-all">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <span className="material-symbols-outlined text-primary">speed</span>
-                  </div>
-                  <span className="text-xs font-mono text-green-400 flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[14px]">arrow_upward</span> 45% vs LY
-                  </span>
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <div className="bg-surface-dark border border-surface-border rounded-2xl p-8 shadow-xl text-center">
+                <p className="text-xs text-secondary uppercase font-bold tracking-widest mb-1">{t('home.lia.docs')}</p>
+                <h3 className="text-5xl font-extrabold text-white mb-6">15,000+</h3>
+                <p className="text-xs text-secondary uppercase font-bold tracking-widest mb-1">{t('home.lia.precision')}</p>
+                <h3 className="text-3xl font-bold text-primary mb-1">98%</h3>
+                <div className="w-full bg-surface-border h-1.5 rounded-full overflow-hidden mb-8">
+                  <div className="bg-primary h-full w-[98%] shadow-[0_0_10px_#CE1026]"></div>
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-1">2.4x</h3>
-                <p className="text-sm text-secondary uppercase font-semibold">{t('home.bpa.acceleration')}</p>
-                <div className="w-full bg-surface-border h-1 mt-4 rounded-full overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-primary-light h-full w-[85%]"></div>
-                </div>
-              </div>
-              <div className="bg-surface-dark border border-surface-border rounded-2xl p-6 shadow-xl hover:border-primary/30 transition-all">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <span className="material-symbols-outlined text-primary">inventory_2</span>
-                  </div>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-1">850k+</h3>
-                <p className="text-sm text-secondary uppercase font-semibold">{t('home.bpa.assets')}</p>
-                <div className="flex gap-1 mt-4 h-8 items-end opacity-80">
-                  <div className="w-1/5 bg-primary/20 h-[30%] rounded-t-sm"></div>
-                  <div className="w-1/5 bg-primary/40 h-[50%] rounded-t-sm"></div>
-                  <div className="w-1/5 bg-primary/60 h-[40%] rounded-t-sm"></div>
-                  <div className="w-1/5 bg-primary/80 h-[80%] rounded-t-sm"></div>
-                  <div className="w-1/5 bg-primary h-[95%] rounded-t-sm animate-pulse"></div>
+                <p className="text-xs text-secondary uppercase font-bold tracking-widest mb-1">{t('home.lia.time')}</p>
+                <h3 className="text-3xl font-bold text-primary mb-2">450 hrs</h3>
+                <div className="flex gap-1 items-end h-10 justify-center">
+                  <div className="w-2 bg-primary/20 h-4"></div>
+                  <div className="w-2 bg-primary/40 h-6"></div>
+                  <div className="w-2 bg-primary/60 h-8"></div>
+                  <div className="w-2 bg-primary/80 h-5"></div>
+                  <div className="w-2 bg-primary h-9"></div>
                 </div>
               </div>
-              <div className="bg-surface-dark border border-surface-border rounded-2xl p-6 shadow-xl hover:border-primary/30 transition-all flex items-center justify-between">
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-1">99.9%</h3>
-                  <p className="text-sm text-secondary uppercase font-semibold">{t('home.bpa.uptime')}</p>
-                </div>
-                <div className="relative size-12">
-                  <svg className="size-full -rotate-90" viewBox="0 0 36 36">
-                    <path className="text-surface-border" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="4"></path>
-                    <path className="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeDasharray="99.9, 100" strokeWidth="4"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Banner */}
-            <div className="lg:col-span-12 flex flex-col md:flex-row gap-6 items-center justify-between bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 rounded-2xl p-8 mt-4">
-              <div className="flex items-center gap-4">
-                <div className="size-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <span className="material-symbols-outlined text-primary">auto_mode</span>
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-white uppercase">{t('home.bpa.transform')}</h4>
-                  <p className="text-sm text-secondary">{t('home.bpa.transform.desc')}</p>
-                </div>
-              </div>
-              <Link href="/contact" className="w-full md:w-auto bg-primary hover:bg-primary-light text-white font-bold py-3 px-8 rounded-xl shadow-[0_0_20px_rgba(206,16,38,0.4)] hover:shadow-[0_0_30px_rgba(206,16,38,0.6)] transition-all transform hover:-translate-y-1 text-sm uppercase tracking-wide flex items-center justify-center gap-2">
-                <span>{t('home.bpa.demo')}</span>
-                <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              <Link href="/contact" className="w-full bg-primary hover:bg-primary-light text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(206,16,38,0.4)] transition-all uppercase tracking-widest text-sm text-center">
+                {t('home.lia.demo')}
               </Link>
             </div>
           </div>
