@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1a0d0e;
+  --background: #000000;
   --foreground: #ffffff;
 
   /* PRO CORP Brand Colors 2026-2028 */
@@ -10,12 +10,12 @@
   --primary-light: #E04555;
   --secondary: #8F9295;
   --background-light: #f8f6f6;
-  --background-dark: #1a0d0e;
-  --surface-dark: #241213;
-  --surface-darker: #140a0b;
-  --surface-border: #472428;
-  --neutral-dark: #1a0a0b;
-  --neutral-gray: #4a3c3d;
+  --background-dark: #000000;
+  --surface-dark: #0a0a0a;
+  --surface-darker: #050505;
+  --surface-border: #1a1a1a;
+  --neutral-dark: #000000;
+  --neutral-gray: #2a2a2a;
 }
 
 @theme inline {
@@ -55,15 +55,15 @@ h6 {
 
 /* Form Input Custom - Contact Page */
 .form-input-custom {
-  background-color: #221113;
-  border: 1px solid #472428;
+  background-color: #0a0a0a;
+  border: 1px solid #1a1a1a;
   color: #ffffff;
   transition: all 0.2s ease-in-out;
 }
 
 .form-input-custom:focus {
   border-color: #CE1026;
-  background-color: #221113;
+  background-color: #0a0a0a;
   outline: none;
   box-shadow: 0 0 0 1px #CE1026;
 }
@@ -78,7 +78,7 @@ h6 {
 
 /* Tech dot background */
 .tech-bg {
-  background-color: #221113;
+  background-color: #0a0a0a;
   background-image: radial-gradient(circle at 1px 1px, rgba(206, 16, 38, 0.15) 1px, transparent 0);
   background-size: 40px 40px;
 }

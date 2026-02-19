@@ -14,7 +14,7 @@ export default function Projects() {
   ];
 
   return (
-    <main className="flex-grow flex flex-col relative tech-grid-bg min-h-screen bg-[#1a0f10] text-white">
+    <main className="flex-grow flex flex-col relative tech-grid-bg min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="relative px-6 py-16 md:px-10 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -48,7 +48,7 @@ export default function Projects() {
 
           {/* Dashboard Card */}
           <div className="flex-1 w-full lg:h-auto min-h-[300px] relative flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-[#2a1517] to-[#140a0b] rounded-2xl border border-[#472427] p-1 shadow-2xl">
+            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-[#111] to-black rounded-2xl border border-[#1a1a1a] p-1 shadow-2xl">
               <div className="relative z-10 w-full h-full flex flex-col justify-between p-6">
                 <div className="flex justify-between items-start">
                   <div className="bg-primary/20 p-2 rounded-lg border border-primary/30 backdrop-blur-sm">
@@ -97,7 +97,7 @@ export default function Projects() {
       </section>
 
       {/* Services Grid */}
-      <section className="px-6 py-12 md:px-10 bg-[#2a1517]/50 border-t border-[#472427]">
+      <section className="px-6 py-12 md:px-10 bg-[#0a0a0a]/50 border-t border-[#1a1a1a]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
@@ -110,7 +110,7 @@ export default function Projects() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div key={service.title} className="group relative bg-[#2a1517] border border-[#472427] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
+              <div key={service.title} className="group relative bg-[#0a0a0a] border border-[#1a1a1a] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
                 <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                   <span className="material-symbols-outlined text-6xl text-white">{service.icon}</span>
                 </div>
@@ -127,7 +127,7 @@ export default function Projects() {
               </div>
             ))}
             {/* Wide card */}
-            <div className="group relative bg-[#2a1517] border border-[#472427] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full lg:col-span-2">
+            <div className="group relative bg-[#0a0a0a] border border-[#1a1a1a] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full lg:col-span-2">
               <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                 <span className="material-symbols-outlined text-6xl text-white">trending_up</span>
               </div>
@@ -150,8 +150,8 @@ export default function Projects() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#2a1517] z-0">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a0f10] via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[#0a0a0a] z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
         </div>
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-wider mb-6">
@@ -164,7 +164,7 @@ export default function Projects() {
             {t('proj.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white hover:bg-gray-100 text-[#1a0f10] text-base font-bold transition-all transform hover:scale-105">
+            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white hover:bg-gray-100 text-black text-base font-bold transition-all transform hover:scale-105">
               <span>{t('proj.cta.button')}</span>
             </Link>
           </div>

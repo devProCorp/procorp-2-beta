@@ -8,7 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 const Footer = () => {
     const { t } = useLanguage();
     return (
-        <footer className="bg-[#0f0708] border-t border-surface-border text-secondary py-12 px-4 md:px-10">
+        <footer className="bg-black border-t border-surface-border text-secondary py-12 px-4 md:px-10">
             <div className="max-w-[1440px] mx-auto w-full">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
                     <div className="col-span-1 md:col-span-1">

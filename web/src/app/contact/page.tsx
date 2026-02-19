@@ -34,7 +34,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-[#472427] bg-[#2c181a]/50 backdrop-blur-sm p-8 shadow-xl">
+            <div className="rounded-2xl border border-[#1a1a1a] bg-[#0a0a0a]/50 backdrop-blur-sm p-8 shadow-xl">
               <form className="flex flex-col gap-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
@@ -43,7 +43,7 @@ export default function Contact() {
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">person</span>
                       </div>
-                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.name.ph')} type="text" />
+                      <input className="w-full rounded-lg border border-[#1a1a1a] bg-[#0a0a0a] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.name.ph')} type="text" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
@@ -52,7 +52,7 @@ export default function Contact() {
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">domain</span>
                       </div>
-                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.org.ph')} type="text" />
+                      <input className="w-full rounded-lg border border-[#1a1a1a] bg-[#0a0a0a] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.org.ph')} type="text" />
                     </div>
                   </div>
                 </div>
@@ -64,7 +64,7 @@ export default function Contact() {
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">alternate_email</span>
                       </div>
-                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.email.ph')} type="email" />
+                      <input className="w-full rounded-lg border border-[#1a1a1a] bg-[#0a0a0a] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.email.ph')} type="email" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
@@ -73,7 +73,7 @@ export default function Contact() {
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">phone_iphone</span>
                       </div>
-                      <input className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.phone.ph')} type="tel" />
+                      <input className="w-full rounded-lg border border-[#1a1a1a] bg-[#0a0a0a] pl-10 py-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none" placeholder={t('contact.phone.ph')} type="tel" />
                     </div>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export default function Contact() {
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
                       <span className="material-symbols-outlined text-[20px]">settings_suggest</span>
                     </div>
-                    <select className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer outline-none" defaultValue="">
+                    <select className="w-full rounded-lg border border-[#1a1a1a] bg-[#0a0a0a] pl-10 py-3 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer outline-none" defaultValue="">
                       <option disabled value="">{t('contact.area.ph')}</option>
                       <option value="bpa">{t('contact.area.1')}</option>
                       <option value="governance">{t('contact.area.2')}</option>
@@ -104,7 +104,7 @@ export default function Contact() {
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#8F9295] group-focus-within:text-primary transition-colors">
                       <span className="material-symbols-outlined text-[20px]">bar_chart</span>
                     </div>
-                    <select className="w-full rounded-lg border border-[#472427] bg-[#221113] pl-10 py-3 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer outline-none" defaultValue="">
+                    <select className="w-full rounded-lg border border-[#1a1a1a] bg-[#0a0a0a] pl-10 py-3 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer outline-none" defaultValue="">
                       <option disabled value="">{t('contact.level.ph')}</option>
                       <option value="initial">{t('contact.level.1')}</option>
                       <option value="developing">{t('contact.level.2')}</option>
@@ -119,12 +119,12 @@ export default function Contact() {
 
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-medium text-[#8F9295]">{t('contact.details')}</label>
-                  <textarea className="w-full rounded-lg border border-[#472427] bg-[#221113] p-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none outline-none" placeholder={t('contact.details.ph')} rows={4}></textarea>
+                  <textarea className="w-full rounded-lg border border-[#1a1a1a] bg-[#0a0a0a] p-3 text-sm text-white placeholder-gray-600 focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none outline-none" placeholder={t('contact.details.ph')} rows={4}></textarea>
                 </div>
 
                 <div className="flex flex-col gap-6 mt-2">
                   <label className="flex items-start gap-3 cursor-pointer group">
-                    <input className="mt-1 h-4 w-4 rounded border-gray-600 bg-[#221113] text-primary focus:ring-primary transition-all" type="checkbox" />
+                    <input className="mt-1 h-4 w-4 rounded border-gray-600 bg-[#0a0a0a] text-primary focus:ring-primary transition-all" type="checkbox" />
                     <span className="text-xs text-[#8F9295] leading-relaxed group-hover:text-gray-300 transition-colors">
                       {t('contact.privacy')} <a className="text-primary hover:underline hover:text-red-400" href="#">{t('contact.privacy.link')}</a>. {t('contact.privacy.auth')}
                     </span>
@@ -142,7 +142,7 @@ export default function Contact() {
           <div className="lg:col-span-5 flex flex-col gap-8">
             <div className="flex flex-col gap-4">
               {infoCards.map((card) => (
-                <div key={card.title} className="group flex items-start gap-4 rounded-xl border border-[#472427] bg-[#2c181a] p-6 transition-all hover:border-primary/50 hover:bg-[#361e21]">
+                <div key={card.title} className="group flex items-start gap-4 rounded-xl border border-[#1a1a1a] bg-[#0a0a0a] p-6 transition-all hover:border-primary/50 hover:bg-[#111]">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                     <span className="material-symbols-outlined">{card.icon}</span>
                   </div>
@@ -158,9 +158,9 @@ export default function Contact() {
             </div>
 
             {/* Map placeholder */}
-            <div className="relative w-full h-64 rounded-xl overflow-hidden border border-[#472427] group">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#211112]/80 to-transparent z-10 pointer-events-none"></div>
-              <div className="w-full h-full bg-gradient-to-br from-[#2c181a] to-[#1a0d0e] opacity-60"></div>
+            <div className="relative w-full h-64 rounded-xl overflow-hidden border border-[#1a1a1a] group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none"></div>
+              <div className="w-full h-full bg-gradient-to-br from-[#0a0a0a] to-black opacity-60"></div>
               <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
                 <div className="h-2 w-2 rounded-full bg-primary animate-ping"></div>
                 <div className="h-2 w-2 rounded-full bg-primary absolute"></div>

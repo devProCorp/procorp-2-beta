@@ -33,8 +33,8 @@ export default function About() {
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-40">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a0d0e] via-transparent to-[#1a0d0e] z-10"></div>
-          <div className="w-full h-full bg-[#2a1517]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
+          <div className="w-full h-full bg-[#0a0a0a]"></div>
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col gap-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider w-fit mx-auto">
@@ -52,7 +52,7 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 px-6 bg-[#1f1010]">
+      <section className="py-20 px-6 bg-black">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-6">
@@ -74,9 +74,9 @@ export default function About() {
                 ))}
               </div>
             </div>
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/50 border border-[#472427] group">
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a0d0e]/90 to-transparent z-10"></div>
-              <div className="w-full h-full bg-gradient-to-br from-[#2a1517] to-[#1a0d0e]"></div>
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/50 border border-[#1a1a1a] group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+              <div className="w-full h-full bg-gradient-to-br from-[#0a0a0a] to-black"></div>
               <div className="absolute bottom-6 left-6 right-6 z-20">
                 <p className="text-primary font-bold uppercase text-xs tracking-wider mb-2">{t('about.team.label')}</p>
                 <h3 className="text-2xl font-bold text-white">{t('about.team.title')}</h3>
@@ -87,7 +87,7 @@ export default function About() {
       </section>
 
       {/* Methodology */}
-      <section className="py-24 px-6 bg-[#1a0d0e] relative overflow-hidden">
+      <section className="py-24 px-6 bg-black relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
         <div className="max-w-[1280px] mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -96,12 +96,12 @@ export default function About() {
             <p className="mt-4 text-gray-400 max-w-2xl mx-auto">{t('about.method.desc')}</p>
           </div>
           <div className="relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-[#2a1517] via-primary to-[#2a1517] -translate-y-1/2 z-0"></div>
+            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-[#0a0a0a] via-primary to-[#0a0a0a] -translate-y-1/2 z-0"></div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4 relative z-10">
               {steps.map((s) => (
                 <div key={s.num} className="group relative">
-                  <div className="h-full bg-[#2a1517] border border-[#472427] hover:border-primary/50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(206,16,38,0.15)] flex flex-col items-center text-center gap-4">
-                    <div className="size-12 rounded-full bg-[#1a0d0e] border border-primary text-primary flex items-center justify-center font-bold text-xl mb-2 group-hover:bg-primary group-hover:text-white transition-colors">{s.num}</div>
+                  <div className="h-full bg-[#0a0a0a] border border-[#1a1a1a] hover:border-primary/50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(206,16,38,0.15)] flex flex-col items-center text-center gap-4">
+                    <div className="size-12 rounded-full bg-black border border-primary text-primary flex items-center justify-center font-bold text-xl mb-2 group-hover:bg-primary group-hover:text-white transition-colors">{s.num}</div>
                     <div className="text-primary mb-1">
                       <span className="material-symbols-outlined !text-4xl">{s.icon}</span>
                     </div>
@@ -112,7 +112,7 @@ export default function About() {
               ))}
               {/* Step 7 - highlighted */}
               <div className="group relative">
-                <div className="h-full bg-gradient-to-br from-[#2a1517] to-primary/20 border border-primary rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(206,16,38,0.3)] flex flex-col items-center text-center gap-4">
+                <div className="h-full bg-gradient-to-br from-[#0a0a0a] to-primary/20 border border-primary rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(206,16,38,0.3)] flex flex-col items-center text-center gap-4">
                   <div className="size-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mb-2 shadow-lg shadow-primary/40">7</div>
                   <div className="text-white mb-1">
                     <span className="material-symbols-outlined !text-4xl">smart_toy</span>
@@ -127,8 +127,8 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="border-y border-[#472427] bg-[#1f1010]">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#472427]">
+      <section className="border-y border-[#1a1a1a] bg-black">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1a1a1a]">
           {stats.map((s) => (
             <div key={s.label} className="p-8 text-center">
               <div className="text-4xl font-black text-white mb-1">{s.value}</div>
@@ -140,7 +140,7 @@ export default function About() {
 
       {/* CTA */}
       <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#2a1517] to-[#1a0d0e] border border-[#472427] rounded-2xl p-12 text-center shadow-2xl relative overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#0a0a0a] to-black border border-[#1a1a1a] rounded-2xl p-12 text-center shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 relative z-10">{t('about.cta.title')}</h2>
           <p className="text-gray-400 mb-8 max-w-xl mx-auto relative z-10">
@@ -150,7 +150,7 @@ export default function About() {
             <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-primary hover:bg-[#9E0C1D] text-white text-base font-bold tracking-wide transition-all shadow-lg shadow-primary/25">
               {t('about.cta.btn1')}
             </Link>
-            <Link href="/projects" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border border-[#472427] hover:border-primary text-white text-base font-bold transition-all hover:bg-[#2a1517]">
+            <Link href="/projects" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border border-[#1a1a1a] hover:border-primary text-white text-base font-bold transition-all hover:bg-[#0a0a0a]">
               {t('about.cta.btn2')}
             </Link>
           </div>

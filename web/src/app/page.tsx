@@ -349,7 +349,7 @@ export default function Home() {
       </section>
 
       {/* Ecosystem Section */}
-      <section className="py-20 px-4 md:px-10 bg-[#150a0b] border-y border-surface-border relative overflow-hidden">
+      <section className="py-20 px-4 md:px-10 bg-black border-y border-surface-border relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#CE1026 1px, transparent 1px), linear-gradient(90deg, #CE1026 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
         <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="flex flex-col gap-8">

@@ -39,14 +39,14 @@ export default function Studio() {
   const phaseTabs = [t('studio.road.1'), t('studio.road.2'), t('studio.road.3')];
 
   return (
-    <main className="min-h-screen bg-[#1a1a1a] text-white flex flex-col overflow-x-hidden">
+    <main className="min-h-screen bg-black text-white flex flex-col overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative px-6 py-16 md:px-10 lg:px-40 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'linear-gradient(to right, #333333 1px, transparent 1px), linear-gradient(to bottom, #333333 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
         <div className="max-w-[1400px] mx-auto w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col gap-8">
-              <div className="inline-flex items-center gap-3 pl-1 pr-4 py-1 rounded-full bg-[#262626] border border-gray-700 w-fit">
+              <div className="inline-flex items-center gap-3 pl-1 pr-4 py-1 rounded-full bg-[#0a0a0a] border border-gray-700 w-fit">
                 <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-[10px] font-bold">4.0</span>
                 <span className="text-xs font-bold text-gray-300 uppercase tracking-widest">{t('studio.badge2')}</span>
               </div>
@@ -71,13 +71,13 @@ export default function Studio() {
 
             {/* Dashboard Mockup */}
             <div className="relative w-full aspect-square lg:aspect-[5/4]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#222] to-[#1a1a1a] rounded-xl shadow-2xl border border-gray-800 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#222] to-black rounded-xl shadow-2xl border border-gray-800 overflow-hidden">
                 <svg className="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none" viewBox="0 0 100 100">
                   <path d="M0 100 L100 0" stroke="#CE1026" strokeDasharray="2 2" strokeWidth="0.5"></path>
                   <path d="M20 100 L100 20" stroke="#CE1026" strokeDasharray="2 2" strokeWidth="0.5"></path>
                   <path d="M0 80 L80 0" stroke="#CE1026" strokeDasharray="2 2" strokeWidth="0.5"></path>
                 </svg>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 bg-[#1a1a1a] rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-700 p-8 z-20">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 bg-black rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-700 p-8 z-20">
                   <div className="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
@@ -113,7 +113,7 @@ export default function Studio() {
       </section>
 
       {/* BPA Comparison */}
-      <section className="bg-[#111111] py-24 px-6 md:px-10 lg:px-40 border-y border-gray-800">
+      <section className="bg-black py-24 px-6 md:px-10 lg:px-40 border-y border-gray-800">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">{t('studio.bpa.label')}</span>
@@ -124,12 +124,12 @@ export default function Studio() {
           </div>
           <div className="grid md:grid-cols-2 gap-12 relative">
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-800 -translate-x-1/2"></div>
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#111111] border-2 border-gray-700 items-center justify-center text-gray-400 z-10">
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black border-2 border-gray-700 items-center justify-center text-gray-400 z-10">
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </div>
 
             {/* Today */}
-            <div className="flex flex-col gap-8 p-10 rounded bg-[#1a1a1a] shadow-sm border border-gray-800 hover:shadow-lg transition-shadow">
+            <div className="flex flex-col gap-8 p-10 rounded bg-black shadow-sm border border-gray-800 hover:shadow-lg transition-shadow">
               <div className="flex items-center gap-4 border-b border-gray-800 pb-6">
                 <div className="p-3 rounded bg-gray-800 text-gray-500">
                   <span className="material-symbols-outlined">history</span>
@@ -153,7 +153,7 @@ export default function Studio() {
             </div>
 
             {/* Tomorrow */}
-            <div className="flex flex-col gap-8 p-10 rounded bg-[#1a1a1a] shadow-2xl shadow-primary/10 border-2 border-primary relative overflow-hidden">
+            <div className="flex flex-col gap-8 p-10 rounded bg-black shadow-2xl shadow-primary/10 border-2 border-primary relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full z-0"></div>
               <div className="flex items-center gap-4 border-b border-gray-800 pb-6 relative z-10">
                 <div className="p-3 rounded bg-primary text-white shadow-lg shadow-primary/30">
@@ -181,11 +181,11 @@ export default function Studio() {
       </section>
 
       {/* Automation Simulator */}
-      <section className="py-24 px-6 md:px-10 lg:px-40 bg-[#1a1a1a]">
+      <section className="py-24 px-6 md:px-10 lg:px-40 bg-black">
         <div className="max-w-[1200px] mx-auto">
-          <div className="bg-[#262626] rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+          <div className="bg-[#0a0a0a] rounded-xl overflow-hidden shadow-2xl border border-gray-800">
             <div className="grid lg:grid-cols-12 gap-0">
-              <div className="lg:col-span-7 p-10 md:p-14 bg-[#1a1a1a]">
+              <div className="lg:col-span-7 p-10 md:p-14 bg-black">
                 <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
                   <span className="material-symbols-outlined text-primary">tune</span>
                   {t('studio.sim.title')}
@@ -244,7 +244,7 @@ export default function Studio() {
       </section>
 
       {/* Roadmap */}
-      <section className="bg-[#111111] border-t border-gray-800 py-24 px-6 md:px-10 lg:px-40">
+      <section className="bg-black border-t border-gray-800 py-24 px-6 md:px-10 lg:px-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
@@ -253,7 +253,7 @@ export default function Studio() {
             </div>
             <div className="flex gap-4">
               {phaseTabs.map((phase) => (
-                <span key={phase} className="px-4 py-2 rounded bg-[#222] border border-gray-700 text-white text-xs font-bold shadow-sm">{phase}</span>
+                <span key={phase} className="px-4 py-2 rounded bg-[#0a0a0a] border border-gray-700 text-white text-xs font-bold shadow-sm">{phase}</span>
               ))}
             </div>
           </div>
@@ -261,7 +261,7 @@ export default function Studio() {
             {roadmapSteps.map((step) => (
               <div key={step.num} className="group">
                 <div className="mb-6 flex items-center gap-4">
-                  <span className={`flex items-center justify-center w-12 h-12 rounded font-bold text-xl shadow-lg ${step.active ? 'bg-primary text-white shadow-primary/30' : 'bg-[#222] border-2 border-gray-700 text-gray-400 group-hover:border-primary group-hover:text-primary transition-all'}`}>{step.num}</span>
+                  <span className={`flex items-center justify-center w-12 h-12 rounded font-bold text-xl shadow-lg ${step.active ? 'bg-primary text-white shadow-primary/30' : 'bg-[#0a0a0a] border-2 border-gray-700 text-gray-400 group-hover:border-primary group-hover:text-primary transition-all'}`}>{step.num}</span>
                   <div className="h-px bg-gray-700 flex-1 group-hover:bg-primary transition-colors"></div>
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">{step.title}</h4>
@@ -278,7 +278,7 @@ export default function Studio() {
       </section>
 
       {/* Investment Portfolio */}
-      <section className="py-24 px-6 md:px-10 lg:px-40 bg-[#1a1a1a] relative overflow-hidden">
+      <section className="py-24 px-6 md:px-10 lg:px-40 bg-black relative overflow-hidden">
         <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
         <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
         <div className="max-w-[1200px] mx-auto relative z-10">
@@ -323,14 +323,14 @@ export default function Studio() {
               { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), accent: 'orange' },
               { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), accent: 'primary' },
             ].map((sector, i) => (
-              <div key={i} className="group relative bg-[#222] rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+              <div key={i} className="group relative bg-[#0a0a0a] rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 p-8 flex flex-col h-full">
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] border border-gray-700 flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
+                    <div className="w-14 h-14 rounded-xl bg-black border border-gray-700 flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
                       <span className="material-symbols-outlined text-primary text-2xl">{sector.icon}</span>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-[#1a1a1a] border border-gray-700 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-black border border-gray-700 px-2.5 py-1 rounded-full">
                       {sector.tag}
                     </span>
                   </div>
@@ -371,7 +371,7 @@ export default function Studio() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-6 md:px-10 lg:px-40 relative overflow-hidden bg-[#1a1a1a]">
+      <section className="py-24 px-6 md:px-10 lg:px-40 relative overflow-hidden bg-black">
         <div className="max-w-[800px] mx-auto text-center relative z-10">
           <div className="inline-block p-4 rounded-full bg-red-900/20 mb-6">
             <span className="material-symbols-outlined text-4xl text-primary">bolt</span>
