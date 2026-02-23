@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
 type Language = 'en' | 'es';
 
@@ -623,7 +623,7 @@ const translations: Record<string, Record<Language, string>> = {
     'contact.email': { en: 'Corporate Email', es: 'Correo Corporativo' },
     'contact.email.ph': { en: 'name@company.com', es: 'nombre@empresa.com' },
     'contact.phone': { en: 'Contact Phone', es: 'Teléfono de Contacto' },
-    'contact.phone.ph': { en: '+34 000 000 000', es: '+34 000 000 000' },
+    'contact.phone.ph': { en: '+57 300 000 0000', es: '+57 300 000 0000' },
     'contact.area': { en: 'Area of Interest (BPA)', es: 'Área de Interés (BPA)' },
     'contact.area.ph': { en: 'Select the required service', es: 'Seleccione el servicio requerido' },
     'contact.area.1': { en: 'Process Automation (BPA)', es: 'Automatización de Procesos (BPA)' },
@@ -643,19 +643,37 @@ const translations: Record<string, Record<Language, string>> = {
     'contact.privacy.link': { en: 'Privacy Policy', es: 'Política de Privacidad' },
     'contact.privacy.auth': { en: '. I authorize the analysis of my data for technology architecture proposals.', es: '. Autorizo el análisis de mis datos para propuestas de arquitectura tecnológica.' },
     'contact.submit': { en: 'Request BPA Evaluation', es: 'Solicitar Evaluación BPA' },
-    'contact.info1.title': { en: 'Innovation Center', es: 'Centro de Innovación' },
-    'contact.info1.line1': { en: 'Technology District 22@', es: 'Distrito Tecnológico 22@' },
-    'contact.info1.line2': { en: '08018 Barcelona, Spain', es: '08018 Barcelona, España' },
-    'contact.info2.title': { en: 'Technical Support', es: 'Soporte Técnico' },
-    'contact.info2.link': { en: 'Open support ticket', es: 'Abrir ticket de soporte' },
-    'contact.info3.title': { en: 'BPA Consulting', es: 'Consultoría BPA' },
-    'contact.info3.line2': { en: 'Consulting Hours: 09:00 - 18:00 CET', es: 'Horario de Consultoría: 09:00 - 18:00 CET' },
-    'contact.map': { en: 'Tech Hub - Operational', es: 'Tech Hub - Operativo' },
+    'contact.info1.title': { en: 'Bogotá — Headquarters', es: 'Bogotá — Sede Principal' },
+    'contact.info1.line1': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B' },
+    'contact.info1.line2': { en: 'Centro Empresarial Acces, Bogotá', es: 'Centro Empresarial Acces, Bogotá' },
+    'contact.info2.title': { en: 'Madrid — Office', es: 'Madrid — Oficina' },
+    'contact.info2.line1': { en: 'Calle Jorge Juan 30, Floor 1', es: 'Calle Jorge Juan 30, Piso 1' },
+    'contact.info2.line2': { en: '28001 Barrio Salamanca, Madrid', es: '28001 Barrio Salamanca, Madrid' },
+    'contact.info2.link': { en: 'View on map', es: 'Ver en mapa' },
+    'contact.info3.title': { en: 'Direct Contact', es: 'Contacto Directo' },
+    'contact.info3.line1': { en: 'extranjeria@pro-corp.net', es: 'extranjeria@pro-corp.net' },
+    'contact.info3.line2': { en: '+57 300 929 2911 · +34 665 325 994', es: '+57 300 929 2911 · +34 665 325 994' },
+    'contact.info3.link': { en: 'Chat on WhatsApp', es: 'Chatear por WhatsApp' },
+    'contact.map': { en: 'Headquarters — Operational', es: 'Sede Principal — Operativa' },
+    'footer.location': { en: 'Headquarters', es: 'Sede Central' },
+    'footer.location.address': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B' },
+    'footer.location.city': { en: 'Centro Empresarial Acces — Bogotá, Colombia', es: 'Centro Empresarial Acces — Bogotá, Colombia' },
+    'footer.location.cta': { en: 'Get Directions', es: 'Cómo Llegar' },
 };
 
 // ─── PROVIDER ───────────────────────────────────────────────────
+function detectLanguage(): Language {
+    if (typeof window === 'undefined') return 'en';
+    const browserLang = navigator.language || navigator.languages?.[0] || 'en';
+    return browserLang.startsWith('es') ? 'es' : 'en';
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const [lang, setLang] = useState<Language>('en');
+
+    useEffect(() => {
+        setLang(detectLanguage());
+    }, []);
 
     const toggleLang = useCallback(() => {
         setLang(prev => prev === 'en' ? 'es' : 'en');

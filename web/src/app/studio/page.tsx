@@ -39,7 +39,7 @@ export default function Studio() {
   const phaseTabs = [t('studio.road.1'), t('studio.road.2'), t('studio.road.3')];
 
   return (
-    <main className="min-h-screen bg-black text-white flex flex-col overflow-x-hidden">
+    <main className="min-h-screen bg-transparent text-white flex flex-col overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative px-6 py-16 md:px-10 lg:px-40 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'linear-gradient(to right, #333333 1px, transparent 1px), linear-gradient(to bottom, #333333 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
@@ -113,7 +113,7 @@ export default function Studio() {
       </section>
 
       {/* BPA Comparison */}
-      <section className="bg-black py-24 px-6 md:px-10 lg:px-40 border-y border-gray-800">
+      <section className="bg-transparent py-24 px-6 md:px-10 lg:px-40 border-y border-gray-800">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">{t('studio.bpa.label')}</span>
@@ -181,11 +181,11 @@ export default function Studio() {
       </section>
 
       {/* Automation Simulator */}
-      <section className="py-24 px-6 md:px-10 lg:px-40 bg-black">
+      <section className="py-24 px-6 md:px-10 lg:px-40 bg-transparent">
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-[#0a0a0a] rounded-xl overflow-hidden shadow-2xl border border-gray-800">
             <div className="grid lg:grid-cols-12 gap-0">
-              <div className="lg:col-span-7 p-10 md:p-14 bg-black">
+              <div className="lg:col-span-7 p-10 md:p-14 bg-surface-dark">
                 <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
                   <span className="material-symbols-outlined text-primary">tune</span>
                   {t('studio.sim.title')}
@@ -244,7 +244,7 @@ export default function Studio() {
       </section>
 
       {/* Roadmap */}
-      <section className="bg-black border-t border-gray-800 py-24 px-6 md:px-10 lg:px-40">
+      <section className="bg-transparent border-t border-gray-800 py-24 px-6 md:px-10 lg:px-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
@@ -278,7 +278,7 @@ export default function Studio() {
       </section>
 
       {/* Investment Portfolio */}
-      <section className="py-24 px-6 md:px-10 lg:px-40 bg-black relative overflow-hidden">
+      <section className="py-24 px-6 md:px-10 lg:px-40 bg-transparent relative overflow-hidden">
         <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
         <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
         <div className="max-w-[1200px] mx-auto relative z-10">
@@ -371,7 +371,7 @@ export default function Studio() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-6 md:px-10 lg:px-40 relative overflow-hidden bg-black">
+      <section className="py-24 px-6 md:px-10 lg:px-40 relative overflow-hidden bg-transparent">
         <div className="max-w-[800px] mx-auto text-center relative z-10">
           <div className="inline-block p-4 rounded-full bg-red-900/20 mb-6">
             <span className="material-symbols-outlined text-4xl text-primary">bolt</span>

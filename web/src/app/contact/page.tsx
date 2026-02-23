@@ -1,14 +1,17 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
+
+const FooterMap = dynamic(() => import('@/components/layout/FooterMap'), { ssr: false });
 
 export default function Contact() {
   const { t } = useLanguage();
 
   const infoCards = [
-    { icon: 'hub', title: t('contact.info1.title'), line1: t('contact.info1.line1'), line2: t('contact.info1.line2') },
-    { icon: 'mark_email_read', title: t('contact.info2.title'), line1: 'tech.support@procorp2028.com', line2: '', link: { text: t('contact.info2.link'), href: 'mailto:tech.support@procorp2028.com' } },
-    { icon: 'developer_board', title: t('contact.info3.title'), line1: '+34 930 000 999', line2: t('contact.info3.line2') },
+    { icon: 'location_city', title: t('contact.info1.title'), line1: t('contact.info1.line1'), line2: t('contact.info1.line2') },
+    { icon: 'flight', title: t('contact.info2.title'), line1: t('contact.info2.line1'), line2: t('contact.info2.line2'), link: { text: t('contact.info2.link'), href: 'https://maps.google.com/?q=Calle+Jorge+Juan+30+Madrid+Spain' } },
+    { icon: 'contact_phone', title: t('contact.info3.title'), line1: t('contact.info3.line1'), line2: t('contact.info3.line2'), link: { text: t('contact.info3.link'), href: 'https://wa.me/573115163806' } },
   ];
 
   return (
@@ -157,11 +160,10 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Map placeholder */}
+            {/* Map */}
             <div className="relative w-full h-64 rounded-xl overflow-hidden border border-[#1a1a1a] group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 pointer-events-none"></div>
-              <div className="w-full h-full bg-gradient-to-br from-[#0a0a0a] to-black opacity-60"></div>
-              <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
+              <FooterMap />
+              <div className="absolute bottom-4 left-4 z-[1000] flex items-center gap-2 pointer-events-none">
                 <div className="h-2 w-2 rounded-full bg-primary animate-ping"></div>
                 <div className="h-2 w-2 rounded-full bg-primary absolute"></div>
                 <span className="text-xs font-bold uppercase tracking-wider text-white bg-black/50 px-2 py-1 rounded backdrop-blur-sm ml-2">{t('contact.map')}</span>

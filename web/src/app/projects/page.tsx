@@ -14,7 +14,7 @@ export default function Projects() {
   ];
 
   return (
-    <main className="flex-grow flex flex-col relative tech-grid-bg min-h-screen bg-black text-white">
+    <main className="flex-grow flex flex-col relative tech-grid-bg min-h-screen bg-transparent text-white">
       {/* Hero Section */}
       <section className="relative px-6 py-16 md:px-10 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">

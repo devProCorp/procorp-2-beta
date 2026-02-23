@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
+  --background: transparent;
   --foreground: #ffffff;
 
   /* PRO CORP Brand Colors 2026-2028 */
@@ -10,11 +10,11 @@
   --primary-light: #E04555;
   --secondary: #8F9295;
   --background-light: #f8f6f6;
-  --background-dark: #000000;
+  --background-dark: transparent;
   --surface-dark: #0a0a0a;
   --surface-darker: #050505;
   --surface-border: #1a1a1a;
-  --neutral-dark: #000000;
+  --neutral-dark: transparent;
   --neutral-gray: #2a2a2a;
 }
 
@@ -39,9 +39,15 @@
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(ellipse at 15% -5%, rgba(206, 16, 38, 0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 100%, rgba(12, 12, 30, 0.9) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(8, 8, 18, 0.4) 0%, transparent 70%),
+    linear-gradient(160deg, #0c0c14 0%, #07070d 35%, #030306 70%, #000000 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-ui);
+  min-height: 100vh;
 }
 
 h1,
@@ -78,7 +84,7 @@ h6 {
 
 /* Tech dot background */
 .tech-bg {
-  background-color: #0a0a0a;
+  background-color: transparent;
   background-image: radial-gradient(circle at 1px 1px, rgba(206, 16, 38, 0.15) 1px, transparent 0);
   background-size: 40px 40px;
 }

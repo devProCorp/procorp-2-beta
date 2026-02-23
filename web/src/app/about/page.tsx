@@ -52,7 +52,7 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 px-6 bg-black">
+      <section className="py-20 px-6 bg-transparent">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-6">
@@ -87,7 +87,7 @@ export default function About() {
       </section>
 
       {/* Methodology */}
-      <section className="py-24 px-6 bg-black relative overflow-hidden">
+      <section className="py-24 px-6 bg-transparent relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
         <div className="max-w-[1280px] mx-auto relative z-10">
           <div className="text-center mb-16">
@@ -127,7 +127,7 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="border-y border-[#1a1a1a] bg-black">
+      <section className="border-y border-[#1a1a1a] bg-transparent">
         <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1a1a1a]">
           {stats.map((s) => (
             <div key={s.label} className="p-8 text-center">
