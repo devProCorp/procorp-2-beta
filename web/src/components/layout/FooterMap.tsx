@@ -8,7 +8,8 @@ const COORDS: [number, number] = [4.703564064031687, -74.02902301520666]; // Cen
 
 export default function FooterMap() {
     const mapRef = useRef<HTMLDivElement>(null);
-    const mapInstance = useRef<L.Map | null>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const mapInstance = useRef<any>(null);
 
     useEffect(() => {
         if (!mapRef.current || mapInstance.current) return;
