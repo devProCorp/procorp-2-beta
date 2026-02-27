@@ -315,15 +315,15 @@ export default function Studio() {
           {/* Sector Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: 'apartment', title: t('studio.inv.re.title'), desc: t('studio.inv.re.desc'), tag: t('studio.inv.re.tag'), accent: 'primary' },
-              { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), accent: 'amber' },
-              { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), accent: 'green' },
-              { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), accent: 'blue' },
-              { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), accent: 'purple' },
-              { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), accent: 'orange' },
-              { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), accent: 'primary' },
+              { icon: 'apartment', title: t('studio.inv.re.title'), desc: t('studio.inv.re.desc'), tag: t('studio.inv.re.tag'), accent: 'primary', href: 'https://inversion.pro-corp.net/real-state' },
+              { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), accent: 'amber', href: 'https://inversion.pro-corp.net/real-state' },
+              { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), accent: 'green', href: 'https://inversion.pro-corp.net/energy' },
+              { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), accent: 'blue', href: 'https://inversion.pro-corp.net/fintech' },
+              { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), accent: 'purple', href: 'https://inversion.pro-corp.net/' },
+              { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), accent: 'orange', href: 'https://inversion.pro-corp.net/edutainment' },
+              { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), accent: 'primary', href: 'https://inversion.pro-corp.net/' },
             ].map((sector, i) => (
-              <div key={i} className="group relative bg-[#0a0a0a] rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+              <a key={i} href={sector.href} target="_blank" rel="noopener noreferrer" className="group relative bg-[#0a0a0a] rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 p-8 flex flex-col h-full">
                   <div className="flex items-start justify-between mb-6">
@@ -341,7 +341,7 @@ export default function Studio() {
                     <span className="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
