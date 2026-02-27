@@ -108,7 +108,7 @@ const AutomationFeature = () => {
                                         <div className="flex items-center gap-2 mb-2 text-green-400 text-xs uppercase font-bold">
                                             <ShieldCheck size={12} /> Análisis en curso...
                                         </div>
-                                        Para la nacionalidad por Carta de Naturaleza (Sefardí), el plazo cerró en 2019, pero existen vías actuales como la <strong>Ley de Memoria Democrática</strong>.
+                                        Existen diversas vías para obtener la nacionalidad española, como el arraigo, la reagrupación familiar o la residencia no lucrativa.
                                         <br /><br />
                                         ¿Tienes abuelos o padres que hayan sido españoles?
                                     </div>

@@ -62,10 +62,10 @@ export default function Studio() {
                   <span>{t('studio.cta1')}</span>
                   <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </Link>
-                <button className="flex items-center justify-center gap-3 h-14 px-8 rounded border-2 border-gray-700 hover:border-primary hover:text-primary text-white font-bold transition-all uppercase tracking-wide text-sm bg-transparent">
+                <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded border-2 border-gray-700 hover:border-primary hover:text-primary text-white font-bold transition-all uppercase tracking-wide text-sm bg-transparent">
                   <span className="material-symbols-outlined text-lg">settings_suggest</span>
                   <span>{t('studio.cta2')}</span>
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -232,10 +232,10 @@ export default function Studio() {
                       <span className="material-symbols-outlined text-white/80">savings</span>
                     </div>
                   </div>
-                  <button className="w-full mt-10 bg-white text-primary font-bold py-4 px-6 rounded hover:bg-gray-100 transition-colors shadow-xl flex items-center justify-center gap-2 text-sm uppercase tracking-wide">
+                  <Link href="/contact" className="w-full mt-10 bg-white text-primary font-bold py-4 px-6 rounded hover:bg-gray-100 transition-colors shadow-xl flex items-center justify-center gap-2 text-sm uppercase tracking-wide">
                     <span>{t('studio.sim.download')}</span>
                     <span className="material-symbols-outlined text-lg">download</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -384,9 +384,9 @@ export default function Studio() {
             <Link href="/contact" className="h-14 px-10 rounded bg-primary hover:bg-red-700 text-white font-bold text-sm uppercase tracking-wide transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
               <span>{t('studio.final.cta1')}</span>
             </Link>
-            <button className="h-14 px-10 rounded bg-transparent border-2 border-gray-700 hover:border-primary hover:text-primary text-white font-bold text-sm uppercase tracking-wide transition-all flex items-center justify-center gap-2">
+            <Link href="/contact" className="h-14 px-10 rounded bg-transparent border-2 border-gray-700 hover:border-primary hover:text-primary text-white font-bold text-sm uppercase tracking-wide transition-all flex items-center justify-center gap-2">
               <span>{t('studio.final.cta2')}</span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>

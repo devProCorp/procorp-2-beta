@@ -8,7 +8,7 @@ const services = [
     {
         icon: Globe,
         title: 'Ciudadanía Europea',
-        description: 'Gestión integral para nacionalidad española y portuguesa por origen sefardí, y Ley de Memoria Democrática.',
+        description: 'Gestión integral para procesos de nacionalidad y residencia en España. Asesoría especializada en extranjería.',
     },
     {
         icon: Briefcase,

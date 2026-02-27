@@ -70,9 +70,9 @@ export default function Home() {
   const phase2Opacity = useTransform(scrollYProgress, [0.45, 0.50, 0.60, 0.65], [0, 1, 1, 0]);
   const phase2Y = useTransform(scrollYProgress, [0.45, 0.50, 0.60, 0.65], [40, 0, 0, -40]);
 
-  // PHASE 3: CTAs — appears last, stays visible until section ends (~70-90%)
-  const phase3Opacity = useTransform(scrollYProgress, [0.70, 0.75, 0.85, 0.90], [0, 1, 1, 0]);
-  const phase3Y = useTransform(scrollYProgress, [0.70, 0.75, 0.85, 0.90], [40, 0, 0, -40]);
+  // PHASE 3: CTAs — appears last, stays visible longer until section ends (~65-95%)
+  const phase3Opacity = useTransform(scrollYProgress, [0.65, 0.70, 0.90, 0.95], [0, 1, 1, 0]);
+  const phase3Y = useTransform(scrollYProgress, [0.65, 0.70, 0.90, 0.95], [40, 0, 0, -40]);
 
   const pillars = [
     { icon: 'balance', title: t('home.pillar1.title'), desc: t('home.pillar1.desc'), href: '/projects' },
@@ -89,7 +89,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background-dark text-white flex flex-col">
       {/* Hero Section - Scroll Animated (same pattern as opcion-daniel ScrollHero) */}
-      <section ref={heroRef} className="relative h-[500vh] w-full bg-background-dark">
+      <section ref={heroRef} className="relative h-[600vh] w-full bg-background-dark">
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           {/* Background */}
           <div className="absolute inset-0 z-0 bg-gradient-to-br from-background-dark via-surface-dark to-background-dark"></div>
@@ -125,7 +125,7 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* PHASE 1: Badge + Title */}
+          {/* PHASE 1: Badge + Title + Tagline */}
           <motion.div
             style={{ opacity: phase1Opacity, y: phase1Y }}
             className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-8"
@@ -139,6 +139,9 @@ export default function Home() {
                 {t('home.title1')}<br />
                 <span className="text-primary">{t('home.title2')}</span>
               </h1>
+              <p className="mt-6 text-lg md:text-xl text-secondary font-light max-w-[700px] mx-auto leading-relaxed">
+                {t('home.tagline')}
+              </p>
             </div>
           </motion.div>
 
@@ -424,6 +427,40 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Work */}
+      <section className="py-20 px-4 md:px-10 bg-background-dark border-t border-surface-border">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">{t('home.howwework.label')}</h2>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white uppercase">{t('home.howwework.title')}</h3>
+            <p className="text-secondary text-lg mt-4 max-w-2xl mx-auto">{t('home.howwework.desc')}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { num: '01', icon: 'search', titleKey: 'home.howwework.step1.title', descKey: 'home.howwework.step1.desc' },
+              { num: '02', icon: 'architecture', titleKey: 'home.howwework.step2.title', descKey: 'home.howwework.step2.desc' },
+              { num: '03', icon: 'rocket_launch', titleKey: 'home.howwework.step3.title', descKey: 'home.howwework.step3.desc' },
+            ].map((step, i) => (
+              <div key={step.num} className="relative group">
+                {i < 2 && (
+                  <div className="hidden md:block absolute top-12 left-[calc(100%+1rem)] w-[calc(100%-2rem)] h-px bg-surface-border z-0">
+                    <span className="absolute right-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-surface-border text-xs">arrow_forward</span>
+                  </div>
+                )}
+                <div className="relative z-10 flex flex-col items-center text-center p-8 rounded-2xl bg-surface-dark border border-surface-border hover:border-primary/50 transition-all duration-300">
+                  <div className="size-16 rounded-full bg-background-dark border-2 border-primary flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                    <span className="material-symbols-outlined text-primary text-2xl group-hover:text-white transition-colors">{step.icon}</span>
+                  </div>
+                  <span className="text-primary text-xs font-bold uppercase tracking-widest mb-2">{t('home.howwework.label')} {step.num}</span>
+                  <h4 className="text-xl font-bold text-white mb-3 uppercase">{t(step.titleKey)}</h4>
+                  <p className="text-secondary text-sm leading-relaxed">{t(step.descKey)}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

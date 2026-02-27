@@ -39,10 +39,10 @@ export default function Projects() {
                 <span>{t('proj.cta1')}</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
-              <button className="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-transparent border border-gray-700 hover:border-gray-500 hover:bg-white/5 transition-all text-white text-base font-medium">
+              <Link href="/contact" className="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-transparent border border-gray-700 hover:border-gray-500 hover:bg-white/5 transition-all text-white text-base font-medium">
                 <span className="material-symbols-outlined text-sm">play_circle</span>
                 <span>{t('proj.cta2')}</span>
-              </button>
+              </Link>
             </div>
           </div>
 
