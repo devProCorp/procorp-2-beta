@@ -97,7 +97,8 @@ export default function Projects() {
       </section>
 
       {/* Services Grid */}
-      <section className="px-6 py-12 md:px-10 bg-[#0a0a0a]/50 border-t border-[#1a1a1a]">
+      <div className="divider-glow"></div>
+      <section className="px-6 py-12 md:px-10 bg-[#0a0a0a]/50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
@@ -148,28 +149,27 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#0a0a0a] z-0">
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-        </div>
+      {/* CTA Section — White */}
+      <div className="section-light-fade-in"></div>
+      <section className="section-light py-20 px-6 relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-wider mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-bold uppercase tracking-wider mb-6">
             {t('proj.cta.badge')}
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1a1a1a] mb-6 leading-tight">
             {t('proj.cta.title')}
           </h2>
-          <p className="text-secondary text-lg mb-10 max-w-2xl mx-auto">
+          <p className="text-[#666] text-lg mb-10 max-w-2xl mx-auto">
             {t('proj.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white hover:bg-gray-100 text-black text-base font-bold transition-all transform hover:scale-105">
+            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-primary hover:bg-primary-dark text-white text-base font-bold transition-all transform hover:scale-105 shadow-lg shadow-primary/25">
               <span>{t('proj.cta.button')}</span>
             </Link>
           </div>
         </div>
       </section>
+      <div className="section-light-fade-out"></div>
     </main>
   );
 }

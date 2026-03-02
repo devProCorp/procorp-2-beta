@@ -313,3 +313,51 @@ h6 {
 .wp-content audio:not([class^="procorp-audio-player"]) {
   background: rgba(255, 255, 255, 0.08);
 }
+
+/* ─── White "Breathing Moment" Sections ──────────────────────── */
+
+.section-light {
+  background: #f8f6f6;
+  color: #1a1a1a;
+  position: relative;
+}
+
+.section-light-fade-in {
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, #f8f6f6);
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+.section-light-fade-out {
+  height: 80px;
+  background: linear-gradient(to bottom, #f8f6f6, transparent);
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Glow Dividers ──────────────────────────────────────────── */
+
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+}
+
+.divider-glow-red {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(206, 16, 38, 0.4), transparent);
+}
+
+/* ─── Surface Elevation ──────────────────────────────────────── */
+
+.surface-elevated {
+  background: linear-gradient(145deg, #111111, #0a0a0a);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.surface-raised {
+  background: linear-gradient(145deg, #161616, #0f0f0f);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
