@@ -113,8 +113,7 @@ export default function Studio() {
       </section>
 
       {/* BPA Comparison */}
-      <div className="divider-glow-red"></div>
-      <section className="bg-transparent py-24 px-6 md:px-10 lg:px-40">
+      <section className="bg-transparent py-24 px-6 md:px-10 lg:px-40 border-y border-gray-800">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">{t('studio.bpa.label')}</span>
@@ -153,15 +152,15 @@ export default function Studio() {
               </ul>
             </div>
 
-            {/* Tomorrow — White Card */}
-            <div className="flex flex-col gap-8 p-10 rounded bg-white shadow-2xl border border-black/10 relative overflow-hidden">
+            {/* Tomorrow */}
+            <div className="flex flex-col gap-8 p-10 rounded bg-black shadow-2xl shadow-primary/10 border-2 border-primary relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full z-0"></div>
-              <div className="flex items-center gap-4 border-b border-black/10 pb-6 relative z-10">
+              <div className="flex items-center gap-4 border-b border-gray-800 pb-6 relative z-10">
                 <div className="p-3 rounded bg-primary text-white shadow-lg shadow-primary/30">
                   <span className="material-symbols-outlined">rocket_launch</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#1a1a1a]">{t('studio.tomorrow')}</h3>
+                  <h3 className="text-xl font-bold text-white">{t('studio.tomorrow')}</h3>
                   <span className="text-xs font-bold text-primary uppercase tracking-wider">{t('studio.tomorrow.sub')}</span>
                 </div>
               </div>
@@ -170,8 +169,8 @@ export default function Studio() {
                   <li key={item.title} className="flex items-start gap-4">
                     <span className="material-symbols-outlined text-primary shrink-0">check_circle</span>
                     <div>
-                      <p className="text-[#1a1a1a] font-bold text-sm">{item.title}</p>
-                      <p className="text-sm text-[#666] mt-1">{item.desc}</p>
+                      <p className="text-white font-bold text-sm">{item.title}</p>
+                      <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -245,8 +244,7 @@ export default function Studio() {
       </section>
 
       {/* Roadmap */}
-      <div className="divider-glow"></div>
-      <section className="bg-transparent py-24 px-6 md:px-10 lg:px-40">
+      <section className="bg-transparent border-t border-gray-800 py-24 px-6 md:px-10 lg:px-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
@@ -372,28 +370,26 @@ export default function Studio() {
         </div>
       </section>
 
-      {/* Final CTA — White Section */}
-      <div className="section-light-fade-in"></div>
-      <section className="section-light py-24 px-6 md:px-10 lg:px-40 relative overflow-hidden">
+      {/* Final CTA */}
+      <section className="py-24 px-6 md:px-10 lg:px-40 relative overflow-hidden bg-transparent">
         <div className="max-w-[800px] mx-auto text-center relative z-10">
-          <div className="inline-block p-4 rounded-full bg-primary/10 mb-6">
+          <div className="inline-block p-4 rounded-full bg-red-900/20 mb-6">
             <span className="material-symbols-outlined text-4xl text-primary">bolt</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-[#1a1a1a] tracking-tight mb-6">{t('studio.final.title')}</h2>
-          <p className="text-[#666] text-lg font-medium mb-10 max-w-xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">{t('studio.final.title')}</h2>
+          <p className="text-gray-400 text-lg font-medium mb-10 max-w-xl mx-auto">
             {t('studio.final.desc')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact" className="h-14 px-10 rounded bg-primary hover:bg-red-700 text-white font-bold text-sm uppercase tracking-wide transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
               <span>{t('studio.final.cta1')}</span>
             </Link>
-            <Link href="/contact" className="h-14 px-10 rounded bg-transparent border-2 border-black/15 hover:border-primary hover:text-primary text-[#1a1a1a] font-bold text-sm uppercase tracking-wide transition-all flex items-center justify-center gap-2">
+            <Link href="/contact" className="h-14 px-10 rounded bg-transparent border-2 border-gray-700 hover:border-primary hover:text-primary text-white font-bold text-sm uppercase tracking-wide transition-all flex items-center justify-center gap-2">
               <span>{t('studio.final.cta2')}</span>
             </Link>
           </div>
         </div>
       </section>
-      <div className="section-light-fade-out"></div>
     </main>
   );
 }

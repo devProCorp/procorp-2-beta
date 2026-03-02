@@ -191,36 +191,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Strategic Pillars — White Section */}
-      <div className="section-light-fade-in"></div>
-      <section className="section-light px-4 md:px-10 relative pt-12 pb-24">
+      {/* Strategic Pillars */}
+      <section className="px-4 md:px-10 bg-background-dark relative pt-12 pb-24">
         <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-16">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-black/10 pb-8">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-surface-border pb-8">
             <div className="flex flex-col gap-3 max-w-[700px]">
               <h2 className="text-primary font-bold tracking-widest uppercase text-sm">{t('home.pillars.label')}</h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-[#1a1a1a] uppercase">{t('home.pillars.title')}</h3>
-              <p className="text-[#555] text-lg">{t('home.pillars.desc')}</p>
+              <h3 className="text-4xl md:text-5xl font-bold text-white uppercase">{t('home.pillars.title')}</h3>
+              <p className="text-secondary text-lg">{t('home.pillars.desc')}</p>
             </div>
-            <Link href="/projects" className="text-[#1a1a1a] hover:text-primary transition-colors flex items-center gap-2 font-bold pb-2 uppercase text-sm tracking-wide">
+            <Link href="/projects" className="text-white hover:text-primary transition-colors flex items-center gap-2 font-bold pb-2 uppercase text-sm tracking-wide">
               {t('home.pillars.viewall')}
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {pillars.map((pillar) => (
-              <Link href={pillar.href} key={pillar.title} className="group relative flex flex-col justify-between h-full p-8 rounded-2xl bg-white border border-black/10 hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <Link href={pillar.href} key={pillar.title} className="group relative flex flex-col justify-between h-full p-8 rounded-2xl bg-surface-dark border border-surface-border hover:border-primary/50 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative z-10 flex flex-col gap-6">
-                  <div className="size-14 rounded-xl bg-[#f0f0f0] border border-black/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="size-14 rounded-xl bg-background-dark border border-surface-border flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-[0_0_10px_rgba(206,16,38,0.1)]">
                     <span className="material-symbols-outlined text-primary text-3xl">{pillar.icon}</span>
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-[#1a1a1a] mb-2 uppercase">{pillar.title}</h4>
-                    <p className="text-[#666] leading-relaxed text-sm">{pillar.desc}</p>
+                    <h4 className="text-xl font-bold text-white mb-2 uppercase">{pillar.title}</h4>
+                    <p className="text-secondary leading-relaxed text-sm">{pillar.desc}</p>
                   </div>
                 </div>
-                <div className="relative z-10 mt-8 pt-6 border-t border-black/10 flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase text-[#1a1a1a] tracking-wide">{t('home.learnmore')}</span>
+                <div className="relative z-10 mt-8 pt-6 border-t border-surface-border/50 flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase text-white tracking-wide">{t('home.learnmore')}</span>
                   <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
                 </div>
               </Link>
@@ -228,11 +227,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="section-light-fade-out"></div>
 
       {/* LIA Section */}
-      <div className="divider-glow"></div>
-      <section className="py-20 px-4 md:px-10 bg-background-dark relative overflow-hidden">
+      <section className="py-20 px-4 md:px-10 bg-background-dark border-t border-surface-border relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
         <div className="max-w-[1440px] mx-auto w-full relative z-10">
@@ -355,8 +352,7 @@ export default function Home() {
       </section>
 
       {/* Ecosystem Section */}
-      <div className="divider-glow-red"></div>
-      <section className="py-20 px-4 md:px-10 bg-transparent relative overflow-hidden">
+      <section className="py-20 px-4 md:px-10 bg-transparent border-y border-surface-border relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#CE1026 1px, transparent 1px), linear-gradient(90deg, #CE1026 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
         <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="flex flex-col gap-8">
@@ -436,8 +432,7 @@ export default function Home() {
       </section>
 
       {/* How We Work */}
-      <div className="divider-glow"></div>
-      <section className="py-20 px-4 md:px-10 bg-background-dark">
+      <section className="py-20 px-4 md:px-10 bg-background-dark border-t border-surface-border">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">{t('home.howwework.label')}</h2>
@@ -470,20 +465,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA — White Section */}
-      <div className="section-light-fade-in"></div>
-      <section className="section-light py-24 px-4">
+      {/* Final CTA */}
+      <section className="py-24 px-4 bg-background-dark border-t border-surface-border">
         <div className="max-w-[960px] mx-auto flex flex-col items-center text-center gap-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] uppercase">{t('home.cta.title')}</h2>
-          <p className="text-xl text-[#555] max-w-2xl font-medium">{t('home.cta.desc')}</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white uppercase">{t('home.cta.title')}</h2>
+          <p className="text-xl text-secondary max-w-2xl font-medium">{t('home.cta.desc')}</p>
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Link href="/contact" className="h-12 px-8 rounded-lg bg-primary hover:bg-primary-light text-white font-bold transition-all w-full sm:w-auto uppercase tracking-wide flex items-center justify-center shadow-lg shadow-primary/25">
+            <Link href="/contact" className="h-12 px-8 rounded-lg bg-primary hover:bg-primary-light text-white font-bold transition-all w-full sm:w-auto uppercase tracking-wide flex items-center justify-center">
               {t('home.cta.button')}
             </Link>
           </div>
         </div>
       </section>
-      <div className="section-light-fade-out"></div>
     </main>
   );
 }

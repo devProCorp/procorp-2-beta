@@ -87,7 +87,6 @@ export default function About() {
       </section>
 
       {/* Methodology */}
-      <div className="divider-glow-red"></div>
       <section className="py-24 px-6 bg-transparent relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
         <div className="max-w-[1280px] mx-auto relative z-10">
@@ -127,38 +126,36 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats — White Section */}
-      <div className="section-light-fade-in"></div>
-      <section className="section-light">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-black/10">
+      {/* Stats */}
+      <section className="border-y border-[#1a1a1a] bg-transparent">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1a1a1a]">
           {stats.map((s) => (
             <div key={s.label} className="p-8 text-center">
-              <div className="text-4xl font-black text-[#1a1a1a] mb-1">{s.value}</div>
+              <div className="text-4xl font-black text-white mb-1">{s.value}</div>
               <div className="text-xs uppercase tracking-wider text-primary font-bold">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA — White Section */}
-      <section className="section-light py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-white border border-black/10 rounded-2xl p-12 text-center shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-4 relative z-10">{t('about.cta.title')}</h2>
-          <p className="text-[#666] mb-8 max-w-xl mx-auto relative z-10">
+      {/* CTA */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#0a0a0a] to-black border border-[#1a1a1a] rounded-2xl p-12 text-center shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 relative z-10">{t('about.cta.title')}</h2>
+          <p className="text-gray-400 mb-8 max-w-xl mx-auto relative z-10">
             {t('about.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
             <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-primary hover:bg-[#9E0C1D] text-white text-base font-bold tracking-wide transition-all shadow-lg shadow-primary/25">
               {t('about.cta.btn1')}
             </Link>
-            <Link href="/projects" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border border-black/15 hover:border-primary text-[#1a1a1a] text-base font-bold transition-all hover:bg-black/5">
+            <Link href="/projects" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border border-[#1a1a1a] hover:border-primary text-white text-base font-bold transition-all hover:bg-[#0a0a0a]">
               {t('about.cta.btn2')}
             </Link>
           </div>
         </div>
       </section>
-      <div className="section-light-fade-out"></div>
     </main>
   );
 }
