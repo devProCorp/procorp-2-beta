@@ -69,12 +69,14 @@ const Navbar = () => {
                     >
                         {lang === 'en' ? 'ES' : 'EN'}
                     </button>
-                    <Link
-                        href="/login"
+                    <a
+                        href="https://www.pro-corp.net/login/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="hidden md:flex cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary-light transition-colors text-white text-sm font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(206,16,38,0.4)]"
                     >
                         <span className="truncate">{t('nav.login')}</span>
-                    </Link>
+                    </a>
                     <button className="lg:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
                         {isOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
@@ -103,13 +105,15 @@ const Navbar = () => {
                                     {link.name}
                                 </Link>
                             ))}
-                            <Link
-                                href="/login"
+                            <a
+                                href="https://www.pro-corp.net/login/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 onClick={() => setIsOpen(false)}
                                 className="text-3xl font-bold uppercase tracking-tight text-primary mt-4"
                             >
                                 {t('nav.login')}
-                            </Link>
+                            </a>
                         </div>
                     </motion.div>
                 )}

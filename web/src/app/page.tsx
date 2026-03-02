@@ -268,8 +268,9 @@ export default function Home() {
                     </div>
                     <div className="flex flex-wrap gap-2 pl-11">
                       {[
-                        lang === 'es' ? 'Analiza un documento legal' : 'Analyze a legal document',
-                        lang === 'es' ? '¿Qué servicios ofrece Pro Corp?' : 'What services does Pro Corp offer?',
+                        lang === 'es' ? 'Hola, buen día, necesito ayuda' : 'Hi, good morning, I need help',
+                        lang === 'es' ? '¿Cómo va el estado de mi proceso?' : 'How is my process status going?',
+                        lang === 'es' ? '¿Qué tipo de inversiones manejan?' : 'What types of investments do you offer?',
                       ].map(q => (
                         <button key={q} onClick={() => sendChat(q)} className="px-3 py-1.5 rounded-full border border-surface-border text-xs text-secondary hover:border-primary/50 hover:text-white transition-colors">
                           {q}

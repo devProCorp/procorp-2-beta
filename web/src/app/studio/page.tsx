@@ -319,7 +319,7 @@ export default function Studio() {
               { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), accent: 'amber', href: 'https://inversion.pro-corp.net/real-state' },
               { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), accent: 'green', href: 'https://inversion.pro-corp.net/energy' },
               { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), accent: 'blue', href: 'https://inversion.pro-corp.net/fintech' },
-              { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), accent: 'purple', href: 'https://inversion.pro-corp.net/' },
+              { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), accent: 'purple', href: 'https://aeronexxt.com/' },
               { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), accent: 'orange', href: 'https://inversion.pro-corp.net/edutainment' },
               { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), accent: 'primary', href: 'https://inversion.pro-corp.net/' },
             ].map((sector, i) => (
