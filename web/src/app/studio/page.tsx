@@ -312,6 +312,55 @@ export default function Studio() {
             </div>
           </div>
 
+          {/* How to Invest - Process Steps */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="text-primary font-bold uppercase tracking-widest text-xs">{t('studio.inv.process.label')}</span>
+              <div className="h-px bg-gray-800 flex-1"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { num: 1, icon: 'handshake', title: t('studio.inv.step1.title'), desc: t('studio.inv.step1.desc') },
+                { num: 2, icon: 'fact_check', title: t('studio.inv.step2.title'), desc: t('studio.inv.step2.desc') },
+                { num: 3, icon: 'account_balance', title: t('studio.inv.step3.title'), desc: t('studio.inv.step3.desc') },
+                { num: 4, icon: 'monitoring', title: t('studio.inv.step4.title'), desc: t('studio.inv.step4.desc') },
+              ].map((step) => (
+                <div key={step.num} className="relative bg-[#0a0a0a] rounded-xl border border-gray-800 p-6 group hover:border-primary/30 transition-all">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary text-sm font-black">{step.num}</span>
+                    <span className="material-symbols-outlined text-primary">{step.icon}</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white mb-2 uppercase tracking-wide">{step.title}</h4>
+                  <p className="text-xs text-gray-400 leading-relaxed">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Investment Data */}
+          <div className="mb-16 bg-[#0a0a0a] rounded-xl border border-gray-800 p-8">
+            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary">info</span>
+              {t('studio.inv.data.title')}
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: 'domain', label: t('studio.inv.data.entity'), value: t('studio.inv.data.entity.value') },
+                { icon: 'public', label: t('studio.inv.data.jurisdiction'), value: t('studio.inv.data.jurisdiction.value') },
+                { icon: 'swap_horiz', label: t('studio.inv.data.models'), value: t('studio.inv.data.models.value') },
+                { icon: 'currency_exchange', label: t('studio.inv.data.currency'), value: t('studio.inv.data.currency.value') },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2 text-gray-500">
+                    <span className="material-symbols-outlined text-sm">{item.icon}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider">{item.label}</span>
+                  </div>
+                  <p className="text-sm font-semibold text-white">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Sector Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -345,27 +394,54 @@ export default function Studio() {
             ))}
           </div>
 
-          {/* Trust Banner */}
-          <div className="mt-12 flex flex-col md:flex-row gap-6 items-center justify-between bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 rounded-xl p-8">
-            <div className="flex items-center gap-6 flex-wrap">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+          {/* Trust & Traceability */}
+          <div className="mt-12 bg-gradient-to-r from-primary/10 to-transparent border border-primary/20 rounded-xl p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-primary/20 flex items-center justify-center">
                   <span className="material-symbols-outlined text-primary">verified_user</span>
                 </div>
-                <span className="text-sm font-bold text-white uppercase tracking-wide">{t('studio.inv.security')}</span>
-              </div>
-              <div className="hidden md:block w-px h-8 bg-gray-700"></div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary">public</span>
+                <div>
+                  <span className="text-sm font-bold text-white">{t('studio.inv.security')}</span>
                 </div>
-                <span className="text-sm font-bold text-white uppercase tracking-wide">{t('studio.inv.international')}</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary">history_edu</span>
+                </div>
+                <div>
+                  <span className="text-sm font-bold text-white">{t('studio.inv.track')}</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary">shield</span>
+                </div>
+                <div>
+                  <span className="text-sm font-bold text-white block">{t('studio.inv.protection')}</span>
+                  <span className="text-xs text-gray-400 mt-1 block">{t('studio.inv.protection.desc')}</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 shrink-0 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-primary">support_agent</span>
+                </div>
+                <div>
+                  <span className="text-sm font-bold text-white block">{t('studio.inv.managers')}</span>
+                  <span className="text-xs text-gray-400 mt-1 block">{t('studio.inv.managers.desc')}</span>
+                </div>
               </div>
             </div>
-            <Link href="/contact" className="w-full md:w-auto bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all text-sm uppercase tracking-wide flex items-center justify-center gap-2">
-              <span>{t('studio.inv.cta')}</span>
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-6 border-t border-primary/20">
+              <div className="flex items-center gap-3 text-gray-400">
+                <span className="material-symbols-outlined text-primary text-sm">public</span>
+                <span className="text-xs font-bold uppercase tracking-wider">{t('studio.inv.international')}</span>
+              </div>
+              <Link href="/contact" className="w-full sm:w-auto bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all text-sm uppercase tracking-wide flex items-center justify-center gap-2">
+                <span>{t('studio.inv.cta')}</span>
+                <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

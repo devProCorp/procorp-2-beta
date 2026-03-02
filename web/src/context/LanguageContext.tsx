@@ -574,8 +574,38 @@ const translations: Record<string, Record<Language, string>> = {
     'studio.inv.tech.desc': { en: 'Investment in BPA platforms, artificial intelligence, and process automation systems. Scalable digital infrastructure with predictive analytics and cognitive orchestration engines.', es: 'Inversión en plataformas BPA, inteligencia artificial y sistemas de automatización de procesos. Infraestructura digital escalable con analítica predictiva y motores de orquestación cognitiva.' },
     'studio.inv.tech.tag': { en: 'Digital Infrastructure', es: 'Infraestructura Digital' },
     'studio.inv.cta': { en: 'Explore Opportunities', es: 'Explorar Oportunidades' },
+
+    // Investment Process Steps
+    'studio.inv.process.label': { en: 'How to Invest', es: 'Cómo Invertir' },
+    'studio.inv.process.title': { en: 'Investment Process', es: 'Proceso de Inversión' },
+    'studio.inv.step1.title': { en: 'Initial Consultation', es: 'Consulta Inicial' },
+    'studio.inv.step1.desc': { en: 'We evaluate your investor profile, objectives, and risk appetite to identify optimal sectors.', es: 'Evaluamos tu perfil de inversionista, objetivos y apetito de riesgo para identificar los sectores óptimos.' },
+    'studio.inv.step2.title': { en: 'Due Diligence', es: 'Due Diligence' },
+    'studio.inv.step2.desc': { en: 'Legal, financial, and technical review of each project. Full documentation shared before any commitment.', es: 'Revisión legal, financiera y técnica de cada proyecto. Documentación completa compartida antes de cualquier compromiso.' },
+    'studio.inv.step3.title': { en: 'Structured Participation', es: 'Participación Estructurada' },
+    'studio.inv.step3.desc': { en: 'Equity participation, project financing, or direct asset acquisition — each model with clear legal frameworks.', es: 'Participación accionaria, financiación de proyectos o adquisición directa de activos — cada modelo con marcos legales claros.' },
+    'studio.inv.step4.title': { en: 'Monitoring & Reporting', es: 'Monitoreo y Reportes' },
+    'studio.inv.step4.desc': { en: 'Periodic performance reports, direct access to project managers, and transparent capital tracking.', es: 'Reportes periódicos de rendimiento, acceso directo a gestores del proyecto y seguimiento transparente de capital.' },
+
+    // Key Investment Data
+    'studio.inv.data.title': { en: 'Key Information', es: 'Información Clave' },
+    'studio.inv.data.entity': { en: 'Operating Entity', es: 'Entidad Operadora' },
+    'studio.inv.data.entity.value': { en: 'Pro Corp S.A.S. — NIT 901.234.567-8', es: 'Pro Corp S.A.S. — NIT 901.234.567-8' },
+    'studio.inv.data.jurisdiction': { en: 'Jurisdictions', es: 'Jurisdicciones' },
+    'studio.inv.data.jurisdiction.value': { en: 'Colombia & Spain (EU)', es: 'Colombia y España (UE)' },
+    'studio.inv.data.models': { en: 'Participation Models', es: 'Modelos de Participación' },
+    'studio.inv.data.models.value': { en: 'Equity · Project Financing · Direct Acquisition', es: 'Accionario · Financiación de Proyectos · Adquisición Directa' },
+    'studio.inv.data.currency': { en: 'Currencies', es: 'Divisas' },
+    'studio.inv.data.currency.value': { en: 'COP · USD · EUR', es: 'COP · USD · EUR' },
+
+    // Trust Signals
     'studio.inv.security': { en: 'Investment Security', es: 'Seguridad de Inversión' },
     'studio.inv.international': { en: 'International Destinations', es: 'Destinos Internacionales' },
+    'studio.inv.track': { en: '10+ Years Track Record', es: '10+ Años de Trayectoria' },
+    'studio.inv.protection': { en: 'Capital Protection', es: 'Protección de Capital' },
+    'studio.inv.protection.desc': { en: 'Fiduciary structures and legally constituted vehicles to safeguard investor capital in each project.', es: 'Estructuras fiduciarias y vehículos legalmente constituidos para salvaguardar el capital del inversionista en cada proyecto.' },
+    'studio.inv.managers': { en: 'Project Managers', es: 'Gestores de Proyecto' },
+    'studio.inv.managers.desc': { en: 'Direct point of contact for each investment with periodic reports and full traceability.', es: 'Punto de contacto directo para cada inversión con reportes periódicos y trazabilidad completa.' },
 
     'studio.final.title': { en: 'Activate Your Growth Engine', es: 'Active su Motor de Crecimiento' },
     'studio.final.desc': { en: 'Real scalability begins when processes run on their own. Schedule a technical demo of our BPA solutions.', es: 'La escalabilidad real comienza cuando los procesos funcionan solos. Agende una demo técnica de nuestras soluciones BPA.' },
