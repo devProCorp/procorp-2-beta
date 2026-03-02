@@ -671,6 +671,109 @@ const translations: Record<string, Record<Language, string>> = {
     'footer.location.address': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B' },
     'footer.location.city': { en: 'Centro Empresarial Acces — Bogotá, Colombia', es: 'Centro Empresarial Acces — Bogotá, Colombia' },
     'footer.location.cta': { en: 'Get Directions', es: 'Cómo Llegar' },
+
+    // ── Privacy Policy Page ──
+    'privacy.badge': { en: 'Legal', es: 'Legal' },
+    'privacy.title': { en: 'Data Processing Policy', es: 'Política de Tratamiento de Datos' },
+    'privacy.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026' },
+    'privacy.intro': {
+        en: 'PRO CORP S.A.S. (hereinafter "Pro Corp"), with registered address at Calle 127A #7-19, Office 301B, Centro Empresarial Acces, Bogotá, Colombia, and representative office at Calle Jorge Juan 30, Floor 1, 28001 Madrid, Spain, is committed to protecting the privacy and personal data of its users, clients, and collaborators in accordance with applicable regulations.',
+        es: 'PRO CORP S.A.S. (en adelante "Pro Corp"), con domicilio en la Calle 127A #7-19, Oficina 301B, Centro Empresarial Acces, Bogotá, Colombia, y oficina de representación en la Calle Jorge Juan 30, Piso 1, 28001 Madrid, España, se compromete a proteger la privacidad y los datos personales de sus usuarios, clientes y colaboradores de acuerdo con la normativa aplicable.'
+    },
+    'privacy.s1.title': { en: 'Applicable Regulations', es: 'Normativa Aplicable' },
+    'privacy.s1.text': {
+        en: 'This policy complies with: (i) Colombian Law 1581 of 2012 and Decree 1377 of 2013 on Personal Data Protection; (ii) EU General Data Protection Regulation (GDPR) 2016/679; (iii) Spanish Organic Law 3/2018 on Personal Data Protection and Digital Rights Guarantee (LOPDGDD).',
+        es: 'Esta política cumple con: (i) la Ley 1581 de 2012 y el Decreto 1377 de 2013 sobre Protección de Datos Personales de Colombia; (ii) el Reglamento General de Protección de Datos (RGPD) 2016/679 de la Unión Europea; (iii) la Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales de España (LOPDGDD).'
+    },
+    'privacy.s2.title': { en: 'Data Controller', es: 'Responsable del Tratamiento' },
+    'privacy.s2.text': {
+        en: 'PRO CORP S.A.S.\nCalle 127A #7-19, Office 301B\nCentro Empresarial Acces, Bogotá, Colombia\nEmail: extranjeria@pro-corp.net\nPhone: +57 300 929 2911',
+        es: 'PRO CORP S.A.S.\nCalle 127A #7-19, Oficina 301B\nCentro Empresarial Acces, Bogotá, Colombia\nCorreo: extranjeria@pro-corp.net\nTeléfono: +57 300 929 2911'
+    },
+    'privacy.s3.title': { en: 'Data We Collect', es: 'Datos que Recopilamos' },
+    'privacy.s3.text': {
+        en: 'We collect the following categories of personal data:\n• Identification data: full name, ID/passport number, nationality\n• Contact data: email, phone number, postal address\n• Professional data: company name, position, industry\n• Service data: immigration case details, corporate structuring information, investment preferences\n• Technical data: IP address, browser type, device information, navigation data\n• Communication data: messages sent through our contact forms and LIA chat assistant',
+        es: 'Recopilamos las siguientes categorías de datos personales:\n• Datos de identificación: nombre completo, número de documento/pasaporte, nacionalidad\n• Datos de contacto: correo electrónico, número de teléfono, dirección postal\n• Datos profesionales: nombre de empresa, cargo, sector\n• Datos del servicio: detalles de caso migratorio, información de estructuración corporativa, preferencias de inversión\n• Datos técnicos: dirección IP, tipo de navegador, información del dispositivo, datos de navegación\n• Datos de comunicación: mensajes enviados a través de formularios de contacto y el asistente LIA'
+    },
+    'privacy.s4.title': { en: 'Purpose of Processing', es: 'Finalidad del Tratamiento' },
+    'privacy.s4.text': {
+        en: 'Your personal data is processed for the following purposes:\n• Provision of legal, immigration, and corporate advisory services\n• Management of investment portfolio consultations\n• Communication about the status of your processes and cases\n• Sending relevant information about our services (with prior consent)\n• Compliance with legal and regulatory obligations\n• Improvement of our digital platform and user experience\n• Operation of our AI assistant LIA for customer support',
+        es: 'Sus datos personales son tratados para las siguientes finalidades:\n• Prestación de servicios legales, migratorios y de asesoría corporativa\n• Gestión de consultas del portafolio de inversión\n• Comunicación sobre el estado de sus procesos y casos\n• Envío de información relevante sobre nuestros servicios (con consentimiento previo)\n• Cumplimiento de obligaciones legales y regulatorias\n• Mejora de nuestra plataforma digital y experiencia de usuario\n• Operación de nuestro asistente de IA LIA para soporte al cliente'
+    },
+    'privacy.s5.title': { en: 'Legal Basis', es: 'Base Legal' },
+    'privacy.s5.text': {
+        en: 'The processing of your data is based on:\n• Contractual necessity: to provide the services you have requested\n• Legitimate interest: to improve our services and platform\n• Legal obligation: to comply with applicable regulations\n• Consent: for marketing communications and non-essential cookies',
+        es: 'El tratamiento de sus datos se basa en:\n• Necesidad contractual: para prestar los servicios que ha solicitado\n• Interés legítimo: para mejorar nuestros servicios y plataforma\n• Obligación legal: para cumplir con la normativa aplicable\n• Consentimiento: para comunicaciones de marketing y cookies no esenciales'
+    },
+    'privacy.s6.title': { en: 'International Transfers', es: 'Transferencias Internacionales' },
+    'privacy.s6.text': {
+        en: 'Given our operations in Colombia and Spain, your data may be transferred internationally between our offices. These transfers are carried out with appropriate safeguards, including standard contractual clauses approved by the European Commission and compliance with Colombian data protection regulations.',
+        es: 'Dada nuestra operación en Colombia y España, sus datos pueden ser transferidos internacionalmente entre nuestras oficinas. Estas transferencias se realizan con las garantías adecuadas, incluyendo cláusulas contractuales tipo aprobadas por la Comisión Europea y cumplimiento de la normativa colombiana de protección de datos.'
+    },
+    'privacy.s7.title': { en: 'Data Retention', es: 'Conservación de Datos' },
+    'privacy.s7.text': {
+        en: 'Personal data will be retained for the duration of the contractual relationship and, thereafter, for the legally required periods. For immigration and legal cases, data is retained for a minimum of 5 years after case closure as required by applicable regulations.',
+        es: 'Los datos personales se conservarán durante la vigencia de la relación contractual y, posteriormente, durante los plazos legalmente exigidos. Para casos migratorios y legales, los datos se conservan por un mínimo de 5 años después del cierre del caso según lo exige la normativa aplicable.'
+    },
+    'privacy.s8.title': { en: 'Your Rights', es: 'Sus Derechos' },
+    'privacy.s8.text': {
+        en: 'You have the right to:\n• Access your personal data\n• Rectify inaccurate or incomplete data\n• Request deletion of your data\n• Object to or restrict processing\n• Data portability\n• Withdraw consent at any time\n\nTo exercise these rights, contact us at extranjeria@pro-corp.net. We will respond within 15 business days (Colombia) or 30 calendar days (EU).',
+        es: 'Usted tiene derecho a:\n• Acceder a sus datos personales\n• Rectificar datos inexactos o incompletos\n• Solicitar la supresión de sus datos\n• Oponerse o limitar el tratamiento\n• Portabilidad de datos\n• Retirar su consentimiento en cualquier momento\n\nPara ejercer estos derechos, contáctenos a extranjeria@pro-corp.net. Responderemos en un plazo de 15 días hábiles (Colombia) o 30 días naturales (UE).'
+    },
+    'privacy.s9.title': { en: 'Contact & Complaints', es: 'Contacto y Reclamaciones' },
+    'privacy.s9.text': {
+        en: 'For inquiries about data processing: extranjeria@pro-corp.net\n\nYou also have the right to file a complaint with the competent supervisory authority:\n• Colombia: Superintendencia de Industria y Comercio (SIC)\n• Spain: Agencia Española de Protección de Datos (AEPD)',
+        es: 'Para consultas sobre tratamiento de datos: extranjeria@pro-corp.net\n\nTambién tiene derecho a presentar una reclamación ante la autoridad de control competente:\n• Colombia: Superintendencia de Industria y Comercio (SIC)\n• España: Agencia Española de Protección de Datos (AEPD)'
+    },
+
+    // ── Cookie Policy Page ──
+    'cookies.badge': { en: 'Legal', es: 'Legal' },
+    'cookies.title': { en: 'Cookie Policy', es: 'Política de Cookies' },
+    'cookies.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026' },
+    'cookies.intro': {
+        en: 'This Cookie Policy explains how PRO CORP S.A.S. ("Pro Corp") uses cookies and similar technologies on our website. By continuing to browse our site, you consent to the use of cookies as described in this policy.',
+        es: 'Esta Política de Cookies explica cómo PRO CORP S.A.S. ("Pro Corp") utiliza cookies y tecnologías similares en nuestro sitio web. Al continuar navegando en nuestro sitio, usted consiente el uso de cookies según lo descrito en esta política.'
+    },
+    'cookies.s1.title': { en: 'What Are Cookies?', es: '¿Qué Son las Cookies?' },
+    'cookies.s1.text': {
+        en: 'Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They allow the site to recognize your device and remember certain information about your visit, such as your preferences and settings.',
+        es: 'Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (computador, tableta o teléfono móvil) cuando visita un sitio web. Permiten que el sitio reconozca su dispositivo y recuerde cierta información sobre su visita, como sus preferencias y configuraciones.'
+    },
+    'cookies.s2.title': { en: 'Types of Cookies We Use', es: 'Tipos de Cookies que Utilizamos' },
+    'cookies.s2.essential.title': { en: 'Essential Cookies', es: 'Cookies Esenciales' },
+    'cookies.s2.essential.text': {
+        en: 'Required for the website to function properly. They enable core features like page navigation, access to secure areas, and language preferences. The site cannot function correctly without these cookies.',
+        es: 'Necesarias para el correcto funcionamiento del sitio web. Habilitan funciones básicas como la navegación entre páginas, acceso a áreas seguras y preferencias de idioma. El sitio no puede funcionar correctamente sin estas cookies.'
+    },
+    'cookies.s2.analytics.title': { en: 'Analytics Cookies', es: 'Cookies de Analítica' },
+    'cookies.s2.analytics.text': {
+        en: 'We use Google Analytics to understand how visitors interact with our website. These cookies collect information anonymously and help us improve the user experience. Data collected includes pages visited, time spent on the site, and how you arrived at our website.',
+        es: 'Utilizamos Google Analytics para comprender cómo los visitantes interactúan con nuestro sitio web. Estas cookies recopilan información de forma anónima y nos ayudan a mejorar la experiencia del usuario. Los datos recopilados incluyen páginas visitadas, tiempo en el sitio y cómo llegó a nuestro sitio web.'
+    },
+    'cookies.s2.functional.title': { en: 'Functional Cookies', es: 'Cookies Funcionales' },
+    'cookies.s2.functional.text': {
+        en: 'These cookies remember your choices (such as language preference and region) and provide enhanced, personalized features. They may also be used to remember changes you have made to text size, fonts, and other customizable elements.',
+        es: 'Estas cookies recuerdan sus elecciones (como preferencia de idioma y región) y proporcionan funciones mejoradas y personalizadas. También pueden usarse para recordar cambios que ha realizado en tamaño de texto, fuentes y otros elementos personalizables.'
+    },
+    'cookies.s3.title': { en: 'Cookie Details', es: 'Detalle de Cookies' },
+    'cookies.s3.c1': { en: 'Language preference — Essential — Session', es: 'Preferencia de idioma — Esencial — Sesión' },
+    'cookies.s3.c2': { en: '_ga, _ga_* — Analytics (Google Analytics) — 2 years', es: '_ga, _ga_* — Analítica (Google Analytics) — 2 años' },
+    'cookies.s3.c3': { en: 'lia_wa_id — Functional (LIA Chat session) — Persistent', es: 'lia_wa_id — Funcional (Sesión de Chat LIA) — Persistente' },
+    'cookies.s4.title': { en: 'How to Manage Cookies', es: 'Cómo Gestionar las Cookies' },
+    'cookies.s4.text': {
+        en: 'You can control and manage cookies through your browser settings. Most browsers allow you to:\n• View what cookies are stored and delete them individually\n• Block third-party cookies\n• Block cookies from specific sites\n• Block all cookies\n• Delete all cookies when you close the browser\n\nPlease note that blocking certain cookies may affect the functionality of this website.',
+        es: 'Puede controlar y gestionar las cookies a través de la configuración de su navegador. La mayoría de los navegadores le permiten:\n• Ver qué cookies están almacenadas y eliminarlas individualmente\n• Bloquear cookies de terceros\n• Bloquear cookies de sitios específicos\n• Bloquear todas las cookies\n• Eliminar todas las cookies al cerrar el navegador\n\nTenga en cuenta que bloquear ciertas cookies puede afectar la funcionalidad de este sitio web.'
+    },
+    'cookies.s5.title': { en: 'Changes to This Policy', es: 'Cambios en Esta Política' },
+    'cookies.s5.text': {
+        en: 'We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our business operations. We recommend reviewing this page periodically.',
+        es: 'Podemos actualizar esta Política de Cookies periódicamente para reflejar cambios en la tecnología, legislación o nuestras operaciones. Recomendamos revisar esta página periódicamente.'
+    },
+    'cookies.s6.title': { en: 'Contact', es: 'Contacto' },
+    'cookies.s6.text': {
+        en: 'For questions about our use of cookies, contact us at extranjeria@pro-corp.net.',
+        es: 'Para preguntas sobre nuestro uso de cookies, contáctenos a extranjeria@pro-corp.net.'
+    },
 };
 
 // ─── PROVIDER ───────────────────────────────────────────────────

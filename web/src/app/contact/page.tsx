@@ -129,7 +129,7 @@ export default function Contact() {
                   <label className="flex items-start gap-3 cursor-pointer group">
                     <input className="mt-1 h-4 w-4 rounded border-gray-600 bg-[#0a0a0a] text-primary focus:ring-primary transition-all" type="checkbox" />
                     <span className="text-xs text-[#8F9295] leading-relaxed group-hover:text-gray-300 transition-colors">
-                      {t('contact.privacy')} <a className="text-primary hover:underline hover:text-red-400" href="#">{t('contact.privacy.link')}</a>. {t('contact.privacy.auth')}
+                      {t('contact.privacy')} <a className="text-primary hover:underline hover:text-red-400" href="/privacy">{t('contact.privacy.link')}</a>. {t('contact.privacy.auth')}
                     </span>
                   </label>
                   <button className="group relative flex w-full items-center justify-center overflow-hidden rounded-lg bg-primary py-4 text-base font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-[#A80D1F] hover:shadow-primary/40 active:scale-[0.99]" type="button">

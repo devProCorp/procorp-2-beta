@@ -49,9 +49,9 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">{t('footer.legal.title')}</h4>
                         <ul className="flex flex-col gap-3 text-sm font-medium">
-                            <li><a href="#" className="hover:text-primary transition-colors">{t('footer.legal.privacy')}</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">{t('footer.legal.terms')}</a></li>
-                            <li><a href="#" className="hover:text-primary transition-colors">{t('footer.legal.cookies')}</a></li>
+                            <li><Link href="/privacy" className="hover:text-primary transition-colors">{t('footer.legal.privacy')}</Link></li>
+                            <li><Link href="/privacy" className="hover:text-primary transition-colors">{t('footer.legal.terms')}</Link></li>
+                            <li><Link href="/cookies" className="hover:text-primary transition-colors">{t('footer.legal.cookies')}</Link></li>
                         </ul>
                     </div>
                 </div>
