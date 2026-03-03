@@ -327,8 +327,6 @@ export default function Home() {
             {/* Side Stats */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <div className="bg-surface-dark border border-surface-border rounded-2xl p-8 shadow-xl text-center">
-                <p className="text-xs text-secondary uppercase font-bold tracking-widest mb-1">{t('home.lia.docs')}</p>
-                <h3 className="text-5xl font-extrabold text-white mb-6">15,000+</h3>
                 <p className="text-xs text-secondary uppercase font-bold tracking-widest mb-1">{t('home.lia.precision')}</p>
                 <h3 className="text-3xl font-bold text-primary mb-1">98%</h3>
                 <div className="w-full bg-surface-border h-1.5 rounded-full overflow-hidden mb-8">
