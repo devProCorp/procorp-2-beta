@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
-const LIA_WEBHOOK = 'https://n8n-n8n.ukq6rz.easypanel.host/webhook/fd095693-99f0-472c-9d03-65426bd3fdb4';
+const LIA_WEBHOOK = 'https://n8n-n8n.ukq6rz.easypanel.host/webhook/75ad02de-9eff-41c0-a422-c7b11adfa8fa';
 
 interface ChatMsg { role: 'user' | 'lia'; content: string; }
 
