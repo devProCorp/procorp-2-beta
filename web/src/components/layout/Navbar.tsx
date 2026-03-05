@@ -22,6 +22,15 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isOpen]);
+
     const navLinks = [
         { name: t('nav.home'), href: '/' },
         { name: t('nav.blog'), href: '/journal' },
@@ -77,7 +86,12 @@ const Navbar = () => {
                     >
                         <span className="truncate">{t('nav.login')}</span>
                     </a>
-                    <button className="lg:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
+                    <button
+                        className="lg:hidden text-white p-1 rounded-md focus-visible:ring-2 focus-visible:ring-primary"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-expanded={isOpen}
+                        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                    >
                         {isOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </div>

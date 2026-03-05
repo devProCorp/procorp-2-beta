@@ -39,7 +39,7 @@ export default function Projects() {
                 <span>{t('proj.cta1')}</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
-              <Link href="/contact" className="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-transparent border border-gray-700 hover:border-gray-500 hover:bg-white/5 transition-all text-white text-base font-medium">
+              <Link href="/contact" className="flex items-center justify-center gap-2 rounded-lg h-12 px-8 bg-transparent border border-surface-border hover:border-secondary hover:bg-white/5 transition-all text-white text-base font-medium">
                 <span className="material-symbols-outlined text-sm">play_circle</span>
                 <span>{t('proj.cta2')}</span>
               </Link>
@@ -48,7 +48,7 @@ export default function Projects() {
 
           {/* Dashboard Card */}
           <div className="flex-1 w-full lg:h-auto min-h-[300px] relative flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-[#111] to-black rounded-2xl border border-[#1a1a1a] p-1 shadow-2xl">
+            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-[#111] to-black rounded-2xl border border-surface-border p-1 shadow-2xl">
               <div className="relative z-10 w-full h-full flex flex-col justify-between p-6">
                 <div className="flex justify-between items-start">
                   <div className="bg-primary/20 p-2 rounded-lg border border-primary/30 backdrop-blur-sm">
@@ -63,7 +63,7 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="space-y-4 my-4">
-                  <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-2 bg-neutral-gray rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-primary to-orange-500 w-[92%]"></div>
                   </div>
                   <div className="flex justify-between text-xs text-secondary font-mono">
@@ -97,7 +97,7 @@ export default function Projects() {
       </section>
 
       {/* Services Grid */}
-      <section className="px-6 py-12 md:px-10 bg-[#0a0a0a]/50 border-t border-[#1a1a1a]">
+      <section className="px-6 py-12 md:px-10 bg-surface-dark/50 border-t border-surface-border">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
@@ -110,7 +110,7 @@ export default function Projects() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div key={service.title} className="group relative bg-[#0a0a0a] border border-[#1a1a1a] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
+              <div key={service.title} className="group relative bg-surface-dark border border-surface-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full">
                 <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                   <span className="material-symbols-outlined text-6xl text-white">{service.icon}</span>
                 </div>
@@ -120,14 +120,14 @@ export default function Projects() {
                 <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
                 <p className="text-secondary text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
                 <div className="mt-auto border-t border-white/5 pt-4">
-                  <a className="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
+                  <Link href="/contact" className="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors">
                     {service.link} <span className="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
             {/* Wide card */}
-            <div className="group relative bg-[#0a0a0a] border border-[#1a1a1a] rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full lg:col-span-2">
+            <div className="group relative bg-surface-dark border border-surface-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col h-full lg:col-span-2">
               <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                 <span className="material-symbols-outlined text-6xl text-white">trending_up</span>
               </div>
@@ -139,9 +139,9 @@ export default function Projects() {
                 {t('proj.s5.desc')}
               </p>
               <div className="mt-auto border-t border-white/5 pt-4">
-                <a className="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors" href="#">
+                <Link href="/contact" className="inline-flex items-center text-primary text-sm font-bold hover:text-white transition-colors">
                   {t('proj.s5.link')} <span className="material-symbols-outlined text-sm ml-1">arrow_forward_ios</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ export default function Projects() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#0a0a0a] z-0">
+        <div className="absolute inset-0 bg-surface-dark z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
         </div>
         <div className="max-w-4xl mx-auto relative z-10 text-center">
@@ -164,7 +164,7 @@ export default function Projects() {
             {t('proj.cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-14 px-8 bg-white hover:bg-gray-100 text-black text-base font-bold transition-all transform hover:scale-105">
+            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white hover:bg-gray-100 text-black text-base font-bold transition-all transform hover:scale-105">
               <span>{t('proj.cta.button')}</span>
             </Link>
           </div>

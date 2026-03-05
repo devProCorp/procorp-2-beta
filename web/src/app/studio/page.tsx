@@ -46,23 +46,23 @@ export default function Studio() {
         <div className="max-w-[1400px] mx-auto w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col gap-8">
-              <div className="inline-flex items-center gap-3 pl-1 pr-4 py-1 rounded-full bg-[#0a0a0a] border border-gray-700 w-fit">
+              <div className="inline-flex items-center gap-3 pl-1 pr-4 py-1 rounded-full bg-[#0a0a0a] border border-surface-border w-fit">
                 <span className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white text-[10px] font-bold">4.0</span>
-                <span className="text-xs font-bold text-gray-300 uppercase tracking-widest">{t('studio.badge2')}</span>
+                <span className="text-xs font-bold text-secondary uppercase tracking-widest">{t('studio.badge2')}</span>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight">
                 {t('studio.title1')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-800">{t('studio.title2')}</span>
               </h1>
-              <p className="text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl border-l-4 border-primary pl-6">
+              <p className="text-secondary text-lg md:text-xl font-medium leading-relaxed max-w-xl border-l-4 border-primary pl-6">
                 {t('studio.desc2')}
               </p>
               <div className="flex flex-wrap gap-4 mt-6">
-                <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded bg-primary hover:bg-red-700 text-white font-bold transition-all shadow-xl shadow-primary/30 group uppercase tracking-wide text-sm">
+                <Link href="/contact" className="flex items-center justify-center gap-3 h-12 px-8 rounded-lg bg-primary hover:bg-primary-dark text-white font-bold transition-all shadow-xl shadow-primary/30 group uppercase tracking-wide text-sm">
                   <span>{t('studio.cta1')}</span>
                   <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </Link>
-                <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded border-2 border-gray-700 hover:border-primary hover:text-primary text-white font-bold transition-all uppercase tracking-wide text-sm bg-transparent">
+                <Link href="/contact" className="flex items-center justify-center gap-3 h-12 px-8 rounded-lg border border-surface-border hover:border-primary hover:text-primary text-white font-bold transition-all uppercase tracking-wide text-sm bg-transparent">
                   <span className="material-symbols-outlined text-lg">settings_suggest</span>
                   <span>{t('studio.cta2')}</span>
                 </Link>
@@ -71,17 +71,17 @@ export default function Studio() {
 
             {/* Dashboard Mockup */}
             <div className="relative w-full aspect-square lg:aspect-[5/4]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#222] to-black rounded-xl shadow-2xl border border-gray-800 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#222] to-black rounded-xl shadow-2xl border border-surface-border overflow-hidden">
                 <svg className="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none" viewBox="0 0 100 100">
                   <path d="M0 100 L100 0" stroke="#CE1026" strokeDasharray="2 2" strokeWidth="0.5"></path>
                   <path d="M20 100 L100 20" stroke="#CE1026" strokeDasharray="2 2" strokeWidth="0.5"></path>
                   <path d="M0 80 L80 0" stroke="#CE1026" strokeDasharray="2 2" strokeWidth="0.5"></path>
                 </svg>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 bg-black rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-gray-700 p-8 z-20">
-                  <div className="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 bg-black rounded-lg shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-surface-border p-8 z-20">
+                  <div className="flex justify-between items-center mb-6 border-b border-surface-border pb-4">
                     <div className="flex items-center gap-3">
                       <div className="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-gray-500">{t('studio.dashboard.status')}</span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-secondary/70">{t('studio.dashboard.status')}</span>
                     </div>
                     <span className="text-primary font-black text-xl">ACTIVE</span>
                   </div>
@@ -89,13 +89,13 @@ export default function Studio() {
                     {dashboardItems.map((item) => (
                       <div key={item.icon} className="flex items-center justify-between group cursor-default">
                         <div className="flex items-center gap-4">
-                          <span className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">{item.icon}</span>
+                          <span className="material-symbols-outlined text-secondary group-hover:text-primary transition-colors">{item.icon}</span>
                           <div>
                             <p className="font-bold text-white text-sm">{item.name}</p>
-                            <p className="text-[10px] text-gray-400 uppercase">{item.sub}</p>
+                            <p className="text-[10px] text-secondary uppercase">{item.sub}</p>
                           </div>
                         </div>
-                        <div className="w-32 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                        <div className="w-32 h-1.5 bg-neutral-gray rounded-full overflow-hidden">
                           <div className={`h-full rounded-full ${item.icon === 'sync_alt' ? 'bg-primary shadow-[0_0_10px_#CE1026]' : 'bg-white'}`} style={{ width: item.w }}></div>
                         </div>
                       </div>
@@ -113,25 +113,25 @@ export default function Studio() {
       </section>
 
       {/* BPA Comparison */}
-      <section className="bg-transparent py-24 px-6 md:px-10 lg:px-40 border-y border-gray-800">
+      <section className="bg-transparent py-24 px-6 md:px-10 lg:px-40 border-y border-surface-border">
         <div className="max-w-[1200px] mx-auto">
           <div className="text-center mb-20">
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">{t('studio.bpa.label')}</span>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-6">{t('studio.bpa.title')}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto font-medium">
+            <p className="text-secondary max-w-2xl mx-auto font-medium">
               {t('studio.bpa.desc')}
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-12 relative">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-800 -translate-x-1/2"></div>
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black border-2 border-gray-700 items-center justify-center text-gray-400 z-10">
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-neutral-gray -translate-x-1/2"></div>
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black border-2 border-surface-border items-center justify-center text-secondary z-10">
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </div>
 
             {/* Today */}
-            <div className="flex flex-col gap-8 p-10 rounded bg-black shadow-sm border border-gray-800 hover:shadow-lg transition-shadow">
-              <div className="flex items-center gap-4 border-b border-gray-800 pb-6">
-                <div className="p-3 rounded bg-gray-800 text-gray-500">
+            <div className="flex flex-col gap-8 p-10 rounded bg-black shadow-sm border border-surface-border hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-4 border-b border-surface-border pb-6">
+                <div className="p-3 rounded bg-neutral-gray text-secondary/70">
                   <span className="material-symbols-outlined">history</span>
                 </div>
                 <div>
@@ -145,7 +145,7 @@ export default function Studio() {
                     <span className="material-symbols-outlined text-red-500 shrink-0">close</span>
                     <div>
                       <p className="text-white font-bold text-sm">{item.title}</p>
-                      <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+                      <p className="text-sm text-secondary/70 mt-1">{item.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -155,7 +155,7 @@ export default function Studio() {
             {/* Tomorrow */}
             <div className="flex flex-col gap-8 p-10 rounded bg-black shadow-2xl shadow-primary/10 border-2 border-primary relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-full z-0"></div>
-              <div className="flex items-center gap-4 border-b border-gray-800 pb-6 relative z-10">
+              <div className="flex items-center gap-4 border-b border-surface-border pb-6 relative z-10">
                 <div className="p-3 rounded bg-primary text-white shadow-lg shadow-primary/30">
                   <span className="material-symbols-outlined">rocket_launch</span>
                 </div>
@@ -170,7 +170,7 @@ export default function Studio() {
                     <span className="material-symbols-outlined text-primary shrink-0">check_circle</span>
                     <div>
                       <p className="text-white font-bold text-sm">{item.title}</p>
-                      <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+                      <p className="text-sm text-secondary/70 mt-1">{item.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -183,22 +183,22 @@ export default function Studio() {
       {/* Automation Simulator */}
       <section className="py-24 px-6 md:px-10 lg:px-40 bg-transparent">
         <div className="max-w-[1200px] mx-auto">
-          <div className="bg-[#0a0a0a] rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+          <div className="bg-[#0a0a0a] rounded-xl overflow-hidden shadow-2xl border border-surface-border">
             <div className="grid lg:grid-cols-12 gap-0">
               <div className="lg:col-span-7 p-10 md:p-14 bg-surface-dark">
                 <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
                   <span className="material-symbols-outlined text-primary">tune</span>
                   {t('studio.sim.title')}
                 </h3>
-                <p className="text-gray-500 mb-12 text-sm font-medium">{t('studio.sim.desc')}</p>
+                <p className="text-secondary/70 mb-12 text-sm font-medium">{t('studio.sim.desc')}</p>
                 <div className="space-y-10">
                   {simItems.map((item) => (
                     <div key={item.label} className="space-y-4">
                       <div className="flex justify-between items-center">
-                        <label className="text-sm font-bold text-gray-300 uppercase tracking-wide">{item.label}</label>
+                        <label className="text-sm font-bold text-secondary uppercase tracking-wide">{item.label}</label>
                         <span className="text-primary font-bold text-lg">{item.value}</span>
                       </div>
-                      <div className="w-full h-2 bg-gray-700 rounded-lg overflow-hidden">
+                      <div className="w-full h-2 bg-surface-border rounded-lg overflow-hidden">
                         <div className="h-full bg-primary rounded-lg" style={{ width: `${item.val}%` }}></div>
                       </div>
                     </div>
@@ -244,7 +244,7 @@ export default function Studio() {
       </section>
 
       {/* Roadmap */}
-      <section className="bg-transparent border-t border-gray-800 py-24 px-6 md:px-10 lg:px-40">
+      <section className="bg-transparent border-t border-surface-border py-24 px-6 md:px-10 lg:px-40">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
@@ -253,7 +253,7 @@ export default function Studio() {
             </div>
             <div className="flex gap-4">
               {phaseTabs.map((phase) => (
-                <span key={phase} className="px-4 py-2 rounded bg-[#0a0a0a] border border-gray-700 text-white text-xs font-bold shadow-sm">{phase}</span>
+                <span key={phase} className="px-4 py-2 rounded bg-[#0a0a0a] border border-surface-border text-white text-xs font-bold shadow-sm">{phase}</span>
               ))}
             </div>
           </div>
@@ -261,14 +261,14 @@ export default function Studio() {
             {roadmapSteps.map((step) => (
               <div key={step.num} className="group">
                 <div className="mb-6 flex items-center gap-4">
-                  <span className={`flex items-center justify-center w-12 h-12 rounded font-bold text-xl shadow-lg ${step.active ? 'bg-primary text-white shadow-primary/30' : 'bg-[#0a0a0a] border-2 border-gray-700 text-gray-400 group-hover:border-primary group-hover:text-primary transition-all'}`}>{step.num}</span>
-                  <div className="h-px bg-gray-700 flex-1 group-hover:bg-primary transition-colors"></div>
+                  <span className={`flex items-center justify-center w-12 h-12 rounded font-bold text-xl shadow-lg ${step.active ? 'bg-primary text-white shadow-primary/30' : 'bg-[#0a0a0a] border-2 border-surface-border text-secondary group-hover:border-primary group-hover:text-primary transition-all'}`}>{step.num}</span>
+                  <div className="h-px bg-surface-border flex-1 group-hover:bg-primary transition-colors"></div>
                 </div>
                 <h4 className="text-lg font-bold text-white mb-3">{step.title}</h4>
-                <p className="text-sm text-gray-400 leading-relaxed mb-4">{step.desc}</p>
+                <p className="text-sm text-secondary leading-relaxed mb-4">{step.desc}</p>
                 <div className="flex gap-2">
                   {step.tags.map((tag) => (
-                    <span key={tag} className="bg-gray-800 px-2 py-1 rounded text-[10px] font-bold text-gray-300 uppercase">{tag}</span>
+                    <span key={tag} className="bg-neutral-gray px-2 py-1 rounded text-[10px] font-bold text-secondary uppercase">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -289,7 +289,7 @@ export default function Studio() {
               <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
                 {t('studio.inv.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-800">{t('studio.inv.title2')}</span>
               </h2>
-              <p className="text-gray-400 text-lg font-medium leading-relaxed border-l-4 border-primary pl-6">
+              <p className="text-secondary text-lg font-medium leading-relaxed border-l-4 border-primary pl-6">
                 {t('studio.inv.desc')}
               </p>
             </div>
@@ -297,17 +297,17 @@ export default function Studio() {
             <div className="flex gap-6 lg:gap-10 flex-wrap">
               <div className="text-center">
                 <p className="text-3xl font-black text-white">{t('studio.inv.stat1.value')}</p>
-                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat1.label')}</p>
+                <p className="text-[10px] text-secondary/70 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat1.label')}</p>
               </div>
-              <div className="w-px bg-gray-800 hidden lg:block"></div>
+              <div className="w-px bg-neutral-gray hidden lg:block"></div>
               <div className="text-center">
                 <p className="text-3xl font-black text-primary">{t('studio.inv.stat2.value')}</p>
-                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat2.label')}</p>
+                <p className="text-[10px] text-secondary/70 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat2.label')}</p>
               </div>
-              <div className="w-px bg-gray-800 hidden lg:block"></div>
+              <div className="w-px bg-neutral-gray hidden lg:block"></div>
               <div className="text-center">
                 <p className="text-3xl font-black text-white">{t('studio.inv.stat3.value')}</p>
-                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat3.label')}</p>
+                <p className="text-[10px] text-secondary/70 uppercase font-bold tracking-wider mt-1">{t('studio.inv.stat3.label')}</p>
               </div>
             </div>
           </div>
@@ -316,7 +316,7 @@ export default function Studio() {
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-8">
               <span className="text-primary font-bold uppercase tracking-widest text-xs">{t('studio.inv.process.label')}</span>
-              <div className="h-px bg-gray-800 flex-1"></div>
+              <div className="h-px bg-neutral-gray flex-1"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
@@ -325,20 +325,20 @@ export default function Studio() {
                 { num: 3, icon: 'account_balance', title: t('studio.inv.step3.title'), desc: t('studio.inv.step3.desc') },
                 { num: 4, icon: 'monitoring', title: t('studio.inv.step4.title'), desc: t('studio.inv.step4.desc') },
               ].map((step) => (
-                <div key={step.num} className="relative bg-[#0a0a0a] rounded-xl border border-gray-800 p-6 group hover:border-primary/30 transition-all">
+                <div key={step.num} className="relative bg-[#0a0a0a] rounded-xl border border-surface-border p-6 group hover:border-primary/30 transition-all">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary text-sm font-black">{step.num}</span>
                     <span className="material-symbols-outlined text-primary">{step.icon}</span>
                   </div>
                   <h4 className="text-sm font-bold text-white mb-2 uppercase tracking-wide">{step.title}</h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">{step.desc}</p>
+                  <p className="text-xs text-secondary leading-relaxed">{step.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Key Investment Data */}
-          <div className="mb-16 bg-[#0a0a0a] rounded-xl border border-gray-800 p-8">
+          <div className="mb-16 bg-[#0a0a0a] rounded-xl border border-surface-border p-8">
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
               <span className="material-symbols-outlined text-primary">info</span>
               {t('studio.inv.data.title')}
@@ -351,7 +351,7 @@ export default function Studio() {
                 { icon: 'currency_exchange', label: t('studio.inv.data.currency'), value: t('studio.inv.data.currency.value') },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-gray-500">
+                  <div className="flex items-center gap-2 text-secondary/70">
                     <span className="material-symbols-outlined text-sm">{item.icon}</span>
                     <span className="text-[10px] font-bold uppercase tracking-wider">{item.label}</span>
                   </div>
@@ -372,21 +372,21 @@ export default function Studio() {
               { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), accent: 'orange', href: 'https://inversion.pro-corp.net/edutainment' },
               { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), accent: 'primary', href: 'https://inversion.pro-corp.net/' },
             ].map((sector, i) => (
-              <a key={i} href={sector.href} target="_blank" rel="noopener noreferrer" className="group relative bg-[#0a0a0a] rounded-xl border border-gray-800 hover:border-primary/50 transition-all duration-300 overflow-hidden cursor-pointer">
+              <a key={i} href={sector.href} target="_blank" rel="noopener noreferrer" className="group relative bg-[#0a0a0a] rounded-xl border border-surface-border hover:border-primary/50 transition-all duration-300 overflow-hidden cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10 p-8 flex flex-col h-full">
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-black border border-gray-700 flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
+                    <div className="w-14 h-14 rounded-xl bg-black border border-surface-border flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
                       <span className="material-symbols-outlined text-primary text-2xl">{sector.icon}</span>
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 bg-black border border-gray-700 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary/70 bg-black border border-surface-border px-2.5 py-1 rounded-full">
                       {sector.tag}
                     </span>
                   </div>
                   <h4 className="text-lg font-bold text-white mb-3 uppercase tracking-wide">{sector.title}</h4>
-                  <p className="text-sm text-gray-400 leading-relaxed flex-1">{sector.desc}</p>
-                  <div className="mt-6 pt-4 border-t border-gray-800/50 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase text-gray-500 tracking-wider">{String(i + 1).padStart(2, '0')} / 07</span>
+                  <p className="text-sm text-secondary leading-relaxed flex-1">{sector.desc}</p>
+                  <div className="mt-6 pt-4 border-t border-surface-border/50 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase text-secondary/70 tracking-wider">{String(i + 1).padStart(2, '0')} / 07</span>
                     <span className="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
                   </div>
                 </div>
@@ -419,7 +419,7 @@ export default function Studio() {
                 </div>
                 <div>
                   <span className="text-sm font-bold text-white block">{t('studio.inv.protection')}</span>
-                  <span className="text-xs text-gray-400 mt-1 block">{t('studio.inv.protection.desc')}</span>
+                  <span className="text-xs text-secondary mt-1 block">{t('studio.inv.protection.desc')}</span>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -428,16 +428,16 @@ export default function Studio() {
                 </div>
                 <div>
                   <span className="text-sm font-bold text-white block">{t('studio.inv.managers')}</span>
-                  <span className="text-xs text-gray-400 mt-1 block">{t('studio.inv.managers.desc')}</span>
+                  <span className="text-xs text-secondary mt-1 block">{t('studio.inv.managers.desc')}</span>
                 </div>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-6 border-t border-primary/20">
-              <div className="flex items-center gap-3 text-gray-400">
+              <div className="flex items-center gap-3 text-secondary">
                 <span className="material-symbols-outlined text-primary text-sm">public</span>
                 <span className="text-xs font-bold uppercase tracking-wider">{t('studio.inv.international')}</span>
               </div>
-              <Link href="/contact" className="w-full sm:w-auto bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all text-sm uppercase tracking-wide flex items-center justify-center gap-2">
+              <Link href="/contact" className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all text-sm uppercase tracking-wide flex items-center justify-center gap-2">
                 <span>{t('studio.inv.cta')}</span>
                 <span className="material-symbols-outlined text-lg">arrow_forward</span>
               </Link>
@@ -453,14 +453,14 @@ export default function Studio() {
             <span className="material-symbols-outlined text-4xl text-primary">bolt</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">{t('studio.final.title')}</h2>
-          <p className="text-gray-400 text-lg font-medium mb-10 max-w-xl mx-auto">
+          <p className="text-secondary text-lg font-medium mb-10 max-w-xl mx-auto">
             {t('studio.final.desc')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/contact" className="h-14 px-10 rounded bg-primary hover:bg-red-700 text-white font-bold text-sm uppercase tracking-wide transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
+            <Link href="/contact" className="h-12 px-10 rounded-lg bg-primary hover:bg-primary-dark text-white font-bold text-sm uppercase tracking-wide transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2">
               <span>{t('studio.final.cta1')}</span>
             </Link>
-            <Link href="/contact" className="h-14 px-10 rounded bg-transparent border-2 border-gray-700 hover:border-primary hover:text-primary text-white font-bold text-sm uppercase tracking-wide transition-all flex items-center justify-center gap-2">
+            <Link href="/contact" className="h-12 px-10 rounded-lg bg-transparent border border-surface-border hover:border-primary hover:text-primary text-white font-bold text-sm uppercase tracking-wide transition-all flex items-center justify-center gap-2">
               <span>{t('studio.final.cta2')}</span>
             </Link>
           </div>

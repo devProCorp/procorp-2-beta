@@ -332,6 +332,10 @@ const translations: Record<string, Record<Language, string>> = {
     'journal.a3.title': { en: 'Operating Model Redesign: From Diagnosis to Amplification', es: 'Rediseño de Modelo Operativo: Del Diagnóstico a la Amplificación' },
     'journal.a4.title': { en: 'Conversational Financial Simulators: Complex Models Made Accessible', es: 'Simuladores Financieros Conversacionales: Modelos Complejos Accesibles' },
     'journal.a5.title': { en: 'Structured Governance Frameworks for Cross-Border Operations', es: 'Marcos de Gobernanza Estructurados para Operaciones Transfronterizas' },
+    'journal.newsletter.title': { en: 'Subscribe to our strategic vision', es: 'Suscríbete a nuestra visión estratégica' },
+    'journal.newsletter.desc': { en: 'Receive deep analysis on process engineering and legal trends.', es: 'Recibe análisis profundo sobre ingeniería de procesos y tendencias legales.' },
+    'journal.newsletter.placeholder': { en: 'Your corporate email', es: 'Tu correo corporativo' },
+    'journal.newsletter.button': { en: 'Subscribe', es: 'Suscribirse' },
 
     // ── Contact Page ──
     'contact.title.1': { en: 'Start your', es: 'Inicia tu' },
@@ -408,6 +412,9 @@ const translations: Record<string, Record<Language, string>> = {
     'home.pillars.title': { en: 'Strategic Pillars', es: 'Pilares Estratégicos' },
     'home.pillars.desc': { en: 'Driving the digital and legal transformation of modern corporations through three fundamental axes.', es: 'Impulsando la transformación digital y legal de las corporaciones modernas a través de tres ejes fundamentales.' },
     'home.pillars.viewall': { en: 'View all services', es: 'Ver todos los servicios' },
+    'home.workflow.label': { en: 'Intelligent Orchestration', es: 'Orquestación Inteligente' },
+    'home.workflow.title': { en: 'Our Engine in Action', es: 'Nuestro Motor en Acción' },
+    'home.workflow.desc': { en: 'Real-time visualization of our AI-powered automation workflows — connecting agents, data, and decisions seamlessly.', es: 'Visualización en tiempo real de nuestros flujos de automatización impulsados por IA — conectando agentes, datos y decisiones sin fricción.' },
     'home.pillar1.title': { en: 'Legal Solutions', es: 'Soluciones Legales' },
     'home.pillar1.desc': { en: 'Legal advice adapted to the digital era. We digitize complex legal frameworks into executable code, ensuring real-time regulatory compliance.', es: 'Asesoría jurídica adaptada a la era digital. Digitalizamos marcos legales complejos en código ejecutable, garantizando cumplimiento normativo en tiempo real.' },
     'home.pillar2.title': { en: 'Sustainable Growth', es: 'Crecimiento Sostenible' },

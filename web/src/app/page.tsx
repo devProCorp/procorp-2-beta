@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import WorkflowAnimation from '@/components/home/WorkflowAnimation';
 
 const LIA_WEBHOOK = 'https://n8n-n8n.ukq6rz.easypanel.host/webhook/75ad02de-9eff-41c0-a422-c7b11adfa8fa';
 
@@ -57,22 +58,22 @@ export default function Home() {
     offset: ["start start", "end start"]
   });
 
-  // PHASE 0: Logo — visible at start, stays, then fades out (~12-18%)
-  const logoOpacity = useTransform(scrollYProgress, [0, 0.12, 0.18], [1, 1, 0]);
-  const logoY = useTransform(scrollYProgress, [0, 0.12, 0.18], [0, 0, -40]);
-  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.10], [1, 0]);
+  // PHASE 0: Logo — visible at start, fades out quickly
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
+  const logoY = useTransform(scrollYProgress, [0, 0.15, 0.25], [0, 0, -40]);
+  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
 
-  // PHASE 1: Badge + Title — appears after logo fades, stays, then fades out (~18-40%)
-  const phase1Opacity = useTransform(scrollYProgress, [0.18, 0.25, 0.35, 0.40], [0, 1, 1, 0]);
-  const phase1Y = useTransform(scrollYProgress, [0.18, 0.25, 0.35, 0.40], [40, 0, 0, -40]);
+  // PHASE 1: Badge + Title
+  const phase1Opacity = useTransform(scrollYProgress, [0.25, 0.32, 0.48, 0.55], [0, 1, 1, 0]);
+  const phase1Y = useTransform(scrollYProgress, [0.25, 0.32, 0.48, 0.55], [40, 0, 0, -40]);
 
-  // PHASE 2: Description — appears after title fades, stays, then fades out (~45-65%)
-  const phase2Opacity = useTransform(scrollYProgress, [0.45, 0.50, 0.60, 0.65], [0, 1, 1, 0]);
-  const phase2Y = useTransform(scrollYProgress, [0.45, 0.50, 0.60, 0.65], [40, 0, 0, -40]);
+  // PHASE 2: Description
+  const phase2Opacity = useTransform(scrollYProgress, [0.55, 0.62, 0.75, 0.82], [0, 1, 1, 0]);
+  const phase2Y = useTransform(scrollYProgress, [0.55, 0.62, 0.75, 0.82], [40, 0, 0, -40]);
 
-  // PHASE 3: CTAs — appears last, stays visible longer until section ends (~65-95%)
-  const phase3Opacity = useTransform(scrollYProgress, [0.65, 0.70, 0.90, 0.95], [0, 1, 1, 0]);
-  const phase3Y = useTransform(scrollYProgress, [0.65, 0.70, 0.90, 0.95], [40, 0, 0, -40]);
+  // PHASE 3: CTAs
+  const phase3Opacity = useTransform(scrollYProgress, [0.82, 0.87, 0.93, 0.98], [0, 1, 1, 0]);
+  const phase3Y = useTransform(scrollYProgress, [0.82, 0.87, 0.93, 0.98], [40, 0, 0, -40]);
 
   const pillars = [
     { icon: 'balance', title: t('home.pillar1.title'), desc: t('home.pillar1.desc'), href: '/projects' },
@@ -89,7 +90,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background-dark text-white flex flex-col">
       {/* Hero Section - Scroll Animated (same pattern as opcion-daniel ScrollHero) */}
-      <section ref={heroRef} className="relative h-[600vh] w-full bg-background-dark">
+      <section ref={heroRef} className="relative h-[400vh] w-full bg-background-dark">
         <div className="sticky top-0 h-screen w-full overflow-hidden">
           {/* Background */}
           <div className="absolute inset-0 z-0 bg-gradient-to-br from-background-dark via-surface-dark to-background-dark"></div>
@@ -228,6 +229,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Workflow Animation */}
+      <section className="py-20 px-4 md:px-10 bg-background-dark border-t border-surface-border">
+        <div className="max-w-[1100px] mx-auto flex flex-col gap-10">
+          <div className="text-center">
+            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">{t('home.workflow.label')}</h2>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-white uppercase">{t('home.workflow.title')}</h3>
+            <p className="text-secondary text-lg mt-4 max-w-2xl mx-auto">{t('home.workflow.desc')}</p>
+          </div>
+          <WorkflowAnimation />
+        </div>
+      </section>
+
       {/* LIA Section */}
       <section className="py-20 px-4 md:px-10 bg-background-dark border-t border-surface-border relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
@@ -316,9 +329,10 @@ export default function Home() {
                   onChange={e => setChatInput(e.target.value)}
                   onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(chatInput); } }}
                   placeholder={lang === 'es' ? 'Escribe un mensaje...' : 'Type a message...'}
+                  aria-label={lang === 'es' ? 'Escribe un mensaje a LIA' : 'Type a message to LIA'}
                   className="w-full bg-background-dark border border-surface-border rounded-lg py-3 px-4 text-sm text-white focus:outline-none focus:border-primary transition-colors"
                 />
-                <button type="submit" disabled={!chatInput.trim() || chatLoading} className="absolute right-8 top-1/2 -translate-y-1/2 text-primary disabled:opacity-20">
+                <button type="submit" disabled={!chatInput.trim() || chatLoading} aria-label={lang === 'es' ? 'Enviar mensaje' : 'Send message'} className="absolute right-8 top-1/2 -translate-y-1/2 text-primary disabled:opacity-20">
                   <span className="material-symbols-outlined">send</span>
                 </button>
               </form>
