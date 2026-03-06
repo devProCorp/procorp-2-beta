@@ -36,6 +36,13 @@
 
   --font-display: var(--font-outfit), sans-serif;
   --font-ui: var(--font-inter), sans-serif;
+
+  /* Typographic scale slightly reduced for a more balanced, elegant look */
+  --text-4xl: 1.875rem; /* ~30px */
+  --text-5xl: 2.5rem; /* ~40px */
+  --text-6xl: 3.125rem; /* ~50px */
+  --text-7xl: 4rem; /* ~64px */
+  --text-8xl: 5rem; /* ~80px */
 }
 
 body {

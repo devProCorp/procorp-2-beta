@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import WorkflowAnimation from '@/components/home/WorkflowAnimation';
 
@@ -53,6 +53,48 @@ export default function Home() {
     } finally { setChatLoading(false); }
   }, [chatLoading, lang]);
 
+  // Mouse tracking & 3D Tilt for Hero Spotlight
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const [trail, setTrail] = useState<{ id: number; x: number; y: number }[]>([]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    mouseX.set(e.clientX);
+    mouseY.set(e.clientY);
+
+    // Create trail effect
+    const newPoint = { id: Date.now(), x: e.clientX, y: e.clientY };
+    setTrail(prev => [...prev.slice(-15), newPoint]); // Keep last 15 points
+  }, [mouseX, mouseY]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      mouseX.set(window.innerWidth / 2);
+      mouseY.set(window.innerHeight / 2);
+    }
+
+    // Cleanup old trail points periodically to prevent stuck comets when mouse stops
+    const interval = setInterval(() => {
+      setTrail(prev => {
+        if (prev.length === 0) return prev;
+        const now = Date.now();
+        return prev.filter(p => now - p.id < 500); // Remove points older than 500ms
+      });
+    }, 100);
+    return () => clearInterval(interval);
+  }, [mouseX, mouseY]);
+
+  const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
+  const smoothMouseX = useSpring(mouseX, springConfig);
+  const smoothMouseY = useSpring(mouseY, springConfig);
+
+  // Approximate ranges for desktop tilt (smooth scaling for any screen)
+  const tiltX = useTransform(smoothMouseY, [0, 1000], [15, -15]);
+  const tiltY = useTransform(smoothMouseX, [0, 1920], [-15, 15]);
+
+  // Interactive global spotlight (Head of the comet)
+  const spotlightBackground = useMotionTemplate`radial-gradient(400px circle at ${smoothMouseX}px ${smoothMouseY}px, rgba(206,16,38,0.5), transparent 60%)`;
+
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -90,8 +132,38 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background-dark text-white flex flex-col">
       {/* Hero Section - Scroll Animated */}
-      <section ref={heroRef} className="relative h-[400vh] w-full bg-background-dark">
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <section ref={heroRef} onMouseMove={handleMouseMove} className="relative h-[400vh] w-full bg-background-dark">
+        <div className="sticky top-0 h-screen w-full overflow-hidden perspective-[1200px]">
+          {/* Interactive Mouse Spotlight - Comet Head */}
+          <motion.div
+            className="absolute inset-0 z-[2] pointer-events-none mix-blend-screen"
+            style={{ background: spotlightBackground }}
+          />
+
+          {/* Comet Tail */}
+          <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
+            <AnimatePresence>
+              {trail.map((point, i) => (
+                <motion.div
+                  key={point.id}
+                  initial={{ opacity: 0.8, scale: 1 }}
+                  animate={{ opacity: 0, scale: 0 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="absolute rounded-full bg-primary blur-[20px] mix-blend-screen"
+                  style={{
+                    left: point.x - 30,
+                    top: point.y - 30,
+                    width: 60,
+                    height: 60,
+                    // Older points are smaller
+                    transform: `scale(${i / trail.length})`,
+                  }}
+                />
+              ))}
+            </AnimatePresence>
+          </div>
+
           {/* Background Elements */}
           <div className="absolute inset-0 z-0 bg-background-dark">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--surface-dark)_0%,_transparent_100%)] opacity-80"></div>
@@ -137,7 +209,13 @@ export default function Home() {
 
           {/* PHASE 1: Badge + Title + Tagline */}
           <motion.div
-            style={{ opacity: phase1Opacity, y: phase1Y }}
+            style={{
+              opacity: phase1Opacity,
+              y: phase1Y,
+              rotateX: tiltX,
+              rotateY: tiltY,
+              transformStyle: "preserve-3d"
+            }}
             className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none px-4 md:px-8"
           >
             <div className="text-center max-w-[1000px] flex flex-col items-center">
@@ -157,7 +235,13 @@ export default function Home() {
 
           {/* PHASE 2: Description */}
           <motion.div
-            style={{ opacity: phase2Opacity, y: phase2Y }}
+            style={{
+              opacity: phase2Opacity,
+              y: phase2Y,
+              rotateX: tiltX,
+              rotateY: tiltY,
+              transformStyle: "preserve-3d"
+            }}
             className="absolute inset-0 z-20 flex items-center pointer-events-none px-6 md:px-16 lg:px-24"
           >
             <div className="w-full md:w-3/5 lg:w-1/2 glass-panel p-10 md:p-14 rounded-[2rem] relative overflow-hidden">
@@ -178,7 +262,13 @@ export default function Home() {
 
           {/* PHASE 3: CTAs */}
           <motion.div
-            style={{ opacity: phase3Opacity, y: phase3Y }}
+            style={{
+              opacity: phase3Opacity,
+              y: phase3Y,
+              rotateX: tiltX,
+              rotateY: tiltY,
+              transformStyle: "preserve-3d"
+            }}
             className="absolute inset-0 z-20 flex items-center justify-center px-6 pointer-events-none"
           >
             <div className="text-center max-w-[800px] glass-panel p-12 md:p-20 rounded-[2.5rem] w-full relative overflow-hidden border-surface-border/80 shadow-2xl">
