@@ -31,55 +31,57 @@ export default function About() {
   return (
     <main className="flex-grow">
       {/* Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-40">
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
-          <div className="w-full h-full bg-surface-dark"></div>
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-60">
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-surface-dark/50 to-background-dark z-10 backdrop-blur-[2px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px] mix-blend-screen"></div>
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col gap-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider w-fit mx-auto">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col gap-8">
+          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[11px] font-bold uppercase tracking-[0.2em] w-fit mx-auto shadow-[0_0_15px_rgba(206,16,38,0.15)]">
+            <span className="w-2 h-2 rounded-full bg-primary-light animate-pulse shadow-[0_0_8px_rgba(206,16,38,0.8)]"></span>
             {t('about.badge')}
           </div>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-white text-glow">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] text-white drop-shadow-2xl">
             {t('about.title1')}<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{t('about.title2')}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('about.title2')}</span>
           </h1>
-          <p className="text-lg md:text-xl text-secondary max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
             {t('about.desc')}
           </p>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="py-20 px-6 bg-transparent">
+      <section className="py-24 px-6 bg-transparent">
         <div className="max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="flex flex-col gap-6">
-              <h2 className="text-3xl font-bold text-white mb-2">{t('about.mission.title')}</h2>
-              <p className="text-secondary leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col gap-8">
+              <h2 className="text-4xl font-extrabold text-white mb-2 tracking-tight">{t('about.mission.title')}</h2>
+              <p className="text-gray-400 font-light leading-relaxed text-[15px] border-l-4 border-primary pl-6">
                 {t('about.mission.desc')}
               </p>
-              <div className="flex flex-col gap-4 mt-4">
+              <div className="flex flex-col gap-6 mt-4">
                 {features.map((f) => (
-                  <div key={f.title} className="flex items-start gap-4">
-                    <div className="bg-primary/20 p-2 rounded-lg text-primary">
-                      <span className="material-symbols-outlined">{f.icon}</span>
+                  <div key={f.title} className="flex items-start gap-5 glass-panel p-5 rounded-2xl border border-surface-border/50 hover:border-surface-border group transition-all">
+                    <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-xl border border-primary/30 text-primary-light shadow-[0_0_15px_rgba(206,16,38,0.1)] group-hover:scale-110 transition-transform duration-300">
+                      <span className="material-symbols-outlined text-[24px]">{f.icon}</span>
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-lg">{f.title}</h3>
-                      <p className="text-secondary text-sm">{f.desc}</p>
+                      <h3 className="text-white font-bold text-lg mb-1 tracking-wide group-hover:text-primary-light transition-colors">{f.title}</h3>
+                      <p className="text-gray-400 text-sm font-light leading-relaxed">{f.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/50 border border-surface-border group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
-              <div className="w-full h-full bg-gradient-to-br from-[#0a0a0a] to-black"></div>
-              <div className="absolute bottom-6 left-6 right-6 z-20">
-                <p className="text-primary font-bold uppercase text-xs tracking-wider mb-2">{t('about.team.label')}</p>
-                <h3 className="text-2xl font-bold text-white">{t('about.team.title')}</h3>
+            <div className="relative h-[600px] rounded-[2rem] overflow-hidden shadow-2xl glass-panel group border border-surface-border/60">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+              <div className="w-full h-full bg-gradient-to-br from-surface-darker to-black">
+                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+              </div>
+              <div className="absolute bottom-8 left-8 right-8 z-20">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] mb-3 text-primary-light">{t('about.team.label')}</p>
+                <h3 className="text-3xl font-extrabold text-white tracking-tight leading-tight">{t('about.team.title')}</h3>
               </div>
             </div>
           </div>
@@ -87,38 +89,39 @@ export default function About() {
       </section>
 
       {/* Methodology */}
-      <section className="py-24 px-6 bg-transparent relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="py-28 px-6 bg-transparent relative overflow-hidden border-t border-surface-border">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
         <div className="max-w-[1280px] mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-3">{t('about.method.label')}</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-white">{t('about.method.title')}</h3>
-            <p className="mt-4 text-secondary max-w-2xl mx-auto">{t('about.method.desc')}</p>
+          <div className="text-center mb-20">
+            <h2 className="text-[10px] font-bold text-primary-light uppercase tracking-[0.2em] mb-4 inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5">{t('about.method.label')}</h2>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">{t('about.method.title')}</h3>
+            <p className="mt-6 text-gray-400 font-light leading-relaxed max-w-2xl mx-auto text-[15px]">{t('about.method.desc')}</p>
           </div>
           <div className="relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-[#0a0a0a] via-primary to-[#0a0a0a] -translate-y-1/2 z-0"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 relative z-10">
+            <div className="hidden md:block absolute top-[40%] left-[5%] right-[5%] h-0.5 bg-gradient-to-r from-surface-border via-primary to-surface-border z-0"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10">
               {steps.map((s) => (
                 <div key={s.num} className="group relative">
-                  <div className="h-full bg-surface-dark border border-surface-border hover:border-primary/50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(206,16,38,0.15)] flex flex-col items-center text-center gap-4">
-                    <div className="size-12 rounded-full bg-black border border-primary text-primary flex items-center justify-center font-bold text-xl mb-2 group-hover:bg-primary group-hover:text-white transition-colors">{s.num}</div>
-                    <div className="text-primary mb-1">
-                      <span className="material-symbols-outlined !text-4xl">{s.icon}</span>
+                  <div className="h-full glass-panel glass-panel-hover rounded-[1.5rem] p-8 flex flex-col items-center text-center gap-5 border border-surface-border/50">
+                    <div className="w-16 h-16 rounded-2xl bg-surface-darker border border-surface-border text-gray-500 flex items-center justify-center font-black text-2xl mb-2 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-dark group-hover:border-primary-light/50 group-hover:text-white transition-all duration-300 shadow-xl">{s.num}</div>
+                    <div className="text-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <span className="material-symbols-outlined text-[40px] drop-shadow-[0_0_10px_rgba(206,16,38,0.4)]">{s.icon}</span>
                     </div>
-                    <h4 className="text-white font-bold text-lg leading-tight">{s.title}</h4>
-                    <p className="text-xs text-secondary">{s.desc}</p>
+                    <h4 className="text-white font-bold text-xl leading-tight tracking-wide">{s.title}</h4>
+                    <p className="text-[13px] font-light text-gray-400 leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
               ))}
               {/* Step 7 - highlighted */}
-              <div className="group relative">
-                <div className="h-full bg-gradient-to-br from-[#0a0a0a] to-primary/20 border border-primary rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(206,16,38,0.3)] flex flex-col items-center text-center gap-4">
-                  <div className="size-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl mb-2 shadow-lg shadow-primary/40">7</div>
-                  <div className="text-white mb-1">
-                    <span className="material-symbols-outlined !text-4xl">smart_toy</span>
+              <div className="group relative lg:col-span-1 xl:col-span-1">
+                <div className="h-full bg-gradient-to-br from-primary-dark/40 to-black border border-primary/50 rounded-[1.5rem] p-8 transition-all duration-300 hover:-translate-y-2 shadow-[0_0_30px_rgba(206,16,38,0.2)] hover:shadow-[0_0_40px_rgba(206,16,38,0.4)] flex flex-col items-center text-center gap-5 backdrop-blur-xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[30px] -z-10"></div>
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark border border-primary-light/50 text-white flex items-center justify-center font-black text-2xl mb-2 shadow-[0_0_20px_rgba(206,16,38,0.6)]">7</div>
+                  <div className="text-white mb-2 scale-110">
+                    <span className="material-symbols-outlined text-[40px] drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">smart_toy</span>
                   </div>
-                  <h4 className="text-white font-bold text-lg leading-tight">{t('about.step7')}</h4>
-                  <p className="text-xs text-secondary">{t('about.step7.desc')}</p>
+                  <h4 className="text-white font-bold text-xl leading-tight tracking-wide drop-shadow-md">{t('about.step7')}</h4>
+                  <p className="text-[13px] font-light text-gray-300 leading-relaxed">{t('about.step7.desc')}</p>
                 </div>
               </div>
             </div>
@@ -127,31 +130,38 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="border-y border-surface-border bg-transparent">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#1a1a1a]">
+      <section className="border-y border-surface-border bg-surface-dark/30 backdrop-blur-md">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-surface-border/50">
           {stats.map((s) => (
-            <div key={s.label} className="p-8 text-center">
-              <div className="text-4xl font-black text-white mb-1">{s.value}</div>
-              <div className="text-xs uppercase tracking-wider text-primary font-bold">{s.label}</div>
+            <div key={s.label} className="p-10 text-center hover:bg-surface-darker/50 transition-colors">
+              <div className="text-4xl md:text-5xl font-black text-primary-light mb-2 drop-shadow-[0_0_15px_rgba(206,16,38,0.3)]">{s.value}</div>
+              <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-gray-500">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#0a0a0a] to-black border border-surface-border rounded-2xl p-12 text-center shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 relative z-10">{t('about.cta.title')}</h2>
-          <p className="text-secondary mb-8 max-w-xl mx-auto relative z-10">
+      <section className="py-28 px-6 bg-transparent border-b border-surface-border">
+        <div className="max-w-4xl mx-auto glass-panel border border-surface-border/60 rounded-[3rem] p-12 md:p-20 text-center shadow-2xl relative overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[80px] rounded-full pointer-events-none mix-blend-screen"></div>
+
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 mb-8 shadow-[0_0_20px_rgba(206,16,38,0.15)] relative z-10">
+            <span className="material-symbols-outlined text-4xl text-primary-light drop-shadow-md">rocket_launch</span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 relative z-10 tracking-tight uppercase">{t('about.cta.title')}</h2>
+          <p className="text-gray-300 font-light text-lg mb-12 max-w-xl mx-auto relative z-10 leading-relaxed">
             {t('about.cta.desc')}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-primary hover:bg-primary-dark text-white text-base font-bold tracking-wide transition-all shadow-lg shadow-primary/25">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
+            <Link href="/contact" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-xl h-16 px-10 bg-primary hover:bg-primary-light text-white text-sm uppercase tracking-widest font-bold transition-all glow-primary glow-primary-hover group border border-primary-light/50">
               {t('about.cta.btn1')}
+              <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </Link>
-            <Link href="/projects" className="w-full sm:w-auto flex items-center justify-center rounded-lg h-12 px-8 bg-transparent border border-surface-border hover:border-primary text-white text-base font-bold transition-all hover:bg-surface-dark">
+            <Link href="/projects" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-xl h-16 px-10 glass-panel glass-panel-hover border-surface-border text-white text-sm uppercase tracking-widest font-bold transition-all group">
               {t('about.cta.btn2')}
+              <span className="material-symbols-outlined text-xl text-primary group-hover:translate-x-1 transition-transform">view_carousel</span>
             </Link>
           </div>
         </div>

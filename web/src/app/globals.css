@@ -8,14 +8,14 @@
   --primary: #CE1026;
   --primary-dark: #9E0C1D;
   --primary-light: #E04555;
-  --secondary: #8F9295;
+  --secondary: #9ca3af;
   --background-light: #f8f6f6;
-  --background-dark: transparent;
-  --surface-dark: #0a0a0a;
-  --surface-darker: #050505;
-  --surface-border: #1a1a1a;
+  --background-dark: #030712;
+  --surface-dark: #0f172a;
+  --surface-darker: #020617;
+  --surface-border: #1e293b;
   --neutral-dark: transparent;
-  --neutral-gray: #2a2a2a;
+  --neutral-gray: #1e293b;
 }
 
 @theme inline {
@@ -34,8 +34,8 @@
   --color-neutral-dark: var(--neutral-dark);
   --color-neutral-gray: var(--neutral-gray);
 
-  --font-display: var(--font-montserrat), sans-serif;
-  --font-ui: var(--font-montserrat), sans-serif;
+  --font-display: var(--font-outfit), sans-serif;
+  --font-ui: var(--font-inter), sans-serif;
 }
 
 body {
@@ -72,6 +72,7 @@ textarea:focus-visible {
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -156,7 +157,7 @@ textarea:focus-visible {
 /* ─── WordPress Content — Blogcast Audio Player ──────────────── */
 
 /* Hide WP inline <style> blocks injected per-post */
-.wp-content > style {
+.wp-content>style {
   display: none;
 }
 
@@ -183,7 +184,7 @@ textarea:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 30% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -324,7 +325,7 @@ textarea:focus-visible {
   padding: 0 !important;
 }
 
-.wp-content p + p {
+.wp-content p+p {
   margin-top: 1.25em !important;
 }
 
@@ -335,4 +336,54 @@ textarea:focus-visible {
 /* Dark mode adjustments for WP audio */
 .wp-content audio:not([class^="procorp-audio-player"]) {
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Premium Glassmorphism & UI Utilities ──────────────────── */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Glow Effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(206, 16, 38, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-primary-hover:hover {
+  box-shadow: 0 0 30px rgba(206, 16, 38, 0.7);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }

@@ -46,7 +46,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="sticky top-0 z-50 w-full border-b border-surface-border bg-background-dark/95 backdrop-blur-md">
+        <nav className="sticky top-0 z-50 w-full border-b border-surface-border/50 bg-background-dark/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background-dark/60">
             <div className="flex h-20 items-center justify-between px-4 md:px-10 max-w-[1440px] mx-auto w-full">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
@@ -59,11 +59,10 @@ const Navbar = () => {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className={`text-sm font-semibold uppercase tracking-wide transition-colors ${
-                                isActive(link.href)
-                                    ? 'text-white'
-                                    : 'text-secondary hover:text-white'
-                            }`}
+                            className={`text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
+                                    ? 'text-white text-shadow-sm'
+                                    : 'text-gray-400 hover:text-white'
+                                }`}
                         >
                             {link.name}
                         </Link>
@@ -74,7 +73,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-4">
                     <button
                         onClick={toggleLang}
-                        className="text-xs font-bold uppercase tracking-widest border border-surface-border rounded-lg px-3 py-1.5 text-secondary hover:text-white hover:border-primary transition-all"
+                        className="text-[10px] font-bold uppercase tracking-[0.2em] border border-surface-border rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:border-primary/50 hover:bg-surface-dark transition-all"
                     >
                         {lang === 'en' ? 'ES' : 'EN'}
                     </button>
@@ -82,7 +81,7 @@ const Navbar = () => {
                         href="https://www.pro-corp.net/login/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden md:flex cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary-light transition-colors text-white text-sm font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(206,16,38,0.4)]"
+                        className="hidden md:flex cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary-light text-white text-[11px] font-bold uppercase tracking-[0.2em] glow-primary glow-primary-hover transition-all border border-primary-light/30"
                     >
                         <span className="truncate">{t('nav.login')}</span>
                     </a>
@@ -112,9 +111,8 @@ const Navbar = () => {
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`text-3xl font-bold uppercase tracking-tight transition-colors ${
-                                        isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
-                                    }`}
+                                    className={`text-3xl font-bold uppercase tracking-tight transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
+                                        }`}
                                 >
                                     {link.name}
                                 </Link>

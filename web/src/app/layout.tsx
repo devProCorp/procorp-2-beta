@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Montserrat, Space_Grotesk } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ClientProviders from "@/components/layout/ClientProviders";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -105,7 +105,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${montserrat.variable} ${spaceGrotesk.variable} antialiased font-ui`}
+        className={`${inter.variable} ${outfit.variable} antialiased font-ui`}
       >
         <ClientProviders>
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm focus:font-bold">

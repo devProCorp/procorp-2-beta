@@ -89,21 +89,29 @@ export default function WorkflowAnimation() {
   }, [ready]);
 
   return (
-    <div className="relative w-full aspect-video max-h-[480px] rounded-2xl overflow-hidden border border-surface-border bg-surface-dark shadow-2xl group">
+    <div className="relative w-full aspect-video max-h-[480px] rounded-[2rem] overflow-hidden glass-panel shadow-2xl group border border-surface-border/60">
+      {/* Background glow for the container */}
+      <div className="absolute -inset-10 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 blur-[60px] -z-10 rounded-full group-hover:from-primary/20 transition-colors duration-700"></div>
+
       {/* Canvas */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full mix-blend-screen opacity-90 group-hover:opacity-100 transition-opacity duration-500"
         aria-hidden="true"
       />
 
-      {/* Edge vignette */}
-      <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_0_0_60px_rgba(0,0,0,0.6)]" />
+      {/* Premium Vignette & Inner Light */}
+      <div className="absolute inset-0 pointer-events-none z-10 shadow-[inset_0_0_80px_rgba(3,7,18,0.9)] rounded-[2rem]"></div>
+      <div className="absolute inset-0 pointer-events-none z-10 border-2 border-white/5 rounded-[2rem]"></div>
 
       {/* Loading state */}
       {!ready && (
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+        <div className="absolute inset-0 flex items-center justify-center z-20 backdrop-blur-md bg-background-dark/30">
+          <div className="relative flex items-center justify-center">
+            <div className="w-12 h-12 border-2 border-surface-border rounded-full absolute"></div>
+            <div className="w-12 h-12 border-2 border-primary border-t-transparent rounded-full animate-spin absolute"></div>
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#CE1026]"></div>
+          </div>
         </div>
       )}
     </div>
