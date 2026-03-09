@@ -324,8 +324,8 @@ const translations: Record<string, Record<Language, string>> = {
     // ── Journal Page ──
     'journal.title': { en: 'Journal', es: 'Blog' },
     'journal.desc': {
-        en: 'Structured narratives on orchestration, process automation, platform architecture, and the engineering of momentum.',
-        es: 'Narrativas estructuradas sobre orquestación, automatización de procesos, arquitectura de plataforma y la ingeniería del impulso.'
+        en: 'Structured narratives on orchestration, platform architecture, and the engineering of momentum.',
+        es: 'Narrativas estructuradas sobre orquestación, arquitectura de plataforma y la ingeniería del impulso.'
     },
     'journal.a1.title': { en: 'Why Automation Without Re-Engineering Is Inefficient', es: 'Por Qué la Automatización Sin Reingeniería Es Ineficiente' },
     'journal.a2.title': { en: 'The Exchange Platform: Orchestration, Not Marketplace', es: 'La Plataforma de Intercambio: Orquestación, No Marketplace' },
@@ -423,7 +423,7 @@ const translations: Record<string, Record<Language, string>> = {
     'home.pillar3.desc': { en: 'Data intelligence applied to processes (BPA). Workflow optimization through AI and Machine Learning.', es: 'Inteligencia de datos aplicada a procesos (BPA). Optimización de flujos de trabajo mediante IA y Machine Learning.' },
     'home.learnmore': { en: 'Learn more', es: 'Saber más' },
     'home.lia.title1': { en: 'LIA: YOUR', es: 'LIA: TU MOTOR DE' },
-    'home.lia.title2': { en: 'LEGAL INTELLIGENCE ENGINE', es: 'INTELIGENCIA LEGAL' },
+    'home.lia.title2': { en: 'ORCHESTRATION ENGINE', es: 'ORQUESTACIÓN INTELIGENTE' },
     'home.lia.desc1': { en: 'LIA not only analyzes,', es: 'LIA no solo analiza,' },
     'home.lia.desc2': { en: 'executes and optimizes', es: 'ejecuta y optimiza' },
     'home.lia.desc3': { en: 'your operating model end to end.', es: 'su modelo operativo de punta a punta.' },
@@ -431,6 +431,8 @@ const translations: Record<string, Record<Language, string>> = {
     'home.lia.precision': { en: 'Analysis Precision:', es: 'Precisión de Análisis:' },
     'home.lia.time': { en: 'Time Saved:', es: 'Tiempo Ahorrado:' },
     'home.lia.demo': { en: 'VIEW LIVE DEMO', es: 'VER DEMO EN VIVO' },
+    'home.lia.more': { en: 'More information', es: 'Más información' },
+    'home.lia.ask': { en: 'Ask us yourself', es: 'Pregúntanos tú mismo' },
     'home.eco.badge': { en: 'Digital Ecosystem', es: 'Ecosistema Digital' },
     'home.eco.title1': { en: 'Total control over your', es: 'Control total sobre tu' },
     'home.eco.title2': { en: 'corporate architecture', es: 'arquitectura corporativa' },
@@ -708,6 +710,17 @@ const translations: Record<string, Record<Language, string>> = {
     'footer.location.address': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B' },
     'footer.location.city': { en: 'Centro Empresarial Acces — Bogotá, Colombia', es: 'Centro Empresarial Acces — Bogotá, Colombia' },
     'footer.location.cta': { en: 'Get Directions', es: 'Cómo Llegar' },
+    'footer.offices': { en: 'Our Offices', es: 'Nuestras Oficinas' },
+    'footer.office.bogota': { en: 'Bogotá', es: 'Bogotá' },
+    'footer.office.bogota.label': { en: 'Headquarters', es: 'Sede Principal' },
+    'footer.office.bogota.address': { en: 'Calle 127A #7-19, Of. 301B', es: 'Calle 127A #7-19, Of. 301B' },
+    'footer.office.madrid': { en: 'Madrid', es: 'Madrid' },
+    'footer.office.madrid.label': { en: 'Office', es: 'Oficina' },
+    'footer.office.madrid.address': { en: 'Calle Jorge Juan 30, Floor 1', es: 'Calle Jorge Juan 30, Piso 1' },
+    'footer.office.contact': { en: 'Contact', es: 'Contacto' },
+    'footer.office.contact.label': { en: 'Direct Line', es: 'Línea Directa' },
+    'footer.office.contact.detail': { en: '+57 300 929 2911', es: '+57 300 929 2911' },
+    'footer.map.close': { en: 'Close', es: 'Cerrar' },
 
     // ── Privacy Policy Page ──
     'privacy.badge': { en: 'Legal', es: 'Legal' },

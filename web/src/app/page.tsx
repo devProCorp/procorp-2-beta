@@ -3,9 +3,10 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import WorkflowAnimation from '@/components/home/WorkflowAnimation';
+import NeuralNetwork from '@/components/home/NeuralNetwork';
 
 const LIA_WEBHOOK = 'https://n8n-n8n.ukq6rz.easypanel.host/webhook/75ad02de-9eff-41c0-a422-c7b11adfa8fa';
 
@@ -53,18 +54,13 @@ export default function Home() {
     } finally { setChatLoading(false); }
   }, [chatLoading, lang]);
 
-  // Mouse tracking & 3D Tilt for Hero Spotlight
+  // Mouse tracking for 3D Tilt
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const [trail, setTrail] = useState<{ id: number; x: number; y: number }[]>([]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     mouseX.set(e.clientX);
     mouseY.set(e.clientY);
-
-    // Create trail effect
-    const newPoint = { id: Date.now(), x: e.clientX, y: e.clientY };
-    setTrail(prev => [...prev.slice(-15), newPoint]); // Keep last 15 points
   }, [mouseX, mouseY]);
 
   useEffect(() => {
@@ -72,28 +68,14 @@ export default function Home() {
       mouseX.set(window.innerWidth / 2);
       mouseY.set(window.innerHeight / 2);
     }
-
-    // Cleanup old trail points periodically to prevent stuck comets when mouse stops
-    const interval = setInterval(() => {
-      setTrail(prev => {
-        if (prev.length === 0) return prev;
-        const now = Date.now();
-        return prev.filter(p => now - p.id < 500); // Remove points older than 500ms
-      });
-    }, 100);
-    return () => clearInterval(interval);
   }, [mouseX, mouseY]);
 
   const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
   const smoothMouseX = useSpring(mouseX, springConfig);
   const smoothMouseY = useSpring(mouseY, springConfig);
 
-  // Approximate ranges for desktop tilt (smooth scaling for any screen)
   const tiltX = useTransform(smoothMouseY, [0, 1000], [15, -15]);
   const tiltY = useTransform(smoothMouseX, [0, 1920], [-15, 15]);
-
-  // Interactive global spotlight (Head of the comet)
-  const spotlightBackground = useMotionTemplate`radial-gradient(400px circle at ${smoothMouseX}px ${smoothMouseY}px, rgba(206,16,38,0.5), transparent 60%)`;
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -134,35 +116,8 @@ export default function Home() {
       {/* Hero Section - Scroll Animated */}
       <section ref={heroRef} onMouseMove={handleMouseMove} className="relative h-[400vh] w-full bg-background-dark">
         <div className="sticky top-0 h-screen w-full overflow-hidden perspective-[1200px]">
-          {/* Interactive Mouse Spotlight - Comet Head */}
-          <motion.div
-            className="absolute inset-0 z-[2] pointer-events-none mix-blend-screen"
-            style={{ background: spotlightBackground }}
-          />
-
-          {/* Comet Tail */}
-          <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
-            <AnimatePresence>
-              {trail.map((point, i) => (
-                <motion.div
-                  key={point.id}
-                  initial={{ opacity: 0.8, scale: 1 }}
-                  animate={{ opacity: 0, scale: 0 }}
-                  exit={{ opacity: 0, scale: 0 }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="absolute rounded-full bg-primary blur-[20px] mix-blend-screen"
-                  style={{
-                    left: point.x - 30,
-                    top: point.y - 30,
-                    width: 60,
-                    height: 60,
-                    // Older points are smaller
-                    transform: `scale(${i / trail.length})`,
-                  }}
-                />
-              ))}
-            </AnimatePresence>
-          </div>
+          {/* Neural Network Effect */}
+          <NeuralNetwork />
 
           {/* Background Elements */}
           <div className="absolute inset-0 z-0 bg-background-dark">
@@ -368,7 +323,7 @@ export default function Home() {
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-light to-transparent mx-auto rounded-full mt-10 opacity-50"></div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1200px] mx-auto rounded-[2.5rem] border border-primary/40 p-4 md:p-6 bg-surface-dark/20 backdrop-blur-sm shadow-[0_0_60px_rgba(206,16,38,0.15),0_0_120px_rgba(206,16,38,0.05)]">
             {/* LIA Chat */}
             <div className="lg:col-span-7 glass-panel rounded-[2rem] overflow-hidden flex flex-col relative z-20 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-b from-surface-dark/80 to-background-dark/95 backdrop-blur-2xl -z-10"></div>
@@ -493,6 +448,21 @@ export default function Home() {
                 {t('home.lia.demo')}
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
+            </div>
+
+            {/* Bottom CTA inside border */}
+            <div className="lg:col-span-12 flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 pb-2">
+              <Link href="/about" className="inline-flex items-center gap-2 text-sm text-secondary hover:text-white transition-colors font-medium group">
+                <span className="material-symbols-outlined text-[18px] text-primary">info</span>
+                {t('home.lia.more')}
+                <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+              </Link>
+              <span className="hidden sm:block text-surface-border">·</span>
+              <button onClick={() => { const el = document.querySelector<HTMLInputElement>('[aria-label*="LIA"], [aria-label*="mensaje"]'); el?.focus(); }} className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary-light transition-colors font-semibold group cursor-pointer">
+                <span className="material-symbols-outlined text-[18px]">chat</span>
+                {t('home.lia.ask')}
+                <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+              </button>
             </div>
           </div>
         </div>

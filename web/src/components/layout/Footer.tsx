@@ -1,25 +1,50 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
 const FooterMap = dynamic(() => import('./FooterMap'), { ssr: false });
 
+const offices = [
+    {
+        key: 'bogota',
+        icon: 'location_city',
+        mapUrl: 'https://maps.google.com/?q=4.703564,-74.029023',
+        showMap: true,
+    },
+    {
+        key: 'madrid',
+        icon: 'flight',
+        mapUrl: 'https://maps.google.com/?q=Calle+Jorge+Juan+30+Madrid+Spain',
+        showMap: false,
+    },
+    {
+        key: 'contact',
+        icon: 'contact_phone',
+        mapUrl: 'https://wa.me/573009292911',
+        showMap: false,
+    },
+];
+
 const Footer = () => {
     const { t } = useLanguage();
+    const [mapOpen, setMapOpen] = useState(false);
+
     return (
-        <footer className="bg-transparent border-t border-surface-border/50 text-secondary py-16 px-4 md:px-10 relative overflow-hidden">
+        <footer className="bg-transparent border-t border-surface-border/50 text-secondary py-12 px-4 md:px-10 relative overflow-hidden">
             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10 mix-blend-screen"></div>
             <div className="max-w-[1440px] mx-auto w-full">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                    <div className="col-span-1 md:col-span-1">
-                        <div className="mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+                    {/* Logo + Desc */}
+                    <div className="md:col-span-3">
+                        <div className="mb-4">
                             <Image src="https://www.pro-corp.net/wp-content/uploads/2023/07/Signature_PCP.png" alt="Pro Corp" width={140} height={35} className="h-9 w-auto object-contain" />
                         </div>
-                        <p className="text-sm leading-relaxed mb-6 font-medium text-secondary">
+                        <p className="text-sm leading-relaxed mb-4 font-medium text-secondary">
                             {t('footer.desc')}
                         </p>
                         <div className="flex gap-4">
@@ -31,77 +56,121 @@ const Footer = () => {
                             </a>
                         </div>
                     </div>
-                    <div>
-                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">{t('footer.company')}</h4>
-                        <ul className="flex flex-col gap-3 text-sm font-medium">
+
+                    {/* Links columns */}
+                    <div className="md:col-span-2">
+                        <h4 className="text-white font-bold mb-3 text-sm uppercase tracking-wider">{t('footer.company')}</h4>
+                        <ul className="flex flex-col gap-2.5 text-sm font-medium">
                             <li><Link href="/about" className="hover:text-primary transition-colors">{t('footer.about')}</Link></li>
                             <li><Link href="/journal" className="hover:text-primary transition-colors">{t('footer.blog')}</Link></li>
                             <li><Link href="/contact" className="hover:text-primary transition-colors">{t('footer.contact')}</Link></li>
                         </ul>
                     </div>
-                    <div>
-                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">{t('footer.services')}</h4>
-                        <ul className="flex flex-col gap-3 text-sm font-medium">
+                    <div className="md:col-span-2">
+                        <h4 className="text-white font-bold mb-3 text-sm uppercase tracking-wider">{t('footer.services')}</h4>
+                        <ul className="flex flex-col gap-2.5 text-sm font-medium">
                             <li><Link href="/projects" className="hover:text-primary transition-colors">{t('footer.legal.solutions')}</Link></li>
                             <li><Link href="/studio" className="hover:text-primary transition-colors">{t('footer.legal.growth')}</Link></li>
                             <li><Link href="/contact" className="hover:text-primary transition-colors">{t('footer.legal.consulting')}</Link></li>
                         </ul>
                     </div>
-                    <div>
-                        <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider">{t('footer.legal.title')}</h4>
-                        <ul className="flex flex-col gap-3 text-sm font-medium">
-                            <li><Link href="/privacy" className="hover:text-primary transition-colors">{t('footer.legal.privacy')}</Link></li>
-                            <li><Link href="/privacy" className="hover:text-primary transition-colors">{t('footer.legal.terms')}</Link></li>
-                            <li><Link href="/cookies" className="hover:text-primary transition-colors">{t('footer.legal.cookies')}</Link></li>
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Map Section */}
-                <div className="mb-12 rounded-[2rem] overflow-hidden border border-surface-border/50 relative group glass-panel shadow-2xl">
-                    <div className="grid grid-cols-1 lg:grid-cols-12">
-                        {/* Map */}
-                        <div className="lg:col-span-8 relative h-[220px] lg:h-[240px]">
-                            <FooterMap />
-                        </div>
-                        {/* Info Panel */}
-                        <div className="lg:col-span-4 bg-background-dark/60 backdrop-blur-xl p-10 flex flex-col justify-center gap-6 border-t lg:border-t-0 lg:border-l border-surface-border/50">
-                            <div className="flex items-center gap-4">
-                                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center shadow-[0_0_15px_rgba(206,16,38,0.1)]">
-                                    <span className="material-symbols-outlined text-primary-light text-[24px]">location_on</span>
-                                </div>
-                                <h4 className="text-white font-bold text-[11px] uppercase tracking-[0.2em]">{t('footer.location')}</h4>
-                            </div>
-                            <div className="flex flex-col gap-1">
-                                <p className="text-white font-semibold text-sm">{t('footer.location.address')}</p>
-                                <p className="text-secondary text-sm">{t('footer.location.city')}</p>
-                            </div>
-                            <div className="flex items-center gap-2 text-secondary text-xs">
-                                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                                <span>09:00 – 18:00 CET</span>
-                            </div>
-                            <a
-                                href="https://maps.google.com/?q=4.703564,-74.029023"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-primary-light transition-colors mt-1 group/link"
-                            >
-                                {t('footer.location.cta')}
-                                <span className="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-0.5">arrow_forward</span>
-                            </a>
+                    {/* Offices */}
+                    <div className="md:col-span-5">
+                        <h4 className="text-white font-bold mb-3 text-sm uppercase tracking-wider">{t('footer.offices')}</h4>
+                        <div className="flex flex-col gap-3">
+                            {offices.map((office) => (
+                                <button
+                                    key={office.key}
+                                    onClick={() => {
+                                        if (office.showMap) {
+                                            setMapOpen(true);
+                                        } else {
+                                            window.open(office.mapUrl, '_blank');
+                                        }
+                                    }}
+                                    className="group flex items-center gap-3 text-left rounded-xl border border-surface-border/50 bg-surface-dark/30 hover:border-primary/30 hover:bg-surface-dark/60 px-4 py-3 transition-all cursor-pointer"
+                                >
+                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <span className="material-symbols-outlined text-[18px]">{office.icon}</span>
+                                    </div>
+                                    <div className="min-w-0">
+                                        <p className="text-white text-sm font-semibold leading-tight">
+                                            {t(`footer.office.${office.key}`)}
+                                            <span className="text-secondary font-normal text-xs ml-1.5">{t(`footer.office.${office.key}.label`)}</span>
+                                        </p>
+                                        <p className="text-secondary text-xs truncate mt-0.5">
+                                            {t(`footer.office.${office.key}.${office.key === 'contact' ? 'detail' : 'address'}`)}
+                                        </p>
+                                    </div>
+                                    <span className="material-symbols-outlined text-[16px] text-gray-600 group-hover:text-primary ml-auto shrink-0 transition-colors">
+                                        {office.showMap ? 'map' : 'open_in_new'}
+                                    </span>
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>
 
-                <div className="border-t border-surface-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
+                <div className="border-t border-surface-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
                     <p>&copy; {new Date().getFullYear()} Pro Corp. {t('footer.rights')}</p>
-                    <div className="flex gap-6">
+                    <div className="flex items-center gap-4">
+                        <Link href="/privacy" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.privacy')}</Link>
+                        <span className="text-surface-border">·</span>
+                        <Link href="/privacy" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.terms')}</Link>
+                        <span className="text-surface-border">·</span>
                         <span className="flex items-center gap-1">
                             <span className="w-2 h-2 rounded-full bg-green-500"></span> {t('footer.system')}
                         </span>
                     </div>
                 </div>
             </div>
+
+            {/* Map Modal */}
+            <AnimatePresence>
+                {mapOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+                        onClick={() => setMapOpen(false)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ type: 'spring', duration: 0.4 }}
+                            className="relative w-full max-w-3xl h-[400px] md:h-[500px] rounded-2xl overflow-hidden border border-surface-border/50 shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <FooterMap />
+                            <button
+                                onClick={() => setMapOpen(false)}
+                                className="absolute top-4 right-4 z-[10000] flex items-center gap-1.5 bg-background-dark/80 backdrop-blur-md border border-surface-border rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wider text-white hover:bg-primary hover:border-primary transition-all"
+                            >
+                                <span className="material-symbols-outlined text-[16px]">close</span>
+                                {t('footer.map.close')}
+                            </button>
+                            <div className="absolute bottom-4 left-4 z-[10000] flex items-center gap-2">
+                                <div className="h-2 w-2 rounded-full bg-primary animate-ping"></div>
+                                <div className="h-2 w-2 rounded-full bg-primary absolute"></div>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-black/60 px-3 py-1.5 rounded border border-white/10 backdrop-blur-md ml-2">
+                                    {t('footer.location.address')} — Bogotá
+                                </span>
+                            </div>
+                            <a
+                                href="https://maps.google.com/?q=4.703564,-74.029023"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute bottom-4 right-4 z-[10000] inline-flex items-center gap-1.5 bg-primary hover:bg-primary-light border border-primary-light/30 rounded-lg px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all"
+                            >
+                                {t('footer.location.cta')}
+                                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                            </a>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </footer>
     );
 };

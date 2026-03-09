@@ -33,10 +33,10 @@ const Navbar = () => {
 
     const navLinks = [
         { name: t('nav.home'), href: '/' },
-        { name: t('nav.blog'), href: '/journal' },
-        { name: t('nav.legal'), href: '/projects' },
         { name: t('nav.growth'), href: '/studio' },
+        { name: t('nav.blog'), href: '/journal' },
         { name: t('nav.about'), href: '/about' },
+        { name: t('nav.legal'), href: '/projects' },
         { name: t('nav.contact'), href: '/contact' },
     ];
 
