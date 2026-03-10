@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, FormEvent } from 'react';
 import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -7,6 +8,36 @@ const FooterMap = dynamic(() => import('@/components/layout/FooterMap'), { ssr: 
 
 export default function Contact() {
   const { t } = useLanguage();
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('sending');
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem('contact-name') as HTMLInputElement).value,
+      organization: (form.elements.namedItem('contact-org') as HTMLInputElement).value,
+      email: (form.elements.namedItem('contact-email') as HTMLInputElement).value,
+      phone: (form.elements.namedItem('contact-phone') as HTMLInputElement).value,
+      area: (form.elements.namedItem('contact-area') as HTMLSelectElement).value,
+      level: (form.elements.namedItem('contact-level') as HTMLSelectElement).value,
+      details: (form.elements.namedItem('contact-details') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch('https://n8n-n8n.ukq6rz.easypanel.host/webhook/7599d370-aafb-48fb-a5dc-9e67669994a1', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error('Request failed');
+      setStatus('success');
+      form.reset();
+    } catch {
+      setStatus('error');
+    }
+  }
 
   const infoCards = [
     { icon: 'location_city', title: t('contact.info1.title'), line1: t('contact.info1.line1'), line2: t('contact.info1.line2') },
@@ -40,7 +71,7 @@ export default function Contact() {
             <div className="rounded-[2rem] glass-panel p-8 md:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 blur-[50px] rounded-full pointer-events-none"></div>
-              <form className="flex flex-col gap-6">
+              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
                     <label htmlFor="contact-name" className="text-sm font-medium text-gray-200">{t('contact.name')}</label>
@@ -134,10 +165,30 @@ export default function Contact() {
                       {t('contact.privacy')} <a className="text-primary hover:underline hover:text-primary-light" href="/privacy">{t('contact.privacy.link')}</a>. {t('contact.privacy.auth')}
                     </span>
                   </label>
-                  <button className="group relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-primary py-4 text-sm uppercase tracking-widest font-bold text-white shadow-lg glow-primary glow-primary-hover transition-all active:scale-[0.98]" type="submit">
-                    <span className="relative z-10 mr-2">{t('contact.submit')}</span>
-                    <span className="relative z-10 material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">memory</span>
+                  <button
+                    className="group relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-primary py-4 text-sm uppercase tracking-widest font-bold text-white shadow-lg glow-primary glow-primary-hover transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+                    type="submit"
+                    disabled={status === 'sending'}
+                  >
+                    <span className="relative z-10 mr-2">
+                      {status === 'sending' ? (t('contact.sending') ?? 'Enviando...') : t('contact.submit')}
+                    </span>
+                    <span className="relative z-10 material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">
+                      {status === 'sending' ? 'hourglass_empty' : 'memory'}
+                    </span>
                   </button>
+                  {status === 'success' && (
+                    <p className="text-sm text-green-400 text-center flex items-center justify-center gap-2">
+                      <span className="material-symbols-outlined text-[18px]">check_circle</span>
+                      {t('contact.success') ?? 'Mensaje enviado correctamente.'}
+                    </p>
+                  )}
+                  {status === 'error' && (
+                    <p className="text-sm text-red-400 text-center flex items-center justify-center gap-2">
+                      <span className="material-symbols-outlined text-[18px]">error</span>
+                      {t('contact.error') ?? 'Error al enviar. Inténtalo de nuevo.'}
+                    </p>
+                  )}
                 </div>
               </form>
             </div>
