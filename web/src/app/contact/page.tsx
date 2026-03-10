@@ -29,7 +29,7 @@ export default function Contact() {
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl mb-6">
             {t('contact.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-400">{t('contact.title2')}</span>
           </h1>
-          <p className="text-lg leading-relaxed text-secondary max-w-2xl">
+          <p className="text-lg leading-relaxed text-gray-300 max-w-2xl">
             {t('contact.desc2')}
           </p>
         </div>
@@ -43,50 +43,50 @@ export default function Contact() {
               <form className="flex flex-col gap-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-name" className="text-sm font-medium text-secondary">{t('contact.name')}</label>
+                    <label htmlFor="contact-name" className="text-sm font-medium text-gray-200">{t('contact.name')}</label>
                     <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">person</span>
                       </div>
-                      <input id="contact-name" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-500 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.name.ph')} type="text" />
+                      <input id="contact-name" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.name.ph')} type="text" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-org" className="text-sm font-medium text-secondary">{t('contact.org')}</label>
+                    <label htmlFor="contact-org" className="text-sm font-medium text-gray-200">{t('contact.org')}</label>
                     <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">domain</span>
                       </div>
-                      <input id="contact-org" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-500 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.org.ph')} type="text" />
+                      <input id="contact-org" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.org.ph')} type="text" />
                     </div>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-email" className="text-sm font-medium text-secondary">{t('contact.email')}</label>
+                    <label htmlFor="contact-email" className="text-sm font-medium text-gray-200">{t('contact.email')}</label>
                     <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">alternate_email</span>
                       </div>
-                      <input id="contact-email" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-500 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.email.ph')} type="email" />
+                      <input id="contact-email" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.email.ph')} type="email" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-phone" className="text-sm font-medium text-secondary">{t('contact.phone')}</label>
+                    <label htmlFor="contact-phone" className="text-sm font-medium text-gray-200">{t('contact.phone')}</label>
                     <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
                         <span className="material-symbols-outlined text-[20px]">phone_iphone</span>
                       </div>
-                      <input id="contact-phone" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-500 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.phone.ph')} type="tel" />
+                      <input id="contact-phone" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.phone.ph')} type="tel" />
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="contact-area" className="text-sm font-medium text-secondary">{t('contact.area')}</label>
+                  <label htmlFor="contact-area" className="text-sm font-medium text-gray-200">{t('contact.area')}</label>
                   <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
                       <span className="material-symbols-outlined text-[20px]">settings_suggest</span>
                     </div>
                     <select id="contact-area" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all appearance-none cursor-pointer outline-none" defaultValue="">
@@ -97,16 +97,16 @@ export default function Contact() {
                       <option value="lia">{t('contact.area.4')}</option>
                       <option value="consulting">{t('contact.area.5')}</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-500">
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
                       <span className="material-symbols-outlined">expand_more</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="contact-level" className="text-sm font-medium text-secondary">{t('contact.level')}</label>
+                  <label htmlFor="contact-level" className="text-sm font-medium text-gray-200">{t('contact.level')}</label>
                   <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-500 group-focus-within:text-primary transition-colors">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
                       <span className="material-symbols-outlined text-[20px]">bar_chart</span>
                     </div>
                     <select id="contact-level" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all appearance-none cursor-pointer outline-none" defaultValue="">
@@ -116,21 +116,21 @@ export default function Contact() {
                       <option value="advanced">{t('contact.level.3')}</option>
                       <option value="optimized">{t('contact.level.4')}</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-500">
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
                       <span className="material-symbols-outlined">expand_more</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="contact-details" className="text-sm font-medium text-secondary">{t('contact.details')}</label>
-                  <textarea id="contact-details" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm p-4 text-sm text-white placeholder-gray-500 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all resize-none outline-none" placeholder={t('contact.details.ph')} rows={4}></textarea>
+                  <label htmlFor="contact-details" className="text-sm font-medium text-gray-200">{t('contact.details')}</label>
+                  <textarea id="contact-details" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm p-4 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all resize-none outline-none" placeholder={t('contact.details.ph')} rows={4}></textarea>
                 </div>
 
                 <div className="flex flex-col gap-6 mt-4 relative z-10">
                   <label className="flex items-start gap-3 cursor-pointer group">
                     <input className="mt-1 flex-shrink-0 h-4 w-4 rounded border-surface-border bg-surface-darker text-primary focus:ring-primary/50 transition-all checked:bg-primary" type="checkbox" />
-                    <span className="text-xs text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                    <span className="text-xs text-gray-300 leading-relaxed group-hover:text-white transition-colors">
                       {t('contact.privacy')} <a className="text-primary hover:underline hover:text-primary-light" href="/privacy">{t('contact.privacy.link')}</a>. {t('contact.privacy.auth')}
                     </span>
                   </label>
@@ -153,7 +153,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-white text-lg tracking-wide">{card.title}</h3>
-                    <p className="mt-1 text-sm text-gray-400 font-light leading-relaxed">{card.line1}{card.line2 && <><br />{card.line2}</>}</p>
+                    <p className="mt-1 text-sm text-gray-300 font-light leading-relaxed">{card.line1}{card.line2 && <><br />{card.line2}</>}</p>
                     {card.link && (
                       <a className="text-xs font-semibold text-primary hover:text-primary-light transition-colors mt-3 inline-flex items-center gap-1 uppercase tracking-widest" href={card.link.href}>
                         {card.link.text}
