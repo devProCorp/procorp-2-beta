@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePres
 import { useLanguage } from '@/context/LanguageContext';
 import WorkflowAnimation from '@/components/home/WorkflowAnimation';
 import NeuralNetwork from '@/components/home/NeuralNetwork';
+import FadeInSection from '@/components/ui/FadeInSection';
 
 const LIA_WEBHOOK = 'https://n8n-n8n.ukq6rz.easypanel.host/webhook/75ad02de-9eff-41c0-a422-c7b11adfa8fa';
 
@@ -260,6 +261,7 @@ export default function Home() {
       {/* Strategic Pillars */}
       <section className="px-4 md:px-10 bg-background-dark relative pt-12 pb-24">
         <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-16">
+          <FadeInSection>
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-surface-border pb-8">
             <div className="flex flex-col gap-3 max-w-[700px]">
               <h2 className="text-primary font-bold tracking-widest uppercase text-sm">{t('home.pillars.label')}</h2>
@@ -271,9 +273,11 @@ export default function Home() {
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
+          </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pillars.map((pillar) => (
-              <Link href={pillar.href} key={pillar.title} className="group relative flex flex-col justify-between h-full p-8 rounded-[2rem] glass-panel glass-panel-hover overflow-hidden">
+            {pillars.map((pillar, i) => (
+              <FadeInSection key={pillar.title} delay={i * 0.1}>
+              <Link href={pillar.href} className="group relative flex flex-col justify-between h-full p-8 rounded-[2rem] glass-panel glass-panel-hover overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 blur-[40px] rounded-full group-hover:bg-primary/20 transition-colors duration-500"></div>
 
@@ -291,6 +295,7 @@ export default function Home() {
                   <span className="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform duration-300">arrow_right_alt</span>
                 </div>
               </Link>
+              </FadeInSection>
             ))}
           </div>
         </div>
@@ -299,12 +304,16 @@ export default function Home() {
       {/* Workflow Animation */}
       <section className="py-20 px-4 md:px-10 bg-background-dark border-t border-surface-border">
         <div className="max-w-[1100px] mx-auto flex flex-col gap-10">
-          <div className="text-center">
-            <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">{t('home.workflow.label')}</h2>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-white uppercase">{t('home.workflow.title')}</h3>
-            <p className="text-secondary text-lg mt-4 max-w-2xl mx-auto">{t('home.workflow.desc')}</p>
-          </div>
-          <WorkflowAnimation />
+          <FadeInSection>
+            <div className="text-center">
+              <h2 className="text-primary font-bold tracking-widest uppercase text-sm mb-3">{t('home.workflow.label')}</h2>
+              <h3 className="text-4xl md:text-5xl font-extrabold text-white uppercase">{t('home.workflow.title')}</h3>
+              <p className="text-secondary text-lg mt-4 max-w-2xl mx-auto">{t('home.workflow.desc')}</p>
+            </div>
+          </FadeInSection>
+          <FadeInSection delay={0.15}>
+            <WorkflowAnimation />
+          </FadeInSection>
         </div>
       </section>
 
@@ -313,15 +322,17 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none blur-3xl"></div>
         <div className="max-w-[1440px] mx-auto w-full relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4 uppercase drop-shadow-lg">
-              {t('home.lia.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('home.lia.title2')}</span>
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-300 mt-6 font-light max-w-3xl mx-auto leading-relaxed">
-              {t('home.lia.desc1')} <span className="text-white font-semibold">{t('home.lia.desc2')}</span> {t('home.lia.desc3')}
-            </p>
-            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-light to-transparent mx-auto rounded-full mt-10 opacity-50"></div>
-          </div>
+          <FadeInSection>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4 uppercase drop-shadow-lg">
+                {t('home.lia.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('home.lia.title2')}</span>
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-300 mt-6 font-light max-w-3xl mx-auto leading-relaxed">
+                {t('home.lia.desc1')} <span className="text-white font-semibold">{t('home.lia.desc2')}</span> {t('home.lia.desc3')}
+              </p>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-light to-transparent mx-auto rounded-full mt-10 opacity-50"></div>
+            </div>
+          </FadeInSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-[1200px] mx-auto rounded-[2.5rem] border border-primary/40 p-4 md:p-6 bg-surface-dark/20 backdrop-blur-sm shadow-[0_0_60px_rgba(206,16,38,0.15),0_0_120px_rgba(206,16,38,0.05)]">
             {/* LIA Chat */}
@@ -413,6 +424,13 @@ export default function Home() {
                   <span className="material-symbols-outlined">send</span>
                 </button>
               </form>
+              <div className="px-6 py-3 flex items-center justify-center">
+                <button onClick={() => { const el = document.querySelector<HTMLInputElement>('[aria-label*="LIA"], [aria-label*="mensaje"]'); el?.focus(); }} className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary-light transition-colors font-semibold group cursor-pointer">
+                  <span className="material-symbols-outlined text-[18px]">chat</span>
+                  {t('home.lia.ask')}
+                  <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+                </button>
+              </div>
             </div>
 
             {/* Side Stats */}
@@ -451,18 +469,12 @@ export default function Home() {
             </div>
 
             {/* Bottom CTA inside border */}
-            <div className="lg:col-span-12 flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 pb-2">
+            <div className="lg:col-span-12 flex items-center justify-center pt-2 pb-2">
               <Link href="/about" className="inline-flex items-center gap-2 text-sm text-secondary hover:text-white transition-colors font-medium group">
                 <span className="material-symbols-outlined text-[18px] text-primary">info</span>
                 {t('home.lia.more')}
                 <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
               </Link>
-              <span className="hidden sm:block text-surface-border">·</span>
-              <button onClick={() => { const el = document.querySelector<HTMLInputElement>('[aria-label*="LIA"], [aria-label*="mensaje"]'); el?.focus(); }} className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary-light transition-colors font-semibold group cursor-pointer">
-                <span className="material-symbols-outlined text-[18px]">chat</span>
-                {t('home.lia.ask')}
-                <span className="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
-              </button>
             </div>
           </div>
         </div>
@@ -472,6 +484,7 @@ export default function Home() {
       <section className="py-24 px-4 md:px-10 bg-transparent border-y border-surface-border relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#CE1026 1px, transparent 1px), linear-gradient(90deg, #CE1026 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
         <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+          <FadeInSection>
           <div className="flex flex-col gap-8">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel w-fit border border-primary/20">
               <span className="material-symbols-outlined text-primary text-sm">hub</span>
@@ -495,8 +508,10 @@ export default function Home() {
               ))}
             </ul>
           </div>
+          </FadeInSection>
 
           {/* Dashboard Mockup */}
+          <FadeInSection delay={0.15}>
           <div className="relative rounded-[2rem] border border-surface-border/60 glass-panel p-6 shadow-2xl group">
             <div className="absolute -inset-10 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 blur-[80px] -z-10 rounded-full group-hover:from-primary/30 transition-colors duration-700"></div>
 
@@ -556,6 +571,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </FadeInSection>
         </div>
       </section>
 
@@ -563,18 +579,21 @@ export default function Home() {
       <section className="py-24 px-4 md:px-10 bg-background-dark relative border-t border-surface-border overflow-hidden">
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,_var(--surface-dark)_0%,_transparent_100%)] opacity-80"></div>
         <div className="max-w-[1200px] mx-auto relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6">{t('home.howwework.label')}</h2>
-            <h3 className="text-5xl md:text-6xl font-extrabold text-white uppercase tracking-tight">{t('home.howwework.title')}</h3>
-            <p className="text-gray-400 text-xl mt-6 max-w-2xl mx-auto font-light leading-relaxed">{t('home.howwework.desc')}</p>
-          </div>
+          <FadeInSection>
+            <div className="text-center mb-20">
+              <h2 className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6">{t('home.howwework.label')}</h2>
+              <h3 className="text-5xl md:text-6xl font-extrabold text-white uppercase tracking-tight">{t('home.howwework.title')}</h3>
+              <p className="text-gray-400 text-xl mt-6 max-w-2xl mx-auto font-light leading-relaxed">{t('home.howwework.desc')}</p>
+            </div>
+          </FadeInSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { num: '01', icon: 'search', titleKey: 'home.howwework.step1.title', descKey: 'home.howwework.step1.desc' },
               { num: '02', icon: 'architecture', titleKey: 'home.howwework.step2.title', descKey: 'home.howwework.step2.desc' },
               { num: '03', icon: 'rocket_launch', titleKey: 'home.howwework.step3.title', descKey: 'home.howwework.step3.desc' },
             ].map((step, i) => (
-              <div key={step.num} className="relative group">
+              <FadeInSection key={step.num} delay={i * 0.12}>
+              <div className="relative group">
                 {i < 2 && (
                   <div className="hidden md:block absolute top-[4.5rem] left-[calc(100%+1rem)] w-[calc(100%-2rem)] h-px bg-gradient-to-r from-surface-border via-primary/30 to-surface-border z-0">
                     <span className="absolute right-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary/50 text-sm">arrow_forward_ios</span>
@@ -590,6 +609,7 @@ export default function Home() {
                   <p className="text-gray-400 text-[15px] leading-relaxed font-light">{t(step.descKey)}</p>
                 </div>
               </div>
+              </FadeInSection>
             ))}
           </div>
         </div>
@@ -598,6 +618,7 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-32 px-4 bg-background-dark border-t border-surface-border relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[500px] bg-primary/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none z-0"></div>
+        <FadeInSection>
         <div className="max-w-[960px] mx-auto flex flex-col items-center text-center gap-10 relative z-10 glass-panel p-16 md:p-24 rounded-[3rem] shadow-2xl">
           <h2 className="text-5xl md:text-7xl font-extrabold text-white uppercase tracking-tight drop-shadow-xl leading-[1.1]">
             {t('home.cta.title')}
@@ -612,6 +633,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        </FadeInSection>
       </section>
     </main>
   );
