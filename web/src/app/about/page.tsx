@@ -6,19 +6,19 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function About() {
   const { t } = useLanguage();
 
-  const steps = [
+  const bpaSteps = [
     { num: 1, icon: 'travel_explore', title: t('about.step1'), desc: t('about.step1.desc') },
     { num: 2, icon: 'strategy', title: t('about.step2'), desc: t('about.step2.desc') },
     { num: 3, icon: 'calendar_month', title: t('about.step3'), desc: t('about.step3.desc') },
     { num: 4, icon: 'rocket_launch', title: t('about.step4'), desc: t('about.step4.desc') },
     { num: 5, icon: 'trending_up', title: t('about.step5'), desc: t('about.step5.desc') },
-    { num: 6, icon: 'open_in_full', title: t('about.step6'), desc: t('about.step6.desc') },
   ];
+
 
   const features = [
     { icon: 'verified_user', title: t('about.f1.title'), desc: t('about.f1.desc') },
     { icon: 'trending_up', title: t('about.f2.title'), desc: t('about.f2.desc') },
-    { icon: 'precision_manufacturing', title: t('about.f3.title'), desc: t('about.f3.desc') },
+    { icon: 'license', title: t('about.f3.title'), desc: t('about.f3.desc') },
   ];
 
   const stats = [
@@ -97,34 +97,29 @@ export default function About() {
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">{t('about.method.title')}</h3>
             <p className="mt-6 text-gray-400 font-light leading-relaxed max-w-2xl mx-auto text-[15px]">{t('about.method.desc')}</p>
           </div>
-          <div className="relative">
-            <div className="hidden md:block absolute top-[40%] left-[5%] right-[5%] h-0.5 bg-gradient-to-r from-surface-border via-primary to-surface-border z-0"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10">
-              {steps.map((s) => (
-                <div key={s.num} className="group relative">
-                  <div className="h-full glass-panel glass-panel-hover rounded-[1.5rem] p-8 flex flex-col items-center text-center gap-5 border border-surface-border/50">
-                    <div className="w-16 h-16 rounded-2xl bg-surface-darker border border-surface-border text-gray-500 flex items-center justify-center font-black text-2xl mb-2 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-dark group-hover:border-primary-light/50 group-hover:text-white transition-all duration-300 shadow-xl">{s.num}</div>
-                    <div className="text-primary-light mb-2 group-hover:scale-110 transition-transform duration-300">
-                      <span className="material-symbols-outlined text-[40px] drop-shadow-[0_0_10px_rgba(206,16,38,0.4)]">{s.icon}</span>
+          <div className="relative flex flex-col gap-10">
+            {/* BPA Container */}
+            <div className="relative rounded-[2.5rem] border-2 border-primary/30 bg-primary/[0.03] p-8 md:p-10 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+              <div className="absolute -top-px left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-br from-primary to-primary-dark rounded-b-xl border border-primary-light/40 border-t-0 shadow-[0_4px_20px_rgba(206,16,38,0.3)]">
+                <span className="text-[11px] font-black text-white uppercase tracking-[0.25em]">BPA</span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mt-6">
+                {bpaSteps.map((s) => (
+                  <div key={s.num} className="group relative">
+                    <div className="h-full glass-panel glass-panel-hover rounded-[1.5rem] p-7 flex flex-col items-center text-center gap-4 border border-surface-border/50">
+                      <div className="w-14 h-14 rounded-2xl bg-surface-darker border border-surface-border text-gray-500 flex items-center justify-center font-black text-xl mb-1 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-dark group-hover:border-primary-light/50 group-hover:text-white transition-all duration-300 shadow-xl">{s.num}</div>
+                      <div className="text-primary-light mb-1 group-hover:scale-110 transition-transform duration-300">
+                        <span className="material-symbols-outlined text-[36px] drop-shadow-[0_0_10px_rgba(206,16,38,0.4)]">{s.icon}</span>
+                      </div>
+                      <h4 className="text-white font-bold text-lg leading-tight tracking-wide">{s.title}</h4>
+                      <p className="text-[12px] font-light text-gray-400 leading-relaxed">{s.desc}</p>
                     </div>
-                    <h4 className="text-white font-bold text-xl leading-tight tracking-wide">{s.title}</h4>
-                    <p className="text-[13px] font-light text-gray-400 leading-relaxed">{s.desc}</p>
                   </div>
-                </div>
-              ))}
-              {/* Step 7 - highlighted */}
-              <div className="group relative lg:col-span-1 xl:col-span-1">
-                <div className="h-full bg-gradient-to-br from-primary-dark/40 to-black border border-primary/50 rounded-[1.5rem] p-8 transition-all duration-300 hover:-translate-y-2 shadow-[0_0_30px_rgba(206,16,38,0.2)] hover:shadow-[0_0_40px_rgba(206,16,38,0.4)] flex flex-col items-center text-center gap-5 backdrop-blur-xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-[30px] -z-10"></div>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark border border-primary-light/50 text-white flex items-center justify-center font-black text-2xl mb-2 shadow-[0_0_20px_rgba(206,16,38,0.6)]">7</div>
-                  <div className="text-white mb-2 scale-110">
-                    <span className="material-symbols-outlined text-[40px] drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">smart_toy</span>
-                  </div>
-                  <h4 className="text-white font-bold text-xl leading-tight tracking-wide drop-shadow-md">{t('about.step7')}</h4>
-                  <p className="text-[13px] font-light text-gray-300 leading-relaxed">{t('about.step7.desc')}</p>
-                </div>
+                ))}
               </div>
             </div>
+
           </div>
         </div>
       </section>
