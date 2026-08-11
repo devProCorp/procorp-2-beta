@@ -75,7 +75,7 @@ const Navbar = () => {
                         onClick={toggleLang}
                         className="text-[10px] font-bold uppercase tracking-[0.2em] border border-surface-border rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:border-primary/50 hover:bg-surface-dark transition-all"
                     >
-                        {lang === 'en' ? 'ES' : 'EN'}
+                        {lang.toUpperCase()}
                     </button>
                     <a
                         href="https://www.pro-corp.net/login/"

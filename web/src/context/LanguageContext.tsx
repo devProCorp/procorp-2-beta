@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
-type Language = 'en' | 'es';
+type Language = 'en' | 'es' | 'pt';
 
 interface LanguageContextType {
     lang: Language;
@@ -19,7 +19,7 @@ export function useLanguage() {
 }
 
 // ─── TRANSLATIONS ───────────────────────────────────────────────
-const translations: Record<string, Record<Language, string>> = {
+const translations: Record<string, Partial<Record<Language, string>>> = {
 
     // ── Navbar ──
     'nav.home': { en: 'Home', es: 'Inicio' },
@@ -830,7 +830,9 @@ const translations: Record<string, Record<Language, string>> = {
 function detectLanguage(): Language {
     if (typeof window === 'undefined') return 'en';
     const browserLang = navigator.language || navigator.languages?.[0] || 'en';
-    return browserLang.startsWith('es') ? 'es' : 'en';
+    if (browserLang.startsWith('es')) return 'es';
+    if (browserLang.startsWith('pt')) return 'pt';
+    return 'en';
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
@@ -841,11 +843,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const toggleLang = useCallback(() => {
-        setLang(prev => prev === 'en' ? 'es' : 'en');
+        // ciclo EN → ES → PT → EN
+        setLang(prev => (prev === 'en' ? 'es' : prev === 'es' ? 'pt' : 'en'));
     }, []);
 
     const t = useCallback((key: string): string => {
-        return translations[key]?.[lang] ?? key;
+        return translations[key]?.[lang] ?? translations[key]?.en ?? key;
     }, [lang]);
 
     return (
