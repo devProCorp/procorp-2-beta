@@ -11,10 +11,10 @@ const FooterMap = dynamic(() => import('./FooterMap'), { ssr: false });
 
 const offices = [
     {
-        key: 'bogota',
-        icon: 'location_city',
-        mapUrl: 'https://maps.google.com/?q=4.703564,-74.029023',
-        showMap: true,
+        key: 'houston',
+        icon: 'apartment',
+        mapUrl: 'https://maps.google.com/?q=Neils+Branch+Dr,+Houston,+TX+77077',
+        showMap: false,
     },
     {
         key: 'madrid',
@@ -23,11 +23,17 @@ const offices = [
         showMap: false,
     },
     {
-        key: 'contact',
-        icon: 'contact_phone',
-        mapUrl: 'https://wa.me/573009292911',
-        showMap: false,
+        key: 'bogota',
+        icon: 'location_city',
+        mapUrl: 'https://maps.google.com/?q=4.703564,-74.029023',
+        showMap: true,
     },
+];
+
+const contactLines = [
+    { labelKey: 'footer.office.contact.label', number: '+57 300 929 2911', href: 'https://wa.me/573009292911' },
+    { labelKey: 'footer.office.contact.wa.spain', number: '+57 311 517 8256', href: 'https://wa.me/573115178256' },
+    { labelKey: 'footer.office.contact.wa.portugal', number: '+57 311 516 3806', href: 'https://wa.me/573115163806' },
 ];
 
 const Footer = () => {
@@ -42,7 +48,7 @@ const Footer = () => {
                     {/* Logo + Desc */}
                     <div className="md:col-span-3">
                         <div className="mb-4">
-                            <Image src="https://www.pro-corp.net/wp-content/uploads/2023/07/Signature_PCP.png" alt="Pro Corp" width={140} height={35} className="h-9 w-auto object-contain" />
+                            <Image src="/brand/Signature_PCP.png" alt="Pro Corp" width={140} height={35} className="h-9 w-auto object-contain" />
                         </div>
                         <p className="text-sm leading-relaxed mb-4 font-medium text-secondary">
                             {t('footer.desc')}
@@ -71,14 +77,13 @@ const Footer = () => {
                         <ul className="flex flex-col gap-2.5 text-sm font-medium">
                             <li><Link href="/projects" className="hover:text-primary transition-colors">{t('footer.legal.solutions')}</Link></li>
                             <li><Link href="/studio" className="hover:text-primary transition-colors">{t('footer.legal.growth')}</Link></li>
-                            <li><Link href="/contact" className="hover:text-primary transition-colors">{t('footer.legal.consulting')}</Link></li>
                         </ul>
                     </div>
                     {/* Offices */}
                     <div className="md:col-span-5">
                         <h4 className="text-white font-bold mb-3 text-sm uppercase tracking-wider">{t('footer.offices')}</h4>
                         <div className="flex flex-col gap-3">
-                            {offices.map((office) => (
+                            {offices.filter((office) => office.key !== 'contact').map((office) => (
                                 <button
                                     key={office.key}
                                     onClick={() => {
@@ -99,7 +104,7 @@ const Footer = () => {
                                             <span className="text-secondary font-normal text-xs ml-1.5">{t(`footer.office.${office.key}.label`)}</span>
                                         </p>
                                         <p className="text-secondary text-xs truncate mt-0.5">
-                                            {t(`footer.office.${office.key}.${office.key === 'contact' ? 'detail' : 'address'}`)}
+                                            {t(`footer.office.${office.key}.address`)}
                                         </p>
                                     </div>
                                     <span className="material-symbols-outlined text-[16px] text-gray-600 group-hover:text-primary ml-auto shrink-0 transition-colors">
@@ -107,6 +112,29 @@ const Footer = () => {
                                     </span>
                                 </button>
                             ))}
+                            {/* Contact — direct line + WhatsApp lines */}
+                            <div className="flex items-start gap-3 rounded-xl border border-surface-border/50 bg-surface-dark/30 px-4 py-3">
+                                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary">
+                                    <span className="material-symbols-outlined text-[18px]">contact_phone</span>
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                    <p className="text-white text-sm font-semibold leading-tight mb-1.5">{t('footer.office.contact')}</p>
+                                    <div className="flex flex-col gap-1">
+                                        {contactLines.map((line) => (
+                                            <a
+                                                key={line.labelKey}
+                                                href={line.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="group/line flex items-baseline gap-2 text-xs"
+                                            >
+                                                <span className="text-secondary group-hover/line:text-primary transition-colors">{t(line.labelKey)}</span>
+                                                <span className="text-white font-medium whitespace-nowrap group-hover/line:text-primary transition-colors">{line.number}</span>
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

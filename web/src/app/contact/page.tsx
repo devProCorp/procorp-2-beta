@@ -40,13 +40,14 @@ export default function Contact() {
   }
 
   const infoCards = [
-    { icon: 'location_city', title: t('contact.info1.title'), line1: t('contact.info1.line1'), line2: t('contact.info1.line2') },
+    { icon: 'apartment', title: t('contact.info0.title'), line1: t('contact.info0.line1'), line2: t('contact.info0.line2'), link: { text: t('contact.info0.link'), href: 'https://maps.google.com/?q=Neils+Branch+Dr,+Houston,+TX+77077' } },
     { icon: 'flight', title: t('contact.info2.title'), line1: t('contact.info2.line1'), line2: t('contact.info2.line2'), link: { text: t('contact.info2.link'), href: 'https://maps.google.com/?q=Calle+Jorge+Juan+30+Madrid+Spain' } },
+    { icon: 'location_city', title: t('contact.info1.title'), line1: t('contact.info1.line1'), line2: t('contact.info1.line2') },
     { icon: 'contact_phone', title: t('contact.info3.title'), line1: t('contact.info3.line1'), line2: t('contact.info3.line2'), link: { text: t('contact.info3.link'), href: 'https://wa.me/573115163806' } },
   ];
 
   return (
-    <main className="relative flex-1 tech-bg min-h-screen text-white">
+    <main className="relative flex-1 bg-background-dark min-h-screen text-white">
       <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 -z-10 h-[500px] w-[500px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
 
@@ -123,7 +124,7 @@ export default function Contact() {
                     <select id="contact-area" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all appearance-none cursor-pointer outline-none" defaultValue="">
                       <option disabled value="">{t('contact.area.ph')}</option>
                       <option value="bpa">{t('contact.area.1')}</option>
-                      <option value="governance">{t('contact.area.2')}</option>
+                      <option value="process-mapping">{t('contact.area.2')}</option>
                       <option value="reengineering">{t('contact.area.3')}</option>
                       <option value="lia">{t('contact.area.4')}</option>
                       <option value="consulting">{t('contact.area.5')}</option>

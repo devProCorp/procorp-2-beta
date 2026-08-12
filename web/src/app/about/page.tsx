@@ -2,34 +2,32 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { Beliefs } from '@/components/manifesto/StorySections';
+import ProCorpStory from '@/components/about/ProCorpStory';
 
 export default function About() {
   const { t } = useLanguage();
 
   const bpaSteps = [
     { num: 1, icon: 'travel_explore', title: t('about.step1'), desc: t('about.step1.desc') },
-    { num: 2, icon: 'strategy', title: t('about.step2'), desc: t('about.step2.desc') },
-    { num: 3, icon: 'calendar_month', title: t('about.step3'), desc: t('about.step3.desc') },
-    { num: 4, icon: 'rocket_launch', title: t('about.step4'), desc: t('about.step4.desc') },
-    { num: 5, icon: 'trending_up', title: t('about.step5'), desc: t('about.step5.desc') },
+    { num: 2, icon: 'schema', title: t('about.step2'), desc: t('about.step2.desc') },
+    { num: 3, icon: 'science', title: t('about.step3'), desc: t('about.step3.desc') },
+    { num: 4, icon: 'design_services', title: t('about.step4'), desc: t('about.step4.desc') },
+    { num: 5, icon: 'construction', title: t('about.step5'), desc: t('about.step5.desc') },
+    { num: 6, icon: 'monitoring', title: t('about.step6'), desc: t('about.step6.desc') },
+    { num: 7, icon: 'psychology', title: t('about.step7'), desc: t('about.step7.desc') },
   ];
 
 
   const features = [
     { icon: 'verified_user', title: t('about.f1.title'), desc: t('about.f1.desc') },
     { icon: 'trending_up', title: t('about.f2.title'), desc: t('about.f2.desc') },
-    { icon: 'license', title: t('about.f3.title'), desc: t('about.f3.desc') },
   ];
 
-  const stats = [
-    { value: '2026', label: t('about.stat1.label') },
-    { value: '2028', label: t('about.stat2.label') },
-    { value: '100%', label: t('about.stat3.label') },
-    { value: '7', label: t('about.stat4.label') },
-  ];
 
   return (
     <main className="flex-grow">
+      <ProCorpStory />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-60">
@@ -37,17 +35,34 @@ export default function About() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px] mix-blend-screen"></div>
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col gap-8">
-          <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[11px] font-bold uppercase tracking-[0.2em] w-fit mx-auto shadow-[0_0_15px_rgba(206,16,38,0.15)]">
-            <span className="w-2 h-2 rounded-full bg-primary-light animate-pulse shadow-[0_0_8px_rgba(206,16,38,0.8)]"></span>
-            {t('about.badge')}
-          </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] text-white drop-shadow-2xl">
             {t('about.title1')}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('about.title2')}</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed whitespace-pre-line text-left">
             {t('about.desc')}
           </p>
+        </div>
+      </section>
+
+      {/* Who We Work For + Our Commitment */}
+      <section className="py-24 px-6 bg-transparent border-t border-surface-border">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          {[
+            { title: t('about.who.title'), items: [t('about.who.1'), t('about.who.2'), t('about.who.3'), t('about.who.4')] },
+            { title: t('about.commit.title'), items: [t('about.commit.1'), t('about.commit.2'), t('about.commit.3')] },
+          ].map((block) => (
+            <div key={block.title} className="glass-panel rounded-[2rem] border border-surface-border/60 p-10 flex flex-col">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-white uppercase tracking-tight mb-8">{block.title}</h2>
+              <div className="flex flex-col gap-5">
+                {block.items.map((item) => (
+                  <p key={item} className="border-l-2 border-primary pl-5 text-gray-300 font-light leading-relaxed text-[15px]">
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -104,7 +119,7 @@ export default function About() {
               <div className="absolute -top-px left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-br from-primary to-primary-dark rounded-b-xl border border-primary-light/40 border-t-0 shadow-[0_4px_20px_rgba(206,16,38,0.3)]">
                 <span className="text-[11px] font-black text-white uppercase tracking-[0.25em]">BPA</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
                 {bpaSteps.map((s) => (
                   <div key={s.num} className="group relative">
                     <div className="h-full glass-panel glass-panel-hover rounded-[1.5rem] p-7 flex flex-col items-center text-center gap-4 border border-surface-border/50">
@@ -118,23 +133,15 @@ export default function About() {
                   </div>
                 ))}
               </div>
+              <p className="mt-10 text-center text-gray-400 italic font-light text-[15px]">{t('about.method.repeat')}</p>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-y border-surface-border bg-surface-dark/30 backdrop-blur-md">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-surface-border/50">
-          {stats.map((s) => (
-            <div key={s.label} className="p-10 text-center hover:bg-surface-darker/50 transition-colors">
-              <div className="text-4xl md:text-5xl font-black text-primary-light mb-2 drop-shadow-[0_0_15px_rgba(206,16,38,0.3)]">{s.value}</div>
-              <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-gray-500">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* We Believe */}
+      <Beliefs />
 
       {/* CTA */}
       <section className="py-28 px-6 bg-transparent border-b border-surface-border">
@@ -154,10 +161,10 @@ export default function About() {
               {t('about.cta.btn1')}
               <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </Link>
-            <Link href="/projects" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-xl h-16 px-10 glass-panel glass-panel-hover border-surface-border text-white text-sm uppercase tracking-widest font-bold transition-all group">
+            <a href="https://inversion.pro-corp.net" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-xl h-16 px-10 glass-panel glass-panel-hover border-surface-border text-white text-sm uppercase tracking-widest font-bold transition-all group">
               {t('about.cta.btn2')}
               <span className="material-symbols-outlined text-xl text-primary group-hover:translate-x-1 transition-transform">view_carousel</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

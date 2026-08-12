@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Barlow_Condensed, Inter, Outfit } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -8,6 +8,12 @@ import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const barlow = Barlow_Condensed({
+  variable: "--font-condensed",
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -105,7 +111,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${outfit.variable} antialiased font-ui`}
+        className={`${inter.variable} ${outfit.variable} ${barlow.variable} antialiased font-ui`}
         suppressHydrationWarning
       >
         <ClientProviders>

@@ -6,19 +6,23 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function Projects() {
   const { t } = useLanguage();
 
+  const phases = [75, 50, 25];
+  const phaseAvg = Math.round(phases.reduce((a, b) => a + b, 0) / phases.length);
+
   const services = [
     { icon: 'diversity_3', title: t('proj.s1.title'), desc: t('proj.s1.desc'), link: t('proj.s1.link') },
     { icon: 'family_restroom', title: t('proj.s2.title'), desc: t('proj.s2.desc'), link: t('proj.s2.link') },
     { icon: 'badge', title: t('proj.s3.title'), desc: t('proj.s3.desc'), link: t('proj.s3.link') },
     { icon: 'beach_access', title: t('proj.s4.title'), desc: t('proj.s4.desc'), link: t('proj.s4.link') },
+    { icon: 'laptop_mac', title: t('proj.s6.title'), desc: t('proj.s6.desc'), link: t('proj.s6.link') },
+    { icon: 'gavel', title: t('proj.s5.title'), desc: t('proj.s5.desc'), link: t('proj.s5.link') },
   ];
 
   return (
-    <main className="flex-grow flex flex-col relative tech-grid-bg min-h-screen bg-transparent text-white">
+    <main className="flex-grow flex flex-col relative min-h-screen bg-background-dark text-white">
       {/* Hero Section */}
       <section className="relative px-6 py-16 md:px-10 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-radial from-primary/10 to-transparent rounded-full translate-x-1/3 -translate-y-1/4 blur-3xl" style={{ background: 'radial-gradient(circle, rgba(206,16,38,0.1) 0%, transparent 70%)' }}></div>
         </div>
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 flex flex-col gap-6 text-left relative z-10 w-full">
@@ -34,16 +38,6 @@ export default function Projects() {
             <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-6">
               {t('proj.desc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded-xl bg-primary hover:bg-primary-light text-white font-bold transition-all glow-primary glow-primary-hover uppercase tracking-widest text-sm group border border-primary-light/50">
-                <span>{t('proj.cta1')}</span>
-                <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </Link>
-              <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded-xl glass-panel glass-panel-hover text-white font-bold transition-all uppercase tracking-widest text-sm border border-surface-border hover:border-primary/50">
-                <span className="material-symbols-outlined text-lg text-primary">play_circle</span>
-                <span>{t('proj.cta2')}</span>
-              </Link>
-            </div>
           </div>
 
           {/* Dashboard Card */}
@@ -70,12 +64,37 @@ export default function Projects() {
                 <div className="space-y-6 my-4 bg-surface-darker/60 rounded-2xl p-5 border border-surface-border/50">
                   <div className="flex justify-between text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">
                     <span>{t('proj.efficiency')}</span>
-                    <span className="text-white">92%</span>
+                    <span className="text-white">{phaseAvg}%</span>
                   </div>
                   <div className="h-2.5 bg-background-dark rounded-full overflow-hidden border border-surface-border">
-                    <div className="h-full bg-gradient-to-r from-primary-dark via-primary to-[#F97316] w-[92%] shadow-[0_0_10px_rgba(206,16,38,0.6)] relative">
+                    <div
+                      className="h-full bg-gradient-to-r from-primary-dark via-primary to-[#F97316] shadow-[0_0_10px_rgba(206,16,38,0.6)] relative"
+                      style={{ width: `${phaseAvg}%` }}
+                    >
                       <div className="absolute top-0 right-0 bottom-0 w-10 bg-gradient-to-l from-white/30 to-transparent"></div>
                     </div>
+                  </div>
+                  <div className="mt-1 flex justify-between text-[9px] font-bold tabular-nums text-gray-500">
+                    <span>0%</span>
+                    <span>100%</span>
+                  </div>
+                  <div className="mt-4 space-y-2.5">
+                    {phases.map((pct, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <span className="w-16 shrink-0 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                          {t('proj.phase')}-{i + 1}
+                        </span>
+                        <div className="h-2 flex-1 bg-background-dark rounded-full overflow-hidden border border-surface-border">
+                          <div
+                            className="h-full bg-gradient-to-r from-primary-dark to-primary shadow-[0_0_8px_rgba(206,16,38,0.5)]"
+                            style={{ width: `${pct}%` }}
+                          ></div>
+                        </div>
+                        <span className="w-9 shrink-0 text-right text-[10px] font-bold tabular-nums text-gray-400">
+                          {pct}%
+                        </span>
+                      </div>
+                    ))}
                   </div>
                   <div className="grid grid-cols-3 gap-3 mt-6">
                     <div className="h-16 bg-surface-dark rounded-xl border border-surface-border flex items-center justify-center hover:bg-surface-darker transition-colors cursor-default">
@@ -115,7 +134,6 @@ export default function Projects() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
               <span className="inline-block px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-4">{t('proj.solutions')}</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">{t('proj.solutions')}</h2>
             </div>
             <p className="text-gray-400 max-w-xl text-[15px] font-light leading-relaxed text-right md:text-left border-l-4 border-primary pl-6">
               {t('proj.solutions.desc')}
@@ -140,54 +158,10 @@ export default function Projects() {
                 </div>
               </div>
             ))}
-            {/* Wide card */}
-            <div className="group relative glass-panel glass-panel-hover rounded-[1.5rem] p-8 flex flex-col h-full border border-surface-border/50 lg:col-span-2 overflow-hidden bg-gradient-to-br from-surface-dark to-black">
-              <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-[60px] group-hover:bg-primary/20 transition-colors duration-500 pointer-events-none"></div>
-              <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                <span className="material-symbols-outlined text-9xl text-white">trending_up</span>
-              </div>
-              <div className="relative w-full h-full z-10 flex flex-col md:flex-row gap-8 items-start md:items-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark border border-primary-light/50 shadow-[0_0_20px_rgba(206,16,38,0.4)] rounded-2xl flex items-center justify-center shrink-0 text-white group-hover:scale-105 transition-all duration-300">
-                  <span className="material-symbols-outlined text-4xl">gavel</span>
-                </div>
-                <div className="flex-grow flex flex-col justify-center">
-                  <h3 className="text-2xl font-extrabold text-white mb-3 tracking-tight">{t('proj.s5.title')}</h3>
-                  <p className="text-gray-300 text-[15px] font-light leading-relaxed mb-6 max-w-xl">
-                    {t('proj.s5.desc')}
-                  </p>
-                  <div>
-                    <Link href="/contact" className="inline-flex items-center text-white text-[11px] font-bold uppercase tracking-widest hover:text-primary-light transition-colors group/link w-fit bg-white/5 border border-white/10 px-4 py-2 rounded-lg hover:bg-white/10">
-                      {t('proj.s5.link')} <span className="material-symbols-outlined text-[16px] ml-2 text-primary-light group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 px-6 relative overflow-hidden bg-transparent border-t border-surface-border">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[100px] rounded-full mix-blend-screen pointer-events-none z-0"></div>
-        <div className="max-w-[800px] mx-auto text-center relative z-10 glass-panel p-12 md:p-20 rounded-[3rem] shadow-2xl">
-          <span className="inline-flex items-center justify-center py-1.5 px-4 rounded-full border border-primary/20 bg-primary/10 text-[10px] text-white font-bold uppercase tracking-[0.2em] mb-8 shadow-[0_0_15px_rgba(206,16,38,0.2)]">
-            <span className="w-2 h-2 rounded-full bg-primary-light mr-2 animate-pulse"></span>
-            {t('proj.cta.badge')}
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 uppercase">
-            {t('proj.cta.title')}
-          </h2>
-          <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-xl mx-auto">
-            {t('proj.cta.desc')}
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link href="/contact" className="h-16 px-12 rounded-xl bg-white hover:bg-gray-100 text-black font-extrabold text-sm uppercase tracking-widest transition-all shadow-xl shadow-white/10 hover:shadow-white/20 hover:-translate-y-1 flex items-center justify-center gap-3 w-full sm:w-auto">
-              <span>{t('proj.cta.button')}</span>
-            </Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

@@ -10,9 +10,9 @@
   --primary-light: #E04555;
   --secondary: #9ca3af;
   --background-light: #f8f6f6;
-  --background-dark: #030712;
+  --background-dark: #0B1522;
   --surface-dark: #0f172a;
-  --surface-darker: #020617;
+  --surface-darker: #0B1522;
   --surface-border: #1e293b;
   --neutral-dark: transparent;
   --neutral-gray: #1e293b;
@@ -36,6 +36,7 @@
 
   --font-display: var(--font-outfit), sans-serif;
   --font-ui: var(--font-inter), sans-serif;
+  --font-condensed: var(--font-condensed), "Arial Narrow", sans-serif;
 
   /* Typographic scale slightly reduced for a more balanced, elegant look */
   --text-4xl: 1.875rem; /* ~30px */
@@ -45,13 +46,21 @@
   --text-8xl: 5rem; /* ~80px */
 }
 
+/* Texto con gradiente que morfa (rojo → blanco → rojo en desplazamiento) */
+.text-morph {
+  background-size: 200% auto;
+  animation: textMorph 3.5s linear infinite;
+}
+@keyframes textMorph {
+  to {
+    background-position: 200% center;
+  }
+}
+
 body {
-  background:
-    radial-gradient(ellipse at 15% -5%, rgba(206, 16, 38, 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 100%, rgba(12, 12, 30, 0.9) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(8, 8, 18, 0.4) 0%, transparent 70%),
-    linear-gradient(160deg, #0c0c14 0%, #07070d 35%, #030306 70%, #000000 100%);
-  background-attachment: fixed;
+  /* Base única del sitio: navy plano — sin mezclas ni tintes en el fondo.
+     Los tonos de rojo solo van en marcos/contenedores superiores, a pedido. */
+  background: var(--background-dark);
   color: var(--foreground);
   font-family: var(--font-ui);
   min-height: 100vh;

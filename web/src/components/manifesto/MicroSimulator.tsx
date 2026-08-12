@@ -93,7 +93,7 @@ export default function MicroSimulator() {
   }, [priceD, capF]);
 
   return (
-    <section className="bg-surface-darker py-24 md:py-32">
+    <section className="bg-background-dark py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-primary">{t.kicker}</p>
         <h2 className="mb-12 font-display text-3xl font-extrabold text-white md:text-5xl">{t.title}</h2>
@@ -123,7 +123,7 @@ export default function MicroSimulator() {
             ))}
 
             <div className="rounded-xl border border-surface-border bg-background-dark p-5">
-              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-500">{t.revenue}</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400">{t.revenue}</p>
               <motion.p
                 key={delta.toFixed(1)}
                 initial={{ opacity: 0.4 }}
@@ -147,7 +147,7 @@ export default function MicroSimulator() {
               <path d={toPath(base, max)} fill="none" stroke="#8F9295" strokeWidth="1.5" strokeDasharray="5 5" />
               <path d={toPath(scen, max)} fill="none" stroke="#CE1026" strokeWidth="3" strokeLinecap="round" />
             </svg>
-            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[11px] text-gray-500">
+            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[11px] text-gray-400">
               <span className="flex items-center gap-2"><i className="inline-block h-0.5 w-5 bg-[#8F9295]" style={{ borderTop: '2px dashed #8F9295', height: 0 }} />{t.baseline}</span>
               <span className="flex items-center gap-2"><i className="inline-block h-[3px] w-5 rounded bg-primary" />{t.scenario}</span>
               <span className="flex items-center gap-2"><i className="inline-block h-[2px] w-5 rounded bg-primary/25" />{t.ghosts}</span>
@@ -155,7 +155,7 @@ export default function MicroSimulator() {
           </div>
         </div>
 
-        <p className="mt-10 max-w-2xl text-sm italic leading-relaxed text-gray-500">{t.note}</p>
+        <p className="mt-10 max-w-2xl text-sm italic leading-relaxed text-gray-400">{t.note}</p>
       </div>
     </section>
   );

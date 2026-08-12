@@ -2,9 +2,7 @@ import ManifestoStory from '@/components/manifesto/ManifestoStory';
 import {
   WhyWeExist,
   Triad,
-  OurWay,
   Pillars,
-  Beliefs,
   FinalCTA,
 } from '@/components/manifesto/StorySections';
 import MicroSimulator from '@/components/manifesto/MicroSimulator';
@@ -23,10 +21,8 @@ export default function Home() {
       <ManifestoStory />
       <WhyWeExist />
       <Triad />
-      <OurWay />
       <Pillars />
       <MicroSimulator />
-      <Beliefs />
       <FinalCTA />
       <LiaChat />
     </main>

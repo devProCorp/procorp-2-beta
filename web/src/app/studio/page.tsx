@@ -42,7 +42,6 @@ export default function Studio() {
     <main className="min-h-screen bg-transparent text-white flex flex-col overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative px-6 py-16 md:px-10 lg:px-40 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 opacity-40" style={{ backgroundImage: 'linear-gradient(to right, #333333 1px, transparent 1px), linear-gradient(to bottom, #333333 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
         <div className="max-w-[1400px] mx-auto w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col gap-8">
@@ -61,10 +60,6 @@ export default function Studio() {
                 <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded-xl bg-primary hover:bg-primary-light text-white font-bold transition-all glow-primary glow-primary-hover uppercase tracking-widest text-sm group border border-primary-light/50">
                   <span>{t('studio.cta1')}</span>
                   <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </Link>
-                <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded-xl glass-panel glass-panel-hover text-white font-bold transition-all uppercase tracking-widest text-sm border border-surface-border hover:border-primary/50">
-                  <span className="material-symbols-outlined text-lg text-primary">settings_suggest</span>
-                  <span>{t('studio.cta2')}</span>
                 </Link>
               </div>
             </div>
@@ -238,10 +233,6 @@ export default function Studio() {
                       <span className="material-symbols-outlined text-white/90 text-3xl">savings</span>
                     </div>
                   </div>
-                  <Link href="/contact" className="w-full mt-10 bg-white text-primary hover:text-primary-dark font-extrabold py-5 px-6 rounded-xl hover:bg-gray-100 transition-all shadow-xl shadow-black/20 hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-3 text-sm uppercase tracking-widest group">
-                    <span>{t('studio.sim.download')}</span>
-                    <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">download</span>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -299,8 +290,6 @@ export default function Studio() {
 
       {/* Investment Portfolio */}
       <section className="py-24 px-6 md:px-10 lg:px-40 bg-transparent relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
         <div className="max-w-[1200px] mx-auto relative z-10">
           {/* Header */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 mb-20 relative z-10">

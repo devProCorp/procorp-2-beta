@@ -33,10 +33,10 @@ const Navbar = () => {
 
     const navLinks = [
         { name: t('nav.home'), href: '/' },
-        { name: t('nav.growth'), href: '/studio' },
-        { name: t('nav.blog'), href: '/journal' },
         { name: t('nav.about'), href: '/about' },
+        { name: t('nav.growth'), href: '/studio' },
         { name: t('nav.legal'), href: '/projects' },
+        { name: t('nav.blog'), href: '/journal' },
         { name: t('nav.contact'), href: '/contact' },
     ];
 
@@ -50,7 +50,7 @@ const Navbar = () => {
             <div className="flex h-20 items-center justify-between px-4 md:px-10 max-w-[1440px] mx-auto w-full">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
-                    <Image src="https://www.pro-corp.net/wp-content/uploads/2023/07/Signature_PCP.png" alt="Pro Corp" width={160} height={40} className="h-10 w-auto object-contain" priority />
+                    <Image src="/brand/Signature_PCP.png" alt="Pro Corp" width={160} height={40} className="h-10 w-auto object-contain" priority />
                 </Link>
 
                 {/* Desktop Nav */}
