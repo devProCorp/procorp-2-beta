@@ -22,103 +22,103 @@ export function useLanguage() {
 const translations: Record<string, Partial<Record<Language, string>>> = {
 
     // ── Navbar ──
-    'nav.home': { en: 'Home', es: 'Inicio' },
-    'nav.blog': { en: 'Blog', es: 'Blog' },
+    'nav.home': { en: 'Home', es: 'Inicio', pt: 'Início' },
+    'nav.blog': { en: 'Blog', es: 'Blog', pt: 'Blog' },
     'nav.legal': { en: 'Legal Solutions', es: 'Soluciones Legales', pt: 'Soluções Legais' },
     'nav.growth': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
-    'nav.about': { en: 'About Us', es: 'Sobre Nosotros' },
-    'nav.contact': { en: 'Contact', es: 'Contacto' },
-    'nav.login': { en: 'Login', es: 'Login' },
-    'nav.services': { en: 'Services', es: 'Servicios' },
-    'nav.journal': { en: 'Journal', es: 'Blog' },
+    'nav.about': { en: 'About Us', es: 'Sobre Nosotros', pt: 'Sobre Nós' },
+    'nav.contact': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
+    'nav.login': { en: 'Login', es: 'Login', pt: 'Login' },
+    'nav.services': { en: 'Services', es: 'Servicios', pt: 'Serviços' },
+    'nav.journal': { en: 'Journal', es: 'Blog', pt: 'Blog' },
 
     // ── ScrollHero ──
-    'hero.label': { en: 'Technology-Based Orchestration', es: 'Orquestación Basada en Tecnología' },
-    'hero.title.1': { en: 'We design', es: 'Diseñamos' },
-    'hero.title.accent1': { en: 'structure.', es: 'estructura.' },
-    'hero.title.2': { en: 'We orchestrate', es: 'Orquestamos' },
-    'hero.title.accent2': { en: 'execution.', es: 'ejecución.' },
-    'hero.title.3': { en: 'Automation meets architecture.', es: 'Automatización y arquitectura.' },
-    'hero.scroll': { en: 'Scroll to Explore', es: 'Desplázate para explorar' },
+    'hero.label': { en: 'Technology-Based Orchestration', es: 'Orquestación Basada en Tecnología', pt: 'Orquestração Baseada em Tecnologia' },
+    'hero.title.1': { en: 'We design', es: 'Diseñamos', pt: 'Desenhamos' },
+    'hero.title.accent1': { en: 'structure.', es: 'estructura.', pt: 'estrutura.' },
+    'hero.title.2': { en: 'We orchestrate', es: 'Orquestamos', pt: 'Orquestramos' },
+    'hero.title.accent2': { en: 'execution.', es: 'ejecución.', pt: 'execução.' },
+    'hero.title.3': { en: 'Automation meets architecture.', es: 'Automatización y arquitectura.', pt: 'Automação encontra arquitetura.' },
+    'hero.scroll': { en: 'Scroll to Explore', es: 'Desplázate para explorar', pt: 'Role para Explorar' },
 
     // ── ScrollHero Phase 2 ──
-    'hero.manifesto.label': { en: 'What We Are / Since 2008', es: 'Quiénes Somos / Desde 2008' },
+    'hero.manifesto.label': { en: 'What We Are / Since 2008', es: 'Quiénes Somos / Desde 2008', pt: 'O Que Somos / Desde 2008' },
     'hero.manifesto.text': {
         en: 'Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.',
-        es: 'Pro Corp rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente.'
+        es: 'Pro Corp rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente.', pt: 'A Pro Corp redesenha modelos operacionais, automatiza a execução e integra ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente.'
     },
     'hero.manifesto.sub': {
         en: 'Not a consulting firm. Not a software house. We do both — re-engineering and execution — amplified by intelligent marketing systems.',
-        es: 'No somos una consultora. No somos una casa de software. Hacemos ambas cosas — reingeniería y ejecución — amplificadas por sistemas inteligentes de marketing.'
+        es: 'No somos una consultora. No somos una casa de software. Hacemos ambas cosas — reingeniería y ejecución — amplificadas por sistemas inteligentes de marketing.', pt: 'Não somos uma consultoria. Não somos uma software house. Fazemos ambos — reengenharia e execução — amplificados por sistemas inteligentes de marketing.'
     },
 
     // ── ScrollHero Phase 3 (Features) ──
-    'hero.f1.title': { en: 'Legal Solutions', es: 'Soluciones Legales' },
+    'hero.f1.title': { en: 'Legal Solutions', es: 'Soluciones Legales', pt: 'Soluções Legais' },
     'hero.f1.desc': {
         en: 'Structured governance frameworks, risk architecture, cross-border structuring, and compliance workflows — enhanced through automation.',
-        es: 'Marcos de gobernanza estructurados, arquitectura de riesgo, estructuración transfronteriza y flujos de cumplimiento — potenciados por automatización.'
+        es: 'Marcos de gobernanza estructurados, arquitectura de riesgo, estructuración transfronteriza y flujos de cumplimiento — potenciados por automatización.', pt: 'Estruturas de governança, arquitetura de risco, estruturação internacional e fluxos de compliance — potencializados pela automação.'
     },
     'hero.f2.title': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
     'hero.f2.desc': {
         en: 'Operating model redesign, KPI systems, financial simulators, and ongoing operational involvement. We stay in the game.',
-        es: 'Rediseño de modelos operativos, sistemas KPI, simuladores financieros e involucramiento operacional continuo. Permanecemos en el juego.'
+        es: 'Rediseño de modelos operativos, sistemas KPI, simuladores financieros e involucramiento operacional continuo. Permanecemos en el juego.', pt: 'Redesenho do modelo operacional, sistemas de KPIs, simuladores financeiros e envolvimento operacional contínuo. Permanecemos no jogo.'
     },
-    'hero.f3.title': { en: 'IP2$ Engineering', es: 'IP2$ Ingeniería' },
+    'hero.f3.title': { en: 'IP2$ Engineering', es: 'IP2$ Ingeniería', pt: 'Engenharia IP2$' },
     'hero.f3.desc': {
         en: 'Proprietary systems: conversational financial simulators, AI interfaces, marketing automation engines, and platform architecture.',
-        es: 'Sistemas propietarios: simuladores financieros conversacionales, interfaces IA, motores de automatización de marketing y arquitectura de plataforma.'
+        es: 'Sistemas propietarios: simuladores financieros conversacionales, interfaces IA, motores de automatización de marketing y arquitectura de plataforma.', pt: 'Sistemas proprietários: simuladores financeiros conversacionais, interfaces de IA, motores de automação de marketing e arquitetura de plataforma.'
     },
 
     // ── Manifesto ──
-    'manifesto.label.side': { en: 'ORCHESTRATION / SINCE 2008', es: 'ORQUESTACIÓN / DESDE 2008' },
-    'manifesto.label': { en: 'Technology-Based Orchestration', es: 'Orquestación Basada en Tecnología' },
-    'manifesto.title.1': { en: 'We design', es: 'Diseñamos' },
-    'manifesto.title.accent1': { en: 'structure.', es: 'estructura.' },
-    'manifesto.title.2': { en: 'We orchestrate', es: 'Orquestamos' },
-    'manifesto.title.accent2': { en: 'execution.', es: 'ejecución.' },
-    'manifesto.title.3': { en: 'Automation meets architecture.', es: 'Automatización y arquitectura.' },
+    'manifesto.label.side': { en: 'ORCHESTRATION / SINCE 2008', es: 'ORQUESTACIÓN / DESDE 2008', pt: 'ORQUESTRAÇÃO / DESDE 2008' },
+    'manifesto.label': { en: 'Technology-Based Orchestration', es: 'Orquestación Basada en Tecnología', pt: 'Orquestração Baseada em Tecnologia' },
+    'manifesto.title.1': { en: 'We design', es: 'Diseñamos', pt: 'Desenhamos' },
+    'manifesto.title.accent1': { en: 'structure.', es: 'estructura.', pt: 'estrutura.' },
+    'manifesto.title.2': { en: 'We orchestrate', es: 'Orquestamos', pt: 'Orquestramos' },
+    'manifesto.title.accent2': { en: 'execution.', es: 'ejecución.', pt: 'execução.' },
+    'manifesto.title.3': { en: 'Automation meets architecture.', es: 'Automatización y arquitectura.', pt: 'Automação encontra arquitetura.' },
     'manifesto.text': {
         en: 'Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.',
-        es: 'Pro Corp rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente — amplificada por sistemas inteligentes de marketing.'
+        es: 'Pro Corp rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente — amplificada por sistemas inteligentes de marketing.', pt: 'A Pro Corp redesenha modelos operacionais, automatiza a execução e integra ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente — amplificada por sistemas inteligentes de marketing.'
     },
     'manifesto.p1': {
         en: 'Not a consulting firm. Not a software house. Not a marketplace. We re-engineer processes and implement them through scalable cloud architecture — then amplify through automated marketing systems.',
-        es: 'No somos una consultora. No somos una casa de software. No somos un marketplace. Reingenieramos procesos y los implementamos a través de arquitectura cloud escalable — y luego amplificamos con sistemas automatizados de marketing.'
+        es: 'No somos una consultora. No somos una casa de software. No somos un marketplace. Reingenieramos procesos y los implementamos a través de arquitectura cloud escalable — y luego amplificamos con sistemas automatizados de marketing.', pt: 'Não somos uma consultoria. Não somos uma software house. Não somos um marketplace. Reengenhamos processos e os implementamos com arquitetura cloud escalável — e depois amplificamos com sistemas automatizados de marketing.'
     },
     'manifesto.p2': {
         en: 'Automation without re-engineering is inefficient. Re-engineering without execution is theoretical. Pro Corp does both. Complex models become conversational experiences. Technology becomes a bridge — not a barrier.',
-        es: 'Automatización sin reingeniería es ineficiente. Reingeniería sin ejecución es teórica. Pro Corp hace ambas. Los modelos complejos se convierten en experiencias conversacionales. La tecnología se convierte en puente — no en barrera.'
+        es: 'Automatización sin reingeniería es ineficiente. Reingeniería sin ejecución es teórica. Pro Corp hace ambas. Los modelos complejos se convierten en experiencias conversacionales. La tecnología se convierte en puente — no en barrera.', pt: 'Automação sem reengenharia é ineficiente. Reengenharia sem execução é teórica. A Pro Corp faz ambas. Modelos complexos viram experiências conversacionais. A tecnologia vira uma ponte — não uma barreira.'
     },
-    'manifesto.cta': { en: 'Explore our methodology', es: 'Explora nuestra metodología' },
+    'manifesto.cta': { en: 'Explore our methodology', es: 'Explora nuestra metodología', pt: 'Explore nossa metodologia' },
 
     // ── FeatureGrid ──
-    'features.01.title': { en: 'Legal Solutions', es: 'Soluciones Legales' },
+    'features.01.title': { en: 'Legal Solutions', es: 'Soluciones Legales', pt: 'Soluções Legais' },
     'features.01.desc': {
         en: 'Structured governance frameworks, risk architecture, cross-border structuring, and compliance workflows. Enhanced through automation and digital documentation portals.',
-        es: 'Marcos de gobernanza estructurados, arquitectura de riesgo, estructuración transfronteriza y flujos de cumplimiento. Potenciados por automatización y portales documentales digitales.'
+        es: 'Marcos de gobernanza estructurados, arquitectura de riesgo, estructuración transfronteriza y flujos de cumplimiento. Potenciados por automatización y portales documentales digitales.', pt: 'Estruturas de governança, arquitetura de risco, estruturação internacional e fluxos de compliance. Potencializados por automação e portais de documentação digital.'
     },
     'features.02.title': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
     'features.02.desc': {
         en: 'Strategy consulting differentiated by execution. Operating model redesign, KPI systems, financial simulators, and ongoing operational involvement. We stay in the game.',
-        es: 'Consultoría estratégica diferenciada por ejecución. Rediseño de modelos operativos, sistemas KPI, simuladores financieros e involucramiento operacional continuo. Permanecemos en el juego.'
+        es: 'Consultoría estratégica diferenciada por ejecución. Rediseño de modelos operativos, sistemas KPI, simuladores financieros e involucramiento operacional continuo. Permanecemos en el juego.', pt: 'Consultoria estratégica diferenciada pela execução. Redesenho de modelos operacionais, sistemas de KPIs, simuladores financeiros e envolvimento operacional contínuo. Permanecemos no jogo.'
     },
-    'features.03.title': { en: 'IP2$ Engineering', es: 'IP2$ Ingeniería' },
+    'features.03.title': { en: 'IP2$ Engineering', es: 'IP2$ Ingeniería', pt: 'Engenharia IP2$' },
     'features.03.desc': {
         en: 'Proprietary systems: conversational financial simulators, AI interfaces, marketing automation engines, platform architecture, and narrative engines. This is where the tech lives.',
-        es: 'Sistemas propietarios: simuladores financieros conversacionales, interfaces IA, motores de automatización de marketing, arquitectura de plataforma y motores narrativos. Aquí vive la tecnología.'
+        es: 'Sistemas propietarios: simuladores financieros conversacionales, interfaces IA, motores de automatización de marketing, arquitectura de plataforma y motores narrativos. Aquí vive la tecnología.', pt: 'Sistemas proprietários: simuladores financeiros conversacionais, interfaces de IA, motores de automação de marketing, arquitetura de plataforma e motores narrativos. É aqui que a tecnologia vive.'
     },
 
     // ── LIA Chat Section ──
-    'lia.label': { en: 'AI-Powered Agent', es: 'Agente Impulsado por IA' },
-    'lia.title': { en: 'Meet LIA', es: 'Conoce a LIA' },
+    'lia.label': { en: 'AI-Powered Agent', es: 'Agente Impulsado por IA', pt: 'Agente com IA' },
+    'lia.title': { en: 'Meet LIA', es: 'Conoce a LIA', pt: 'Conheça a LIA' },
     'lia.desc': {
         en: 'LIA is our intelligent orchestration agent. She navigates complex processes, automates workflows, and delivers structured answers in real time — turning operational complexity into conversational simplicity.',
-        es: 'LIA es nuestro agente inteligente de orquestación. Navega procesos complejos, automatiza flujos de trabajo y entrega respuestas estructuradas en tiempo real — convirtiendo la complejidad operativa en simplicidad conversacional.'
+        es: 'LIA es nuestro agente inteligente de orquestación. Navega procesos complejos, automatiza flujos de trabajo y entrega respuestas estructuradas en tiempo real — convirtiendo la complejidad operativa en simplicidad conversacional.', pt: 'A LIA é nosso agente inteligente de orquestração. Ela navega processos complexos, automatiza fluxos de trabalho e entrega respostas estruturadas em tempo real — transformando complexidade operacional em simplicidade conversacional.'
     },
-    'lia.status': { en: 'Online', es: 'En línea' },
-    'lia.powered': { en: 'IP2$ Engine', es: 'Motor IP2$' },
-    'lia.chat.subtitle': { en: 'Orchestration Agent', es: 'Agente de Orquestación' },
-    'lia.chat.placeholder': { en: 'Ask LIA anything...', es: 'Pregúntale a LIA...' },
+    'lia.status': { en: 'Online', es: 'En línea', pt: 'Online' },
+    'lia.powered': { en: 'IP2$ Engine', es: 'Motor IP2$', pt: 'Motor IP2$' },
+    'lia.chat.subtitle': { en: 'Orchestration Agent', es: 'Agente de Orquestación', pt: 'Agente de Orquestração' },
+    'lia.chat.placeholder': { en: 'Ask LIA anything...', es: 'Pregúntale a LIA...', pt: 'Pergunte qualquer coisa à LIA...' },
     'lia.chat.user1': {
         en: 'I need to set up a cross-border operation between Colombia and Spain. Where do I start?',
         es: 'Necesito montar una operación transfronteriza entre Colombia y España. ¿Por dónde empiezo?'
@@ -145,8 +145,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     },
 
     // ── VisualDivider ──
-    'divider.title': { en: 'Start your architecture.', es: 'Inicia tu arquitectura.' },
-    'divider.cta': { en: 'Enter the Platform', es: 'Entra a la Plataforma' },
+    'divider.title': { en: 'Start your architecture.', es: 'Inicia tu arquitectura.', pt: 'Comece sua arquitetura.' },
+    'divider.cta': { en: 'Enter the Platform', es: 'Entra a la Plataforma', pt: 'Entrar na Plataforma' },
 
     // ── Studio (About) Page ──
     'studio.hero.title.1': { en: 'Technology-based', es: 'Orquestación', pt: 'Orquestração baseada' },
@@ -236,11 +236,11 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'svc.05.detail': { en: 'Process re-engineering and scalable cloud implementation', es: 'Reingeniería de procesos e implementación cloud escalable' },
 
     // Service detail pages
-    'svc.back': { en: 'Back to Services', es: 'Volver a Servicios' },
-    'svc.challenge': { en: 'The Challenge', es: 'El Desafío' },
-    'svc.solution': { en: 'Our Approach', es: 'Nuestro Enfoque' },
-    'svc.capabilities': { en: 'Key Capabilities', es: 'Capacidades Clave' },
-    'svc.next': { en: 'Next Service', es: 'Siguiente Servicio' },
+    'svc.back': { en: 'Back to Services', es: 'Volver a Servicios', pt: 'Voltar aos Serviços' },
+    'svc.challenge': { en: 'The Challenge', es: 'El Desafío', pt: 'O Desafio' },
+    'svc.solution': { en: 'Our Approach', es: 'Nuestro Enfoque', pt: 'Nossa Abordagem' },
+    'svc.capabilities': { en: 'Key Capabilities', es: 'Capacidades Clave', pt: 'Capacidades-Chave' },
+    'svc.next': { en: 'Next Service', es: 'Siguiente Servicio', pt: 'Próximo Serviço' },
 
     // 01 – Legal Solutions
     'svc.01.challenge': {
@@ -333,10 +333,10 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'journal.a3.title': { en: 'Operating Model Redesign: From Diagnosis to Amplification', es: 'Rediseño de Modelo Operativo: Del Diagnóstico a la Amplificación' },
     'journal.a4.title': { en: 'Conversational Financial Simulators: Complex Models Made Accessible', es: 'Simuladores Financieros Conversacionales: Modelos Complejos Accesibles' },
     'journal.a5.title': { en: 'Structured Governance Frameworks for Cross-Border Operations', es: 'Marcos de Gobernanza Estructurados para Operaciones Transfronterizas' },
-    'journal.newsletter.title': { en: 'Subscribe to our strategic vision', es: 'Suscríbete a nuestra visión estratégica' },
-    'journal.newsletter.desc': { en: 'Receive deep analysis on process engineering and legal trends.', es: 'Recibe análisis profundo sobre ingeniería de procesos y tendencias legales.' },
-    'journal.newsletter.placeholder': { en: 'Your corporate email', es: 'Tu correo corporativo' },
-    'journal.newsletter.button': { en: 'Subscribe', es: 'Suscribirse' },
+    'journal.newsletter.title': { en: 'Subscribe to our strategic vision', es: 'Suscríbete a nuestra visión estratégica', pt: 'Assine nossa visão estratégica' },
+    'journal.newsletter.desc': { en: 'Receive deep analysis on process engineering and legal trends.', es: 'Recibe análisis profundo sobre ingeniería de procesos y tendencias legales.', pt: 'Receba análises profundas sobre engenharia de processos e tendências jurídicas.' },
+    'journal.newsletter.placeholder': { en: 'Your corporate email', es: 'Tu correo corporativo', pt: 'Seu e-mail corporativo' },
+    'journal.newsletter.button': { en: 'Subscribe', es: 'Suscribirse', pt: 'Assinar' },
 
     // ── Contact Page ──
     'contact.title.1': { en: 'Start your', es: 'Inicia tu' },
@@ -383,22 +383,22 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     },
 
     // ── Footer ──
-    'footer.contact': { en: 'Contact', es: 'Contacto' },
-    'footer.follow': { en: 'Follow Us', es: 'Síguenos' },
-    'footer.rights': { en: 'All rights reserved.', es: 'Todos los derechos reservados.' },
-    'footer.company': { en: 'Company', es: 'Empresa' },
-    'footer.about': { en: 'About Us', es: 'Sobre Nosotros' },
-    'footer.blog': { en: 'Blog', es: 'Blog' },
-    'footer.services': { en: 'Services', es: 'Servicios' },
-    'footer.legal.title': { en: 'Legal', es: 'Legal' },
-    'footer.legal.solutions': { en: 'Legal Solutions', es: 'Soluciones Legales' },
+    'footer.contact': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
+    'footer.follow': { en: 'Follow Us', es: 'Síguenos', pt: 'Siga-nos' },
+    'footer.rights': { en: 'All rights reserved.', es: 'Todos los derechos reservados.', pt: 'Todos os direitos reservados.' },
+    'footer.company': { en: 'Company', es: 'Empresa', pt: 'Empresa' },
+    'footer.about': { en: 'About Us', es: 'Sobre Nosotros', pt: 'Sobre Nós' },
+    'footer.blog': { en: 'Blog', es: 'Blog', pt: 'Blog' },
+    'footer.services': { en: 'Services', es: 'Servicios', pt: 'Serviços' },
+    'footer.legal.title': { en: 'Legal', es: 'Legal', pt: 'Legal' },
+    'footer.legal.solutions': { en: 'Legal Solutions', es: 'Soluciones Legales', pt: 'Soluções Legais' },
     'footer.legal.growth': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
-    'footer.legal.consulting': { en: 'Consulting', es: 'Consultoría' },
-    'footer.legal.privacy': { en: 'Privacy Policy', es: 'Política de Privacidad' },
-    'footer.legal.terms': { en: 'Terms of Use', es: 'Términos de Uso' },
-    'footer.legal.cookies': { en: 'Cookies', es: 'Cookies' },
+    'footer.legal.consulting': { en: 'Consulting', es: 'Consultoría', pt: 'Consultoria' },
+    'footer.legal.privacy': { en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' },
+    'footer.legal.terms': { en: 'Terms of Use', es: 'Términos de Uso', pt: 'Termos de Uso' },
+    'footer.legal.cookies': { en: 'Cookies', es: 'Cookies', pt: 'Cookies' },
     'footer.desc': { en: 'Business Engineering for sustainable business growth.', es: 'Ingeniería de Negocios para el crecimiento empresarial sostenible.', pt: 'Engenharia de Negócios para o crescimento empresarial sustentável.' },
-    'footer.system': { en: 'System Operational', es: 'Sistema Operativo' },
+    'footer.system': { en: 'System Operational', es: 'Sistema Operativo', pt: 'Sistema Operacional' },
 
     // ── Home Page ──
     'home.scrollHint': { en: 'Please scroll', es: 'Por favor haz scroll' },
@@ -620,8 +620,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.final.cta2': { en: 'Download Whitepaper', es: 'Descargar Whitepaper', pt: 'Baixar Whitepaper' },
 
     // ── About Page ──
-    'about.title1': { en: 'Business', es: 'Ingeniería de' },
-    'about.title2': { en: 'Engineering', es: 'Negocios' },
+    'about.title1': { en: 'Business', es: 'Ingeniería de', pt: 'Engenharia de' },
+    'about.title2': { en: 'Engineering', es: 'Negocios', pt: 'Negócios' },
     'about.desc': { en: 'PRO CORP never begins a project without the client’s direct involvement. The client holds the operating knowledge, context, judgment and institutional reality that no outside team can manufacture.\n\nBusiness Engineering is therefore done hand in hand with management and the people closest to the work. Together, PRO CORP and the client define the consequential decision, examine the system, challenge assumptions, test alternatives and build the path forward. Client participation is not ceremonial consultation; it is part of the engineering method.', es: 'PRO CORP nunca inicia un proyecto sin la participación directa del cliente. El cliente posee el conocimiento operativo, el contexto, el criterio y la realidad institucional que ningún equipo externo puede fabricar.\n\nPor eso, la Ingeniería de Negocios se hace de la mano de la dirección y de las personas más cercanas al trabajo. Juntos, PRO CORP y el cliente definen la decisión trascendental, examinan el sistema, cuestionan supuestos, prueban alternativas y construyen el camino a seguir. La participación del cliente no es una consulta ceremonial; es parte del método de ingeniería.', pt: 'A PRO CORP nunca inicia um projeto sem o envolvimento direto do cliente. O cliente detém o conhecimento operacional, o contexto, o critério e a realidade institucional que nenhuma equipe externa pode fabricar.\n\nPor isso, a Engenharia de Negócios é feita de mãos dadas com a gestão e com as pessoas mais próximas do trabalho. Juntos, PRO CORP e cliente definem a decisão consequente, examinam o sistema, questionam premissas, testam alternativas e constroem o caminho a seguir. A participação do cliente não é uma consulta cerimonial; é parte do método de engenharia.' },
     'about.who.title': { en: 'Who We Work For', es: 'Para Quién Trabajamos', pt: 'Para Quem Trabalhamos' },
     'about.who.1': { en: 'Leaders whose business has outgrown its own visibility.', es: 'Líderes cuyo negocio ha crecido más allá de su propia visibilidad.', pt: 'Líderes cujo negócio cresceu além da própria visibilidade.' },
@@ -632,17 +632,17 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.commit.1': { en: 'We engineer businesses for what they could become.', es: 'Ingeniamos negocios por lo que podrían llegar a ser.', pt: 'Engenhamos negócios pelo que eles poderiam se tornar.' },
     'about.commit.2': { en: 'We make complexity understandable and possibilities visible — while there is still time to act.', es: 'Hacemos la complejidad comprensible y las posibilidades visibles — mientras aún hay tiempo de actuar.', pt: 'Tornamos a complexidade compreensível e as possibilidades visíveis — enquanto ainda há tempo de agir.' },
     'about.commit.3': { en: 'Our value is not in any single discipline. It is in connecting them.', es: 'Nuestro valor no está en ninguna disciplina individual. Está en conectarlas.', pt: 'Nosso valor não está em nenhuma disciplina isolada. Está em conectá-las.' },
-    'about.mission.title': { en: 'What would Business Engineering solve for you?', es: '¿Qué resolvería la Ingeniería de Negocios para ti?' },
-    'about.mission.desc': { en: 'Our Business Engineering approach delivers concrete outcomes in every engagement: time saved, risk reduced, costs lowered.', es: 'Nuestro enfoque de Ingeniería de Negocios entrega resultados concretos en cada proyecto: tiempo ahorrado, riesgo reducido, costos disminuidos.' },
-    'about.f1.title': { en: 'Legal Solutions', es: 'Soluciones Legales' },
-    'about.f1.desc': { en: 'You need to invest abroad but lack legal certainty? We structure the entire operation — technical structuring and corporate shielding.', es: '¿Necesitas invertir en el exterior pero te falta certeza legal? Estructuramos toda la operación — estructuración técnica y blindaje corporativo.' },
+    'about.mission.title': { en: 'What would Business Engineering solve for you?', es: '¿Qué resolvería la Ingeniería de Negocios para ti?', pt: 'O que a Engenharia de Negócios resolveria para você?' },
+    'about.mission.desc': { en: 'Our Business Engineering approach delivers concrete outcomes in every engagement: time saved, risk reduced, costs lowered.', es: 'Nuestro enfoque de Ingeniería de Negocios entrega resultados concretos en cada proyecto: tiempo ahorrado, riesgo reducido, costos disminuidos.', pt: 'Nossa abordagem de Engenharia de Negócios entrega resultados concretos em cada projeto: tempo economizado, risco reduzido, custos menores.' },
+    'about.f1.title': { en: 'Legal Solutions', es: 'Soluciones Legales', pt: 'Soluções Legais' },
+    'about.f1.desc': { en: 'You need to invest abroad but lack legal certainty? We structure the entire operation — technical structuring and corporate shielding.', es: '¿Necesitas invertir en el exterior pero te falta certeza legal? Estructuramos toda la operación — estructuración técnica y blindaje corporativo.', pt: 'Precisa investir no exterior mas falta certeza jurídica? Estruturamos toda a operação — estruturação técnica e blindagem corporativa.' },
     'about.f2.title': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
-    'about.f2.desc': { en: 'Your operations depend on spreadsheets and manual follow-ups? We re-engineer them into automated workflows designed to support massive load.', es: '¿Tus operaciones dependen de hojas de cálculo y seguimientos manuales? Las reingeniamos en flujos automatizados diseñados para soportar carga masiva.' },
+    'about.f2.desc': { en: 'Your operations depend on spreadsheets and manual follow-ups? We re-engineer them into automated workflows designed to support massive load.', es: '¿Tus operaciones dependen de hojas de cálculo y seguimientos manuales? Las reingeniamos en flujos automatizados diseñados para soportar carga masiva.', pt: 'Suas operações dependem de planilhas e acompanhamentos manuais? Nós as reengenhamos em fluxos automatizados projetados para suportar carga massiva.' },
     'about.f3.title': { en: 'IP (Intellectual Property)', es: 'IP (Propiedad Intelectual)' },
     'about.f3.desc': { en: 'Your immigration paperwork takes months? We automate tracking and cut processing time — protecting and structuring your intellectual property assets.', es: '¿Tus trámites migratorios tardan meses? Automatizamos el seguimiento y reducimos los tiempos — protegiendo y estructurando tus activos de propiedad intelectual.' },
-    'about.team.label': { en: 'Our Team', es: 'Nuestro Equipo' },
-    'about.team.title': { en: 'Business Engineers', es: 'Ingenieros de Negocios' },
-    'about.method.label': { en: 'Our Methodology', es: 'Nuestra Metodología' },
+    'about.team.label': { en: 'Our Team', es: 'Nuestro Equipo', pt: 'Nossa Equipe' },
+    'about.team.title': { en: 'Business Engineers', es: 'Ingenieros de Negocios', pt: 'Engenheiros de Negócios' },
+    'about.method.label': { en: 'Our Methodology', es: 'Nuestra Metodología', pt: 'Nossa Metodologia' },
     'about.method.title.pre': { en: 'The Pro Corp', es: 'El Ciclo Pro Corp de', pt: 'O Ciclo Pro Corp de' },
     'about.method.title.accent': { en: 'Value Finding', es: 'Descubrimiento de Valor', pt: 'Descoberta de Valor' },
     'about.method.title.post': { en: 'Cycle', es: '', pt: '' },
@@ -662,185 +662,185 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.step7': { en: 'Learn', es: 'Aprender', pt: 'Aprender' },
     'about.step7.desc': { en: 'Feed results back into the next cycle.', es: 'Devolver los resultados al siguiente ciclo.', pt: 'Devolver os resultados ao próximo ciclo.' },
     'about.method.repeat': { en: 'And repeat. Because a business is never finished. Neither is Business Engineering.', es: 'Y repetir. Porque un negocio nunca está terminado. La Ingeniería de Negocios tampoco.', pt: 'E repetir. Porque um negócio nunca está pronto. A Engenharia de Negócios também não.' },
-    'about.cta.title': { en: 'Ready for Business Engineering?', es: '¿Listo para la Ingeniería de Negocios?' },
-    'about.cta.desc': { en: 'Schedule an initial diagnostic session and discover how our Business Engineering methodology can transform your corporation.', es: 'Agenda una sesión de diagnóstico inicial y descubre cómo nuestra Ingeniería de Negocios puede transformar tu corporación.' },
-    'about.cta.btn1': { en: 'Start Diagnosis', es: 'Iniciar Diagnóstico' },
+    'about.cta.title': { en: 'Ready for Business Engineering?', es: '¿Listo para la Ingeniería de Negocios?', pt: 'Pronto para a Engenharia de Negócios?' },
+    'about.cta.desc': { en: 'Schedule an initial diagnostic session and discover how our Business Engineering methodology can transform your corporation.', es: 'Agenda una sesión de diagnóstico inicial y descubre cómo nuestra Ingeniería de Negocios puede transformar tu corporación.', pt: 'Agende uma sessão inicial de diagnóstico e descubra como nossa Engenharia de Negócios pode transformar sua corporação.' },
+    'about.cta.btn1': { en: 'Start Diagnosis', es: 'Iniciar Diagnóstico', pt: 'Iniciar Diagnóstico' },
     'about.cta.btn2': { en: 'View Some Projects', es: 'Ver Algunos Proyectos', pt: 'Ver Alguns Projetos' },
     'about.desc2': { en: 'Technology is the instrument.\nAI is the accelerator.\nSimulation is understanding.\nExecution is the differentiator.', es: 'La tecnología es el instrumento.\nLa IA es el acelerador.\nLa simulación es entendimiento.\nLa ejecución es el diferenciador.', pt: 'A tecnologia é o instrumento.\nA IA é o acelerador.\nA simulação é entendimento.\nA execução é o diferenciador.' },
     'about.closing': { en: 'Together, we help your company’s productivity grow by understanding what it could become.', es: 'Juntos, ayudamos a crecer la productividad de tu empresa entendiendo lo que podría llegar a ser.', pt: 'Juntos, ajudamos a produtividade da sua empresa a crescer entendendo o que ela poderia se tornar.' },
 
     // ── Contact Page ──
     'contact.badge': { en: 'Technology enabling business growth', es: 'Tecnología que habilita el crecimiento del negocio', pt: 'Tecnologia que habilita o crescimento do negócio' },
-    'contact.title1': { en: 'Start your transformation towards an', es: 'Inicie su transformación hacia un' },
-    'contact.title2': { en: 'automated operating model', es: 'modelo operativo automatizado' },
-    'contact.desc2': { en: 'Connect with our solution architects to implement BPA (Business Process Automation) strategies. We optimize workflows through intelligent orchestration.', es: 'Conecte con nuestros arquitectos de soluciones para implementar estrategias de BPA (Business Process Automation). Optimizamos flujos de trabajo mediante orquestación inteligente.' },
-    'contact.name': { en: 'Full Name', es: 'Nombre Completo' },
-    'contact.name.ph': { en: 'e.g. Ana Garcia', es: 'Ej. Ana García' },
-    'contact.org': { en: 'Organization', es: 'Organización' },
-    'contact.org.ph': { en: 'Company name', es: 'Nombre de su empresa' },
-    'contact.email': { en: 'Corporate Email', es: 'Correo Corporativo' },
-    'contact.email.ph': { en: 'name@company.com', es: 'nombre@empresa.com' },
-    'contact.phone': { en: 'Contact Phone', es: 'Teléfono de Contacto' },
-    'contact.phone.ph': { en: '+57 300 000 0000', es: '+57 300 000 0000' },
-    'contact.area': { en: 'Area of Interest', es: 'Área de Interés' },
-    'contact.area.ph': { en: 'Select the required service', es: 'Seleccione el servicio requerido' },
-    'contact.area.1': { en: 'Business Process Automation', es: 'Automatización de Procesos de Negocio' },
+    'contact.title1': { en: 'Start your transformation towards an', es: 'Inicie su transformación hacia un', pt: 'Comece sua transformação rumo a um' },
+    'contact.title2': { en: 'automated operating model', es: 'modelo operativo automatizado', pt: 'modelo operacional automatizado' },
+    'contact.desc2': { en: 'Connect with our solution architects to implement BPA (Business Process Automation) strategies. We optimize workflows through intelligent orchestration.', es: 'Conecte con nuestros arquitectos de soluciones para implementar estrategias de BPA (Business Process Automation). Optimizamos flujos de trabajo mediante orquestación inteligente.', pt: 'Conecte-se com nossos arquitetos de soluções para implementar estratégias de BPA (Business Process Automation). Otimizamos fluxos de trabalho por meio de orquestração inteligente.' },
+    'contact.name': { en: 'Full Name', es: 'Nombre Completo', pt: 'Nome Completo' },
+    'contact.name.ph': { en: 'e.g. Ana Garcia', es: 'Ej. Ana García', pt: 'ex.: Ana Garcia' },
+    'contact.org': { en: 'Organization', es: 'Organización', pt: 'Organização' },
+    'contact.org.ph': { en: 'Company name', es: 'Nombre de su empresa', pt: 'Nome da empresa' },
+    'contact.email': { en: 'Corporate Email', es: 'Correo Corporativo', pt: 'E-mail Corporativo' },
+    'contact.email.ph': { en: 'name@company.com', es: 'nombre@empresa.com', pt: 'nome@empresa.com' },
+    'contact.phone': { en: 'Contact Phone', es: 'Teléfono de Contacto', pt: 'Telefone de Contato' },
+    'contact.phone.ph': { en: '+57 300 000 0000', es: '+57 300 000 0000', pt: '+57 300 000 0000' },
+    'contact.area': { en: 'Area of Interest', es: 'Área de Interés', pt: 'Área de Interesse' },
+    'contact.area.ph': { en: 'Select the required service', es: 'Seleccione el servicio requerido', pt: 'Selecione o serviço necessário' },
+    'contact.area.1': { en: 'Business Process Automation', es: 'Automatización de Procesos de Negocio', pt: 'Business Process Automation' },
     'contact.area.2': { en: 'Functional Process Mapping', es: 'Mapeo Funcional de Procesos', pt: 'Mapeamento Funcional de Processos' },
-    'contact.area.3': { en: 'Operating Model Re-engineering', es: 'Reingeniería de Modelos Operativos' },
-    'contact.area.4': { en: 'LIA Implementation', es: 'Implementación de LIA' },
+    'contact.area.3': { en: 'Operating Model Re-engineering', es: 'Reingeniería de Modelos Operativos', pt: 'Reengenharia de Modelos Operacionais' },
+    'contact.area.4': { en: 'LIA Implementation', es: 'Implementación de LIA', pt: 'Implementação da LIA' },
     'contact.area.5': { en: 'Digital Inventory', es: 'Inventario Digital', pt: 'Inventário Digital' },
     'contact.area.6': { en: 'Financial Simulation', es: 'Simulación Financiera', pt: 'Simulação Financeira' },
     'contact.area.7': { en: 'Operations Simulation', es: 'Simulación de Operaciones', pt: 'Simulação de Operações' },
     'contact.area.8': { en: 'Project Mapping and Structuring', es: 'Mapeo y Estructuración de Proyectos', pt: 'Mapeamento e Estruturação de Projetos' },
-    'contact.level': { en: 'Current Digitalization Level', es: 'Nivel de Digitalización Actual' },
-    'contact.level.ph': { en: 'Indicate your current state', es: 'Indique su estado actual' },
-    'contact.level.1': { en: 'Initial (Predominantly manual processes)', es: 'Inicial (Procesos manuales predominantes)' },
-    'contact.level.2': { en: 'Developing (Isolated tools)', es: 'En desarrollo (Herramientas aisladas)' },
-    'contact.level.3': { en: 'Advanced (Integrated systems)', es: 'Avanzado (Sistemas integrados)' },
-    'contact.level.4': { en: 'Optimized (Intelligent automation)', es: 'Optimizado (Automatización inteligente)' },
-    'contact.details': { en: 'Project Details', es: 'Detalles del Proyecto' },
-    'contact.details.ph': { en: 'Describe your automation and orchestration objectives...', es: 'Describa sus objetivos de automatización y orquestación...' },
-    'contact.privacy': { en: 'I have read and accept the', es: 'He leído y acepto la' },
-    'contact.privacy.link': { en: 'Privacy Policy', es: 'Política de Privacidad' },
-    'contact.privacy.auth': { en: '. I authorize the analysis of my data for technology architecture proposals.', es: '. Autorizo el análisis de mis datos para propuestas de arquitectura tecnológica.' },
+    'contact.level': { en: 'Current Digitalization Level', es: 'Nivel de Digitalización Actual', pt: 'Nível Atual de Digitalização' },
+    'contact.level.ph': { en: 'Indicate your current state', es: 'Indique su estado actual', pt: 'Indique seu estado atual' },
+    'contact.level.1': { en: 'Initial (Predominantly manual processes)', es: 'Inicial (Procesos manuales predominantes)', pt: 'Inicial (Processos predominantemente manuais)' },
+    'contact.level.2': { en: 'Developing (Isolated tools)', es: 'En desarrollo (Herramientas aisladas)', pt: 'Em desenvolvimento (Ferramentas isoladas)' },
+    'contact.level.3': { en: 'Advanced (Integrated systems)', es: 'Avanzado (Sistemas integrados)', pt: 'Avançado (Sistemas integrados)' },
+    'contact.level.4': { en: 'Optimized (Intelligent automation)', es: 'Optimizado (Automatización inteligente)', pt: 'Otimizado (Automação inteligente)' },
+    'contact.details': { en: 'Project Details', es: 'Detalles del Proyecto', pt: 'Detalhes do Projeto' },
+    'contact.details.ph': { en: 'Describe your automation and orchestration objectives...', es: 'Describa sus objetivos de automatización y orquestación...', pt: 'Descreva seus objetivos de automação e orquestração...' },
+    'contact.privacy': { en: 'I have read and accept the', es: 'He leído y acepto la', pt: 'Li e aceito a' },
+    'contact.privacy.link': { en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' },
+    'contact.privacy.auth': { en: '. I authorize the analysis of my data for technology architecture proposals.', es: '. Autorizo el análisis de mis datos para propuestas de arquitectura tecnológica.', pt: '. Autorizo a análise dos meus dados para propostas de arquitetura tecnológica.' },
     'contact.submit': { en: 'Request an Opportunity Assessment', es: 'Solicitar una Evaluación de Oportunidad', pt: 'Solicitar uma Avaliação de Oportunidade' },
-    'contact.info0.title': { en: 'Houston — Main', es: 'Houston — Principal' },
-    'contact.info0.line1': { en: 'Neils Branch Dr', es: 'Neils Branch Dr' },
-    'contact.info0.line2': { en: 'Houston, TX 77077', es: 'Houston, TX 77077' },
-    'contact.info0.link': { en: 'View on map', es: 'Ver en mapa' },
-    'contact.info1.title': { en: 'Bogotá — Business Development Office', es: 'Bogotá — Oficina de Desarrollo de Negocios' },
-    'contact.info1.line1': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B' },
-    'contact.info1.line2': { en: 'Centro Empresarial Acces, Bogotá', es: 'Centro Empresarial Acces, Bogotá' },
-    'contact.info2.title': { en: 'Madrid — Office', es: 'Madrid — Oficina' },
-    'contact.info2.line1': { en: 'Calle Jorge Juan 30, Floor 1', es: 'Calle Jorge Juan 30, Piso 1' },
-    'contact.info2.line2': { en: '28001 Barrio Salamanca, Madrid', es: '28001 Barrio Salamanca, Madrid' },
-    'contact.info2.link': { en: 'View on map', es: 'Ver en mapa' },
-    'contact.info3.title': { en: 'Direct Contact', es: 'Contacto Directo' },
-    'contact.info3.line1': { en: 'extranjeria@pro-corp.net', es: 'extranjeria@pro-corp.net' },
-    'contact.info3.line2': { en: '+57 300 929 2911 · +34 665 325 994', es: '+57 300 929 2911 · +34 665 325 994' },
-    'contact.info3.link': { en: 'Chat on WhatsApp', es: 'Chatear por WhatsApp' },
-    'contact.map': { en: 'Business Development Office — Operational', es: 'Oficina de Desarrollo de Negocios — Operativa' },
-    'footer.location': { en: 'Headquarters', es: 'Sede Central' },
-    'footer.location.address': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B' },
-    'footer.location.city': { en: 'Centro Empresarial Acces — Bogotá, Colombia', es: 'Centro Empresarial Acces — Bogotá, Colombia' },
-    'footer.location.cta': { en: 'Get Directions', es: 'Cómo Llegar' },
-    'footer.offices': { en: 'Our Offices', es: 'Nuestras Oficinas' },
-    'footer.office.houston': { en: 'Houston', es: 'Houston' },
-    'footer.office.houston.label': { en: 'Main', es: 'Principal' },
-    'footer.office.houston.address': { en: 'Neils Branch Dr, Houston, TX 77077', es: 'Neils Branch Dr, Houston, TX 77077' },
-    'footer.office.bogota': { en: 'Bogotá', es: 'Bogotá' },
-    'footer.office.bogota.label': { en: 'Business Development Office', es: 'Oficina de Desarrollo de Negocios' },
-    'footer.office.bogota.address': { en: 'Calle 127A #7-19, Of. 301B', es: 'Calle 127A #7-19, Of. 301B' },
-    'footer.office.madrid': { en: 'Madrid', es: 'Madrid' },
-    'footer.office.madrid.label': { en: 'Office', es: 'Oficina' },
-    'footer.office.madrid.address': { en: 'Calle Jorge Juan 30, Floor 1', es: 'Calle Jorge Juan 30, Piso 1' },
-    'footer.office.contact': { en: 'Contact', es: 'Contacto' },
-    'footer.office.contact.label': { en: 'Direct Line', es: 'Línea Directa' },
-    'footer.office.contact.wa.spain': { en: 'WhatsApp Spain Clients', es: 'WhatsApp Clientes España' },
-    'footer.office.contact.wa.portugal': { en: 'WhatsApp Portugal Clients', es: 'WhatsApp Clientes Portugal' },
-    'footer.map.close': { en: 'Close', es: 'Cerrar' },
+    'contact.info0.title': { en: 'Houston — Main', es: 'Houston — Principal', pt: 'Houston — Principal' },
+    'contact.info0.line1': { en: 'Neils Branch Dr', es: 'Neils Branch Dr', pt: 'Neils Branch Dr' },
+    'contact.info0.line2': { en: 'Houston, TX 77077', es: 'Houston, TX 77077', pt: 'Houston, TX 77077' },
+    'contact.info0.link': { en: 'View on map', es: 'Ver en mapa', pt: 'Ver no mapa' },
+    'contact.info1.title': { en: 'Bogotá — Business Development Office', es: 'Bogotá — Oficina de Desarrollo de Negocios', pt: 'Bogotá — Escritório de Desenvolvimento de Negócios' },
+    'contact.info1.line1': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B', pt: 'Calle 127A #7-19, Escritório 301B' },
+    'contact.info1.line2': { en: 'Centro Empresarial Acces, Bogotá', es: 'Centro Empresarial Acces, Bogotá', pt: 'Centro Empresarial Acces, Bogotá' },
+    'contact.info2.title': { en: 'Madrid — Office', es: 'Madrid — Oficina', pt: 'Madrid — Escritório' },
+    'contact.info2.line1': { en: 'Calle Jorge Juan 30, Floor 1', es: 'Calle Jorge Juan 30, Piso 1', pt: 'Calle Jorge Juan 30, 1º Andar' },
+    'contact.info2.line2': { en: '28001 Barrio Salamanca, Madrid', es: '28001 Barrio Salamanca, Madrid', pt: '28001 Barrio Salamanca, Madrid' },
+    'contact.info2.link': { en: 'View on map', es: 'Ver en mapa', pt: 'Ver no mapa' },
+    'contact.info3.title': { en: 'Direct Contact', es: 'Contacto Directo', pt: 'Contato Direto' },
+    'contact.info3.line1': { en: 'extranjeria@pro-corp.net', es: 'extranjeria@pro-corp.net', pt: 'extranjeria@pro-corp.net' },
+    'contact.info3.line2': { en: '+57 300 929 2911 · +34 665 325 994', es: '+57 300 929 2911 · +34 665 325 994', pt: '+57 300 929 2911 · +34 665 325 994' },
+    'contact.info3.link': { en: 'Chat on WhatsApp', es: 'Chatear por WhatsApp', pt: 'Conversar no WhatsApp' },
+    'contact.map': { en: 'Business Development Office — Operational', es: 'Oficina de Desarrollo de Negocios — Operativa', pt: 'Escritório de Desenvolvimento de Negócios — Operacional' },
+    'footer.location': { en: 'Headquarters', es: 'Sede Central', pt: 'Sede' },
+    'footer.location.address': { en: 'Calle 127A #7-19, Office 301B', es: 'Calle 127A #7-19, Oficina 301B', pt: 'Calle 127A #7-19, Escritório 301B' },
+    'footer.location.city': { en: 'Centro Empresarial Acces — Bogotá, Colombia', es: 'Centro Empresarial Acces — Bogotá, Colombia', pt: 'Centro Empresarial Acces — Bogotá, Colômbia' },
+    'footer.location.cta': { en: 'Get Directions', es: 'Cómo Llegar', pt: 'Como Chegar' },
+    'footer.offices': { en: 'Our Offices', es: 'Nuestras Oficinas', pt: 'Nossos Escritórios' },
+    'footer.office.houston': { en: 'Houston', es: 'Houston', pt: 'Houston' },
+    'footer.office.houston.label': { en: 'Main', es: 'Principal', pt: 'Principal' },
+    'footer.office.houston.address': { en: 'Neils Branch Dr, Houston, TX 77077', es: 'Neils Branch Dr, Houston, TX 77077', pt: 'Neils Branch Dr, Houston, TX 77077' },
+    'footer.office.bogota': { en: 'Bogotá', es: 'Bogotá', pt: 'Bogotá' },
+    'footer.office.bogota.label': { en: 'Business Development Office', es: 'Oficina de Desarrollo de Negocios', pt: 'Escritório de Desenvolvimento de Negócios' },
+    'footer.office.bogota.address': { en: 'Calle 127A #7-19, Of. 301B', es: 'Calle 127A #7-19, Of. 301B', pt: 'Calle 127A #7-19, Of. 301B' },
+    'footer.office.madrid': { en: 'Madrid', es: 'Madrid', pt: 'Madrid' },
+    'footer.office.madrid.label': { en: 'Office', es: 'Oficina', pt: 'Escritório' },
+    'footer.office.madrid.address': { en: 'Calle Jorge Juan 30, Floor 1', es: 'Calle Jorge Juan 30, Piso 1', pt: 'Calle Jorge Juan 30, 1º Andar' },
+    'footer.office.contact': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
+    'footer.office.contact.label': { en: 'Direct Line', es: 'Línea Directa', pt: 'Linha Direta' },
+    'footer.office.contact.wa.spain': { en: 'WhatsApp Spain Clients', es: 'WhatsApp Clientes España', pt: 'WhatsApp Clientes Espanha' },
+    'footer.office.contact.wa.portugal': { en: 'WhatsApp Portugal Clients', es: 'WhatsApp Clientes Portugal', pt: 'WhatsApp Clientes Portugal' },
+    'footer.map.close': { en: 'Close', es: 'Cerrar', pt: 'Fechar' },
 
     // ── Privacy Policy Page ──
-    'privacy.badge': { en: 'Legal', es: 'Legal' },
-    'privacy.title': { en: 'Data Processing Policy', es: 'Política de Tratamiento de Datos' },
-    'privacy.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026' },
+    'privacy.badge': { en: 'Legal', es: 'Legal', pt: 'Legal' },
+    'privacy.title': { en: 'Data Processing Policy', es: 'Política de Tratamiento de Datos', pt: 'Política de Tratamento de Dados' },
+    'privacy.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026', pt: 'Última atualização: março de 2026' },
     'privacy.intro': {
         en: 'PRO CORP S.A.S. (hereinafter "Pro Corp"), with registered address at Calle 127A #7-19, Office 301B, Centro Empresarial Acces, Bogotá, Colombia, and representative office at Calle Jorge Juan 30, Floor 1, 28001 Madrid, Spain, is committed to protecting the privacy and personal data of its users, clients, and collaborators in accordance with applicable regulations.',
-        es: 'PRO CORP S.A.S. (en adelante "Pro Corp"), con domicilio en la Calle 127A #7-19, Oficina 301B, Centro Empresarial Acces, Bogotá, Colombia, y oficina de representación en la Calle Jorge Juan 30, Piso 1, 28001 Madrid, España, se compromete a proteger la privacidad y los datos personales de sus usuarios, clientes y colaboradores de acuerdo con la normativa aplicable.'
+        es: 'PRO CORP S.A.S. (en adelante "Pro Corp"), con domicilio en la Calle 127A #7-19, Oficina 301B, Centro Empresarial Acces, Bogotá, Colombia, y oficina de representación en la Calle Jorge Juan 30, Piso 1, 28001 Madrid, España, se compromete a proteger la privacidad y los datos personales de sus usuarios, clientes y colaboradores de acuerdo con la normativa aplicable.', pt: 'A PRO CORP S.A.S. (doravante "Pro Corp"), com sede na Calle 127A #7-19, Escritório 301B, Centro Empresarial Acces, Bogotá, Colômbia, e escritório de representação na Calle Jorge Juan 30, 1º Andar, 28001 Madri, Espanha, compromete-se a proteger a privacidade e os dados pessoais de seus usuários, clientes e colaboradores de acordo com as normas aplicáveis.'
     },
-    'privacy.s1.title': { en: 'Applicable Regulations', es: 'Normativa Aplicable' },
+    'privacy.s1.title': { en: 'Applicable Regulations', es: 'Normativa Aplicable', pt: 'Normas Aplicáveis' },
     'privacy.s1.text': {
         en: 'This policy complies with: (i) Colombian Law 1581 of 2012 and Decree 1377 of 2013 on Personal Data Protection; (ii) EU General Data Protection Regulation (GDPR) 2016/679; (iii) Spanish Organic Law 3/2018 on Personal Data Protection and Digital Rights Guarantee (LOPDGDD).',
-        es: 'Esta política cumple con: (i) la Ley 1581 de 2012 y el Decreto 1377 de 2013 sobre Protección de Datos Personales de Colombia; (ii) el Reglamento General de Protección de Datos (RGPD) 2016/679 de la Unión Europea; (iii) la Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales de España (LOPDGDD).'
+        es: 'Esta política cumple con: (i) la Ley 1581 de 2012 y el Decreto 1377 de 2013 sobre Protección de Datos Personales de Colombia; (ii) el Reglamento General de Protección de Datos (RGPD) 2016/679 de la Unión Europea; (iii) la Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales de España (LOPDGDD).', pt: 'Esta política cumpre: (i) a Lei colombiana 1581 de 2012 e o Decreto 1377 de 2013 sobre Proteção de Dados Pessoais; (ii) o Regulamento Geral de Proteção de Dados da UE (GDPR) 2016/679; (iii) a Lei Orgânica espanhola 3/2018 de Proteção de Dados Pessoais e Garantia dos Direitos Digitais (LOPDGDD).'
     },
-    'privacy.s2.title': { en: 'Data Controller', es: 'Responsable del Tratamiento' },
+    'privacy.s2.title': { en: 'Data Controller', es: 'Responsable del Tratamiento', pt: 'Responsável pelo Tratamento' },
     'privacy.s2.text': {
         en: 'PRO CORP S.A.S.\nCalle 127A #7-19, Office 301B\nCentro Empresarial Acces, Bogotá, Colombia\nEmail: extranjeria@pro-corp.net\nPhone: +57 300 929 2911',
-        es: 'PRO CORP S.A.S.\nCalle 127A #7-19, Oficina 301B\nCentro Empresarial Acces, Bogotá, Colombia\nCorreo: extranjeria@pro-corp.net\nTeléfono: +57 300 929 2911'
+        es: 'PRO CORP S.A.S.\nCalle 127A #7-19, Oficina 301B\nCentro Empresarial Acces, Bogotá, Colombia\nCorreo: extranjeria@pro-corp.net\nTeléfono: +57 300 929 2911', pt: 'PRO CORP S.A.S.\nCalle 127A #7-19, Escritório 301B\nCentro Empresarial Acces, Bogotá, Colômbia\nE-mail: extranjeria@pro-corp.net\nTelefone: +57 300 929 2911'
     },
-    'privacy.s3.title': { en: 'Data We Collect', es: 'Datos que Recopilamos' },
+    'privacy.s3.title': { en: 'Data We Collect', es: 'Datos que Recopilamos', pt: 'Dados que Coletamos' },
     'privacy.s3.text': {
         en: 'We collect the following categories of personal data:\n• Identification data: full name, ID/passport number, nationality\n• Contact data: email, phone number, postal address\n• Professional data: company name, position, industry\n• Service data: immigration case details, corporate structuring information, investment preferences\n• Technical data: IP address, browser type, device information, navigation data\n• Communication data: messages sent through our contact forms and LIA chat assistant',
-        es: 'Recopilamos las siguientes categorías de datos personales:\n• Datos de identificación: nombre completo, número de documento/pasaporte, nacionalidad\n• Datos de contacto: correo electrónico, número de teléfono, dirección postal\n• Datos profesionales: nombre de empresa, cargo, sector\n• Datos del servicio: detalles de caso migratorio, información de estructuración corporativa, preferencias de inversión\n• Datos técnicos: dirección IP, tipo de navegador, información del dispositivo, datos de navegación\n• Datos de comunicación: mensajes enviados a través de formularios de contacto y el asistente LIA'
+        es: 'Recopilamos las siguientes categorías de datos personales:\n• Datos de identificación: nombre completo, número de documento/pasaporte, nacionalidad\n• Datos de contacto: correo electrónico, número de teléfono, dirección postal\n• Datos profesionales: nombre de empresa, cargo, sector\n• Datos del servicio: detalles de caso migratorio, información de estructuración corporativa, preferencias de inversión\n• Datos técnicos: dirección IP, tipo de navegador, información del dispositivo, datos de navegación\n• Datos de comunicación: mensajes enviados a través de formularios de contacto y el asistente LIA', pt: 'Coletamos as seguintes categorias de dados pessoais:\n• Dados de identificação: nome completo, número de identidade/passaporte, nacionalidade\n• Dados de contato: e-mail, telefone, endereço postal\n• Dados profissionais: nome da empresa, cargo, setor\n• Dados de serviço: detalhes de casos migratórios, informações de estruturação corporativa, preferências de investimento\n• Dados técnicos: endereço IP, tipo de navegador, informações do dispositivo, dados de navegação\n• Dados de comunicação: mensagens enviadas por nossos formulários de contato e pelo assistente de chat LIA'
     },
-    'privacy.s4.title': { en: 'Purpose of Processing', es: 'Finalidad del Tratamiento' },
+    'privacy.s4.title': { en: 'Purpose of Processing', es: 'Finalidad del Tratamiento', pt: 'Finalidade do Tratamento' },
     'privacy.s4.text': {
         en: 'Your personal data is processed for the following purposes:\n• Provision of legal, immigration, and corporate advisory services\n• Management of investment portfolio consultations\n• Communication about the status of your processes and cases\n• Sending relevant information about our services (with prior consent)\n• Compliance with legal and regulatory obligations\n• Improvement of our digital platform and user experience\n• Operation of our AI assistant LIA for customer support',
-        es: 'Sus datos personales son tratados para las siguientes finalidades:\n• Prestación de servicios legales, migratorios y de asesoría corporativa\n• Gestión de consultas del portafolio de inversión\n• Comunicación sobre el estado de sus procesos y casos\n• Envío de información relevante sobre nuestros servicios (con consentimiento previo)\n• Cumplimiento de obligaciones legales y regulatorias\n• Mejora de nuestra plataforma digital y experiencia de usuario\n• Operación de nuestro asistente de IA LIA para soporte al cliente'
+        es: 'Sus datos personales son tratados para las siguientes finalidades:\n• Prestación de servicios legales, migratorios y de asesoría corporativa\n• Gestión de consultas del portafolio de inversión\n• Comunicación sobre el estado de sus procesos y casos\n• Envío de información relevante sobre nuestros servicios (con consentimiento previo)\n• Cumplimiento de obligaciones legales y regulatorias\n• Mejora de nuestra plataforma digital y experiencia de usuario\n• Operación de nuestro asistente de IA LIA para soporte al cliente', pt: 'Seus dados pessoais são tratados para as seguintes finalidades:\n• Prestação de serviços de assessoria jurídica, migratória e corporativa\n• Gestão de consultas sobre o portfólio de investimentos\n• Comunicação sobre o status dos seus processos e casos\n• Envio de informações relevantes sobre nossos serviços (com consentimento prévio)\n• Cumprimento de obrigações legais e regulatórias\n• Melhoria da nossa plataforma digital e da experiência do usuário\n• Operação da nossa assistente de IA LIA para atendimento ao cliente'
     },
-    'privacy.s5.title': { en: 'Legal Basis', es: 'Base Legal' },
+    'privacy.s5.title': { en: 'Legal Basis', es: 'Base Legal', pt: 'Base Legal' },
     'privacy.s5.text': {
         en: 'The processing of your data is based on:\n• Contractual necessity: to provide the services you have requested\n• Legitimate interest: to improve our services and platform\n• Legal obligation: to comply with applicable regulations\n• Consent: for marketing communications and non-essential cookies',
-        es: 'El tratamiento de sus datos se basa en:\n• Necesidad contractual: para prestar los servicios que ha solicitado\n• Interés legítimo: para mejorar nuestros servicios y plataforma\n• Obligación legal: para cumplir con la normativa aplicable\n• Consentimiento: para comunicaciones de marketing y cookies no esenciales'
+        es: 'El tratamiento de sus datos se basa en:\n• Necesidad contractual: para prestar los servicios que ha solicitado\n• Interés legítimo: para mejorar nuestros servicios y plataforma\n• Obligación legal: para cumplir con la normativa aplicable\n• Consentimiento: para comunicaciones de marketing y cookies no esenciales', pt: 'O tratamento dos seus dados baseia-se em:\n• Necessidade contratual: para prestar os serviços que você solicitou\n• Interesse legítimo: para melhorar nossos serviços e plataforma\n• Obrigação legal: para cumprir as normas aplicáveis\n• Consentimento: para comunicações de marketing e cookies não essenciais'
     },
-    'privacy.s6.title': { en: 'International Transfers', es: 'Transferencias Internacionales' },
+    'privacy.s6.title': { en: 'International Transfers', es: 'Transferencias Internacionales', pt: 'Transferências Internacionais' },
     'privacy.s6.text': {
         en: 'Given our operations in Colombia and Spain, your data may be transferred internationally between our offices. These transfers are carried out with appropriate safeguards, including standard contractual clauses approved by the European Commission and compliance with Colombian data protection regulations.',
-        es: 'Dada nuestra operación en Colombia y España, sus datos pueden ser transferidos internacionalmente entre nuestras oficinas. Estas transferencias se realizan con las garantías adecuadas, incluyendo cláusulas contractuales tipo aprobadas por la Comisión Europea y cumplimiento de la normativa colombiana de protección de datos.'
+        es: 'Dada nuestra operación en Colombia y España, sus datos pueden ser transferidos internacionalmente entre nuestras oficinas. Estas transferencias se realizan con las garantías adecuadas, incluyendo cláusulas contractuales tipo aprobadas por la Comisión Europea y cumplimiento de la normativa colombiana de protección de datos.', pt: 'Dadas as nossas operações na Colômbia e na Espanha, seus dados podem ser transferidos internacionalmente entre nossos escritórios. Essas transferências são realizadas com salvaguardas adequadas, incluindo cláusulas contratuais padrão aprovadas pela Comissão Europeia e o cumprimento das normas colombianas de proteção de dados.'
     },
-    'privacy.s7.title': { en: 'Data Retention', es: 'Conservación de Datos' },
+    'privacy.s7.title': { en: 'Data Retention', es: 'Conservación de Datos', pt: 'Retenção de Dados' },
     'privacy.s7.text': {
         en: 'Personal data will be retained for the duration of the contractual relationship and, thereafter, for the legally required periods. For immigration and legal cases, data is retained for a minimum of 5 years after case closure as required by applicable regulations.',
-        es: 'Los datos personales se conservarán durante la vigencia de la relación contractual y, posteriormente, durante los plazos legalmente exigidos. Para casos migratorios y legales, los datos se conservan por un mínimo de 5 años después del cierre del caso según lo exige la normativa aplicable.'
+        es: 'Los datos personales se conservarán durante la vigencia de la relación contractual y, posteriormente, durante los plazos legalmente exigidos. Para casos migratorios y legales, los datos se conservan por un mínimo de 5 años después del cierre del caso según lo exige la normativa aplicable.', pt: 'Os dados pessoais serão conservados durante a relação contratual e, depois, pelos períodos legalmente exigidos. Para casos migratórios e jurídicos, os dados são conservados por no mínimo 5 anos após o encerramento do caso, conforme exigido pelas normas aplicáveis.'
     },
-    'privacy.s8.title': { en: 'Your Rights', es: 'Sus Derechos' },
+    'privacy.s8.title': { en: 'Your Rights', es: 'Sus Derechos', pt: 'Seus Direitos' },
     'privacy.s8.text': {
         en: 'You have the right to:\n• Access your personal data\n• Rectify inaccurate or incomplete data\n• Request deletion of your data\n• Object to or restrict processing\n• Data portability\n• Withdraw consent at any time\n\nTo exercise these rights, contact us at extranjeria@pro-corp.net. We will respond within 15 business days (Colombia) or 30 calendar days (EU).',
-        es: 'Usted tiene derecho a:\n• Acceder a sus datos personales\n• Rectificar datos inexactos o incompletos\n• Solicitar la supresión de sus datos\n• Oponerse o limitar el tratamiento\n• Portabilidad de datos\n• Retirar su consentimiento en cualquier momento\n\nPara ejercer estos derechos, contáctenos a extranjeria@pro-corp.net. Responderemos en un plazo de 15 días hábiles (Colombia) o 30 días naturales (UE).'
+        es: 'Usted tiene derecho a:\n• Acceder a sus datos personales\n• Rectificar datos inexactos o incompletos\n• Solicitar la supresión de sus datos\n• Oponerse o limitar el tratamiento\n• Portabilidad de datos\n• Retirar su consentimiento en cualquier momento\n\nPara ejercer estos derechos, contáctenos a extranjeria@pro-corp.net. Responderemos en un plazo de 15 días hábiles (Colombia) o 30 días naturales (UE).', pt: 'Você tem direito a:\n• Acessar seus dados pessoais\n• Retificar dados inexatos ou incompletos\n• Solicitar a exclusão dos seus dados\n• Opor-se ao tratamento ou restringi-lo\n• Portabilidade dos dados\n• Retirar o consentimento a qualquer momento\n\nPara exercer esses direitos, contate-nos em extranjeria@pro-corp.net. Responderemos em até 15 dias úteis (Colômbia) ou 30 dias corridos (UE).'
     },
-    'privacy.s9.title': { en: 'Contact & Complaints', es: 'Contacto y Reclamaciones' },
+    'privacy.s9.title': { en: 'Contact & Complaints', es: 'Contacto y Reclamaciones', pt: 'Contato e Reclamações' },
     'privacy.s9.text': {
         en: 'For inquiries about data processing: extranjeria@pro-corp.net\n\nYou also have the right to file a complaint with the competent supervisory authority:\n• Colombia: Superintendencia de Industria y Comercio (SIC)\n• Spain: Agencia Española de Protección de Datos (AEPD)',
-        es: 'Para consultas sobre tratamiento de datos: extranjeria@pro-corp.net\n\nTambién tiene derecho a presentar una reclamación ante la autoridad de control competente:\n• Colombia: Superintendencia de Industria y Comercio (SIC)\n• España: Agencia Española de Protección de Datos (AEPD)'
+        es: 'Para consultas sobre tratamiento de datos: extranjeria@pro-corp.net\n\nTambién tiene derecho a presentar una reclamación ante la autoridad de control competente:\n• Colombia: Superintendencia de Industria y Comercio (SIC)\n• España: Agencia Española de Protección de Datos (AEPD)', pt: 'Para consultas sobre o tratamento de dados: extranjeria@pro-corp.net\n\nVocê também tem o direito de apresentar uma reclamação à autoridade de controle competente:\n• Colômbia: Superintendencia de Industria y Comercio (SIC)\n• Espanha: Agencia Española de Protección de Datos (AEPD)'
     },
 
     // ── Cookie Policy Page ──
-    'cookies.badge': { en: 'Legal', es: 'Legal' },
-    'cookies.title': { en: 'Cookie Policy', es: 'Política de Cookies' },
-    'cookies.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026' },
+    'cookies.badge': { en: 'Legal', es: 'Legal', pt: 'Legal' },
+    'cookies.title': { en: 'Cookie Policy', es: 'Política de Cookies', pt: 'Política de Cookies' },
+    'cookies.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026', pt: 'Última atualização: março de 2026' },
     'cookies.intro': {
         en: 'This Cookie Policy explains how PRO CORP S.A.S. ("Pro Corp") uses cookies and similar technologies on our website. By continuing to browse our site, you consent to the use of cookies as described in this policy.',
-        es: 'Esta Política de Cookies explica cómo PRO CORP S.A.S. ("Pro Corp") utiliza cookies y tecnologías similares en nuestro sitio web. Al continuar navegando en nuestro sitio, usted consiente el uso de cookies según lo descrito en esta política.'
+        es: 'Esta Política de Cookies explica cómo PRO CORP S.A.S. ("Pro Corp") utiliza cookies y tecnologías similares en nuestro sitio web. Al continuar navegando en nuestro sitio, usted consiente el uso de cookies según lo descrito en esta política.', pt: 'Esta Política de Cookies explica como a PRO CORP S.A.S. ("Pro Corp") usa cookies e tecnologias similares em nosso site. Ao continuar navegando, você consente com o uso de cookies conforme descrito nesta política.'
     },
-    'cookies.s1.title': { en: 'What Are Cookies?', es: '¿Qué Son las Cookies?' },
+    'cookies.s1.title': { en: 'What Are Cookies?', es: '¿Qué Son las Cookies?', pt: 'O Que São Cookies?' },
     'cookies.s1.text': {
         en: 'Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They allow the site to recognize your device and remember certain information about your visit, such as your preferences and settings.',
-        es: 'Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (computador, tableta o teléfono móvil) cuando visita un sitio web. Permiten que el sitio reconozca su dispositivo y recuerde cierta información sobre su visita, como sus preferencias y configuraciones.'
+        es: 'Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (computador, tableta o teléfono móvil) cuando visita un sitio web. Permiten que el sitio reconozca su dispositivo y recuerde cierta información sobre su visita, como sus preferencias y configuraciones.', pt: 'Cookies são pequenos arquivos de texto armazenados no seu dispositivo (computador, tablet ou celular) quando você visita um site. Eles permitem que o site reconheça seu dispositivo e lembre certas informações sobre sua visita, como preferências e configurações.'
     },
-    'cookies.s2.title': { en: 'Types of Cookies We Use', es: 'Tipos de Cookies que Utilizamos' },
-    'cookies.s2.essential.title': { en: 'Essential Cookies', es: 'Cookies Esenciales' },
+    'cookies.s2.title': { en: 'Types of Cookies We Use', es: 'Tipos de Cookies que Utilizamos', pt: 'Tipos de Cookies que Usamos' },
+    'cookies.s2.essential.title': { en: 'Essential Cookies', es: 'Cookies Esenciales', pt: 'Cookies Essenciais' },
     'cookies.s2.essential.text': {
         en: 'Required for the website to function properly. They enable core features like page navigation, access to secure areas, and language preferences. The site cannot function correctly without these cookies.',
-        es: 'Necesarias para el correcto funcionamiento del sitio web. Habilitan funciones básicas como la navegación entre páginas, acceso a áreas seguras y preferencias de idioma. El sitio no puede funcionar correctamente sin estas cookies.'
+        es: 'Necesarias para el correcto funcionamiento del sitio web. Habilitan funciones básicas como la navegación entre páginas, acceso a áreas seguras y preferencias de idioma. El sitio no puede funcionar correctamente sin estas cookies.', pt: 'Necessários para o funcionamento adequado do site. Habilitam recursos básicos como navegação entre páginas, acesso a áreas seguras e preferências de idioma. O site não funciona corretamente sem esses cookies.'
     },
-    'cookies.s2.analytics.title': { en: 'Analytics Cookies', es: 'Cookies de Analítica' },
+    'cookies.s2.analytics.title': { en: 'Analytics Cookies', es: 'Cookies de Analítica', pt: 'Cookies de Análise' },
     'cookies.s2.analytics.text': {
         en: 'We use Google Analytics to understand how visitors interact with our website. These cookies collect information anonymously and help us improve the user experience. Data collected includes pages visited, time spent on the site, and how you arrived at our website.',
-        es: 'Utilizamos Google Analytics para comprender cómo los visitantes interactúan con nuestro sitio web. Estas cookies recopilan información de forma anónima y nos ayudan a mejorar la experiencia del usuario. Los datos recopilados incluyen páginas visitadas, tiempo en el sitio y cómo llegó a nuestro sitio web.'
+        es: 'Utilizamos Google Analytics para comprender cómo los visitantes interactúan con nuestro sitio web. Estas cookies recopilan información de forma anónima y nos ayudan a mejorar la experiencia del usuario. Los datos recopilados incluyen páginas visitadas, tiempo en el sitio y cómo llegó a nuestro sitio web.', pt: 'Usamos o Google Analytics para entender como os visitantes interagem com nosso site. Esses cookies coletam informações de forma anônima e nos ajudam a melhorar a experiência do usuário. Os dados coletados incluem páginas visitadas, tempo no site e como você chegou até nós.'
     },
-    'cookies.s2.functional.title': { en: 'Functional Cookies', es: 'Cookies Funcionales' },
+    'cookies.s2.functional.title': { en: 'Functional Cookies', es: 'Cookies Funcionales', pt: 'Cookies Funcionais' },
     'cookies.s2.functional.text': {
         en: 'These cookies remember your choices (such as language preference and region) and provide enhanced, personalized features. They may also be used to remember changes you have made to text size, fonts, and other customizable elements.',
-        es: 'Estas cookies recuerdan sus elecciones (como preferencia de idioma y región) y proporcionan funciones mejoradas y personalizadas. También pueden usarse para recordar cambios que ha realizado en tamaño de texto, fuentes y otros elementos personalizables.'
+        es: 'Estas cookies recuerdan sus elecciones (como preferencia de idioma y región) y proporcionan funciones mejoradas y personalizadas. También pueden usarse para recordar cambios que ha realizado en tamaño de texto, fuentes y otros elementos personalizables.', pt: 'Esses cookies lembram suas escolhas (como preferência de idioma e região) e oferecem recursos aprimorados e personalizados. Também podem ser usados para lembrar alterações que você fez em tamanho de texto, fontes e outros elementos personalizáveis.'
     },
-    'cookies.s3.title': { en: 'Cookie Details', es: 'Detalle de Cookies' },
-    'cookies.s3.c1': { en: 'Language preference — Essential — Session', es: 'Preferencia de idioma — Esencial — Sesión' },
-    'cookies.s3.c2': { en: '_ga, _ga_* — Analytics (Google Analytics) — 2 years', es: '_ga, _ga_* — Analítica (Google Analytics) — 2 años' },
-    'cookies.s3.c3': { en: 'lia_wa_id — Functional (LIA Chat session) — Persistent', es: 'lia_wa_id — Funcional (Sesión de Chat LIA) — Persistente' },
-    'cookies.s4.title': { en: 'How to Manage Cookies', es: 'Cómo Gestionar las Cookies' },
+    'cookies.s3.title': { en: 'Cookie Details', es: 'Detalle de Cookies', pt: 'Detalhes dos Cookies' },
+    'cookies.s3.c1': { en: 'Language preference — Essential — Session', es: 'Preferencia de idioma — Esencial — Sesión', pt: 'Preferência de idioma — Essencial — Sessão' },
+    'cookies.s3.c2': { en: '_ga, _ga_* — Analytics (Google Analytics) — 2 years', es: '_ga, _ga_* — Analítica (Google Analytics) — 2 años', pt: '_ga, _ga_* — Análise (Google Analytics) — 2 anos' },
+    'cookies.s3.c3': { en: 'lia_wa_id — Functional (LIA Chat session) — Persistent', es: 'lia_wa_id — Funcional (Sesión de Chat LIA) — Persistente', pt: 'lia_wa_id — Funcional (sessão do LIA Chat) — Persistente' },
+    'cookies.s4.title': { en: 'How to Manage Cookies', es: 'Cómo Gestionar las Cookies', pt: 'Como Gerenciar Cookies' },
     'cookies.s4.text': {
         en: 'You can control and manage cookies through your browser settings. Most browsers allow you to:\n• View what cookies are stored and delete them individually\n• Block third-party cookies\n• Block cookies from specific sites\n• Block all cookies\n• Delete all cookies when you close the browser\n\nPlease note that blocking certain cookies may affect the functionality of this website.',
-        es: 'Puede controlar y gestionar las cookies a través de la configuración de su navegador. La mayoría de los navegadores le permiten:\n• Ver qué cookies están almacenadas y eliminarlas individualmente\n• Bloquear cookies de terceros\n• Bloquear cookies de sitios específicos\n• Bloquear todas las cookies\n• Eliminar todas las cookies al cerrar el navegador\n\nTenga en cuenta que bloquear ciertas cookies puede afectar la funcionalidad de este sitio web.'
+        es: 'Puede controlar y gestionar las cookies a través de la configuración de su navegador. La mayoría de los navegadores le permiten:\n• Ver qué cookies están almacenadas y eliminarlas individualmente\n• Bloquear cookies de terceros\n• Bloquear cookies de sitios específicos\n• Bloquear todas las cookies\n• Eliminar todas las cookies al cerrar el navegador\n\nTenga en cuenta que bloquear ciertas cookies puede afectar la funcionalidad de este sitio web.', pt: 'Você pode controlar e gerenciar cookies nas configurações do seu navegador. A maioria dos navegadores permite:\n• Ver quais cookies estão armazenados e excluí-los individualmente\n• Bloquear cookies de terceiros\n• Bloquear cookies de sites específicos\n• Bloquear todos os cookies\n• Excluir todos os cookies ao fechar o navegador\n\nObserve que bloquear certos cookies pode afetar o funcionamento deste site.'
     },
-    'cookies.s5.title': { en: 'Changes to This Policy', es: 'Cambios en Esta Política' },
+    'cookies.s5.title': { en: 'Changes to This Policy', es: 'Cambios en Esta Política', pt: 'Alterações desta Política' },
     'cookies.s5.text': {
         en: 'We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our business operations. We recommend reviewing this page periodically.',
-        es: 'Podemos actualizar esta Política de Cookies periódicamente para reflejar cambios en la tecnología, legislación o nuestras operaciones. Recomendamos revisar esta página periódicamente.'
+        es: 'Podemos actualizar esta Política de Cookies periódicamente para reflejar cambios en la tecnología, legislación o nuestras operaciones. Recomendamos revisar esta página periódicamente.', pt: 'Podemos atualizar esta Política de Cookies periodicamente para refletir mudanças em tecnologia, legislação ou nas nossas operações. Recomendamos revisar esta página periodicamente.'
     },
-    'cookies.s6.title': { en: 'Contact', es: 'Contacto' },
+    'cookies.s6.title': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
     'cookies.s6.text': {
         en: 'For questions about our use of cookies, contact us at extranjeria@pro-corp.net.',
-        es: 'Para preguntas sobre nuestro uso de cookies, contáctenos a extranjeria@pro-corp.net.'
+        es: 'Para preguntas sobre nuestro uso de cookies, contáctenos a extranjeria@pro-corp.net.', pt: 'Para dúvidas sobre nosso uso de cookies, contate-nos em extranjeria@pro-corp.net.'
     },
 };
 
