@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   getPostBySlug,
+  getAllPostSlugs,
   getFeaturedImageUrl,
   getFeaturedImageAlt,
   getPostCategories,
@@ -12,7 +13,13 @@ import {
   formatDate,
 } from "@/lib/wordpress";
 
-export const revalidate = 60;
+// Fully static: every snapshotted post is prerendered; unknown slugs 404.
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const slugs = await getAllPostSlugs();
+  return slugs.map(({ slug }) => ({ slug }));
+}
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;

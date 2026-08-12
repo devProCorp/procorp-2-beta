@@ -1,0 +1,79 @@
+{
+  "id": 12631,
+  "slug": "inmigracion-en-espana-impactos-y-nuevas-politicas",
+  "date": "2025-10-21T10:51:40",
+  "modified": "2025-10-21T10:51:52",
+  "title": {
+    "rendered": "Últimas Noticias en Inmigración y Extranjería en la Unión Europea"
+  },
+  "excerpt": {
+    "rendered": "<p>/journal/media/2024/05/Meloncash-Intro.m4a Últimas Noticias en Inmigración y Extranjería en la Unión Europea España: Perspectiva Actualizada Aquí se detallan los puntos clave y desarrollos recientes en España: Informe Anual 2022 sobre Migrantes y Refugiados Presentado en julio de 2023 por la Comisión Europea en España, el informe examina la situación de inmigrantes y refugiados durante 2022. Considera [&hellip;]</p>\n"
+  },
+  "content": {
+    "rendered": "<p><audio class=\"wp-audio-shortcode\" id=\"audio-1761061899250-1\" preload=\"none\" style=\"width: 100%;\" controls=\"controls\"><source type=\"audio/mpeg\" src=\"/journal/media/2025/10/podcast-audio-147.mp4\" /><a href=\"/journal/media/2024/05/Meloncash-Intro.m4a\">/journal/media/2024/05/Meloncash-Intro.m4a</a></audio></p>\n<h2>Últimas Noticias en Inmigración y Extranjería en la Unión Europea</h2>\n</p>\n<p><h2>España: Perspectiva Actualizada</h2>\n</p>\n<p>Aquí se detallan los puntos clave y desarrollos recientes en España:</p>\n<li><strong>Informe Anual 2022 sobre Migrantes y Refugiados</strong></li>\n<ul>\n<li>Presentado en julio de 2023 por la <strong>Comisión Europea en España</strong>, el informe examina la situación de inmigrantes y refugiados durante 2022.</li>\n<p><em>   Considera el </em>impacto<em> de la <strong>invasión de Ucrania</strong> y la </em>transición post-COVID-19*.</p>\n<li>Aborda marcos normativos, políticas de integración, situación socioeconómica y educación.</li>\n<li><strong>Nuevo Reglamento de Extranjería (Real Decreto 1155/2024)</strong></li>\n<li>Vigente desde mayo de 2025, este reglamento <strong>adapta las leyes</strong> a la realidad migratoria actual en España.</li>\n<p><em>   Introduce modalidades de </em>arraigo* y redefine visados para facilitar la residencia y regularización de inmigrantes.<br />\n    <em>   Mejora la </em>reagrupación familiar* y facilita cambios laborales para trabajadores temporales.</p>\n<li><strong>Impacto Socioeconómico de la Migración</strong></li>\n<li>Contribución <strong>significativa</strong> al crecimiento económico de España (PIB +2,5%).</li>\n<li>La migración desde América Latina mitiga el envejecimiento poblacional y la baja natalidad.</li>\n<li>Migrantes asumiendo roles más <strong>especializados</strong> en tecnología y servicios.</li>\n<li>Existen desafíos en el reconocimiento de títulos extranjeros y la oferta de vivienda.</li>\n<hr>\n<h2>Enfoques y Retos Generales en la Unión Europea</h2>\n<li>Los avances normativos en España están <strong>alineados</strong> con las prioridades de la UE y su propósito de integración.</li>\n<li>Los retos incluyen la diversificación económica, el aumento de la productividad y la sostenibilidad del modelo migratorio.</li>\n</ul>\n<p>Este análisis cubre las mejoras y desafíos en inmigración dentro de la UE, destacando los esfuerzos de España en adaptar políticas a las realidades actuales.</p>\n"
+  },
+  "featured_media": 12632,
+  "categories": [
+    1
+  ],
+  "tags": [],
+  "author": 1778,
+  "_embedded": {
+    "author": [
+      {
+        "id": 1778,
+        "name": "Humberto Calderón",
+        "description": "Abogado en Extranjería e Inmigración",
+        "slug": "humberto-calderon",
+        "avatar_urls": {
+          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
+          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
+          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
+        }
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "id": 12632,
+        "source_url": "/journal/media/2025/10/portada_1761061909506.png",
+        "alt_text": "",
+        "media_details": {
+          "width": 1024,
+          "height": 1024,
+          "sizes": {
+            "medium": {
+              "source_url": "/journal/media/2025/10/portada_1761061909506-300x300.png",
+              "width": 300,
+              "height": 300
+            },
+            "thumbnail": {
+              "source_url": "/journal/media/2025/10/portada_1761061909506-150x150.png",
+              "width": 150,
+              "height": 150
+            },
+            "medium_large": {
+              "source_url": "/journal/media/2025/10/portada_1761061909506-768x768.png",
+              "width": 768,
+              "height": 768
+            },
+            "full": {
+              "source_url": "/journal/media/2025/10/portada_1761061909506.png",
+              "width": 1024,
+              "height": 1024
+            }
+          }
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 1,
+          "name": "Uncategorized",
+          "slug": "uncategorized"
+        }
+      ],
+      []
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": 7280,
+  "slug": "el-eje-del-paseo-del-prado-recoletos",
+  "date": "2021-08-11T04:00:00",
+  "modified": "2021-10-25T15:15:44",
+  "title": {
+    "rendered": "El eje del paseo del Prado-Recoletos en Madrid es declarado patrimonio de la humanidad por la UNESCO"
+  },
+  "excerpt": {
+    "rendered": "<p>Fecha de publicación: 11 de agosto de 2021 Uno de los recorridos culturales mas importantes de Madrid es el eje del paseo del Prado-Recoletos, el cual tiene un extremo en Plaza del Emperador Carlos V (Glorieta de atocha) y recorre el Paseo del Prado atravesando las Plazas de Neptuno y Cibeles y continúa por el [&hellip;]</p>\n"
+  },
+  "content": {
+    "rendered": "<p>Fecha de publicación: 11 de agosto de 2021</p>\n<p>Uno de los recorridos culturales mas importantes de Madrid es el eje del paseo del Prado-Recoletos, el cual tiene un extremo en Plaza del Emperador Carlos V (Glorieta de atocha) y recorre el Paseo del Prado atravesando las Plazas de Neptuno y Cibeles y continúa por el Paseo de Recoletos hasta la Plaza de Colón y la Castellana.</p>\n<p>Tras el más recientemente Comité de Patrimonio Mundial, la UNESCO ha declarado el eje del Paseo del Prado-Recoletos y el Parque del Retiro en Madrid como un bien de Patrimonio de la Humanidad. Este es el primer paisaje histórico urbano declarado en Europa.</p>\n<p>21 países pertenecientes al comité del Patrimonio Mundial han apoyado la candidatura, la cual fue posible gracias a la colaboración entre diferentes ministerios tales como el Ministerio de Cultura y Deporte, el Ministerio de Asuntos Exteriores, Unión Europea y Cooperación, la Comunidad de Madrid y el Ayuntamiento de la capital.</p>\n<p>Con este gran acontecimiento España se ubica como el tercer país a nivel mundial con mayores sitios de Patrimonio Mundial con un total de 49.</p>\n"
+  },
+  "featured_media": 7282,
+  "categories": [
+    57,
+    59
+  ],
+  "tags": [],
+  "author": 1656,
+  "_embedded": {
+    "author": [
+      {
+        "id": 1656,
+        "name": "Christian Andres",
+        "description": "",
+        "slug": "christian-2",
+        "avatar_urls": {
+          "24": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=24&d=mm&r=g",
+          "48": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=48&d=mm&r=g",
+          "96": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=96&d=mm&r=g"
+        }
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "id": 7282,
+        "source_url": "/journal/media/2021/08/Paseo_del_Prado_Madrid_01.jpeg",
+        "alt_text": "",
+        "media_details": {
+          "width": 1280,
+          "height": 960,
+          "sizes": {
+            "medium": {
+              "source_url": "/journal/media/2021/08/Paseo_del_Prado_Madrid_01-300x225.jpeg",
+              "width": 300,
+              "height": 225
+            },
+            "large": {
+              "source_url": "/journal/media/2021/08/Paseo_del_Prado_Madrid_01-1024x768.jpeg",
+              "width": 1024,
+              "height": 768
+            },
+            "thumbnail": {
+              "source_url": "/journal/media/2021/08/Paseo_del_Prado_Madrid_01-150x150.jpeg",
+              "width": 150,
+              "height": 150
+            },
+            "medium_large": {
+              "source_url": "/journal/media/2021/08/Paseo_del_Prado_Madrid_01-768x576.jpeg",
+              "width": 768,
+              "height": 576
+            },
+            "full": {
+              "source_url": "/journal/media/2021/08/Paseo_del_Prado_Madrid_01.jpeg",
+              "width": 1280,
+              "height": 960
+            }
+          }
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 57,
+          "name": "Emigrar a España",
+          "slug": "emigrar-a-espana"
+        },
+        {
+          "id": 59,
+          "name": "Vivir en Europa",
+          "slug": "vivir-en-europa"
+        }
+      ],
+      []
+    ]
+  }
+}

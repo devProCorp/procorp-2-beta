@@ -3,13 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
 
+  // The journal snapshot is read from disk at render time; make sure it is
+  // bundled into serverless/standalone output (see ADR 0001).
+  outputFileTracingIncludes: {
+    "/journal": ["./content/journal/**/*"],
+    "/journal/[slug]": ["./content/journal/**/*"],
+    "/sitemap.xml": ["./content/journal/**/*"],
+  },
+
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "www.pro-corp.net",
-        pathname: "/wp-content/uploads/**",
-      },
       {
         protocol: "https",
         hostname: "secure.gravatar.com",

@@ -1,10 +1,14 @@
-const WP_API_URL = "https://www.pro-corp.net/wp-json/wp/v2";
+/**
+ * Journal content reader — serves the snapshotted WordPress export from
+ * content/journal/ (see docs/decisions/0001-decommission-wordpress.md).
+ * Keeps the WPPost shape and the original fetch-function signatures so
+ * consumers did not have to change; there is no WordPress at runtime.
+ * Regenerate the snapshot with scripts/snapshot-wp.mjs while WP is alive.
+ */
+import { promises as fs } from "node:fs";
+import path from "node:path";
 
-// Cache tags for on-demand revalidation
-export const CACHE_TAGS = {
-  posts: "wp-posts",
-  categories: "wp-categories",
-} as const;
+const CONTENT_DIR = path.join(process.cwd(), "content", "journal");
 
 // ─── Types ────────────────────────────────────────────────────────
 
@@ -97,87 +101,71 @@ export function formatDate(dateStr: string, locale = "en-US"): string {
   });
 }
 
-// ─── Fetch functions ──────────────────────────────────────────────
+// ─── Local content readers ────────────────────────────────────────
+
+// index.json is WPPost minus content.rendered
+type WPPostIndex = Omit<WPPost, "content">;
+
+let indexCache: WPPostIndex[] | null = null;
+let categoriesCache: WPCategory[] | null = null;
+
+async function readIndex(): Promise<WPPostIndex[]> {
+  if (!indexCache) {
+    const raw = await fs.readFile(path.join(CONTENT_DIR, "index.json"), "utf8");
+    const posts: WPPostIndex[] = JSON.parse(raw);
+    posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+    indexCache = posts;
+  }
+  return indexCache;
+}
 
 export async function getPosts(
   page = 1,
   perPage = 12,
   categoryId?: number
 ): Promise<{ posts: WPPost[]; totalPages: number; total: number }> {
-  const params = new URLSearchParams({
-    _embed: "true",
-    page: String(page),
-    per_page: String(perPage),
-    orderby: "date",
-    order: "desc",
-  });
+  const all = await readIndex();
+  const filtered = categoryId
+    ? all.filter((p) => p.categories.includes(categoryId))
+    : all;
 
-  if (categoryId) {
-    params.set("categories", String(categoryId));
-  }
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / perPage));
+  const pagePosts = filtered.slice((page - 1) * perPage, page * perPage);
 
-  const res = await fetch(`${WP_API_URL}/posts?${params}`, {
-    next: { revalidate: 60, tags: [CACHE_TAGS.posts] },
-  });
-
-  if (!res.ok) {
-    throw new Error(`WordPress API error: ${res.status}`);
-  }
-
-  const posts: WPPost[] = await res.json();
-  const totalPages = Number(res.headers.get("X-WP-TotalPages") ?? 1);
-  const total = Number(res.headers.get("X-WP-Total") ?? 0);
-
+  // List consumers never render content; keep the WPPost shape anyway.
+  const posts = pagePosts.map((p) => ({ ...p, content: { rendered: "" } }));
   return { posts, totalPages, total };
 }
 
 export async function getPostBySlug(slug: string): Promise<WPPost | null> {
-  const params = new URLSearchParams({
-    _embed: "true",
-    slug,
-  });
-
-  const res = await fetch(`${WP_API_URL}/posts?${params}`, {
-    next: { revalidate: 60, tags: [CACHE_TAGS.posts] },
-  });
-
-  if (!res.ok) return null;
-
-  const posts: WPPost[] = await res.json();
-  return posts[0] ?? null;
+  if (!/^[a-z0-9-]+$/.test(slug)) return null;
+  try {
+    const raw = await fs.readFile(
+      path.join(CONTENT_DIR, "posts", `${slug}.json`),
+      "utf8"
+    );
+    return JSON.parse(raw) as WPPost;
+  } catch {
+    return null;
+  }
 }
 
 export async function getCategories(): Promise<WPCategory[]> {
-  const res = await fetch(`${WP_API_URL}/categories?per_page=100`, {
-    next: { revalidate: 60, tags: [CACHE_TAGS.categories] },
-  });
-
-  if (!res.ok) return [];
-
-  const categories: WPCategory[] = await res.json();
-  return categories.filter((c) => c.count > 0);
+  if (!categoriesCache) {
+    const raw = await fs.readFile(
+      path.join(CONTENT_DIR, "categories.json"),
+      "utf8"
+    );
+    const categories: WPCategory[] = JSON.parse(raw);
+    categoriesCache = categories.filter((c) => c.count > 0);
+  }
+  return categoriesCache;
 }
 
 export async function getAllPostSlugs(): Promise<
   { slug: string; modified: string }[]
 > {
-  const result: { slug: string; modified: string }[] = [];
-  let page = 1;
-  let totalPages = 1;
-
-  while (page <= totalPages) {
-    const res = await fetch(
-      `${WP_API_URL}/posts?per_page=100&page=${page}&_fields=slug,modified`,
-      { next: { revalidate: 60, tags: [CACHE_TAGS.posts] } }
-    );
-
-    if (!res.ok) break;
-
-    const posts: { slug: string; modified: string }[] = await res.json();
-    result.push(...posts);
-    totalPages = Number(res.headers.get("X-WP-TotalPages") ?? 1);
-    page++;
-  }
-
-  return result;
+  const all = await readIndex();
+  return all.map((p) => ({ slug: p.slug, modified: p.modified }));
 }

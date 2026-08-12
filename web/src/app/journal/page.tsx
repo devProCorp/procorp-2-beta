@@ -6,8 +6,6 @@ import ArticleList from "@/components/journal/ArticleList";
 import Pagination from "@/components/journal/Pagination";
 import NewsletterSection from "@/components/journal/NewsletterSection";
 
-export const revalidate = 60;
-
 interface JournalPageProps {
   searchParams: Promise<{ cat?: string; page?: string }>;
 }

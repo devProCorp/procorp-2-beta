@@ -1,0 +1,94 @@
+{
+  "id": 7426,
+  "slug": "espana-y-portugal-modelo-justo-de-la-economia-social",
+  "date": "2021-09-15T04:00:00",
+  "modified": "2021-10-25T15:20:09",
+  "title": {
+    "rendered": "España y Portugal buscan cooperar reforzando el modelo justo de la Economía Social"
+  },
+  "excerpt": {
+    "rendered": "<p>A través de un memorando de Entendimiento y Cooperación los gobiernos de España y Portugal buscan afianzar su compromiso con la Economía Social. La propuesta busca centrarse en las personas, más aún bajo el contexto de recuperación tras la grave crisis sanitaria, social y económica del Covid-19. Detrás de este acuerdo se encuentra la ministra [&hellip;]</p>\n"
+  },
+  "content": {
+    "rendered": "<p>A través de un memorando de Entendimiento y Cooperación los gobiernos de España y Portugal buscan afianzar su compromiso con la Economía Social. La propuesta busca centrarse en las personas, más aún bajo el contexto de recuperación tras la grave crisis sanitaria, social y económica del Covid-19. Detrás de este acuerdo se encuentra la ministra española de Trabajo y Economía Social Yolanda Díaz y su homologa la ministra portuguesa Ana Mendes.</p>\n<p></p>\n<p>Durante el encuentro realizado en la ciudad portuguesa de Coímbra la ministra española aseguró que “Estamos ante la oportunidad de construir un mundo diferente y la Economía Social, con sus valores de igualdad, cohesión social y mejora de las condiciones laborales, nos lega el camino, las ideas y la posibilidad para hacerlo”. Los esfuerzos realizados por ambos gobiernos los llevan a asumir una posición de liderazgo en esta materia.</p>\n<p></p>\n<p>Para entrar un poco más en contexto este acuerdo tiene como finalidad crear una serie de pautas para fomentar y desarrollar acciones coordinadas que permitan que la Economía Social sea uno de los principales motores de transformación de la sociedad. El modelo de Economía Social es una oportunidad inédita para transformar el modelo económico y productivo, orientándolo hacia un sistema más humano sostenible e inclusivo.</p>\n<p></p>\n<p>Ambos países han acordado el intercambio de información relacionada con estadísticas y metodologías que faciliten la realización de informes para los estudios comparativos y a partir de estos desarrollar el plan de acción. También dentro del marco del acuerdo ambas ministras de Trabajo buscan desarrollar propuestas conjuntas que impulsen la presencia de la Economía Social en las cumbres Iberoamericanas.</p>\n<p>Fecha de publicación: 15 de septiembre de 2021</p>\n\n"
+  },
+  "featured_media": 7428,
+  "categories": [
+    59
+  ],
+  "tags": [],
+  "author": 1656,
+  "_embedded": {
+    "author": [
+      {
+        "id": 1656,
+        "name": "Christian Andres",
+        "description": "",
+        "slug": "christian-2",
+        "avatar_urls": {
+          "24": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=24&d=mm&r=g",
+          "48": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=48&d=mm&r=g",
+          "96": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=96&d=mm&r=g"
+        }
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "id": 7428,
+        "source_url": "/journal/media/2021/09/Economia-scaled.jpeg",
+        "alt_text": "España y Portugal buscan cooperar reforzando el modelo justo de la Economía Social",
+        "media_details": {
+          "width": 2560,
+          "height": 1402,
+          "sizes": {
+            "medium": {
+              "source_url": "/journal/media/2021/09/Economia-300x164.jpeg",
+              "width": 300,
+              "height": 164
+            },
+            "large": {
+              "source_url": "/journal/media/2021/09/Economia-1024x561.jpeg",
+              "width": 1024,
+              "height": 561
+            },
+            "thumbnail": {
+              "source_url": "/journal/media/2021/09/Economia-150x150.jpeg",
+              "width": 150,
+              "height": 150
+            },
+            "medium_large": {
+              "source_url": "/journal/media/2021/09/Economia-768x421.jpeg",
+              "width": 768,
+              "height": 421
+            },
+            "1536x1536": {
+              "source_url": "/journal/media/2021/09/Economia-1536x841.jpeg",
+              "width": 1536,
+              "height": 841
+            },
+            "2048x2048": {
+              "source_url": "/journal/media/2021/09/Economia-2048x1122.jpeg",
+              "width": 2048,
+              "height": 1122
+            },
+            "full": {
+              "source_url": "/journal/media/2021/09/Economia-scaled.jpeg",
+              "width": 2560,
+              "height": 1402
+            }
+          }
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 59,
+          "name": "Vivir en Europa",
+          "slug": "vivir-en-europa"
+        }
+      ],
+      []
+    ]
+  }
+}

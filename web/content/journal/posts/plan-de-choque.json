@@ -1,0 +1,94 @@
+{
+  "id": 6743,
+  "slug": "plan-de-choque",
+  "date": "2021-03-11T15:45:44",
+  "modified": "2021-10-25T14:58:07",
+  "title": {
+    "rendered": "Plan de choque del Ministerio de Justicia de España para impulsar la resolución de expedientes de nacionalidad."
+  },
+  "excerpt": {
+    "rendered": "<p>El pasado 9 de marzo de 2021 la Subdirección General de Nacionalidad del Ministerio de Justicia de España emitió una nota de prensa en la cual comunica a la opinión pública la puesta en marcha del segundo plan de choque para impulsar la resolución de expedientes de nacionalidad. El plan incluye un conjunto de acciones [&hellip;]</p>\n"
+  },
+  "content": {
+    "rendered": "<p>El pasado 9 de marzo de 2021 la Subdirección General de Nacionalidad del Ministerio de Justicia de España emitió una nota de prensa en la cual comunica a la opinión pública la puesta en marcha del <strong><em>segundo plan de choque para impulsar la resolución de expedientes de nacionalidad</em></strong>.</p>\n<p>El plan incluye un conjunto de acciones que tienen como objetivo resolver las aplicaciones represadas de expedientes de nacionalidad por residencia y por origen sefardí. Para el caso de las nacionalidades por origen sefardí, existen 54.209 expedientes pendientes de resolución y se esperan 99.555 más durante el año 2021.</p>\n<p><a href=\"/journal/nacionalidades-espanolas\">VER MÁS CIFRAS DE TU INTERÉS.</a></p>\n<p>Esta iniciativa, originada por el atasco de expedientes en tramitación acumulados durante años, permite desarrollar un plan extraordinario de productividad que implicará más horas de trabajo para los funcionarios de la entidad y la capacitación en módulos de formación.</p>\n<p>El presupuesto estimado para la implementación de la medida es de 1.865.872 € de los cuales 445.168 € serán destinados a la resolución de las solicitudes de nacionalidad por origen sefardí.</p>\n<p><strong>¡Esta novedad es muy positiva para nuestros clientes con procesos pendientes a resolución ya que promueve menores tiempos de espera entre el envío del acta de notoriedad y la resolución de sus nacionalidades!</strong></p>\n<p>En nuestras redes sociales estaremos notificando cualquier noticia relevante sobre este y otros temas. ¡Síguenos!</p>\n\n\n<p></p>\n"
+  },
+  "featured_media": 6745,
+  "categories": [
+    56
+  ],
+  "tags": [],
+  "author": 1656,
+  "_embedded": {
+    "author": [
+      {
+        "id": 1656,
+        "name": "Christian Andres",
+        "description": "",
+        "slug": "christian-2",
+        "avatar_urls": {
+          "24": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=24&d=mm&r=g",
+          "48": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=48&d=mm&r=g",
+          "96": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=96&d=mm&r=g"
+        }
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "id": 6745,
+        "source_url": "/journal/media/2021/03/IMG_7535-scaled.jpg",
+        "alt_text": "Pasaporte",
+        "media_details": {
+          "width": 2406,
+          "height": 2560,
+          "sizes": {
+            "medium": {
+              "source_url": "/journal/media/2021/03/IMG_7535-282x300.jpg",
+              "width": 282,
+              "height": 300
+            },
+            "large": {
+              "source_url": "/journal/media/2021/03/IMG_7535-962x1024.jpg",
+              "width": 962,
+              "height": 1024
+            },
+            "thumbnail": {
+              "source_url": "/journal/media/2021/03/IMG_7535-150x150.jpg",
+              "width": 150,
+              "height": 150
+            },
+            "medium_large": {
+              "source_url": "/journal/media/2021/03/IMG_7535-768x817.jpg",
+              "width": 768,
+              "height": 817
+            },
+            "1536x1536": {
+              "source_url": "/journal/media/2021/03/IMG_7535-1443x1536.jpg",
+              "width": 1443,
+              "height": 1536
+            },
+            "2048x2048": {
+              "source_url": "/journal/media/2021/03/IMG_7535-1925x2048.jpg",
+              "width": 1925,
+              "height": 2048
+            },
+            "full": {
+              "source_url": "/journal/media/2021/03/IMG_7535-scaled.jpg",
+              "width": 2406,
+              "height": 2560
+            }
+          }
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 56,
+          "name": "Ciudadanía europea",
+          "slug": "ciudadania-europea"
+        }
+      ],
+      []
+    ]
+  }
+}
