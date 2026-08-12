@@ -1,10 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Studio() {
   const { t } = useLanguage();
+  const [sim, setSim] = useState({ core: 65, error: 85, speed: 60 });
 
   const dashboardItems = [
     { icon: 'sync_alt', name: t('studio.dashboard.dataflow'), sub: t('studio.dashboard.latency'), w: '98%' },
@@ -16,19 +18,26 @@ export default function Studio() {
     { title: t('studio.today.1.title'), desc: t('studio.today.1.desc') },
     { title: t('studio.today.2.title'), desc: t('studio.today.2.desc') },
     { title: t('studio.today.3.title'), desc: t('studio.today.3.desc') },
+    { title: t('studio.today.4.title'), desc: t('studio.today.4.desc') },
   ];
 
   const tomorrowItems = [
     { title: t('studio.tomorrow.1.title'), desc: t('studio.tomorrow.1.desc') },
     { title: t('studio.tomorrow.2.title'), desc: t('studio.tomorrow.2.desc') },
     { title: t('studio.tomorrow.3.title'), desc: t('studio.tomorrow.3.desc') },
+    { title: t('studio.tomorrow.4.title'), desc: t('studio.tomorrow.4.desc') },
   ];
 
   const simItems = [
-    { label: t('studio.sim.core'), value: '65%', val: 65 },
-    { label: t('studio.sim.error'), value: '-85%', val: 85 },
-    { label: t('studio.sim.speed'), value: '300x', val: 60 },
+    { key: 'core' as const, label: t('studio.sim.core'), value: `${sim.core}%` },
+    { key: 'error' as const, label: t('studio.sim.error'), value: `-${sim.error}%` },
+    { key: 'speed' as const, label: t('studio.sim.speed'), value: `${Math.max(1, sim.speed * 5)}x` },
   ];
+
+  // Modelo de maqueta: proyección derivada de los sliders (98.4% con los valores por defecto)
+  const simEff = Math.min(99.9, 20.4 + 0.4 * sim.core + 0.4 * sim.error + 0.3 * sim.speed);
+  const simCycle = (48 * Math.pow(0.05, simEff / 98.4)).toFixed(1);
+  const simOpex = (Math.round((simEff / 98.4) * 125)).toLocaleString('en-US');
 
   const roadmapSteps = [
     { num: 1, title: t('studio.road.s1.title'), desc: t('studio.road.s1.desc'), tags: ['Blueprint', 'Audit'], active: true },
@@ -56,6 +65,9 @@ export default function Studio() {
               <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-xl border-l-4 border-primary pl-6">
                 {t('studio.desc2')}
               </p>
+              <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-xl border-l-4 border-primary pl-6">
+                {t('studio.desc3')}
+              </p>
               <div className="flex flex-wrap gap-4 mt-6">
                 <Link href="/contact" className="flex items-center justify-center gap-3 h-14 px-8 rounded-xl bg-primary hover:bg-primary-light text-white font-bold transition-all glow-primary glow-primary-hover uppercase tracking-widest text-sm group border border-primary-light/50">
                   <span>{t('studio.cta1')}</span>
@@ -79,7 +91,7 @@ export default function Studio() {
                       <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(39,201,63,0.8)]"></div>
                       <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">{t('studio.dashboard.status')}</span>
                     </div>
-                    <span className="text-white font-extrabold text-sm tracking-widest bg-primary/20 border border-primary/30 px-3 py-1 rounded-full">ACTIVE</span>
+                    <span className="text-white font-extrabold text-sm tracking-widest bg-primary/20 border border-primary/30 px-3 py-1 rounded-full">{t('studio.dashboard.active')}</span>
                   </div>
                   <div className="space-y-6">
                     {dashboardItems.map((item) => (
@@ -190,15 +202,29 @@ export default function Studio() {
                 <p className="text-gray-400 mb-12 text-[15px] font-light leading-relaxed max-w-xl">{t('studio.sim.desc')}</p>
                 <div className="space-y-10">
                   {simItems.map((item) => (
-                    <div key={item.label} className="space-y-4 group">
+                    <div key={item.key} className="space-y-4 group">
                       <div className="flex justify-between items-center">
-                        <label className="text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em] group-hover:text-gray-300 transition-colors">{item.label}</label>
+                        <label htmlFor={`sim-${item.key}`} className="text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em] group-hover:text-gray-300 transition-colors">{item.label}</label>
                         <span className="text-primary-light font-black text-xl tracking-tight">{item.value}</span>
                       </div>
-                      <div className="w-full h-3 bg-surface-darker rounded-full overflow-hidden border border-surface-border/50">
-                        <div className="h-full bg-gradient-to-r from-primary-dark to-primary-light rounded-full shadow-[0_0_15px_rgba(206,16,38,0.6)] relative" style={{ width: `${item.val}%` }}>
+                      <div className="relative w-full h-3 bg-surface-darker rounded-full border border-surface-border/50">
+                        <div className="h-full bg-gradient-to-r from-primary-dark to-primary-light rounded-full shadow-[0_0_15px_rgba(206,16,38,0.6)] relative overflow-hidden" style={{ width: `${sim[item.key]}%` }}>
                           <div className="absolute top-0 right-0 bottom-0 w-20 bg-gradient-to-l from-white/30 to-transparent"></div>
                         </div>
+                        <span
+                          className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-white border-[3px] border-primary shadow-[0_0_12px_rgba(206,16,38,0.7)] pointer-events-none transition-transform group-hover:scale-110"
+                          style={{ left: `${sim[item.key]}%` }}
+                        ></span>
+                        <input
+                          id={`sim-${item.key}`}
+                          type="range"
+                          min={0}
+                          max={100}
+                          value={sim[item.key]}
+                          onChange={(e) => setSim((s) => ({ ...s, [item.key]: Number(e.target.value) }))}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                          aria-label={item.label}
+                        />
                       </div>
                     </div>
                   ))}
@@ -214,21 +240,21 @@ export default function Studio() {
                       <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)] animate-pulse"></span>
                       {t('studio.sim.impact')}
                     </p>
-                    <h2 className="text-7xl font-black text-white tracking-tighter drop-shadow-lg">98.4%</h2>
+                    <h2 className="text-7xl font-black text-white tracking-tighter drop-shadow-lg">{simEff.toFixed(1)}%</h2>
                     <p className="text-[15px] font-medium text-white/90 mt-2">{t('studio.sim.total')}</p>
                   </div>
                   <div className="grid gap-5">
                     <div className="bg-white/10 p-5 rounded-2xl border border-white/20 backdrop-blur-md shadow-lg flex items-center justify-between hover:bg-white/20 transition-colors">
                       <div>
                         <div className="text-white/70 text-[10px] uppercase font-bold tracking-[0.2em] mb-1.5">{t('studio.sim.cycle')}</div>
-                        <div className="text-white font-extrabold text-2xl tracking-tight">2.4h <span className="text-sm font-normal text-white/50 line-through ml-3">48h</span></div>
+                        <div className="text-white font-extrabold text-2xl tracking-tight">{simCycle}h <span className="text-sm font-normal text-white/50 line-through ml-3">48h</span></div>
                       </div>
                       <span className="material-symbols-outlined text-white/90 text-3xl">timer_off</span>
                     </div>
                     <div className="bg-white/10 p-5 rounded-2xl border border-white/20 backdrop-blur-md shadow-lg flex items-center justify-between hover:bg-white/20 transition-colors">
                       <div>
                         <div className="text-white/70 text-[10px] uppercase font-bold tracking-[0.2em] mb-1.5">{t('studio.sim.opex')}</div>
-                        <div className="text-white font-extrabold text-2xl tracking-tight">$125,000</div>
+                        <div className="text-white font-extrabold text-2xl tracking-tight">${simOpex},000</div>
                       </div>
                       <span className="material-symbols-outlined text-white/90 text-3xl">savings</span>
                     </div>
@@ -349,32 +375,6 @@ export default function Studio() {
             </div>
           </div>
 
-          {/* Key Investment Data */}
-          <div className="mb-20 glass-panel rounded-[2rem] border border-surface-border/60 p-10 md:p-12 relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[50px] rounded-full mix-blend-screen pointer-events-none"></div>
-
-            <h3 className="text-2xl font-extrabold text-white mb-10 flex items-center gap-4 tracking-tight">
-              <span className="material-symbols-outlined text-primary-light text-3xl">info</span>
-              {t('studio.inv.data.title')}
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { icon: 'domain', label: t('studio.inv.data.entity'), value: t('studio.inv.data.entity.value') },
-                { icon: 'public', label: t('studio.inv.data.jurisdiction'), value: t('studio.inv.data.jurisdiction.value') },
-                { icon: 'swap_horiz', label: t('studio.inv.data.models'), value: t('studio.inv.data.models.value') },
-                { icon: 'currency_exchange', label: t('studio.inv.data.currency'), value: t('studio.inv.data.currency.value') },
-              ].map((item) => (
-                <div key={item.label} className="flex flex-col gap-3">
-                  <div className="flex items-center gap-3 text-gray-400">
-                    <span className="material-symbols-outlined text-xl">{item.icon}</span>
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em]">{item.label}</span>
-                  </div>
-                  <p className="text-lg font-bold text-white tracking-wide">{item.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Sector Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -409,57 +409,12 @@ export default function Studio() {
             ))}
           </div>
 
-          {/* Trust & Traceability */}
-          <div className="mt-16 glass-panel rounded-[2rem] border border-primary/20 p-8 md:p-12 relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent -z-10 mix-blend-screen"></div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-              <div className="flex flex-col items-start gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-[0_0_15px_rgba(206,16,38,0.2)]">
-                  <span className="material-symbols-outlined text-primary-light text-2xl">verified_user</span>
-                </div>
-                <div>
-                  <span className="text-[15px] font-bold text-white tracking-wide">{t('studio.inv.security')}</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-start gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-[0_0_15px_rgba(206,16,38,0.2)]">
-                  <span className="material-symbols-outlined text-primary-light text-2xl">history_edu</span>
-                </div>
-                <div>
-                  <span className="text-[15px] font-bold text-white tracking-wide">{t('studio.inv.track')}</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-start gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-[0_0_15px_rgba(206,16,38,0.2)]">
-                  <span className="material-symbols-outlined text-primary-light text-2xl">shield</span>
-                </div>
-                <div>
-                  <span className="text-[15px] font-bold text-white tracking-wide block">{t('studio.inv.protection')}</span>
-                  <span className="text-[13px] font-light text-gray-400 mt-1 block">{t('studio.inv.protection.desc')}</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-start gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-[0_0_15px_rgba(206,16,38,0.2)]">
-                  <span className="material-symbols-outlined text-primary-light text-2xl">support_agent</span>
-                </div>
-                <div>
-                  <span className="text-[15px] font-bold text-white tracking-wide block">{t('studio.inv.managers')}</span>
-                  <span className="text-[13px] font-light text-gray-400 mt-1 block">{t('studio.inv.managers.desc')}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 items-center justify-between pt-8 border-t border-primary/20">
-              <div className="flex items-center gap-3 text-gray-400">
-                <span className="material-symbols-outlined text-primary-light text-2xl">public</span>
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em]">{t('studio.inv.international')}</span>
-              </div>
-              <Link href="/contact" className="w-full sm:w-auto h-14 px-10 rounded-xl bg-primary hover:bg-primary-light text-white font-bold transition-all glow-primary glow-primary-hover uppercase tracking-widest text-sm flex items-center justify-center gap-3 border border-primary-light/50 group">
-                <span>{t('studio.inv.cta')}</span>
-                <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </Link>
-            </div>
+          {/* Explore Opportunities */}
+          <div className="mt-16 flex justify-center">
+            <Link href="/contact" className="w-full sm:w-auto h-14 px-10 rounded-xl bg-primary hover:bg-primary-light text-white font-bold transition-all glow-primary glow-primary-hover uppercase tracking-widest text-sm flex items-center justify-center gap-3 border border-primary-light/50 group">
+              <span>{t('studio.inv.cta')}</span>
+              <span className="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </Link>
           </div>
         </div>
       </section>

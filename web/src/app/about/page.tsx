@@ -35,13 +35,29 @@ export default function About() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[100px] mix-blend-screen"></div>
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col gap-8">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05] text-white drop-shadow-2xl">
+          <h1 className="text-[3.75rem] md:text-[5.625rem] lg:text-[7.5rem] font-extrabold tracking-tight leading-[1.05] text-white drop-shadow-2xl">
             {t('about.title1')}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('about.title2')}</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed whitespace-pre-line text-left">
+          <p className="text-[1.7rem] md:text-3xl font-semibold text-white italic max-w-3xl mx-auto leading-relaxed">
+            {t('about.closing')}
+          </p>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed whitespace-pre-line text-justify">
             {t('about.desc')}
           </p>
+          <div className="max-w-3xl mx-auto w-full text-left">
+            {t('about.desc2').split('\n').map((line, i) => (
+              <p
+                key={line}
+                className={`text-[1.7rem] md:text-3xl font-semibold text-white italic leading-relaxed flex items-start gap-4 ${
+                  ['', 'pl-5 md:pl-20', 'pl-10 md:pl-40', 'pl-14 md:pl-60'][i] ?? ''
+                }`}
+              >
+                <span className="text-primary-light">•</span>
+                <span>{line}</span>
+              </p>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -105,27 +121,31 @@ export default function About() {
 
       {/* Methodology */}
       <section className="py-28 px-6 bg-transparent relative overflow-hidden border-t border-surface-border">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
         <div className="max-w-[1280px] mx-auto relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-[10px] font-bold text-primary-light uppercase tracking-[0.2em] mb-4 inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5">{t('about.method.label')}</h2>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">{t('about.method.title')}</h3>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-white">
+              {t('about.method.title.pre')}{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('about.method.title.accent')}</span>
+              {t('about.method.title.post') && <> {t('about.method.title.post')}</>}
+            </h3>
             <p className="mt-6 text-gray-400 font-light leading-relaxed max-w-2xl mx-auto text-[15px]">{t('about.method.desc')}</p>
           </div>
           <div className="relative flex flex-col gap-10">
             {/* BPA Container */}
-            <div className="relative rounded-[2.5rem] border-2 border-primary/30 bg-primary/[0.03] p-8 md:p-10 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
-              <div className="absolute -top-px left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-br from-primary to-primary-dark rounded-b-xl border border-primary-light/40 border-t-0 shadow-[0_4px_20px_rgba(206,16,38,0.3)]">
+            <div className="relative rounded-[2.5rem] border-2 border-surface-border/70 bg-white/[0.02] p-8 md:p-10 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              <div className="absolute -top-px left-1/2 -translate-x-1/2 px-6 py-2 bg-surface-darker rounded-b-xl border border-surface-border border-t-0 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
                 <span className="text-[11px] font-black text-white uppercase tracking-[0.25em]">BPA</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
                 {bpaSteps.map((s) => (
                   <div key={s.num} className="group relative">
                     <div className="h-full glass-panel glass-panel-hover rounded-[1.5rem] p-7 flex flex-col items-center text-center gap-4 border border-surface-border/50">
-                      <div className="w-14 h-14 rounded-2xl bg-surface-darker border border-surface-border text-gray-500 flex items-center justify-center font-black text-xl mb-1 group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-dark group-hover:border-primary-light/50 group-hover:text-white transition-all duration-300 shadow-xl">{s.num}</div>
-                      <div className="text-primary-light mb-1 group-hover:scale-110 transition-transform duration-300">
-                        <span className="material-symbols-outlined text-[36px] drop-shadow-[0_0_10px_rgba(206,16,38,0.4)]">{s.icon}</span>
+                      <div className="w-14 h-14 rounded-2xl bg-surface-darker border border-surface-border text-gray-500 flex items-center justify-center font-black text-xl mb-1 group-hover:bg-primary group-hover:border-primary-light/50 group-hover:text-white transition-all duration-300 shadow-xl">{s.num}</div>
+                      <div className="text-gray-200 mb-1 group-hover:scale-110 transition-transform duration-300">
+                        <span className="material-symbols-outlined text-[36px]">{s.icon}</span>
                       </div>
                       <h4 className="text-white font-bold text-lg leading-tight tracking-wide">{s.title}</h4>
                       <p className="text-[12px] font-light text-gray-400 leading-relaxed">{s.desc}</p>

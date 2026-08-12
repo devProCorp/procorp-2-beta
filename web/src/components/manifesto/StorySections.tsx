@@ -276,7 +276,7 @@ export function Beliefs() {
     <section className="bg-background-dark py-24 px-6 md:py-32">
       <div className="mx-auto max-w-[1100px]">
         <div className="glass-panel rounded-[2rem] border border-surface-border/60 p-10 md:p-14">
-          <motion.p {...fadeUp} className="mb-12 text-base font-extrabold uppercase tracking-[0.3em] text-primary md:text-xl">
+          <motion.p {...fadeUp} className="mb-12 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)] w-fit">
             {c.kicker}
           </motion.p>
           <div className="space-y-8">

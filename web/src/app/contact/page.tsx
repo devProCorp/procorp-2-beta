@@ -128,6 +128,9 @@ export default function Contact() {
                       <option value="reengineering">{t('contact.area.3')}</option>
                       <option value="lia">{t('contact.area.4')}</option>
                       <option value="consulting">{t('contact.area.5')}</option>
+                      <option value="financial-simulation">{t('contact.area.6')}</option>
+                      <option value="operations-simulation">{t('contact.area.7')}</option>
+                      <option value="project-mapping-structuring">{t('contact.area.8')}</option>
                     </select>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
                       <span className="material-symbols-outlined">expand_more</span>
