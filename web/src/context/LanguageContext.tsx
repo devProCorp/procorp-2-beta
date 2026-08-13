@@ -112,12 +112,12 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'lia.label': { en: 'AI-Powered Agent', es: 'Agente Impulsado por IA', pt: 'Agente com IA' },
     'lia.title': { en: 'Meet Lia', es: 'Conoce a Lia', pt: 'Conheça a Lia' },
     'lia.desc': {
-        en: 'LIA is our intelligent orchestration agent. She navigates complex processes, automates workflows, and delivers structured answers in real time — turning operational complexity into conversational simplicity.',
-        es: 'LIA es nuestro agente inteligente de orquestación. Navega procesos complejos, automatiza flujos de trabajo y entrega respuestas estructuradas en tiempo real — convirtiendo la complejidad operativa en simplicidad conversacional.', pt: 'A LIA é nosso agente inteligente de orquestração. Ela navega processos complexos, automatiza fluxos de trabalho e entrega respostas estruturadas em tempo real — transformando complexidade operacional em simplicidade conversacional.'
+        en: 'LIA is our intelligent Business Engineering agent. She navigates complex processes, automates workflows, and delivers structured answers in real time — turning operational complexity into conversational simplicity.',
+        es: 'LIA es nuestro agente inteligente de Ingeniería de Negocios. Navega procesos complejos, automatiza flujos de trabajo y entrega respuestas estructuradas en tiempo real — convirtiendo la complejidad operativa en simplicidad conversacional.', pt: 'A LIA é nosso agente inteligente de Engenharia de Negócios. Ela navega processos complexos, automatiza fluxos de trabalho e entrega respostas estruturadas em tempo real — transformando complexidade operacional em simplicidade conversacional.'
     },
     'lia.status': { en: 'Online', es: 'En línea', pt: 'Online' },
     'lia.powered': { en: 'IP2$ Engine', es: 'Motor IP2$', pt: 'Motor IP2$' },
-    'lia.chat.subtitle': { en: 'Orchestration Agent', es: 'Agente de Orquestación', pt: 'Agente de Orquestração' },
+    'lia.chat.subtitle': { en: 'Business Engineering Agent', es: 'Agente de Ingeniería de Negocios', pt: 'Agente de Engenharia de Negócios' },
     'lia.chat.placeholder': { en: 'Ask LIA anything...', es: 'Pregúntale a LIA...', pt: 'Pergunte qualquer coisa à LIA...' },
     'lia.chat.user1': {
         en: 'I need to set up a cross-border operation between Colombia and Spain. Where do I start?',
@@ -480,7 +480,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'proj.solutions1': { en: 'Immigration ', es: '', pt: '' },
     'proj.solutions2': { en: 'Solutions', es: 'Soluciones', pt: 'Soluções' },
     'proj.solutions3': { en: '', es: ' Migratorias', pt: ' Migratórias' },
-    'proj.solutions.desc': { en: 'Personalized Digital Portals for Real Time information and management.', es: 'Portales digitales personalizados para información y gestión en tiempo real.', pt: 'Portais digitais personalizados para informação e gestão em tempo real.' },
+    'proj.solutions.desc': { en: 'Your Personal Cockpit — real-time information and management, built into your case.', es: 'Tu Cockpit personal — información y gestión en tiempo real, integrado a tu caso.', pt: 'Seu Cockpit pessoal — informação e gestão em tempo real, integrado ao seu caso.' },
     'proj.s1.title': { en: 'Social Settlement', es: 'Arraigo Social', pt: 'Arraigo Social' },
     'proj.s1.desc': { en: 'Comprehensive regularization management. We automate documentation and requirement tracking to ensure effective socio-labor integration.', es: 'Gestión integral de regularización por arraigo. Automatizamos la documentación y el seguimiento de requisitos para asegurar la integración sociolaboral efectiva.', pt: 'Gestão integral de regularização por arraigo. Automatizamos a documentação e o acompanhamento de requisitos para assegurar a integração sociolaboral efetiva.' },
     'proj.s1.link': { en: 'View Process', es: 'Ver Proceso', pt: 'Ver Processo' },
@@ -547,7 +547,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.tomorrow.1.title': { en: 'Automated Orchestration', es: 'Orquestación Automatizada', pt: 'Orquestração Automatizada' },
     'studio.tomorrow.1.desc': { en: 'Autonomous "Trigger-Action" workflows.', es: 'Workflows autónomos "Trigger-Action".', pt: 'Workflows autônomos "Trigger-Action".' },
     'studio.tomorrow.2.title': { en: 'Real-Time KPIs', es: 'KPIs en Tiempo Real', pt: 'KPIs em Tempo Real' },
-    'studio.tomorrow.2.desc': { en: 'Live dashboards for instant direction.', es: 'Tableros vivos para dirección instantánea.', pt: 'Painéis vivos para direção instantânea.' },
+    'studio.tomorrow.2.desc': { en: 'Your Cockpit: live instruments for instant direction.', es: 'Tu Cockpit: instrumentos vivos para dirección instantánea.', pt: 'Seu Cockpit: instrumentos vivos para direção instantânea.' },
     'studio.tomorrow.3.title': { en: 'Exponential Scalability', es: 'Escalabilidad Exponencial', pt: 'Escalabilidade Exponencial' },
     'studio.tomorrow.3.desc': { en: 'Infrastructure that supports 10x demand without additional headcount.', es: 'Infraestructura que soporta 10x demanda sin + headcount.', pt: 'Infraestrutura que suporta 10x de demanda sem headcount adicional.' },
     'studio.tomorrow.4.title': { en: 'Alarms', es: 'Alarmas', pt: 'Alarmes' },
@@ -617,7 +617,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.inv.step3.title': { en: 'Structured Participation', es: 'Participación Estructurada', pt: 'Participação Estruturada' },
     'studio.inv.step3.desc': { en: 'Equity participation, project financing, or direct asset acquisition — each model with clear legal frameworks.', es: 'Participación accionaria, financiación de proyectos o adquisición directa de activos — cada modelo con marcos legales claros.', pt: 'Participação acionária, financiamento de projetos ou aquisição direta de ativos — cada modelo com marcos legais claros.' },
     'studio.inv.step4.title': { en: 'Monitoring & Reporting', es: 'Monitoreo y Reportes', pt: 'Monitoramento e Relatórios' },
-    'studio.inv.step4.desc': { en: 'Real Time performance indicators, direct access to project managers, and transparent capital tracking.', es: 'Indicadores de rendimiento en Tiempo Real, acceso directo a gestores del proyecto y seguimiento transparente de capital.', pt: 'Indicadores de desempenho em Tempo Real, acesso direto aos gestores de projeto e rastreamento transparente do capital.' },
+    'studio.inv.step4.desc': { en: 'Your Investor Cockpit: real-time performance indicators, direct access to project managers, and transparent capital tracking.', es: 'Tu Investor Cockpit: indicadores de rendimiento en tiempo real, acceso directo a gestores del proyecto y seguimiento transparente de capital.', pt: 'Seu Investor Cockpit: indicadores de desempenho em tempo real, acesso direto aos gestores de projeto e rastreamento transparente do capital.' },
 
     // Key Investment Data
 
@@ -680,6 +680,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.step5.desc': { en: 'Turn the better design into working reality — build, integrate and automate, applying AI and technology where they create real leverage.', es: 'Convertir el mejor diseño en realidad operativa: construir, integrar y automatizar, aplicando IA y tecnología donde crean verdadera palanca.', pt: 'Transformar o melhor design em realidade operacional: construir, integrar e automatizar, aplicando IA e tecnologia onde criam alavancagem real.' },
     'about.step6': { en: 'Learn & Repeat', es: 'Aprender y Repetir', pt: 'Aprender e Repetir' },
     'about.step6.desc': { en: 'Measure reality. Improve the model. Begin again.', es: 'Medir la realidad. Mejorar el modelo. Volver a empezar.', pt: 'Medir a realidade. Melhorar o modelo. Começar de novo.' },
+    'about.rt.name': { en: 'Business Cockpit', es: 'Business Cockpit', pt: 'Business Cockpit' },
     'about.rt.label': { en: 'Real Time', es: 'Tiempo Real', pt: 'Tempo Real' },
     'about.rt.desc': { en: 'Know what matters while there is still time to act.', es: 'Saber lo que importa mientras aún hay tiempo de actuar.', pt: 'Saber o que importa enquanto ainda há tempo de agir.' },
     'about.method.repeat': { en: 'Because a business is never finished. Neither is Business Engineering.', es: 'Porque un negocio nunca está terminado. La Ingeniería de Negocios tampoco.', pt: 'Porque um negócio nunca está pronto. A Engenharia de Negócios também não.' },
@@ -715,6 +716,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'contact.area.8': { en: 'Project Mapping and Structuring', es: 'Mapeo y Estructuración de Proyectos', pt: 'Mapeamento e Estruturação de Projetos' },
     'contact.area.9': { en: 'Tokenization', es: 'Tokenización', pt: 'Tokenização' },
     'contact.area.10': { en: 'Legal "Express"', es: 'Legal "Express"', pt: 'Legal "Express"' },
+    'contact.area.11': { en: 'Business Cockpit / Real-Time Reporting', es: 'Business Cockpit / Reportes en Tiempo Real', pt: 'Business Cockpit / Relatórios em Tempo Real' },
     'contact.level': { en: 'Current Digitalization Level', es: 'Nivel de Digitalización Actual', pt: 'Nível Atual de Digitalização' },
     'contact.level.ph': { en: 'Indicate your current state', es: 'Indique su estado actual', pt: 'Indique seu estado atual' },
     'contact.level.1': { en: 'Initial (Predominantly manual processes)', es: 'Inicial (Procesos manuales predominantes)', pt: 'Inicial (Processos predominantemente manuais)' },

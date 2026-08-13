@@ -132,6 +132,7 @@ export default function Contact() {
                       <option value="project-mapping-structuring">{t('contact.area.8')}</option>
                       <option value="tokenization">{t('contact.area.9')}</option>
                       <option value="legal-express">{t('contact.area.10')}</option>
+                      <option value="business-cockpit">{t('contact.area.11')}</option>
                       <option value="lia">{t('contact.area.4')}</option>
                     </select>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">

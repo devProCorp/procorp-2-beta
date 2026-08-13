@@ -229,32 +229,41 @@ export function Beliefs() {
 
 /* ─────────────── CTA FINAL ─────────────── */
 
-const CTA: Record<Lang, { pre: string; lines: string[]; closing: string; button: string }> = {
+const CTA: Record<Lang, { pre: string; lines: string[]; closing: string; punch: [string, string]; button: string }> = {
   en: {
     pre: 'Imagine If…',
     lines: [
-      '…your growth plan, your legal structure and your technology were one design.',
-      '…your business told you what is happening while you can still change it.',
+      '…your business could tell you what is changing.',
+      '…your model could tell you why.',
+      '…your simulator could show you what might happen next.',
+      '…and your Business Cockpit could bring it all together while there is still time to act.',
     ],
-    closing: 'That is where every engagement begins.',
+    closing: 'Imagine understanding your business before simply reacting to it.',
+    punch: ['IMAGINE', ' PRO CORP.'],
     button: 'Start the conversation',
   },
   es: {
     pre: 'Imagina Si…',
     lines: [
-      '…tu plan de crecimiento, tu estructura legal y tu tecnología fueran un solo diseño.',
-      '…tu negocio te dijera qué está pasando mientras aún puedes cambiarlo.',
+      '…tu negocio pudiera decirte qué está cambiando.',
+      '…tu modelo pudiera decirte por qué.',
+      '…tu simulador pudiera mostrarte qué podría pasar después.',
+      '…y tu Business Cockpit lo reuniera todo mientras aún hay tiempo de actuar.',
     ],
-    closing: 'Ahí empieza cada proyecto.',
+    closing: 'Imagina entender tu negocio antes de simplemente reaccionar a él.',
+    punch: ['IMAGINA', ' PRO CORP.'],
     button: 'Empecemos la conversación',
   },
   pt: {
     pre: 'Imagine Se…',
     lines: [
-      '…seu plano de crescimento, sua estrutura legal e sua tecnologia fossem um único design.',
-      '…seu negócio dissesse o que está acontecendo enquanto você ainda pode mudar.',
+      '…seu negócio pudesse dizer o que está mudando.',
+      '…seu modelo pudesse dizer por quê.',
+      '…seu simulador pudesse mostrar o que pode acontecer em seguida.',
+      '…e seu Business Cockpit reunisse tudo enquanto ainda há tempo de agir.',
     ],
-    closing: 'É aí que todo projeto começa.',
+    closing: 'Imagine entender seu negócio antes de simplesmente reagir a ele.',
+    punch: ['IMAGINE', ' A PRO CORP.'],
     button: 'Comece a conversa',
   },
 };
@@ -277,14 +286,27 @@ export function FinalCTA() {
               key={l}
               {...fadeUp}
               transition={{ ...fadeUp.transition, delay: i * 0.15 }}
-              className="text-lg italic leading-relaxed text-gray-300 md:text-xl"
+              className={`text-lg italic leading-relaxed text-gray-300 md:text-xl ${i === c.lines.length - 1 ? 'lg:whitespace-nowrap' : ''}`}
             >
-              {l}
+              {/* "Business Cockpit" se resalta como nombre propio del producto */}
+              {l.split(/(Business Cockpit)/).map((part, k) =>
+                part === 'Business Cockpit' ? (
+                  <strong key={k} className="font-bold not-italic text-white">{part}</strong>
+                ) : (
+                  part
+                )
+              )}
             </motion.p>
           ))}
         </div>
         <motion.p {...fadeUp} className="mt-10 font-display text-xl font-bold text-white md:text-2xl">
           {c.closing}
+        </motion.p>
+        <motion.p {...fadeUp} className="mt-8 text-3xl font-extrabold tracking-tight md:text-4xl">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">
+            {c.punch[0]}
+          </span>
+          <span className="text-white">{c.punch[1]}</span>
         </motion.p>
         <motion.div {...fadeUp}>
           <Link

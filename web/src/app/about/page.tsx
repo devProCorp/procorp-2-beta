@@ -210,7 +210,11 @@ export default function About() {
               <div className="mt-10 rounded-2xl border border-primary/25 bg-primary/5 px-6 py-5 md:px-8 flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <div className="flex items-center gap-3 shrink-0">
                   <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_10px_rgba(206,16,38,0.8)]"></span>
-                  <span className="text-sm font-black uppercase tracking-[0.25em] text-primary-light">{t('about.rt.label')}</span>
+                  <span className="text-sm font-black uppercase tracking-[0.25em]">
+                    <span className="text-white">{t('about.rt.name')}</span>
+                    <span className="mx-2 text-gray-500">·</span>
+                    <span className="text-primary-light">{t('about.rt.label')}</span>
+                  </span>
                 </div>
                 <div className="relative w-full md:flex-1 h-14">
                   <svg className="absolute inset-x-0 bottom-0 w-full h-10 overflow-visible" viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true">
