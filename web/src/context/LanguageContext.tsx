@@ -465,6 +465,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'home.howwework.step3.desc': { en: 'We implement the strategy and provide continuous tracking with regular progress reports and direct communication.', es: 'Implementamos la estrategia y proporcionamos seguimiento continuo con reportes de avance y comunicación directa.' },
 
     // ── Projects Page ──
+    'proj.bridge': { en: 'Every solution here — legal, migratory, or investment — passes through the same Business Engineering cycle: see it, simulate it, then build it.', es: 'Cada solución aquí — legal, migratoria o de inversión — pasa por el mismo ciclo de Ingeniería de Negocios: verla, simularla y construirla.', pt: 'Cada solução aqui — legal, migratória ou de investimento — passa pelo mesmo ciclo de Engenharia de Negócios: vê-la, simulá-la e construí-la.' },
     'proj.title1': { en: 'Legal ', es: '', pt: '' },
     'proj.title2': { en: 'Solutions', es: 'Soluciones', pt: 'Soluções' },
     'proj.title3': { en: ' & Immigration', es: ' Legales y Migratorias', pt: ' Legais e Migratórias' },
@@ -576,6 +577,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.inv.title1': { en: 'Strategic', es: 'Sectores', pt: 'Setores' },
     'studio.inv.title2': { en: 'Sectors', es: 'Estratégicos', pt: 'Estratégicos' },
     'studio.inv.desc': { en: 'Over 10 years of experience in asset analysis, providing security and international support to our investors in destinations with stable economies.', es: 'Más de 10 años de experiencia en análisis de activos, brindando seguridad y acompañamiento internacional a inversionistas en destinos con economías estables.', pt: 'Mais de 10 anos de experiência em análise de ativos, oferecendo segurança e acompanhamento internacional aos nossos investidores em destinos com economias estáveis.' },
+    'studio.inv.bridge': { en: 'Every project in this portfolio was engineered the same way we advise our clients: understood, modeled and simulated before a single euro was committed.', es: 'Cada proyecto de este portafolio pasó por el mismo proceso con el que asesoramos a nuestros clientes: entendido, modelado y simulado antes de comprometer un solo euro.', pt: 'Cada projeto deste portfólio passou pelo mesmo processo com que assessoramos nossos clientes: entendido, modelado e simulado antes de comprometer um único euro.' },
     'studio.inv.stat1.value': { en: '10+', es: '10+', pt: '10+' },
     'studio.inv.stat1.label': { en: 'Years of Experience', es: 'Años de Experiencia', pt: 'Anos de Experiência' },
     'studio.inv.stat2.value': { en: 'Ontime', es: 'Oportuno', pt: 'Pontual' },
@@ -686,7 +688,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.cta.btn1': { en: 'Start Diagnosis', es: 'Iniciar Diagnóstico', pt: 'Iniciar Diagnóstico' },
     'about.cta.btn2': { en: 'View Some Projects', es: 'Ver Algunos Proyectos', pt: 'Ver Alguns Projetos' },
     'about.desc2': { en: 'Technology is the instrument.\nAI is the accelerator.\nSimulation is understanding.\nExecution is the differentiator.', es: 'La tecnología es el instrumento.\nLa IA es el acelerador.\nLa simulación es entendimiento.\nLa ejecución es el diferenciador.', pt: 'A tecnologia é o instrumento.\nA IA é o acelerador.\nA simulação é entendimento.\nA execução é o diferenciador.' },
-    'about.closing': { en: '"See" what is. Imagine what could be. Engineer the difference.', es: '"Ver" lo que es. Imaginar lo que podría ser. Diseñar la diferencia.', pt: '"Ver" o que é. Imaginar o que poderia ser. Projetar a diferença.' },
+    'about.closing': { en: '"See" what is. Imagine what could be. Engineer the difference.', es: '"Ver" lo que es. Imaginar lo que podría ser. "Engineer" la diferencia.', pt: '"Ver" o que é. Imaginar o que poderia ser. "Engineer" a diferença.' },
 
     // ── Contact Page ──
     'contact.badge': { en: 'Technology enabling business growth', es: 'Tecnología que habilita el crecimiento del negocio', pt: 'Tecnologia que habilita o crescimento do negócio' },

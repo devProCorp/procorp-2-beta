@@ -19,30 +19,33 @@ const fadeUp = {
 
 /* ─────────────── WHY WE EXIST ─────────────── */
 
-const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
+const WHY: Record<Lang, { kicker: [string, string]; lines: string[]; mantra: string }> = {
   en: {
     kicker: ['Why', ' we exist'],
     lines: [
-      'To help you grow your productivity.',
-      'To "connect" your dots, then observe and simulate your company or project as a system.',
-      'To design innovative business monitoring and legal solutions.',
+      'Businesses are living systems. Understanding them changes how you lead them.',
+      'PRO CORP models how your business works, simulates what could happen next, and engineers what it could become — side by side with your management, challenging how things work today and designing solutions that are viable, permissible and executable.',
+      'We bring that understanding together in your Business Cockpit — where real-time information meets simulation, making the signals, scenarios and possibilities that matter visible while there is still time to act.',
     ],
+    mantra: 'See what is. Imagine what could be. Engineer the difference.',
   },
   es: {
     kicker: ['Por qué', ' existimos'],
     lines: [
-      'Para ayudarte a crecer tu productividad.',
-      'Para "conectar" tus puntos, y luego observar y simular tu empresa o proyecto como un sistema.',
-      'Para diseñar soluciones innovadoras de monitoreo de negocios y soluciones legales.',
+      'Los negocios son sistemas vivos. Entenderlos cambia la manera de liderarlos.',
+      'PRO CORP modela cómo funciona tu negocio, simula qué podría pasar después y diseña lo que podría llegar a ser — de la mano de tu dirección, cuestionando cómo funcionan las cosas hoy y creando soluciones viables, permisibles y ejecutables.',
+      'Reunimos todo ese entendimiento en tu Business Cockpit — donde la información en tiempo real se encuentra con la simulación, haciendo visibles las señales, los escenarios y las posibilidades que importan mientras aún hay tiempo de actuar.',
     ],
+    mantra: 'Ver lo que es. Imaginar lo que podría ser. "Engineer" la diferencia.',
   },
   pt: {
     kicker: ['Por que', ' existimos'],
     lines: [
-      'Para ajudar sua produtividade a crescer.',
-      'Para "conectar" seus pontos, e então observar e simular sua empresa ou projeto como um sistema.',
-      'Para desenhar soluções inovadoras de monitoramento de negócios e soluções jurídicas.',
+      'Negócios são sistemas vivos. Entendê-los muda a forma de liderá-los.',
+      'A PRO CORP modela como seu negócio funciona, simula o que pode acontecer e projeta o que ele poderia se tornar — lado a lado com a sua gestão, desafiando como as coisas funcionam hoje e criando soluções viáveis, permissíveis e executáveis.',
+      'Reunimos todo esse entendimento no seu Business Cockpit — onde a informação em tempo real se encontra com a simulação, tornando visíveis os sinais, os cenários e as possibilidades que importam enquanto ainda há tempo de agir.',
     ],
+    mantra: 'Ver o que é. Imaginar o que poderia ser. "Engineer" a diferença.',
   },
 };
 
@@ -64,12 +67,26 @@ export function WhyWeExist() {
               key={l}
               {...fadeUp}
               transition={{ ...fadeUp.transition, delay: i * 0.12 }}
-              className="font-display text-xl font-semibold leading-snug text-gray-100 md:text-3xl"
+              className="max-w-4xl font-display text-lg font-medium leading-relaxed text-gray-100 md:text-2xl"
             >
-              {l}
+              {/* "Business Cockpit" se resalta como nombre propio del producto */}
+              {l.split(/(Business Cockpit)/).map((part, k) =>
+                part === 'Business Cockpit' ? (
+                  <strong key={k} className="font-bold text-white">{part}</strong>
+                ) : (
+                  part
+                )
+              )}
             </motion.p>
           ))}
         </div>
+        <motion.p
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: 0.45 }}
+          className="mt-12 font-display text-xl font-bold leading-snug text-white md:text-3xl"
+        >
+          {c.mantra}
+        </motion.p>
       </div>
     </section>
   );

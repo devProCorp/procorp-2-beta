@@ -16,6 +16,15 @@ import StoryNetwork from './StoryNetwork';
 
 type Lang = 'en' | 'es' | 'pt';
 
+// Etiqueta bajo el logo: los 5 primeros banners son los fundamentos
+// de la casa (doctrina propia, no lista canónica); el 6º marca el giro lógico.
+// "PRO CORP" lleva el degradado bicolor de la marca.
+const FUND_LABEL: Record<Lang, { pre: string; brand: string; post: string; turn: string }> = {
+  en: { pre: '', brand: 'PRO CORP', post: ' BUSINESS FUNDAMENTALS', turn: 'THEREFORE' },
+  es: { pre: 'FUNDAMENTOS EMPRESARIALES ', brand: 'PRO CORP', post: '', turn: 'POR ESO' },
+  pt: { pre: 'FUNDAMENTOS EMPRESARIAIS ', brand: 'PRO CORP', post: '', turn: 'POR ISSO' },
+};
+
 interface Act {
   main: string;
   highlight?: string[];
@@ -287,6 +296,38 @@ export default function ManifestoStory() {
 
         {/* H1 solo para SEO/lectores de pantalla — sin presencia visual */}
         <h1 className="sr-only">{c.kicker}</h1>
+
+        {/* Etiqueta de fundamentos (banners 1-5) / giro lógico (banner 6) — alineada bajo el logo del navbar */}
+        <div className="pointer-events-none absolute inset-x-0 top-8 z-20">
+          <div className="mx-auto w-full max-w-[1440px] px-4 md:px-10">
+            <AnimatePresence mode="wait">
+              {(() => {
+                const fl = FUND_LABEL[(lang as Lang) in FUND_LABEL ? (lang as Lang) : 'en'];
+                return (
+                  <motion.p
+                    key={isThesis ? 'turn' : `fund-${act}`}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 6 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    className="whitespace-nowrap text-[11px] font-extrabold uppercase tracking-[0.2em] sm:text-sm md:text-xl"
+                  >
+                    {isThesis ? (
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{fl.turn}</span>
+                    ) : (
+                      <>
+                        {fl.pre && <span className="text-white">{fl.pre}</span>}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{fl.brand}</span>
+                        {fl.post && <span className="text-white">{fl.post}</span>}
+                        <span className="ml-4 hidden text-primary-light sm:inline">{`0${act + 1} / 05`}</span>
+                      </>
+                    )}
+                  </motion.p>
+                );
+              })()}
+            </AnimatePresence>
+          </div>
+        </div>
 
         {/* Skip */}
         <button

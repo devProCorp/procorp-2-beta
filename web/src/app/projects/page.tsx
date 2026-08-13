@@ -58,6 +58,9 @@ export default function Projects() {
             <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-6">
               {t('proj.desc')}
             </p>
+            <p className="max-w-2xl border-l-4 border-primary-light/60 pl-6 text-base font-medium italic leading-relaxed text-white md:text-lg">
+              {t('proj.bridge')}
+            </p>
           </div>
 
           {/* Dashboard Card */}
