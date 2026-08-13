@@ -5,6 +5,7 @@ import {
   FinalCTA,
 } from '@/components/manifesto/StorySections';
 import LiaChat from '@/components/home/LiaChat';
+import RollingToggle from '@/components/home/RollingToggle';
 
 /**
  * Home — Business Engineering.
@@ -16,6 +17,7 @@ import LiaChat from '@/components/home/LiaChat';
 export default function Home() {
   return (
     <main className="bg-background-dark">
+      <RollingToggle />
       <ManifestoStory />
       <WhyWeExist />
       <Pillars />
