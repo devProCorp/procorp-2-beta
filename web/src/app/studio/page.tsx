@@ -37,7 +37,41 @@ export default function Studio() {
   // Modelo de maqueta: proyección derivada de los sliders (98.4% con los valores por defecto)
   const simEff = Math.min(99.9, 20.4 + 0.4 * sim.core + 0.4 * sim.error + 0.3 * sim.speed);
   const simCycle = (48 * Math.pow(0.05, simEff / 98.4)).toFixed(1);
-  const simOpex = (Math.round((simEff / 98.4) * 125)).toLocaleString('en-US');
+  const simOpexNum = Math.round((simEff / 98.4) * 125);
+  const simOpex = simOpexNum.toLocaleString('en-US');
+  const simThroughput = Math.max(1, sim.speed * 5);
+  const simErrorRate = ((100 - sim.error) * 0.12).toFixed(1);
+  // Cockpit preview: cada instrumento tiene rango objetivo; la alarma dispara al salirse
+  const effOk = simEff >= 75;
+  const cycleOk = Number(simCycle) <= 12;
+  const opexOk = simOpexNum >= 90;
+  const thruOk = simThroughput >= 150;
+  const errOk = Number(simErrorRate) <= 3;
+  const anyAlarm = !effOk || !cycleOk || !opexOk || !thruOk || !errOk;
+
+  // Modelado de escenarios: presets que mueven los mismos sliders
+  const SCENARIOS = [
+    { key: 'cons', labelKey: 'studio.sim.scn.cons', preset: { core: 35, error: 50, speed: 30 } },
+    { key: 'base', labelKey: 'studio.sim.scn.base', preset: { core: 65, error: 85, speed: 60 } },
+    { key: 'aggr', labelKey: 'studio.sim.scn.aggr', preset: { core: 90, error: 95, speed: 85 } },
+  ] as const;
+  const activeScenario = SCENARIOS.find(
+    (s) => s.preset.core === sim.core && s.preset.error === sim.error && s.preset.speed === sim.speed,
+  )?.key;
+
+  // Proyección a 12 meses: curva de adopción hacia simEff; la banda de incertidumbre
+  // (P10–P90) se estrecha cuanto mayor es la automatización — más previsibilidad
+  const projPts = Array.from({ length: 13 }, (_, m) => {
+    const v = simEff * (1 - Math.exp(-m / 3.2));
+    const band = (100 - sim.core) * 0.22 * (m / 12);
+    return { x: (m / 12) * 240, mid: v, hi: Math.min(99.9, v + band), lo: Math.max(0, v - band) };
+  });
+  const py = (v: number) => 74 - (v / 100) * 66;
+  const projLine = projPts.map((p) => `${p.x.toFixed(1)},${py(p.mid).toFixed(1)}`).join(' ');
+  const projBand = [
+    ...projPts.map((p) => `${p.x.toFixed(1)},${py(p.hi).toFixed(1)}`),
+    ...[...projPts].reverse().map((p) => `${p.x.toFixed(1)},${py(p.lo).toFixed(1)}`),
+  ].join(' ');
 
   const roadmapSteps = [
     { num: 1, title: t('studio.road.s1.title'), desc: t('studio.road.s1.desc'), tags: ['Blueprint', 'Audit'], active: true },
@@ -239,29 +273,94 @@ export default function Studio() {
                 <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-black/30 rounded-full blur-[50px] pointer-events-none"></div>
 
                 <div className="relative z-10">
-                  <div className="mb-12">
-                    <p className="text-[10px] font-bold text-white/80 uppercase tracking-[0.2em] mb-3 flex items-center gap-3">
+                  {/* Cabecera del Cockpit: nombre de producto + estado en vivo */}
+                  <div className="mb-10">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] mb-3 flex items-center gap-3">
                       <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)] animate-pulse"></span>
-                      {t('studio.sim.impact')}
+                      <span className="text-white">{t('studio.sim.cockpit')}</span>
+                      <span className="text-white/50">·</span>
+                      <span className="text-white/80">{t('studio.sim.preview')}</span>
                     </p>
-                    <h2 className="text-7xl font-black text-white tracking-tighter drop-shadow-lg">{simEff.toFixed(1)}%</h2>
+                    <h2 className="text-7xl font-black text-white tracking-tighter drop-shadow-lg flex items-baseline gap-4">
+                      {Math.round(simEff)}%
+                      <span className={`text-3xl ${effOk ? 'text-green-300' : 'animate-pulse text-amber-300'}`} aria-hidden="true">{effOk ? '▲' : '▼'}</span>
+                    </h2>
                     <p className="text-[15px] font-medium text-white/90 mt-2">{t('studio.sim.total')}</p>
+                    <p className="mt-3 text-[11px] font-medium leading-snug text-white/60">{t('studio.sim.disclaimer')}</p>
                   </div>
-                  <div className="grid gap-5">
-                    <div className="bg-white/10 p-5 rounded-2xl border border-white/20 backdrop-blur-md shadow-lg flex items-center justify-between hover:bg-white/20 transition-colors">
-                      <div>
-                        <div className="text-white/70 text-[10px] uppercase font-bold tracking-[0.2em] mb-1.5">{t('studio.sim.cycle')}</div>
-                        <div className="text-white font-extrabold text-2xl tracking-tight">{simCycle}h <span className="text-sm font-normal text-white/50 line-through ml-3">48h</span></div>
-                      </div>
-                      <span className="material-symbols-outlined text-white/90 text-3xl">timer_off</span>
+                  {/* Selector de escenarios: presets que mueven los mismos sliders */}
+                  <div className="mb-6">
+                    <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">{t('studio.sim.scenarios')}</p>
+                    <div className="flex flex-wrap items-center gap-2">
+                      {SCENARIOS.map((s) => (
+                        <button
+                          key={s.key}
+                          type="button"
+                          onClick={() => setSim({ ...s.preset })}
+                          className={`rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest transition-all ${activeScenario === s.key
+                              ? 'bg-white text-primary shadow-lg'
+                              : 'border border-white/30 text-white/80 hover:border-white/60 hover:text-white'
+                            }`}
+                        >
+                          {t(s.labelKey)}
+                        </button>
+                      ))}
+                      {!activeScenario && (
+                        <span className="rounded-full border border-dashed border-white/40 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white/70">
+                          {t('studio.sim.scn.custom')}
+                        </span>
+                      )}
                     </div>
-                    <div className="bg-white/10 p-5 rounded-2xl border border-white/20 backdrop-blur-md shadow-lg flex items-center justify-between hover:bg-white/20 transition-colors">
-                      <div>
-                        <div className="text-white/70 text-[10px] uppercase font-bold tracking-[0.2em] mb-1.5">{t('studio.sim.opex')}</div>
-                        <div className="text-white font-extrabold text-2xl tracking-tight">${simOpex},000</div>
+                  </div>
+
+                  {/* Instrumentos 2x2 */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { label: t('studio.sim.cycle'), value: <>{simCycle}h <span className="ml-1 text-xs font-normal text-white/50 line-through">48h</span></>, ok: cycleOk },
+                      { label: t('studio.sim.opex'), value: <>${simOpex}K</>, ok: opexOk },
+                      { label: t('studio.sim.throughput'), value: <>{simThroughput}x</>, ok: thruOk },
+                      { label: t('studio.sim.errorrate'), value: <>{simErrorRate}%</>, ok: errOk },
+                    ].map((tile, i) => (
+                      <div key={i} className="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-md shadow-lg transition-colors hover:bg-white/20">
+                        <div className="mb-1 flex items-center justify-between gap-2">
+                          <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/70">{tile.label}</span>
+                          <span className={`text-[10px] font-bold ${tile.ok ? 'text-green-300' : 'animate-pulse text-amber-300'}`} aria-hidden="true">{tile.ok ? '▲' : '▼'}</span>
+                        </div>
+                        <div className="text-xl font-extrabold tracking-tight text-white">{tile.value}</div>
                       </div>
-                      <span className="material-symbols-outlined text-white/90 text-3xl">savings</span>
+                    ))}
+                  </div>
+
+                  {/* Proyección del escenario: banda P10–P90 que se estrecha con más automatización */}
+                  <div className="mt-6">
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">{t('studio.sim.projection')}</span>
+                      <span className="text-[9px] font-medium uppercase tracking-widest text-white/50">{t('studio.sim.band')}</span>
                     </div>
+                    <svg className="h-24 w-full" viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true">
+                      <line x1="0" y1={py(simEff)} x2="240" y2={py(simEff)} stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeDasharray="4 4" />
+                      <polygon points={projBand} fill="rgba(255,255,255,0.16)" />
+                      <polyline points={projLine} fill="none" stroke="#fff" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                    </svg>
+                  </div>
+                  {/* El pulso del Cockpit */}
+                  <svg className="mt-8 h-8 w-full text-white/70" viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 20 H86 M114 20 H286 M314 20 H486 M514 20 H600" stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                    {[
+                      'M86 20 L92 12 L98 34 L104 4 L110 30 L114 20',
+                      'M286 20 L292 12 L298 34 L304 4 L310 30 L314 20',
+                      'M486 20 L492 12 L498 34 L504 4 L510 30 L514 20',
+                    ].map((d, i) => (
+                      <path key={i} d={d} className="ecg-wave-grow" style={{ animationDelay: `${i * 1.6}s` }} stroke="currentColor" strokeWidth="2" fill="none" vectorEffect="non-scaling-stroke" />
+                    ))}
+                  </svg>
+                  {/* Línea de alarma: se dispara cuando un indicador sale de rango */}
+                  <div className={`mt-4 flex items-center gap-3 rounded-xl px-4 py-3 text-[11px] font-bold uppercase tracking-widest ${anyAlarm
+                      ? 'animate-pulse border border-amber-300/50 bg-black/30 text-amber-300'
+                      : 'border border-white/20 bg-white/10 text-white/90'
+                    }`}>
+                    <span className="material-symbols-outlined text-lg">{anyAlarm ? 'warning' : 'check_circle'}</span>
+                    {anyAlarm ? t('studio.sim.alarm') : t('studio.sim.allok')}
                   </div>
                 </div>
               </div>
@@ -350,7 +449,10 @@ export default function Studio() {
           {/* How to Invest - Process Steps */}
           <div className="mb-20">
             <div className="flex items-center gap-4 mb-10">
-              <span className="text-primary-light font-bold uppercase tracking-[0.2em] text-[10px]">{t('studio.inv.process.label')}</span>
+              <span className="whitespace-nowrap text-[11px] font-extrabold uppercase tracking-[0.2em] sm:text-sm md:text-xl">
+                <span className="text-white">{t('studio.inv.process.label').split(' ').slice(0, -1).join(' ')} </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.inv.process.label').split(' ').slice(-1)[0]}</span>
+              </span>
               <div className="h-px bg-gradient-to-r from-surface-border to-transparent flex-1"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -362,7 +464,7 @@ export default function Studio() {
               ].map((step) => (
                 <div key={step.num} className="relative glass-panel rounded-[1.5rem] border border-surface-border/50 p-8 group hover:border-primary/30 transition-all hover:bg-surface-darker/60">
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 text-primary-light text-sm font-black shadow-[0_0_15px_rgba(206,16,38,0.1)]">{step.num}</span>
+                    <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary border border-primary-light/50 text-white text-sm font-black shadow-[0_0_15px_rgba(206,16,38,0.4)]">{step.num}</span>
                     <span className="material-symbols-outlined text-primary text-2xl group-hover:text-primary-light transition-colors">{step.icon}</span>
                   </div>
                   <h4 className="text-[15px] font-bold text-white mb-3 uppercase tracking-wide">{step.title}</h4>
@@ -373,6 +475,15 @@ export default function Studio() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Some of our projects — mismo estilo masthead que "How to Invest" */}
+          <div className="mb-10 mt-20 flex items-center gap-6">
+            <h3 className="whitespace-nowrap text-[11px] font-extrabold uppercase tracking-[0.2em] sm:text-sm md:text-xl">
+              <span className="text-white">{t('studio.inv.projects.title').split(' ').slice(0, -1).join(' ')} </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.inv.projects.title').split(' ').slice(-1)[0]}</span>
+            </h3>
+            <div className="h-px flex-1 bg-gradient-to-r from-surface-border to-transparent"></div>
           </div>
 
           {/* Sector Grid */}
