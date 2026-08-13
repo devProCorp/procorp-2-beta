@@ -70,7 +70,7 @@ const COPY: Record<Lang, {
       'Technology is the instrument.',
       'AI is the accelerator.',
       'Simulation is understanding.',
-      'Execution is the differentiator.',
+      'Monitoring while Executing is the differentiator.',
     ],
     cta: 'Imagine if — start the conversation',
     skip: 'Skip',
@@ -115,7 +115,7 @@ const COPY: Record<Lang, {
       'La tecnología es el instrumento.',
       'La IA es el acelerador.',
       'La simulación es entendimiento.',
-      'La ejecución es el diferenciador.',
+      'Monitorear mientras se ejecuta es el diferenciador.',
     ],
     cta: 'Imagina si — empecemos la conversación',
     skip: 'Saltar',
@@ -160,7 +160,7 @@ const COPY: Record<Lang, {
       'A tecnologia é o instrumento.',
       'A IA é o acelerador.',
       'A simulação é entendimento.',
-      'A execução é o diferencial.',
+      'Monitorar enquanto se executa é o diferencial.',
     ],
     cta: 'Imagine se — comece a conversa',
     skip: 'Pular',
@@ -283,7 +283,7 @@ export default function ManifestoStory() {
   return (
     <div ref={containerRef} className="relative bg-background-dark">
       <div className="relative flex h-[100svh] flex-col overflow-hidden">
-        <StoryNetwork phase={phase} />
+        <StoryNetwork phase={phase} lang={lang} />
 
         {/* H1 solo para SEO/lectores de pantalla — sin presencia visual */}
         <h1 className="sr-only">{c.kicker}</h1>

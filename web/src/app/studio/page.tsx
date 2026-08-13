@@ -41,11 +41,10 @@ export default function Studio() {
 
   const roadmapSteps = [
     { num: 1, title: t('studio.road.s1.title'), desc: t('studio.road.s1.desc'), tags: ['Blueprint', 'Audit'], active: true },
-    { num: 2, title: t('studio.road.s2.title'), desc: t('studio.road.s2.desc'), tags: ['RPA', 'API Gateway'], active: false },
-    { num: 3, title: t('studio.road.s3.title'), desc: t('studio.road.s3.desc'), tags: ['Machine Learning'], active: false },
+    { num: 2, title: t('studio.road.s2.title'), desc: t('studio.road.s2.desc'), tags: ['RPA', 'API Gateway'], active: true },
+    { num: 3, title: t('studio.road.s3.title'), desc: t('studio.road.s3.desc'), tags: ['Machine Learning'], active: true },
   ];
 
-  const phaseTabs = [t('studio.road.1'), t('studio.road.2'), t('studio.road.3')];
 
   return (
     <main className="min-h-screen bg-transparent text-white flex flex-col overflow-x-hidden">
@@ -54,10 +53,6 @@ export default function Studio() {
         <div className="max-w-[1400px] mx-auto w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col gap-8">
-              <div className="inline-flex items-center gap-3 pl-1.5 pr-4 py-1.5 rounded-full glass-panel border border-primary/20 w-fit">
-                <span className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white text-[11px] font-bold shadow-[0_0_10px_rgba(206,16,38,0.5)]">4.0</span>
-                <span className="text-[10px] font-bold text-white uppercase tracking-[0.2em]">{t('studio.badge2')}</span>
-              </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight drop-shadow-xl text-white">
                 {t('studio.title1')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.title2')}</span>
@@ -123,10 +118,14 @@ export default function Studio() {
       {/* BPA Comparison */}
       <section className="bg-transparent py-24 px-6 md:px-10 lg:px-40 border-y border-surface-border">
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-20">
-            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">{t('studio.bpa.label')}</span>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-6">{t('studio.bpa.title')}</h2>
-            <p className="text-secondary max-w-2xl mx-auto font-medium">
+          <div className="glass-panel rounded-[2rem] border border-surface-border/60 shadow-2xl p-8 md:p-14">
+          <div className="mb-16">
+            <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+              {t('studio.bpa.title1')}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.bpa.title2')}</span>
+              {t('studio.bpa.title3')}
+            </h2>
+            <p className="text-secondary max-w-2xl font-medium">
               {t('studio.bpa.desc')}
             </p>
           </div>
@@ -185,6 +184,7 @@ export default function Studio() {
               </ul>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
@@ -195,9 +195,13 @@ export default function Studio() {
             <div className="grid lg:grid-cols-12 gap-0">
               <div className="lg:col-span-7 p-10 md:p-14 relative z-10">
                 <div className="absolute inset-0 bg-surface-dark/90 backdrop-blur-xl -z-10"></div>
-                <h3 className="text-3xl font-extrabold text-white mb-2 flex items-center gap-4 tracking-tight">
-                  <span className="material-symbols-outlined text-primary-light text-4xl drop-shadow-[0_0_15px_rgba(206,16,38,0.5)]">tune</span>
-                  {t('studio.sim.title')}
+                <h3 className="text-5xl md:text-6xl font-extrabold text-white mb-2 flex items-center gap-4 tracking-tight leading-[1.1]">
+                  <span className="material-symbols-outlined text-primary-light text-5xl drop-shadow-[0_0_15px_rgba(206,16,38,0.5)]">tune</span>
+                  <span>
+                    {t('studio.sim.title1')}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.sim.title2')}</span>
+                    {t('studio.sim.title3')}
+                  </span>
                 </h3>
                 <p className="text-gray-400 mb-12 text-[15px] font-light leading-relaxed max-w-xl">{t('studio.sim.desc')}</p>
                 <div className="space-y-10">
@@ -272,22 +276,15 @@ export default function Studio() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
               <span className="text-primary-light font-bold uppercase tracking-[0.2em] text-[10px] mb-4 block px-3 py-1 rounded-full border border-primary/20 bg-primary/5 w-fit">{t('studio.road.label')}</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">{t('studio.road.title')}</h2>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              {phaseTabs.map((phase, i) => (
-                <span key={phase} className={`px-5 py-2.5 rounded-full border text-[11px] font-bold uppercase tracking-widest shadow-sm transition-colors ${i === 0
-                    ? 'bg-primary border-primary-light text-white shadow-[0_0_15px_rgba(206,16,38,0.4)]'
-                    : 'glass-panel border-surface-border text-gray-400 hover:text-white hover:border-surface-border/80'
-                  }`}>
-                  {phase}
-                </span>
-              ))}
+              <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.road.title1')}</span>
+                {t('studio.road.title2')}
+              </h2>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
             {/* Connecting Line for Roadmap */}
-            <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary via-surface-border to-surface-border z-0"></div>
+            <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary via-primary-light to-primary z-0"></div>
 
             {roadmapSteps.map((step) => (
               <div key={step.num} className="group relative z-10">
@@ -322,7 +319,7 @@ export default function Studio() {
             <div className="max-w-2xl">
               <span className="inline-block px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-4">{t('studio.inv.label')}</span>
               <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-                {t('studio.inv.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.inv.title2')}</span>
+                {t('studio.inv.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.inv.title2')}</span>
               </h2>
               <p className="text-gray-300 text-lg font-light leading-relaxed border-l-4 border-primary pl-6">
                 {t('studio.inv.desc')}

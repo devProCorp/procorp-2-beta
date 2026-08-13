@@ -123,14 +123,16 @@ export default function Contact() {
                     </div>
                     <select id="contact-area" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all appearance-none cursor-pointer outline-none" defaultValue="">
                       <option disabled value="">{t('contact.area.ph')}</option>
-                      <option value="bpa">{t('contact.area.1')}</option>
-                      <option value="process-mapping">{t('contact.area.2')}</option>
-                      <option value="reengineering">{t('contact.area.3')}</option>
-                      <option value="lia">{t('contact.area.4')}</option>
                       <option value="consulting">{t('contact.area.5')}</option>
-                      <option value="financial-simulation">{t('contact.area.6')}</option>
+                      <option value="process-mapping">{t('contact.area.2')}</option>
                       <option value="operations-simulation">{t('contact.area.7')}</option>
+                      <option value="financial-simulation">{t('contact.area.6')}</option>
+                      <option value="reengineering">{t('contact.area.3')}</option>
+                      <option value="bpa">{t('contact.area.1')}</option>
                       <option value="project-mapping-structuring">{t('contact.area.8')}</option>
+                      <option value="tokenization">{t('contact.area.9')}</option>
+                      <option value="legal-express">{t('contact.area.10')}</option>
+                      <option value="lia">{t('contact.area.4')}</option>
                     </select>
                     <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
                       <span className="material-symbols-outlined">expand_more</span>

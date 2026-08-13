@@ -15,8 +15,32 @@ export default function Projects() {
     { icon: 'badge', title: t('proj.s3.title'), desc: t('proj.s3.desc'), link: t('proj.s3.link') },
     { icon: 'beach_access', title: t('proj.s4.title'), desc: t('proj.s4.desc'), link: t('proj.s4.link') },
     { icon: 'laptop_mac', title: t('proj.s6.title'), desc: t('proj.s6.desc'), link: t('proj.s6.link') },
-    { icon: 'gavel', title: t('proj.s5.title'), desc: t('proj.s5.desc'), link: t('proj.s5.link') },
   ];
+
+  const advServices = [
+    { icon: 'gavel', title: t('proj.s5.title'), desc: t('proj.s5.desc'), link: t('proj.s5.link') },
+    { icon: 'token', title: t('proj.s7.title'), desc: t('proj.s7.desc'), link: t('proj.s7.link') },
+    { icon: 'bolt', title: t('proj.s8.title'), desc: t('proj.s8.desc'), link: t('proj.s8.link') },
+  ];
+
+  const serviceCard = (service: { icon: string; title: string; desc: string; link: string }) => (
+    <div key={service.title} className="group relative glass-panel glass-panel-hover rounded-[1.5rem] p-8 flex flex-col h-full border border-surface-border/50 overflow-hidden">
+      <div className="absolute -right-8 -top-8 w-40 h-40 bg-primary/10 rounded-full blur-[40px] group-hover:bg-primary/20 transition-colors duration-500 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+        <span className="material-symbols-outlined text-8xl text-white">{service.icon}</span>
+      </div>
+      <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 shadow-[0_0_15px_rgba(206,16,38,0.1)] rounded-xl flex items-center justify-center mb-8 text-primary-light group-hover:scale-110 transition-all duration-300">
+        <span className="material-symbols-outlined text-[28px]">{service.icon}</span>
+      </div>
+      <h3 className="relative z-10 text-xl font-bold text-white mb-4 tracking-wide group-hover:text-primary-light transition-colors">{service.title}</h3>
+      <p className="relative z-10 text-gray-400 text-[14px] font-light leading-relaxed mb-8 flex-grow">{service.desc}</p>
+      <div className="relative z-10 mt-auto border-t border-surface-border/50 pt-5">
+        <Link href="/contact" className="inline-flex items-center text-gray-300 text-[11px] font-bold uppercase tracking-widest hover:text-white transition-colors group/link w-fit">
+          {service.link} <span className="material-symbols-outlined text-[16px] ml-2 text-primary-light group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
+        </Link>
+      </div>
+    </div>
+  );
 
   return (
     <main className="flex-grow flex flex-col relative min-h-screen bg-background-dark text-white">
@@ -26,14 +50,10 @@ export default function Projects() {
         </div>
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 flex flex-col gap-6 text-left relative z-10 w-full">
-            <div className="flex items-center gap-3 w-fit pl-1.5 pr-4 py-1.5 rounded-full glass-panel border border-primary/20">
-              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-primary to-primary-dark text-white shadow-[0_0_10px_rgba(206,16,38,0.5)]">
-                <span className="material-symbols-outlined text-sm">hub</span>
-              </span>
-              <span className="text-[10px] text-white font-bold uppercase tracking-[0.2em]">{t('proj.badge')}</span>
-            </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight drop-shadow-xl">
-              {t('proj.title1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{t('proj.title2')}</span>
+              {t('proj.title1')}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('proj.title2')}</span>
+              {t('proj.title3')}
             </h1>
             <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-6">
               {t('proj.desc')}
@@ -133,31 +153,34 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
-              <span className="inline-block px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-4">{t('proj.solutions')}</span>
+              <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+                {t('proj.solutions1')}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('proj.solutions2')}</span>
+                {t('proj.solutions3')}
+              </h2>
             </div>
             <p className="text-gray-400 max-w-xl text-[15px] font-light leading-relaxed text-right md:text-left border-l-4 border-primary pl-6">
               {t('proj.solutions.desc')}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <div key={service.title} className="group relative glass-panel glass-panel-hover rounded-[1.5rem] p-8 flex flex-col h-full border border-surface-border/50 overflow-hidden">
-                <div className="absolute -right-8 -top-8 w-40 h-40 bg-primary/10 rounded-full blur-[40px] group-hover:bg-primary/20 transition-colors duration-500 pointer-events-none"></div>
-                <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <span className="material-symbols-outlined text-8xl text-white">{service.icon}</span>
-                </div>
-                <div className="relative z-10 w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 shadow-[0_0_15px_rgba(206,16,38,0.1)] rounded-xl flex items-center justify-center mb-8 text-primary-light group-hover:scale-110 transition-all duration-300">
-                  <span className="material-symbols-outlined text-[28px]">{service.icon}</span>
-                </div>
-                <h3 className="relative z-10 text-xl font-bold text-white mb-4 tracking-wide group-hover:text-primary-light transition-colors">{service.title}</h3>
-                <p className="relative z-10 text-gray-400 text-[14px] font-light leading-relaxed mb-8 flex-grow">{service.desc}</p>
-                <div className="relative z-10 mt-auto border-t border-surface-border/50 pt-5">
-                  <Link href="/contact" className="inline-flex items-center text-gray-300 text-[11px] font-bold uppercase tracking-widest hover:text-white transition-colors group/link w-fit">
-                    {service.link} <span className="material-symbols-outlined text-[16px] ml-2 text-primary-light group-hover/link:translate-x-1 transition-transform">arrow_right_alt</span>
-                  </Link>
-                </div>
-              </div>
-            ))}
+            {services.map(serviceCard)}
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Legal Structuring & Support */}
+      <section className="px-6 py-24 md:px-10 bg-transparent border-t border-surface-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="glass-panel rounded-[2rem] border border-surface-border/60 shadow-2xl p-8 md:p-14">
+            <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-12">
+              {t('proj.adv.title1')}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('proj.adv.title2')}</span>
+              {t('proj.adv.title3')}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {advServices.map(serviceCard)}
+            </div>
           </div>
         </div>
       </section>

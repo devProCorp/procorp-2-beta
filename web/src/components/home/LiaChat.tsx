@@ -259,10 +259,18 @@ const LiaChat = () => {
                     {/* Left: Info */}
                     <div className="space-y-8">
                         <div className="space-y-4">
-                            <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary font-ui">
-                                {t('lia.label')}
+                            <span className="block text-4xl font-extrabold tracking-tight leading-[1.05] md:text-5xl lg:text-6xl">
+                                {t('lia.label').split(/\b(AI|IA)\b/).map((part, i) =>
+                                    part === 'AI' || part === 'IA' ? (
+                                        <span key={i} className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-neutral-dark dark:to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">
+                                            {part}
+                                        </span>
+                                    ) : (
+                                        <span key={i} className="text-neutral-dark dark:text-white">{part}</span>
+                                    )
+                                )}
                             </span>
-                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter uppercase font-display text-neutral-dark dark:text-white">
+                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter font-display text-neutral-dark dark:text-white">
                                 {t('lia.title')}<span className="text-primary">.</span>
                             </h2>
                         </div>

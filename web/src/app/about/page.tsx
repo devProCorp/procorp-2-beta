@@ -13,9 +13,10 @@ export default function About() {
     { num: 2, icon: 'schema', title: t('about.step2'), desc: t('about.step2.desc') },
     { num: 3, icon: 'science', title: t('about.step3'), desc: t('about.step3.desc') },
     { num: 4, icon: 'design_services', title: t('about.step4'), desc: t('about.step4.desc') },
-    { num: 5, icon: 'construction', title: t('about.step5'), desc: t('about.step5.desc') },
-    { num: 6, icon: 'monitoring', title: t('about.step6'), desc: t('about.step6.desc') },
-    { num: 7, icon: 'psychology', title: t('about.step7'), desc: t('about.step7.desc') },
+    { num: 5, icon: 'precision_manufacturing', title: t('about.step5'), desc: t('about.step5.desc') },
+    { num: 6, icon: 'construction', title: t('about.step6'), desc: t('about.step6.desc') },
+    { num: 7, icon: 'monitoring', title: t('about.step7'), desc: t('about.step7.desc') },
+    { num: 8, icon: 'psychology', title: t('about.step8'), desc: t('about.step8.desc') },
   ];
 
 
@@ -65,11 +66,14 @@ export default function About() {
       <section className="py-24 px-6 bg-transparent border-t border-surface-border">
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {[
-            { title: t('about.who.title'), items: [t('about.who.1'), t('about.who.2'), t('about.who.3'), t('about.who.4')] },
-            { title: t('about.commit.title'), items: [t('about.commit.1'), t('about.commit.2'), t('about.commit.3')] },
+            { pre: t('about.who.title1'), accent: t('about.who.title2'), items: [t('about.who.1'), t('about.who.2'), t('about.who.3'), t('about.who.4')] },
+            { pre: t('about.commit.title1'), accent: t('about.commit.title2'), items: [t('about.commit.1'), t('about.commit.2'), t('about.commit.3')] },
           ].map((block) => (
-            <div key={block.title} className="glass-panel rounded-[2rem] border border-surface-border/60 p-10 flex flex-col">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-white uppercase tracking-tight mb-8">{block.title}</h2>
+            <div key={block.accent} className="glass-panel rounded-[2rem] border border-surface-border/60 p-10 flex flex-col">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.05] mb-8">
+                {block.pre}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{block.accent}</span>
+              </h2>
               <div className="flex flex-col gap-5">
                 {block.items.map((item) => (
                   <p key={item} className="border-l-2 border-primary pl-5 text-gray-300 font-light leading-relaxed text-[15px]">
@@ -87,7 +91,11 @@ export default function About() {
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col gap-8">
-              <h2 className="text-4xl font-extrabold text-white mb-2 tracking-tight">{t('about.mission.title')}</h2>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 tracking-tight leading-[1.05]">
+                {t('about.mission.title1')}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('about.mission.title2')}</span>
+                {t('about.mission.title3')}
+              </h2>
               <p className="text-gray-400 font-light leading-relaxed text-[15px] border-l-4 border-primary pl-6">
                 {t('about.mission.desc')}
               </p>
@@ -143,7 +151,7 @@ export default function About() {
                 {bpaSteps.map((s) => (
                   <div key={s.num} className="group relative">
                     <div className="h-full glass-panel glass-panel-hover rounded-[1.5rem] p-7 flex flex-col items-center text-center gap-4 border border-surface-border/50">
-                      <div className="w-14 h-14 rounded-2xl bg-surface-darker border border-surface-border text-gray-500 flex items-center justify-center font-black text-xl mb-1 group-hover:bg-primary group-hover:border-primary-light/50 group-hover:text-white transition-all duration-300 shadow-xl">{s.num}</div>
+                      <div className="w-14 h-14 rounded-2xl bg-primary border border-primary-light/50 text-white flex items-center justify-center font-black text-xl mb-1 shadow-xl">{s.num}</div>
                       <div className="text-gray-200 mb-1 group-hover:scale-110 transition-transform duration-300">
                         <span className="material-symbols-outlined text-[36px]">{s.icon}</span>
                       </div>

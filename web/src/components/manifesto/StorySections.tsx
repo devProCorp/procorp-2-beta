@@ -19,36 +19,30 @@ const fadeUp = {
 
 /* ─────────────── WHY WE EXIST ─────────────── */
 
-const WHY: Record<Lang, { kicker: string; lines: string[]; punch: string; closing: string }> = {
+const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
   en: {
-    kicker: 'Why we exist',
+    kicker: ['Why', ' we exist'],
     lines: [
-      'Developers build what they are told — whether or not it should be built.',
-      'AI vendors sell acceleration, whatever the direction.',
+      'To help you grow your productivity.',
+      'To connect your dots, watch and simulate your company or project as a system.',
+      'To design monitoring and legal solutions.',
     ],
-    punch: 'Each holds one piece. The business needs the whole.',
-    closing:
-      'We exist in the space between — where understanding, design and execution belong to the same hands, committed to the sustainable growth of your business.',
   },
   es: {
-    kicker: 'Por qué existimos',
+    kicker: ['Por qué', ' existimos'],
     lines: [
-      'Los desarrolladores construyen lo que les piden — deba o no construirse.',
-      'Los vendedores de IA venden aceleración, sea cual sea la dirección.',
+      'Para ayudarte a crecer tu productividad.',
+      'Para conectar tus puntos, observar y simular tu empresa o proyecto como un sistema.',
+      'Para diseñar soluciones de monitoreo y soluciones legales.',
     ],
-    punch: 'Cada uno tiene una pieza. El negocio necesita el todo.',
-    closing:
-      'Existimos en el espacio intermedio — donde el entendimiento, el diseño y la ejecución pertenecen a las mismas manos, comprometidas con el crecimiento sostenible de tu negocio.',
   },
   pt: {
-    kicker: 'Por que existimos',
+    kicker: ['Por que', ' existimos'],
     lines: [
-      'Desenvolvedores constroem o que pedem — devendo ou não ser construído.',
-      'Vendedores de IA vendem aceleração, seja qual for a direção.',
+      'Para ajudar sua produtividade a crescer.',
+      'Para conectar seus pontos, observar e simular sua empresa ou projeto como um sistema.',
+      'Para desenhar soluções de monitoramento e soluções jurídicas.',
     ],
-    punch: 'Cada um tem uma peça. O negócio precisa do todo.',
-    closing:
-      'Existimos no espaço entre — onde o entendimento, o design e a execução pertencem às mesmas mãos, comprometidas com o crescimento sustentável do seu negócio.',
   },
 };
 
@@ -58,103 +52,24 @@ export function WhyWeExist() {
   return (
     <section className="bg-background-dark py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.p {...fadeUp} className="mb-10 text-base font-extrabold uppercase tracking-[0.3em] text-primary md:text-xl">
-          {c.kicker}
-        </motion.p>
+        <motion.h2 {...fadeUp} className="mb-10 text-4xl font-extrabold tracking-tight leading-[1.05] md:text-5xl lg:text-6xl">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">
+            {c.kicker[0]}
+          </span>
+          <span className="text-white">{c.kicker[1]}</span>
+        </motion.h2>
         <div className="space-y-6">
           {c.lines.map((l, i) => (
             <motion.p
               key={l}
               {...fadeUp}
               transition={{ ...fadeUp.transition, delay: i * 0.12 }}
-              className="font-display text-xl font-semibold leading-snug text-gray-400 md:text-3xl"
+              className="font-display text-xl font-semibold leading-snug text-gray-100 md:text-3xl"
             >
               {l}
             </motion.p>
           ))}
         </div>
-        <motion.p
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.4 }}
-          className="mt-12 font-display text-xl font-semibold leading-snug text-gray-400 md:text-3xl"
-        >
-          {c.punch}
-        </motion.p>
-        <motion.p
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.55 }}
-          className="mt-6 font-display text-xl font-semibold leading-snug text-white md:text-3xl"
-        >
-          {c.closing}
-        </motion.p>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────── VIABLE · PERMISSIBLE · EXECUTABLE ─────────────── */
-
-const TRIAD: Record<Lang, { kicker: string; cards: { word: string; fail: string }[]; punch: string }> = {
-  en: {
-    kicker: 'Every solution must work in the real world',
-    cards: [
-      { word: 'VIABLE', fail: 'A sophisticated legal structure that doesn’t grow the business isn’t a solution.' },
-      { word: 'PERMISSIBLE', fail: 'A brilliant growth strategy that cannot legally be implemented isn’t a solution.' },
-      { word: 'EXECUTABLE', fail: 'An opportunity without the technology to execute it isn’t a solution.' },
-    ],
-    punch: 'The client needs one solution that works.',
-  },
-  es: {
-    kicker: 'Toda solución debe funcionar en el mundo real',
-    cards: [
-      { word: 'VIABLE', fail: 'Una estructura legal sofisticada que no hace crecer el negocio no es una solución.' },
-      { word: 'PERMISIBLE', fail: 'Una estrategia de crecimiento brillante que no puede implementarse legalmente no es una solución.' },
-      { word: 'EJECUTABLE', fail: 'Una oportunidad sin la tecnología para ejecutarla no es una solución.' },
-    ],
-    punch: 'El cliente necesita una solución que funcione.',
-  },
-  pt: {
-    kicker: 'Toda solução deve funcionar no mundo real',
-    cards: [
-      { word: 'VIÁVEL', fail: 'Uma estrutura legal sofisticada que não faz o negócio crescer não é uma solução.' },
-      { word: 'PERMISSÍVEL', fail: 'Uma estratégia de crescimento brilhante que não pode ser implementada legalmente não é uma solução.' },
-      { word: 'EXECUTÁVEL', fail: 'Uma oportunidade sem a tecnologia para executá-la não é uma solução.' },
-    ],
-    punch: 'O cliente precisa de uma solução que funcione.',
-  },
-};
-
-export function Triad() {
-  const { lang } = useLanguage();
-  const c = pick(TRIAD, lang);
-  return (
-    <section className="bg-background-dark py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <motion.p {...fadeUp} className="mb-12 text-base font-extrabold uppercase tracking-[0.3em] text-primary md:text-xl">
-          {c.kicker}
-        </motion.p>
-        <div className="grid gap-5 md:grid-cols-3">
-          {c.cards.map((card, i) => (
-            <motion.div
-              key={card.word}
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: i * 0.14 }}
-              className="group relative overflow-hidden rounded-2xl border border-surface-border bg-background-dark p-8 transition-colors hover:border-primary/50"
-            >
-              <p className="font-display text-2xl font-extrabold tracking-wide text-white md:text-3xl">{card.word}</p>
-              <div className="mt-4 h-0.5 w-10 bg-primary transition-all duration-500 group-hover:w-20" />
-              <p className="mt-5 text-sm leading-relaxed text-gray-400 transition-colors group-hover:text-gray-300">
-                {card.fail}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-        <motion.p
-          {...fadeUp}
-          className="mt-14 max-w-3xl font-display text-2xl font-extrabold leading-snug text-white md:text-3xl"
-        >
-          {c.punch}
-        </motion.p>
       </div>
     </section>
   );
@@ -162,26 +77,23 @@ export function Triad() {
 
 /* ─────────────── LOS 3 PILARES ─────────────── */
 
-const PILLARS: Record<Lang, { kicker: string; title: string; cards: { icon: 'legal' | 'growth'; name: string; desc: string }[] }> = {
+const PILLARS: Record<Lang, { title: [string, string, string]; cards: { icon: 'legal' | 'growth'; name: string; desc: string }[] }> = {
   en: {
-    kicker: 'Two disciplines. One solution.',
-    title: 'Where Business Engineering lives',
+    title: ['Where ', 'Business Engineering', ' lives'],
     cards: [
       { icon: 'legal', name: 'Legal Solutions', desc: 'Governance frameworks, cross-border structuring and compliance — engineered as part of the solution, not as an afterthought.' },
       { icon: 'growth', name: 'Sustainable Growth - BPA', desc: 'Strategy differentiated by execution: operating models, KPI systems, simulators and Business Process Automation — and we stay for the last mile.' },
     ],
   },
   es: {
-    kicker: 'Dos disciplinas. Una solución.',
-    title: 'Donde vive la Ingeniería de Negocios',
+    title: ['Donde vive la ', 'Ingeniería de Negocios', ''],
     cards: [
       { icon: 'legal', name: 'Soluciones Legales', desc: 'Gobernanza, estructuración transfronteriza y cumplimiento — ingenierizados como parte de la solución, no como un anexo.' },
       { icon: 'growth', name: 'Crecimiento Sostenible - BPA', desc: 'Estrategia diferenciada por la ejecución: modelos operativos, KPIs, simuladores y automatización de procesos (BPA) — y nos quedamos para la última milla.' },
     ],
   },
   pt: {
-    kicker: 'Duas disciplinas. Uma solução.',
-    title: 'Onde vive a Engenharia de Negócios',
+    title: ['Onde vive a ', 'Engenharia de Negócios', ''],
     cards: [
       { icon: 'legal', name: 'Soluções Legais', desc: 'Governança, estruturação internacional e compliance — projetados como parte da solução, não como um anexo.' },
       { icon: 'growth', name: 'Crescimento Sustentável - BPA', desc: 'Estratégia diferenciada pela execução: modelos operacionais, KPIs, simuladores e automação de processos (BPA) — e ficamos para a última milha.' },
@@ -197,11 +109,12 @@ export function Pillars() {
   return (
     <section className="bg-background-dark py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.p {...fadeUp} className="mb-3 text-base font-extrabold uppercase tracking-[0.3em] text-primary md:text-xl">
-          {c.kicker}
-        </motion.p>
-        <motion.h2 {...fadeUp} className="mb-12 font-display text-3xl font-extrabold text-white md:text-5xl">
-          {c.title}
+        <motion.h2 {...fadeUp} className="mb-12 text-4xl font-extrabold tracking-tight leading-[1.05] text-white md:text-5xl lg:text-6xl">
+          {c.title[0]}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">
+            {c.title[1]}
+          </span>
+          {c.title[2]}
         </motion.h2>
         <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {c.cards.map((card, i) => {
@@ -301,7 +214,7 @@ export function Beliefs() {
 
 const CTA: Record<Lang, { pre: string; lines: string[]; closing: string; button: string }> = {
   en: {
-    pre: 'IMAGINE IF…',
+    pre: 'Imagine If…',
     lines: [
       '…your growth plan, your legal structure and your technology were one design.',
       '…your business told you what is happening while you can still change it.',
@@ -310,7 +223,7 @@ const CTA: Record<Lang, { pre: string; lines: string[]; closing: string; button:
     button: 'Start the conversation',
   },
   es: {
-    pre: 'IMAGINA SI…',
+    pre: 'Imagina Si…',
     lines: [
       '…tu plan de crecimiento, tu estructura legal y tu tecnología fueran un solo diseño.',
       '…tu negocio te dijera qué está pasando mientras aún puedes cambiarlo.',
@@ -319,7 +232,7 @@ const CTA: Record<Lang, { pre: string; lines: string[]; closing: string; button:
     button: 'Empecemos la conversación',
   },
   pt: {
-    pre: 'IMAGINE SE…',
+    pre: 'Imagine Se…',
     lines: [
       '…seu plano de crescimento, sua estrutura legal e sua tecnologia fossem um único design.',
       '…seu negócio dissesse o que está acontecendo enquanto você ainda pode mudar.',
@@ -335,8 +248,11 @@ export function FinalCTA() {
   return (
     <section className="bg-background-dark py-28 md:py-36">
       <div className="mx-auto max-w-3xl px-6 text-center">
-        <motion.p {...fadeUp} className="mb-8 font-display text-2xl font-extrabold tracking-[0.25em] text-primary md:text-3xl">
-          {c.pre}
+        <motion.p {...fadeUp} className="mb-8 text-4xl font-extrabold tracking-tight leading-[1.05] md:text-5xl lg:text-6xl">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">
+            {c.pre.split(' ')[0]}
+          </span>{' '}
+          <span className="text-white">{c.pre.split(' ').slice(1).join(' ')}</span>
         </motion.p>
         <div className="space-y-4">
           {c.lines.map((l, i) => (
