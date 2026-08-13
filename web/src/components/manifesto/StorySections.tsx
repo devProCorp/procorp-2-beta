@@ -24,7 +24,7 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
     kicker: ['Why', ' we exist'],
     lines: [
       'To help you grow your productivity.',
-      'To connect your dots, watch and simulate your company or project as a system.',
+      'To "connect" your dots, then observe and simulate your company or project as a system.',
       'To design innovative business monitoring and legal solutions.',
     ],
   },
@@ -32,7 +32,7 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
     kicker: ['Por qué', ' existimos'],
     lines: [
       'Para ayudarte a crecer tu productividad.',
-      'Para conectar tus puntos, observar y simular tu empresa o proyecto como un sistema.',
+      'Para "conectar" tus puntos, y luego observar y simular tu empresa o proyecto como un sistema.',
       'Para diseñar soluciones innovadoras de monitoreo de negocios y soluciones legales.',
     ],
   },
@@ -40,7 +40,7 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
     kicker: ['Por que', ' existimos'],
     lines: [
       'Para ajudar sua produtividade a crescer.',
-      'Para conectar seus pontos, observar e simular sua empresa ou projeto como um sistema.',
+      'Para "conectar" seus pontos, e então observar e simular sua empresa ou projeto como um sistema.',
       'Para desenhar soluções inovadoras de monitoramento de negócios e soluções jurídicas.',
     ],
   },

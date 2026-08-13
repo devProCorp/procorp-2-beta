@@ -403,3 +403,76 @@ textarea:focus-visible {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+/* ECG de la banda Tiempo Real — línea y ondas siempre encendidas;
+   al latir, la onda crece 50% y vuelve a su tamaño */
+@keyframes ecg-wave-grow {
+  0%, 30%, 100% { transform: scale(1); }
+  10%, 20% { transform: scale(1.8); }
+}
+
+.ecg-wave-grow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ecg-wave-grow 4.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecg-wave-grow {
+    animation: none;
+  }
+}
+
+/* Etiquetas KPI que emergen con cada latido del pulso Tiempo Real.
+   Ciclo de 19.2s = 4 rondas de 3 posiciones; cada etiqueta aparece en una. */
+/* Visible únicamente mientras su onda está agrandada (ventana 2.5%–7.5% ≈ crecer→volver) */
+@keyframes kpi-beat {
+  0%, 2%, 7.5%, 100% { opacity: 0; transform: translate(-50%, 6px); }
+  3%, 5% { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.kpi-beat {
+  opacity: 0;
+  animation: kpi-beat 19.2s ease-out infinite;
+}
+
+/* Ondas del ECG grande — secuencia estricta por turno (25% del ciclo cada una):
+   onda → se funde en el orbe (solo orbe visible) → el orbe se funde de vuelta
+   en la onda (solo onda visible) → recién entonces le toca a la siguiente */
+@keyframes ecg-wave-morph {
+  0% { opacity: 0.35; }
+  6%, 14% { opacity: 0; }
+  22%, 100% { opacity: 0.35; }
+}
+
+.ecg-wave-morph {
+  opacity: 0.35;
+  animation: ecg-wave-morph 6.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecg-wave-morph {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
+/* El latido del ECG grande "muta" en un punto luminoso difuminado (como los nodos del hero):
+   la onda colapsa rápidamente en el orbe, exactamente sobre su posición */
+@keyframes sun-beat {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3); }
+  6%, 14% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  22%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.35); }
+}
+
+.sun-beat {
+  opacity: 0;
+  animation: sun-beat 6.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kpi-beat,
+  .sun-beat {
+    animation: none;
+    opacity: 0;
+  }
+}
