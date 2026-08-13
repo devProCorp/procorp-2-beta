@@ -67,7 +67,7 @@ export default function About() {
         <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {[
             { pre: t('about.who.title1'), accent: t('about.who.title2'), items: [t('about.who.1'), t('about.who.2'), t('about.who.3'), t('about.who.4')] },
-            { pre: t('about.commit.title1'), accent: t('about.commit.title2'), items: [t('about.commit.1'), t('about.commit.2'), t('about.commit.3')] },
+            { pre: t('about.commit.title1'), accent: t('about.commit.title2'), items: [t('about.commit.1'), t('about.commit.2'), t('about.commit.3'), t('about.commit.4')] },
           ].map((block) => (
             <div key={block.accent} className="glass-panel rounded-[2rem] border border-surface-border/60 p-10 flex flex-col">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.05] mb-8">

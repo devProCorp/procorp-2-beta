@@ -648,6 +648,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.commit.1': { en: 'We engineer businesses for what they could become.', es: 'Ingeniamos negocios por lo que podrían llegar a ser.', pt: 'Engenhamos negócios pelo que eles poderiam se tornar.' },
     'about.commit.2': { en: 'We make complexity understandable and possibilities visible — while there is still time to act.', es: 'Hacemos la complejidad comprensible y las posibilidades visibles — mientras aún hay tiempo de actuar.', pt: 'Tornamos a complexidade compreensível e as possibilidades visíveis — enquanto ainda há tempo de agir.' },
     'about.commit.3': { en: 'Our value is not in any single discipline. It is in connecting them.', es: 'Nuestro valor no está en ninguna disciplina individual. Está en conectarlas.', pt: 'Nosso valor não está em nenhuma disciplina isolada. Está em conectá-las.' },
+    'about.commit.4': { en: 'Our sense of urgency and responsiveness is a solid asset for your company.', es: 'Nuestro sentido de urgencia y capacidad de respuesta es un activo sólido para tu empresa.', pt: 'Nosso senso de urgência e capacidade de resposta é um ativo sólido para a sua empresa.' },
     'about.mission.title1': { en: 'What would ', es: '¿Qué resolvería la ', pt: 'O que a ' },
     'about.mission.title2': { en: 'Business Engineering', es: 'Ingeniería de Negocios', pt: 'Engenharia de Negócios' },
     'about.mission.title3': { en: ' solve for you?', es: ' para ti?', pt: ' resolveria para você?' },

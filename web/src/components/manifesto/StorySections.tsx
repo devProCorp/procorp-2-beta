@@ -25,7 +25,7 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
     lines: [
       'To help you grow your productivity.',
       'To connect your dots, watch and simulate your company or project as a system.',
-      'To design monitoring and legal solutions.',
+      'To design innovative business monitoring and legal solutions.',
     ],
   },
   es: {
@@ -33,7 +33,7 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
     lines: [
       'Para ayudarte a crecer tu productividad.',
       'Para conectar tus puntos, observar y simular tu empresa o proyecto como un sistema.',
-      'Para diseñar soluciones de monitoreo y soluciones legales.',
+      'Para diseñar soluciones innovadoras de monitoreo de negocios y soluciones legales.',
     ],
   },
   pt: {
@@ -41,7 +41,7 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[] }> = {
     lines: [
       'Para ajudar sua produtividade a crescer.',
       'Para conectar seus pontos, observar e simular sua empresa ou projeto como um sistema.',
-      'Para desenhar soluções de monitoramento e soluções jurídicas.',
+      'Para desenhar soluções inovadoras de monitoramento de negócios e soluções jurídicas.',
     ],
   },
 };
