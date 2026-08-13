@@ -142,7 +142,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'lia.chat.lia3': {
         en: 'The Value Finding Cycle is already in motion: Understand → Model → Simulate → Engineer → Execute → Learn & Repeat — with Real Time monitoring running underneath the entire cycle. I\'ll have your architecture blueprint ready for review by next week.',
         es: 'El Ciclo de Descubrimiento de Valor ya está en marcha: Entender → Modelar → Simular → "Re-Engineer" → Ejecutar → Aprender y Repetir — con monitoreo en Tiempo Real corriendo bajo todo el ciclo. Tendré el plano de tu arquitectura listo para revisión la próxima semana.',
-        pt: 'O Ciclo de Descoberta de Valor já está em andamento: Entender → Modelar → Simular → Projetar → Executar → Aprender e Repetir — com monitoramento em Tempo Real sob todo o ciclo. Terei o plano da sua arquitetura pronto para revisão na próxima semana.'
+        pt: 'O Ciclo de Descoberta de Valor já está em andamento: Entender → Modelar → Simular → "Re-Engineer" → Executar → Aprender e Repetir — com monitoramento em Tempo Real sob todo o ciclo. Terei o plano da sua arquitetura pronto para revisão na próxima semana.'
     },
 
     // ── VisualDivider ──
@@ -297,8 +297,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
         es: 'Los ecosistemas de stakeholders operan en silos. Inversores, operadores y socios carecen de una superficie unificada para visibilidad en tiempo real — generando decisiones tardías, expectativas desalineadas y fricción en la cadena de valor.'
     },
     'svc.04.solution': {
-        en: 'We build orchestration layers — transparent stakeholder portals with live dashboards, scenario simulations, and collaborative interfaces. Not a marketplace, but a command center where every participant sees the same truth in real time.',
-        es: 'Construimos capas de orquestación — portales transparentes con dashboards en vivo, simulaciones de escenarios e interfaces colaborativas. No un marketplace, sino un centro de comando donde cada participante ve la misma verdad en tiempo real.'
+        en: 'We build shared Business Cockpits — transparent stakeholder portals with live indicators, scenario simulations, and collaborative interfaces. Not a marketplace, but a command center where every participant sees the same truth in real time.',
+        es: 'Construimos Business Cockpits compartidos — portales transparentes con indicadores en vivo, simulaciones de escenarios e interfaces colaborativas. No un marketplace, sino un centro de comando donde cada participante ve la misma verdad en tiempo real.'
     },
     'svc.04.feat1.title': { en: 'Stakeholder Portals', es: 'Portales de Stakeholders' },
     'svc.04.feat1.desc': { en: 'Role-based interfaces that give each participant the right level of access, visibility, and control.', es: 'Interfaces basadas en roles que dan a cada participante el nivel adecuado de acceso, visibilidad y control.' },
@@ -326,8 +326,9 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     // ── Journal Page ──
     'journal.title': { en: 'Journal', es: 'Blog' },
     'journal.desc': {
-        en: 'Structured narratives on orchestration, platform architecture, and the engineering of momentum.',
-        es: 'Narrativas estructuradas sobre orquestación, arquitectura de plataforma y la ingeniería del impulso.'
+        en: 'Insight from a field where we practice Business Engineering every day — immigration, residence and cross-border life in Spain and Portugal.',
+        es: 'Conocimiento desde un campo donde practicamos la Ingeniería de Negocios cada día — migración, residencia y vida transfronteriza en España y Portugal.',
+        pt: 'Conhecimento de um campo onde praticamos a Engenharia de Negócios todos os dias — imigração, residência e vida entre fronteiras na Espanha e em Portugal.'
     },
     'journal.a1.title': { en: 'Why Automation Without Re-Engineering Is Inefficient', es: 'Por Qué la Automatización Sin Reingeniería Es Ineficiente' },
     'journal.a2.title': { en: 'The Exchange Platform: Orchestration, Not Marketplace', es: 'La Plataforma de Intercambio: Orquestación, No Marketplace' },
@@ -661,7 +662,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.who.1': { en: 'Leaders whose business has outgrown its own visibility.', es: 'Líderes cuyo negocio ha crecido más allá de su propia visibilidad.', pt: 'Líderes cujo negócio cresceu além da própria visibilidade.' },
     'about.who.2': { en: 'Companies where the information exists but the picture doesn\'t.', es: 'Empresas donde la información existe pero el panorama no.', pt: 'Empresas onde a informação existe, mas o panorama não.' },
     'about.who.3': { en: 'Owners of complex assets that deserve better decisions.', es: 'Dueños de activos complejos que merecen mejores decisiones.', pt: 'Donos de ativos complexos que merecem decisões melhores.' },
-    'about.who.4': { en: 'Entrepreneurs and people in search for innovative ways to invest.', es: 'Emprendedores y personas en búsqueda de formas innovadoras de invertir.', pt: 'Empreendedores e pessoas em busca de formas inovadoras de investir.' },
+    'about.who.4': { en: 'Entrepreneurs and investors who want new ventures engineered — and simulated — before they commit.', es: 'Emprendedores e inversionistas que quieren sus nuevos proyectos diseñados — y simulados — antes de comprometerse.', pt: 'Empreendedores e investidores que querem seus novos projetos projetados — e simulados — antes de se comprometer.' },
     'about.commit.title1': { en: 'Our ', es: 'Nuestro ', pt: 'Nosso ' },
     'about.commit.title2': { en: 'commitment', es: 'compromiso', pt: 'compromisso' },
     'about.commit.1': { en: 'We engineer businesses for what they could become.', es: 'Ingeniamos negocios por lo que podrían llegar a ser.', pt: 'Engenhamos negócios pelo que eles poderiam se tornar.' },
@@ -691,7 +692,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.step2.desc': { en: 'Make how the business works visible — a living model of how it behaves.', es: 'Hacer visible cómo funciona el negocio — un modelo vivo de cómo se comporta.', pt: 'Tornar visível como o negócio funciona — um modelo vivo de como ele se comporta.' },
     'about.step3': { en: 'Simulate', es: 'Simular', pt: 'Simular' },
     'about.step3.desc': { en: 'Test what could happen before deciding what should.', es: 'Probar lo que podría pasar antes de decidir lo que debe pasar.', pt: 'Testar o que poderia acontecer antes de decidir o que deve acontecer.' },
-    'about.step4': { en: 'Engineer', es: '"Re-Engineer"', pt: 'Projetar' },
+    'about.step4': { en: 'Engineer', es: '"Re-Engineer"', pt: '"Re-Engineer"' },
     'about.step4.desc': { en: 'Challenge what is. Design what could be.', es: 'Cuestionar lo que es. Diseñar lo que podría ser.', pt: 'Desafiar o que é. Projetar o que poderia ser.' },
     'about.step5': { en: 'Execute', es: 'Ejecutar', pt: 'Executar' },
     'about.step5.desc': { en: 'Turn the better design into working reality — build, integrate and automate, applying AI and technology where they create real leverage.', es: 'Convertir el mejor diseño en realidad operativa: construir, integrar y automatizar, aplicando IA y tecnología donde crean verdadera palanca.', pt: 'Transformar o melhor design em realidade operacional: construir, integrar e automatizar, aplicando IA e tecnologia onde criam alavancagem real.' },
@@ -712,7 +713,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'contact.badge': { en: 'Technology enabling business growth', es: 'Tecnología que habilita el crecimiento del negocio', pt: 'Tecnologia que habilita o crescimento do negócio' },
     'contact.title1': { en: 'Start your transformation towards an', es: 'Inicie su transformación hacia un', pt: 'Comece sua transformação rumo a um' },
     'contact.title2': { en: 'automated operating model', es: 'modelo operativo automatizado', pt: 'modelo operacional automatizado' },
-    'contact.desc2': { en: 'Connect with our solution architects to implement BPA (Business Process Automation) strategies. We optimize workflows through intelligent orchestration.', es: 'Conecte con nuestros arquitectos de soluciones para implementar estrategias de BPA (Business Process Automation). Optimizamos flujos de trabajo mediante orquestación inteligente.', pt: 'Conecte-se com nossos arquitetos de soluções para implementar estratégias de BPA (Business Process Automation). Otimizamos fluxos de trabalho por meio de orquestração inteligente.' },
+    'contact.desc2': { en: 'Connect with our solution architects to implement BPA (Business Process Automation) strategies. We optimize workflows through intelligent automation and real-time monitoring.', es: 'Conecte con nuestros arquitectos de soluciones para implementar estrategias de BPA (Business Process Automation). Optimizamos flujos de trabajo mediante automatización inteligente y monitoreo en tiempo real.', pt: 'Conecte-se com nossos arquitetos de soluções para implementar estratégias de BPA (Business Process Automation). Otimizamos fluxos de trabalho por meio de automação inteligente e monitoramento em tempo real.' },
     'contact.name': { en: 'Full Name', es: 'Nombre Completo', pt: 'Nome Completo' },
     'contact.name.ph': { en: 'e.g. Ana Garcia', es: 'Ej. Ana García', pt: 'ex.: Ana Garcia' },
     'contact.org': { en: 'Organization', es: 'Organización', pt: 'Organização' },
@@ -741,7 +742,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'contact.level.3': { en: 'Advanced (Integrated systems)', es: 'Avanzado (Sistemas integrados)', pt: 'Avançado (Sistemas integrados)' },
     'contact.level.4': { en: 'Optimized (Intelligent automation)', es: 'Optimizado (Automatización inteligente)', pt: 'Otimizado (Automação inteligente)' },
     'contact.details': { en: 'Project Details', es: 'Detalles del Proyecto', pt: 'Detalhes do Projeto' },
-    'contact.details.ph': { en: 'Describe your automation and orchestration objectives...', es: 'Describa sus objetivos de automatización y orquestación...', pt: 'Descreva seus objetivos de automação e orquestração...' },
+    'contact.details.ph': { en: 'Describe your business, your goals, and what you would want your Business Cockpit to show...', es: 'Describa su negocio, sus objetivos y qué querría ver en su Business Cockpit...', pt: 'Descreva seu negócio, seus objetivos e o que gostaria de ver no seu Business Cockpit...' },
     'contact.privacy': { en: 'I have read and accept the', es: 'He leído y acepto la', pt: 'Li e aceito a' },
     'contact.privacy.link': { en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' },
     'contact.privacy.auth': { en: '. I authorize the analysis of my data for technology architecture proposals.', es: '. Autorizo el análisis de mis datos para propuestas de arquitectura tecnológica.', pt: '. Autorizo a análise dos meus dados para propostas de arquitetura tecnológica.' },
