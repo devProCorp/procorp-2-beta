@@ -642,7 +642,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.who.1': { en: 'Leaders whose business has outgrown its own visibility.', es: 'Líderes cuyo negocio ha crecido más allá de su propia visibilidad.', pt: 'Líderes cujo negócio cresceu além da própria visibilidade.' },
     'about.who.2': { en: 'Companies where the information exists but the picture doesn\'t.', es: 'Empresas donde la información existe pero el panorama no.', pt: 'Empresas onde a informação existe, mas o panorama não.' },
     'about.who.3': { en: 'Owners of complex assets that deserve better decisions.', es: 'Dueños de activos complejos que merecen mejores decisiones.', pt: 'Donos de ativos complexos que merecem decisões melhores.' },
-    'about.who.4': { en: 'Anyone who suspects their business could be more than it is — and wants to see it before betting on it.', es: 'Cualquiera que sospeche que su negocio podría ser más de lo que es — y quiera verlo antes de apostar por él.', pt: 'Qualquer um que suspeite que seu negócio poderia ser mais do que é — e queira vê-lo antes de apostar nele.' },
+    'about.who.4': { en: 'Entrepreneurs and people in search for innovative ways to invest.', es: 'Emprendedores y personas en búsqueda de formas innovadoras de invertir.', pt: 'Empreendedores e pessoas em busca de formas inovadoras de investir.' },
     'about.commit.title1': { en: 'Our ', es: 'Nuestro ', pt: 'Nosso ' },
     'about.commit.title2': { en: 'commitment', es: 'compromiso', pt: 'compromisso' },
     'about.commit.1': { en: 'We engineer businesses for what they could become.', es: 'Ingeniamos negocios por lo que podrían llegar a ser.', pt: 'Engenhamos negócios pelo que eles poderiam se tornar.' },
