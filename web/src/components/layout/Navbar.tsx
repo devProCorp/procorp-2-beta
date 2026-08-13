@@ -8,6 +8,49 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
+// Bandera circular del país que representa cada idioma (ES → Colombia, PT → Brasil)
+const LangFlag = ({ lang }: { lang: string }) => {
+    if (lang === 'es') {
+        return (
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" aria-hidden="true">
+                <defs><clipPath id="flag-co"><circle cx="12" cy="12" r="12" /></clipPath></defs>
+                <g clipPath="url(#flag-co)">
+                    <rect width="24" height="12" fill="#FCD116" />
+                    <rect y="12" width="24" height="6" fill="#003893" />
+                    <rect y="18" width="24" height="6" fill="#CE1126" />
+                </g>
+            </svg>
+        );
+    }
+    if (lang === 'pt') {
+        return (
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" aria-hidden="true">
+                <defs><clipPath id="flag-br"><circle cx="12" cy="12" r="12" /></clipPath></defs>
+                <g clipPath="url(#flag-br)">
+                    <rect width="24" height="24" fill="#009C3B" />
+                    <path d="M12 3.5 20.5 12 12 20.5 3.5 12Z" fill="#FFDF00" />
+                    <circle cx="12" cy="12" r="4.2" fill="#002776" />
+                </g>
+            </svg>
+        );
+    }
+    return (
+        <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <defs><clipPath id="flag-us"><circle cx="12" cy="12" r="12" /></clipPath></defs>
+            <g clipPath="url(#flag-us)">
+                <rect width="24" height="24" fill="#fff" />
+                {[0, 2, 4, 6, 8, 10, 12].map((i) => (
+                    <rect key={i} y={i * (24 / 13)} width="24" height={24 / 13} fill="#B22234" />
+                ))}
+                <rect width="11" height={24 * (7 / 13)} fill="#3C3B6E" />
+                {[2, 5.5, 9].flatMap((cx) => [2, 5.5, 9].map((cy) => (
+                    <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="0.8" fill="#fff" />
+                )))}
+            </g>
+        </svg>
+    );
+};
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -73,8 +116,9 @@ const Navbar = () => {
                 <div className="flex items-center gap-4">
                     <button
                         onClick={toggleLang}
-                        className="text-[10px] font-bold uppercase tracking-[0.2em] border border-surface-border rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:border-primary/50 hover:bg-surface-dark transition-all"
+                        className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] border border-surface-border rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:border-primary/50 hover:bg-surface-dark transition-all"
                     >
+                        <LangFlag lang={lang} />
                         {lang.toUpperCase()}
                     </button>
                     <a
