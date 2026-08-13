@@ -57,7 +57,7 @@ export default function Studio() {
                 {t('studio.title1')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('studio.title2')}</span>
               </h1>
-              <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-xl border-l-4 border-primary pl-6">
+              <p className="whitespace-pre-line text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-xl border-l-4 border-primary pl-6">
                 {t('studio.desc2')}
               </p>
               <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-xl border-l-4 border-primary pl-6">
