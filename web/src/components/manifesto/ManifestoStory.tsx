@@ -322,6 +322,25 @@ export default function ManifestoStory() {
                         <span className="ml-4 hidden text-primary-light sm:inline">{`0${act + 1} / 05`}</span>
                       </>
                     )}
+                    {/* Paso manual de la presentación */}
+                    <span className="pointer-events-auto ml-4 inline-flex gap-1 align-middle">
+                      <button
+                        type="button"
+                        aria-label="Previous banner"
+                        onClick={(e) => { e.stopPropagation(); goTo((act + N_ACTS - 1) % N_ACTS); }}
+                        className="px-1.5 font-extrabold text-primary-light transition-colors hover:text-white"
+                      >
+                        {'<'}
+                      </button>
+                      <button
+                        type="button"
+                        aria-label="Next banner"
+                        onClick={(e) => { e.stopPropagation(); goTo((act + 1) % N_ACTS); }}
+                        className="px-1.5 font-extrabold text-primary-light transition-colors hover:text-white"
+                      >
+                        {'>'}
+                      </button>
+                    </span>
                   </motion.p>
                 );
               })()}

@@ -13,6 +13,18 @@ const FEEDER_NAMES: Record<string, string[]> = {
 // Etiqueta del contador de corridas Monte Carlo (acto de simulación)
 const SIM_LABEL: Record<string, string> = { en: 'RUN', es: 'SIMULACIÓN', pt: 'SIMULAÇÃO' };
 
+// Leyenda del reloj de 36 semanas (acto 2)
+const WEEKS_LABEL: Record<string, string> = { en: 'WEEKS', es: 'SEMANAS', pt: 'SEMANAS' };
+const WEEK_WORD: Record<string, string> = { en: 'Week', es: 'Semana', pt: 'Semana' };
+
+// Números romanos para la esfera del reloj (1..36)
+const roman = (n: number): string => {
+  const map: [number, string][] = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+  let out = '';
+  for (const [v, s] of map) while (n >= v) { out += s; n -= v; }
+  return out;
+};
+
 // Procesos del negocio para el mapa mental del acto 3
 const PROCESS_NAMES: Record<string, string[]> = {
   en: ['SALES', 'MARKETING', 'BILLING', 'HIRING', 'LOGISTICS', 'PROCUREMENT', 'CUSTOMER SERVICE', 'FINANCE', 'COMPLIANCE', 'REPORTING', 'QUALITY', 'ONBOARDING'],
@@ -57,6 +69,10 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
   procRef.current = PROCESS_NAMES[lang] ?? PROCESS_NAMES.en;
   const simRef = useRef(SIM_LABEL.en);
   simRef.current = SIM_LABEL[lang] ?? SIM_LABEL.en;
+  const wkRef = useRef(WEEKS_LABEL.en);
+  wkRef.current = WEEKS_LABEL[lang] ?? WEEKS_LABEL.en;
+  const wkWordRef = useRef(WEEK_WORD.en);
+  wkWordRef.current = WEEK_WORD[lang] ?? WEEK_WORD.en;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -112,6 +128,7 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
     // (parte del organismo) y al ser absorbidos la ameba crece.
     const feeders: { x: number; y: number; tx: number; ty: number; sp: number; inside: boolean; name: string }[] = [];
     let memScale = 0.5; // la ameba nace a la mitad de su tamaño y crece al alimentarse
+    let memFill = 0.1; // cuerpo 90% transparente al nacer; cada reto absorbido lo vuelve 5 pts menos transparente
     let renewT = 0, impT = 0, breathP = 0, memT = 0;
     let last = performance.now();
     // Acto 2 — reloj subliminal: la manecilla barre y los indicadores pierden
@@ -223,9 +240,11 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
           ctx.quadraticCurveTo(memX[k], memY[k], (memX[k] + memX[nk]) / 2, (memY[k] + memY[nk]) / 2);
         }
         ctx.closePath();
+        // Cuerpo original (degradado rojo) al 70% de transparencia; cada reto
+        // absorbido lo vuelve 10 pts menos transparente — luego se ajusta
         const grad = ctx.createRadialGradient(cx, cy, Rm * 0.2, cx, cy, Rm * 1.3);
-        grad.addColorStop(0, `rgba(${cr},${cg},${cb},${0.07 * memA})`);
-        grad.addColorStop(1, `rgba(${cr},${cg},${cb},0)`);
+        grad.addColorStop(0, `rgba(${cr},${cg},${cb},${memFill * memA})`);
+        grad.addColorStop(1, `rgba(${cr},${cg},${cb},${memFill * 0.35 * memA})`);
         ctx.fillStyle = grad;
         ctx.fill();
         ctx.strokeStyle = `rgba(${cr},${cg},${cb},${0.42 * memA})`;
@@ -264,20 +283,44 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
         }
         prevHand = handAng;
 
-        // esfera y marcas
-        ctx.strokeStyle = `rgba(170,170,175,${0.20 * clockA})`;
-        ctx.lineWidth = 1.2;
+        // esfera y marcas: reloj de 36 semanas — bisel con numerales romanos por fuera
+        ctx.strokeStyle = `rgba(255,255,255,${0.7 * clockA})`;
+        ctx.lineWidth = 1.4;
         ctx.beginPath();
         ctx.arc(cx, cy, Rc, 0, Math.PI * 2);
         ctx.stroke();
-        for (let k = 0; k < 12; k++) {
-          const a = (k / 12) * Math.PI * 2;
-          ctx.strokeStyle = `rgba(170,170,175,${0.16 * clockA})`;
+        ctx.textBaseline = 'middle';
+        for (let k = 0; k < 36; k++) {
+          const a = -Math.PI / 2 + (k / 36) * Math.PI * 2;
+          const major = k % 4 === 0;
+          ctx.strokeStyle = `rgba(255,255,255,${0.7 * clockA})`;
+          ctx.lineWidth = major ? 1.6 : 1;
           ctx.beginPath();
-          ctx.moveTo(cx + Math.cos(a) * Rc * 0.94, cy + Math.sin(a) * Rc * 0.94);
+          ctx.moveTo(cx + Math.cos(a) * Rc * (major ? 0.92 : 0.95), cy + Math.sin(a) * Rc * (major ? 0.92 : 0.95));
           ctx.lineTo(cx + Math.cos(a) * Rc, cy + Math.sin(a) * Rc);
           ctx.stroke();
+          // etiqueta romana fuera del círculo, orientada radialmente (estilo bisel)
+          const week = k === 0 ? 36 : k;
+          const label = `${roman(week)} ${wkWordRef.current}`;
+          ctx.save();
+          ctx.translate(cx + Math.cos(a) * Rc * 1.045, cy + Math.sin(a) * Rc * 1.045);
+          if (Math.cos(a) < -0.001) {
+            ctx.rotate(a + Math.PI);
+            ctx.textAlign = 'right';
+          } else {
+            ctx.rotate(a);
+            ctx.textAlign = 'left';
+          }
+          ctx.font = `${major ? '700' : '400'} 9px system-ui, sans-serif`;
+          ctx.fillStyle = `rgba(255,255,255,${0.7 * clockA})`;
+          ctx.fillText(label, 0, 0);
+          ctx.restore();
         }
+        ctx.textAlign = 'center';
+        ctx.font = '700 9px system-ui, sans-serif';
+        ctx.fillStyle = `rgba(255,255,255,${0.7 * clockA})`;
+        ctx.fillText(wkRef.current, cx, cy + Rc * 0.4);
+        ctx.textBaseline = 'alphabetic';
 
         // indicadores: orbes de datos que aún importan… hasta que la manecilla los alcanza
         for (const ind of inds) {
@@ -857,9 +900,10 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
           const d = Math.hypot(dx, dy);
           const step = f.sp * dt;
           if (d < Math.max(step, 14)) {
-            // absorbido: el organismo crece
+            // absorbido: el organismo crece y su cuerpo se vuelve más denso
             feeders.splice(k, 1);
             memScale = Math.min(1.5, memScale + 0.09);
+            memFill = Math.min(0.8, memFill + 0.05);
             continue;
           }
           f.x += (dx / d) * step;
@@ -890,9 +934,10 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
           ctx.fillText(f.name, f.x, f.y - 24);
         }
       } else if (memA <= 0.02) {
-        // fuera del acto 1: la ameba renace pequeña para el próximo ciclo
+        // fuera del acto 1: la ameba renace pequeña y translúcida para el próximo ciclo
         feeders.length = 0;
         memScale = 0.5;
+        memFill = 0.1;
       }
 
       raf = requestAnimationFrame(draw);
