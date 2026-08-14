@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
-import type { WPCategory } from "@/lib/wordpress";
+import type { WPCategory } from "@/lib/wordpress-presentation";
 
 interface CategoryFilterProps {
   categories: WPCategory[];

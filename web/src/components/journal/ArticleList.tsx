@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { WPPost } from "@/lib/wordpress";
+import type { WPPost } from "@/lib/wordpress-presentation";
 import {
   getFeaturedImageUrl,
   getFeaturedImageAlt,
   getPostCategories,
   stripHtml,
   formatDate,
-} from "@/lib/wordpress";
+} from "@/lib/wordpress-presentation";
 
 interface ArticleListProps {
   posts: WPPost[];
