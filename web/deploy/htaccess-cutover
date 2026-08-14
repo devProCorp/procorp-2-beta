@@ -1,0 +1,231 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# CUTOVER: sitio estático nuevo en la raíz, WordPress intacto por detrás.
+#
+# Reglas de convivencia:
+#   · DirectoryIndex sirve index.html (sitio nuevo) antes que index.php (WP).
+#   · Los 166 artículos del blog redirigen 301 a /journal/<slug>/.
+#   · Todo lo que sea archivo o directorio real se sirve tal cual: las carpetas
+#     del sitio nuevo, /login/, /crm/, los micrositios y wp-content/uploads.
+#   · Lo que no exista en disco cae al bloque WordPress de abajo, que es lo que
+#     mantiene vivas las 48 páginas (golden-visa, nomada-digital…) en su URL.
+#
+# Los redirects usan mod_rewrite y van ANTES del bloque de WordPress a
+# propósito: así se aplican primero y WP no llega a capturarlos.
+#
+# Vuelta atrás: restaurar htaccess-public_html.bak del directorio de backup.
+# ─────────────────────────────────────────────────────────────────────────────
+
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ── Artículos del blog → journal del sitio nuevo ────────────────────────────
+RewriteRule ^acuerdos-entre-colombia-y-espana/?$ /journal/acuerdos-entre-colombia-y-espana/ [R=301,L]
+RewriteRule ^ahorro-de-horas-hombre-activo-clave-en-empresas/?$ /journal/ahorro-de-horas-hombre-activo-clave-en-empresas/ [R=301,L]
+RewriteRule ^antecedentes-penales-y-judiciales/?$ /journal/antecedentes-penales-y-judiciales/ [R=301,L]
+RewriteRule ^antonio-seguro-gana-presidencia-en-portugal/?$ /journal/antonio-seguro-gana-presidencia-en-portugal/ [R=301,L]
+RewriteRule ^apellidos-sefardies/?$ /journal/apellidos-sefardies/ [R=301,L]
+RewriteRule ^apostilla-de-la-haya/?$ /journal/apostilla-de-la-haya/ [R=301,L]
+RewriteRule ^avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/?$ /journal/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/ [R=301,L]
+RewriteRule ^becas-en-espana/?$ /journal/becas-en-espana/ [R=301,L]
+RewriteRule ^brexit-cambios-migracion-latinoamericanos-europeos/?$ /journal/brexit-cambios-migracion-latinoamericanos-europeos/ [R=301,L]
+RewriteRule ^cambio-drastico-en-politicas-migratorias-de-europa/?$ /journal/cambio-drastico-en-politicas-migratorias-de-europa/ [R=301,L]
+RewriteRule ^canada-congela-politica-migratoria-claves-alternativas/?$ /journal/canada-congela-politica-migratoria-claves-alternativas/ [R=301,L]
+RewriteRule ^carta-de-motivacion-para-una-beca/?$ /journal/carta-de-motivacion-para-una-beca/ [R=301,L]
+RewriteRule ^ccse/?$ /journal/ccse/ [R=301,L]
+RewriteRule ^ciudadania-espanola/?$ /journal/ciudadania-espanola/ [R=301,L]
+RewriteRule ^ciudadania-vaticana-nacionalidad-mas-exclusiva/?$ /journal/ciudadania-vaticana-nacionalidad-mas-exclusiva/ [R=301,L]
+RewriteRule ^ciudadania-y-nacionalidad/?$ /journal/ciudadania-y-nacionalidad/ [R=301,L]
+RewriteRule ^colombia-pais-seguro-union-europea-implicaciones-asilo/?$ /journal/colombia-pais-seguro-union-europea-implicaciones-asilo/ [R=301,L]
+RewriteRule ^colombianos-viajando-a-espana/?$ /journal/colombianos-viajando-a-espana/ [R=301,L]
+RewriteRule ^como-cambia-europa-ante-la-inmigracion-irregular/?$ /journal/como-cambia-europa-ante-la-inmigracion-irregular/ [R=301,L]
+RewriteRule ^comprar-vivienda-en-espana-siendo-extranjero-todo-lo-que-necesitas-saber/?$ /journal/comprar-vivienda-en-espana-siendo-extranjero-todo-lo-que-necesitas-saber/ [R=301,L]
+RewriteRule ^comunicado-pro-corp/?$ /journal/comunicado-pro-corp/ [R=301,L]
+RewriteRule ^comunicado-pro-corp-viajes-a-espana/?$ /journal/comunicado-pro-corp-viajes-a-espana/ [R=301,L]
+RewriteRule ^comunicado-solicitudes-nacionalidad-espanola/?$ /journal/comunicado-solicitudes-nacionalidad-espanola/ [R=301,L]
+RewriteRule ^concesiones-de-nacionalidad-espanola/?$ /journal/concesiones-de-nacionalidad-espanola/ [R=301,L]
+RewriteRule ^conservacion-nacionalidad-espanola-menores-opcion-extranjero/?$ /journal/conservacion-nacionalidad-espanola-menores-opcion-extranjero/ [R=301,L]
+RewriteRule ^consulado-firma-del-acta-notarial/?$ /journal/consulado-firma-del-acta-notarial/ [R=301,L]
+RewriteRule ^controversia-por-concesion-de-nacionalidades-en-espana/?$ /journal/controversia-por-concesion-de-nacionalidades-en-espana/ [R=301,L]
+RewriteRule ^controversia-sobre-la-ley-de-nietos-en-espana/?$ /journal/controversia-sobre-la-ley-de-nietos-en-espana/ [R=301,L]
+RewriteRule ^costo-de-vida-en-espana/?$ /journal/costo-de-vida-en-espana/ [R=301,L]
+RewriteRule ^costumbres-y-tradiciones-de-espana/?$ /journal/costumbres-y-tradiciones-de-espana/ [R=301,L]
+RewriteRule ^crecimiento-demografico-espana-2025/?$ /journal/crecimiento-demografico-espana-2025/ [R=301,L]
+RewriteRule ^crecimiento-sin-engordar-la-nomina/?$ /journal/crecimiento-sin-engordar-la-nomina/ [R=301,L]
+RewriteRule ^crisis-diplomatica-entre-espana-e-israel/?$ /journal/crisis-diplomatica-entre-espana-e-israel/ [R=301,L]
+RewriteRule ^crisis-diplomatica-espana-israel-gaza/?$ /journal/crisis-diplomatica-espana-israel-gaza/ [R=301,L]
+RewriteRule ^crisis-diplomatica-espana-israel-reconocimiento-palestina/?$ /journal/crisis-diplomatica-espana-israel-reconocimiento-palestina/ [R=301,L]
+RewriteRule ^crisis-migratoria-en-ceuta-reabre-debate-europeo/?$ /journal/crisis-migratoria-en-ceuta-reabre-debate-europeo/ [R=301,L]
+RewriteRule ^cultura-de-portugal/?$ /journal/cultura-de-portugal/ [R=301,L]
+RewriteRule ^cultura-judia/?$ /journal/cultura-judia/ [R=301,L]
+RewriteRule ^cv-europass/?$ /journal/cv-europass/ [R=301,L]
+RewriteRule ^decreto-18-de-marzo-2022/?$ /journal/decreto-18-de-marzo-2022/ [R=301,L]
+RewriteRule ^derogacion-nacionalidad-sefardi-portugal/?$ /journal/derogacion-nacionalidad-sefardi-portugal/ [R=301,L]
+RewriteRule ^desafios-y-reformas-migratorias-en-la-ue-2023/?$ /journal/desafios-y-reformas-migratorias-en-la-ue-2023/ [R=301,L]
+RewriteRule ^doble-nacionalidad/?$ /journal/doble-nacionalidad/ [R=301,L]
+RewriteRule ^doble-tributracion/?$ /journal/doble-tributracion/ [R=301,L]
+RewriteRule ^economia-de-espana/?$ /journal/economia-de-espana/ [R=301,L]
+RewriteRule ^economia-de-portugal/?$ /journal/economia-de-portugal/ [R=301,L]
+RewriteRule ^educacion-en-espana/?$ /journal/educacion-en-espana/ [R=301,L]
+RewriteRule ^el-eje-del-paseo-del-prado-recoletos/?$ /journal/el-eje-del-paseo-del-prado-recoletos/ [R=301,L]
+RewriteRule ^el-gobierno-de-espana-propone-transferir-competencias-en-inmigracion-y-extranjeria-a-cataluna/?$ /journal/el-gobierno-de-espana-propone-transferir-competencias-en-inmigracion-y-extranjeria-a-cataluna/ [R=301,L]
+RewriteRule ^elecciones-anticipadas-portugal-impacto-inmigracion-extranjeros/?$ /journal/elecciones-anticipadas-portugal-impacto-inmigracion-extranjeros/ [R=301,L]
+RewriteRule ^embargo-veto-sanciones-espana-contra-israel/?$ /journal/embargo-veto-sanciones-espana-contra-israel/ [R=301,L]
+RewriteRule ^emergencia-sanitaria-en-cruceros-retos-juridicos-y-salud-publica/?$ /journal/emergencia-sanitaria-en-cruceros-retos-juridicos-y-salud-publica/ [R=301,L]
+RewriteRule ^emigrar-a-espana-plan-migratorio-seguro/?$ /journal/emigrar-a-espana-plan-migratorio-seguro/ [R=301,L]
+RewriteRule ^empresas-espanolas/?$ /journal/empresas-espanolas/ [R=301,L]
+RewriteRule ^endurecimiento-migratorio-en-europa-politicas-y-tendencias/?$ /journal/endurecimiento-migratorio-en-europa-politicas-y-tendencias/ [R=301,L]
+RewriteRule ^eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/?$ /journal/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/ [R=301,L]
+RewriteRule ^escribir-una-carta-de-presentacion/?$ /journal/escribir-una-carta-de-presentacion/ [R=301,L]
+RewriteRule ^espana-2025-avances-en-politica-migratoria-para-latinos/?$ /journal/espana-2025-avances-en-politica-migratoria-para-latinos/ [R=301,L]
+RewriteRule ^espana-2026-oportunidad-de-inversion-inmobiliaria/?$ /journal/espana-2026-oportunidad-de-inversion-inmobiliaria/ [R=301,L]
+RewriteRule ^espana-anuncia-un-proceso-de-regularizacion-extraordinaria-para-mas-de-500-000-extranjeros/?$ /journal/espana-anuncia-un-proceso-de-regularizacion-extraordinaria-para-mas-de-500-000-extranjeros/ [R=301,L]
+RewriteRule ^espana-economia-lider-mundial-en-crecimiento-para-2025/?$ /journal/espana-economia-lider-mundial-en-crecimiento-para-2025/ [R=301,L]
+RewriteRule ^espana-extiende-la-cuarentena-obligatoria-para-viajeros-procedente-de-colombia-argentina-bolivia-y-brasil/?$ /journal/espana-extiende-la-cuarentena-obligatoria-para-viajeros-procedente-de-colombia-argentina-bolivia-y-brasil/ [R=301,L]
+RewriteRule ^espana-facilita-acceso-universal-a-la-sanidad-publica/?$ /journal/espana-facilita-acceso-universal-a-la-sanidad-publica/ [R=301,L]
+RewriteRule ^espana-levanta-restricciones-a-viajeros/?$ /journal/espana-levanta-restricciones-a-viajeros/ [R=301,L]
+RewriteRule ^espana-mejor-economia-desarrollada-2024/?$ /journal/espana-mejor-economia-desarrollada-2024/ [R=301,L]
+RewriteRule ^espana-ofrece-oportunidades-migratorias-atractivas/?$ /journal/espana-ofrece-oportunidades-migratorias-atractivas/ [R=301,L]
+RewriteRule ^espana-y-portugal-modelo-justo-de-la-economia-social/?$ /journal/espana-y-portugal-modelo-justo-de-la-economia-social/ [R=301,L]
+RewriteRule ^estado-de-alarma/?$ /journal/estado-de-alarma/ [R=301,L]
+RewriteRule ^estancamiento-en-expedientes-de-nacionalidad-por-ley-sefardi/?$ /journal/estancamiento-en-expedientes-de-nacionalidad-por-ley-sefardi/ [R=301,L]
+RewriteRule ^estudia-en-europa/?$ /journal/estudia-en-europa/ [R=301,L]
+RewriteRule ^estudiar-en-espana/?$ /journal/estudiar-en-espana/ [R=301,L]
+RewriteRule ^estudiar-portugues/?$ /journal/estudiar-portugues/ [R=301,L]
+RewriteRule ^etias-la-nueva-autorizacion-para-entrar-a-europa/?$ /journal/etias-la-nueva-autorizacion-para-entrar-a-europa/ [R=301,L]
+RewriteRule ^eures/?$ /journal/eures/ [R=301,L]
+RewriteRule ^fallo-estimatorio-nacionalidad-sefardi/?$ /journal/fallo-estimatorio-nacionalidad-sefardi/ [R=301,L]
+RewriteRule ^fin-tps-venezolanos-eeuu-opciones-migrar-espana/?$ /journal/fin-tps-venezolanos-eeuu-opciones-migrar-espana/ [R=301,L]
+RewriteRule ^firma-acta-de-notoriedad/?$ /journal/firma-acta-de-notoriedad/ [R=301,L]
+RewriteRule ^firma-acta-de-notoriedad-si-cuento-con-la-vacuna-contra-el-covid-19/?$ /journal/firma-acta-de-notoriedad-si-cuento-con-la-vacuna-contra-el-covid-19/ [R=301,L]
+RewriteRule ^firma-de-acta-de-notoriedad/?$ /journal/firma-de-acta-de-notoriedad/ [R=301,L]
+RewriteRule ^genealogia/?$ /journal/genealogia/ [R=301,L]
+RewriteRule ^giro-migratorio-europa-politica-migratoria-espana/?$ /journal/giro-migratorio-europa-politica-migratoria-espana/ [R=301,L]
+RewriteRule ^historia-de-portugal/?$ /journal/historia-de-portugal/ [R=301,L]
+RewriteRule ^idiomas-europeos/?$ /journal/idiomas-europeos/ [R=301,L]
+RewriteRule ^impacto-politico-de-la-ley-de-memoria-democratica/?$ /journal/impacto-politico-de-la-ley-de-memoria-democratica/ [R=301,L]
+RewriteRule ^impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/?$ /journal/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/ [R=301,L]
+RewriteRule ^impuestos-en-espana/?$ /journal/impuestos-en-espana/ [R=301,L]
+RewriteRule ^inmigracion-en-espana-impactos-y-nuevas-politicas/?$ /journal/inmigracion-en-espana-impactos-y-nuevas-politicas/ [R=301,L]
+RewriteRule ^inversion-inmobiliaria-espana-2025-oportunidad-euro-dolar/?$ /journal/inversion-inmobiliaria-espana-2025-oportunidad-euro-dolar/ [R=301,L]
+RewriteRule ^invertir-bienes-raices-espana-hipotecas-alquileres/?$ /journal/invertir-bienes-raices-espana-hipotecas-alquileres/ [R=301,L]
+RewriteRule ^invertir-mercado-inmobiliario-espana/?$ /journal/invertir-mercado-inmobiliario-espana/ [R=301,L]
+RewriteRule ^italia-rechaza-reforma-de-justicia-en-referendum-constitucional/?$ /journal/italia-rechaza-reforma-de-justicia-en-referendum-constitucional/ [R=301,L]
+RewriteRule ^la-nacionalizacion-de-futbolistas-en-copas-del-mundo/?$ /journal/la-nacionalizacion-de-futbolistas-en-copas-del-mundo/ [R=301,L]
+RewriteRule ^la-ue-endurece-su-politica-migratoria-con-nuevos-centros-de-detencion/?$ /journal/la-ue-endurece-su-politica-migratoria-con-nuevos-centros-de-detencion/ [R=301,L]
+RewriteRule ^lugares-para-visitar-en-espana/?$ /journal/lugares-para-visitar-en-espana/ [R=301,L]
+RewriteRule ^mercado-inmobiliario-espanol-inversion-rentable/?$ /journal/mercado-inmobiliario-espanol-inversion-rentable/ [R=301,L]
+RewriteRule ^nacionalidad-espanola-a-traves-de-apellidos/?$ /journal/nacionalidad-espanola-a-traves-de-apellidos/ [R=301,L]
+RewriteRule ^nacionalidad-espanola-ley-memoria-democratica-2025/?$ /journal/nacionalidad-espanola-ley-memoria-democratica-2025/ [R=301,L]
+RewriteRule ^nacionalidad-espanola-por-origen-sefardi-esperar-o-actuar-analisis-de-la-drastica-caida-en-resoluciones/?$ /journal/nacionalidad-espanola-por-origen-sefardi-esperar-o-actuar-analisis-de-la-drastica-caida-en-resoluciones/ [R=301,L]
+RewriteRule ^nacionalidad-portuguesa/?$ /journal/nacionalidad-portuguesa/ [R=301,L]
+RewriteRule ^nacionalidad-sefardi-en-portugal-enfrenta-retrasos-y-obstaculos/?$ /journal/nacionalidad-sefardi-en-portugal-enfrenta-retrasos-y-obstaculos/ [R=301,L]
+RewriteRule ^nacionalidad-sefardi-sin-certificado-fcje-sentencia-favorable/?$ /journal/nacionalidad-sefardi-sin-certificado-fcje-sentencia-favorable/ [R=301,L]
+RewriteRule ^nacionalidades-espanolas/?$ /journal/nacionalidades-espanolas/ [R=301,L]
+RewriteRule ^naturalizacion/?$ /journal/naturalizacion/ [R=301,L]
+RewriteRule ^noticia-16-marzo/?$ /journal/noticia-16-marzo/ [R=301,L]
+RewriteRule ^novedades/?$ /journal/novedades/ [R=301,L]
+RewriteRule ^novedades-ccse/?$ /journal/novedades-ccse/ [R=301,L]
+RewriteRule ^nuevas-politicas-de-inmigracion-en-la-union-europea/?$ /journal/nuevas-politicas-de-inmigracion-en-la-union-europea/ [R=301,L]
+RewriteRule ^ofertas-de-empleo-en-espana/?$ /journal/ofertas-de-empleo-en-espana/ [R=301,L]
+RewriteRule ^opciones-obtener-tu-nacionalidad-espanola/?$ /journal/opciones-obtener-tu-nacionalidad-espanola/ [R=301,L]
+RewriteRule ^panorama-elecciones-espana/?$ /journal/panorama-elecciones-espana/ [R=301,L]
+RewriteRule ^pasaporte-europeo/?$ /journal/pasaporte-europeo/ [R=301,L]
+RewriteRule ^permiso-de-trabajo-en-espana/?$ /journal/permiso-de-trabajo-en-espana/ [R=301,L]
+RewriteRule ^plan-de-choque/?$ /journal/plan-de-choque/ [R=301,L]
+RewriteRule ^plan-paz-donald-trump-conflicto-gaza-2025/?$ /journal/plan-paz-donald-trump-conflicto-gaza-2025/ [R=301,L]
+RewriteRule ^plan-paz-trump-gaza-respaldo-netanyahu/?$ /journal/plan-paz-trump-gaza-respaldo-netanyahu/ [R=301,L]
+RewriteRule ^plazo-para-aporte-documental/?$ /journal/plazo-para-aporte-documental/ [R=301,L]
+RewriteRule ^por-que-desde-este-ano-2026-habra-mas-demoras-en-los-procedimientos-judiciales-y-que-significa-el-nuevo-modelo-de-plazas-tras-la-aplicacion-de-la-llamada-ley-bolanos/?$ /journal/por-que-desde-este-ano-2026-habra-mas-demoras-en-los-procedimientos-judiciales-y-que-significa-el-nuevo-modelo-de-plazas-tras-la-aplicacion-de-la-llamada-ley-bolanos/ [R=301,L]
+RewriteRule ^portugal-elecciones-2025-politica-migratoria-cambio/?$ /journal/portugal-elecciones-2025-politica-migratoria-cambio/ [R=301,L]
+RewriteRule ^portugal-endurece-requisitos-nacionalidad-por-residencia/?$ /journal/portugal-endurece-requisitos-nacionalidad-por-residencia/ [R=301,L]
+RewriteRule ^portugal-intensifica-el-control-documental-en-procesos-por-origen-sefardi-tras-detectar-irregularidades-en-certificados/?$ /journal/portugal-intensifica-el-control-documental-en-procesos-por-origen-sefardi-tras-detectar-irregularidades-en-certificados/ [R=301,L]
+RewriteRule ^portugal-restringe-sanidad-inmigrantes-sin-residencia/?$ /journal/portugal-restringe-sanidad-inmigrantes-sin-residencia/ [R=301,L]
+RewriteRule ^pp-reformas-migracion-control-extranjeria/?$ /journal/pp-reformas-migracion-control-extranjeria/ [R=301,L]
+RewriteRule ^prioridad-nacional-en-espana-debate-y-desarrollo-normativo/?$ /journal/prioridad-nacional-en-espana-debate-y-desarrollo-normativo/ [R=301,L]
+RewriteRule ^pro-corp-en-el-world-law-congress/?$ /journal/pro-corp-en-el-world-law-congress/ [R=301,L]
+RewriteRule ^pruebas-de-admision/?$ /journal/pruebas-de-admision/ [R=301,L]
+RewriteRule ^que-debo-saber-sobre-el-tramite-de-nacionalidad-sefardi-por-portugal/?$ /journal/que-debo-saber-sobre-el-tramite-de-nacionalidad-sefardi-por-portugal/ [R=301,L]
+RewriteRule ^que-es-el-empadronamiento/?$ /journal/que-es-el-empadronamiento/ [R=301,L]
+RewriteRule ^que-hacer-en-lisboa/?$ /journal/que-hacer-en-lisboa/ [R=301,L]
+RewriteRule ^record-nacionalizaciones-espana-venezuela-colombia-marruecos/?$ /journal/record-nacionalizaciones-espana-venezuela-colombia-marruecos/ [R=301,L]
+RewriteRule ^reforma-de-ciudadania-italiana-por-descendencia/?$ /journal/reforma-de-ciudadania-italiana-por-descendencia/ [R=301,L]
+RewriteRule ^reforma-de-la-ley-de-nacionalidad-en-portugal/?$ /journal/reforma-de-la-ley-de-nacionalidad-en-portugal/ [R=301,L]
+RewriteRule ^reforma-extranjeria-espana-2025/?$ /journal/reforma-extranjeria-espana-2025/ [R=301,L]
+RewriteRule ^reforma-extranjeria-espana-2025-para-iberoamericanos/?$ /journal/reforma-extranjeria-espana-2025-para-iberoamericanos/ [R=301,L]
+RewriteRule ^reforma-nacionalidad-italiana-nietos-2025/?$ /journal/reforma-nacionalidad-italiana-nietos-2025/ [R=301,L]
+RewriteRule ^regularizacion-de-migrantes-en-espana-impacta-europa/?$ /journal/regularizacion-de-migrantes-en-espana-impacta-europa/ [R=301,L]
+RewriteRule ^regularizacion-extraordinaria-de-inmigrantes-en-espana/?$ /journal/regularizacion-extraordinaria-de-inmigrantes-en-espana/ [R=301,L]
+RewriteRule ^regularizacion-extraordinaria-de-inmigrantes-en-espana-2026/?$ /journal/regularizacion-extraordinaria-de-inmigrantes-en-espana-2026/ [R=301,L]
+RewriteRule ^regularizacion-extraordinaria-en-espana-implicaciones-y-debate/?$ /journal/regularizacion-extraordinaria-en-espana-implicaciones-y-debate/ [R=301,L]
+RewriteRule ^relaciones-complejas-entre-espana-y-marruecos/?$ /journal/relaciones-complejas-entre-espana-y-marruecos/ [R=301,L]
+RewriteRule ^residencia-en-espana-no-lucrativa-vs-nomada-digital/?$ /journal/residencia-en-espana-no-lucrativa-vs-nomada-digital/ [R=301,L]
+RewriteRule ^residencia-fiscal-el-caso-shakira-en-espana/?$ /journal/residencia-fiscal-el-caso-shakira-en-espana/ [R=301,L]
+RewriteRule ^residencia-no-lucrativa-espana-nacionalidad/?$ /journal/residencia-no-lucrativa-espana-nacionalidad/ [R=301,L]
+RewriteRule ^residencia-rentistas-espana-vs-portugal-2/?$ /journal/residencia-rentistas-espana-vs-portugal-2/ [R=301,L]
+RewriteRule ^residencias-estudiantiles/?$ /journal/residencias-estudiantiles/ [R=301,L]
+RewriteRule ^salario-minimo-en-europa/?$ /journal/salario-minimo-en-europa/ [R=301,L]
+RewriteRule ^sefardi/?$ /journal/sefardi/ [R=301,L]
+RewriteRule ^seguridad-social-en-espana/?$ /journal/seguridad-social-en-espana/ [R=301,L]
+RewriteRule ^suiza-votara-limites-migratorios-con-enfoque-constitucional/?$ /journal/suiza-votara-limites-migratorios-con-enfoque-constitucional/ [R=301,L]
+RewriteRule ^suiza-y-europa-nuevas-restricciones-migratorias/?$ /journal/suiza-y-europa-nuevas-restricciones-migratorias/ [R=301,L]
+RewriteRule ^suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/?$ /journal/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/ [R=301,L]
+RewriteRule ^tipos-de-arbol-genealogico/?$ /journal/tipos-de-arbol-genealogico/ [R=301,L]
+RewriteRule ^tipos-de-nacionalidad/?$ /journal/tipos-de-nacionalidad/ [R=301,L]
+RewriteRule ^trabajar-en-europa/?$ /journal/trabajar-en-europa/ [R=301,L]
+RewriteRule ^trabajar-en-portugal/?$ /journal/trabajar-en-portugal/ [R=301,L]
+RewriteRule ^transformaciones-en-la-politica-migratoria-espanola/?$ /journal/transformaciones-en-la-politica-migratoria-espanola/ [R=301,L]
+RewriteRule ^tu-nacionalidad-espanola-en-pocos-meses-con-la-ley-de-memoria-democratica/?$ /journal/tu-nacionalidad-espanola-en-pocos-meses-con-la-ley-de-memoria-democratica/ [R=301,L]
+RewriteRule ^turismo-en-portugal/?$ /journal/turismo-en-portugal/ [R=301,L]
+RewriteRule ^ue-endurece-politica-migratoria-nuevo-reglamento-retornos/?$ /journal/ue-endurece-politica-migratoria-nuevo-reglamento-retornos/ [R=301,L]
+RewriteRule ^universidades-europeas/?$ /journal/universidades-europeas/ [R=301,L]
+RewriteRule ^viajar-por-europa/?$ /journal/viajar-por-europa/ [R=301,L]
+RewriteRule ^viajes-en-portugal/?$ /journal/viajes-en-portugal/ [R=301,L]
+RewriteRule ^visa-golden/?$ /journal/visa-golden/ [R=301,L]
+RewriteRule ^visado-nomada-digital-espana/?$ /journal/visado-nomada-digital-espana/ [R=301,L]
+RewriteRule ^vivir-en-espana/?$ /journal/vivir-en-espana/ [R=301,L]
+RewriteRule ^vivir-en-portugal/?$ /journal/vivir-en-portugal/ [R=301,L]
+RewriteRule ^zona-schengen/?$ /journal/zona-schengen/ [R=301,L]
+</IfModule>
+
+# BEGIN LSCACHE
+# END LSCACHE
+# BEGIN NON_LSCACHE
+# END NON_LSCACHE
+
+
+
+
+
+
+
+# BEGIN WordPress
+# Las directivas (líneas) entre «BEGIN WordPress» y «END WordPress» son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+# BEGIN LiteSpeed
+# Las directivas (líneas) entre «BEGIN LiteSpeed» y «END LiteSpeed» son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+<IfModule Litespeed>
+SetEnv noabort 1
+</IfModule>
+# END LiteSpeed
+# BEGIN ShortPixelWebp
+# Las directivas (líneas) entre «BEGIN ShortPixelWebp» y «END ShortPixelWebp» son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+
+# END ShortPixelWebp
