@@ -24,8 +24,8 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[]; mantra: str
     kicker: ['Why', ' we exist'],
     lines: [
       'Businesses are living systems. Understanding them changes how you lead them.',
-      'PRO CORP models how your business works, simulates what could happen next, and engineers what it could become — side by side with your management, challenging how things work today and designing solutions that are viable, permissible and executable.',
-      'We bring that understanding together in your Business Cockpit — where real-time information meets simulation, making the signals, scenarios and possibilities that matter visible while there is still time to act.',
+      'PRO CORP aims to model how your business works, simulates what could happen next, and engineers what it could become — side by side with your management, challenging how things work today and designing solutions that are viable, permissible and executable.',
+      'We bring that understanding together in your Business Cockpit — where real-time information meets simulation, making the signals, scenarios and possibilities that matter visible, while there is still time to act.',
     ],
     mantra: 'See what is. Imagine what could be. Engineer the difference.',
   },
@@ -33,8 +33,8 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[]; mantra: str
     kicker: ['Por qué', ' existimos'],
     lines: [
       'Los negocios son sistemas vivos. Entenderlos cambia la manera de liderarlos.',
-      'PRO CORP modela cómo funciona tu negocio, simula qué podría pasar después y diseña lo que podría llegar a ser — de la mano de tu dirección, cuestionando cómo funcionan las cosas hoy y creando soluciones viables, permisibles y ejecutables.',
-      'Reunimos todo ese entendimiento en tu Business Cockpit — donde la información en tiempo real se encuentra con la simulación, haciendo visibles las señales, los escenarios y las posibilidades que importan mientras aún hay tiempo de actuar.',
+      'PRO CORP busca modelar cómo funciona tu negocio, simula qué podría pasar después y diseña lo que podría llegar a ser — de la mano de tu dirección, cuestionando cómo funcionan las cosas hoy y creando soluciones viables, permisibles y ejecutables.',
+      'Reunimos todo ese entendimiento en tu Business Cockpit — donde la información en tiempo real se encuentra con la simulación, haciendo visibles las señales, los escenarios y las posibilidades que importan, mientras aún hay tiempo de actuar.',
     ],
     mantra: 'Ver lo que es. Imaginar lo que podría ser. "Engineer" la diferencia.',
   },
@@ -42,8 +42,8 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[]; mantra: str
     kicker: ['Por que', ' existimos'],
     lines: [
       'Negócios são sistemas vivos. Entendê-los muda a forma de liderá-los.',
-      'A PRO CORP modela como seu negócio funciona, simula o que pode acontecer e projeta o que ele poderia se tornar — lado a lado com a sua gestão, desafiando como as coisas funcionam hoje e criando soluções viáveis, permissíveis e executáveis.',
-      'Reunimos todo esse entendimento no seu Business Cockpit — onde a informação em tempo real se encontra com a simulação, tornando visíveis os sinais, os cenários e as possibilidades que importam enquanto ainda há tempo de agir.',
+      'A PRO CORP busca modelar como seu negócio funciona, simula o que pode acontecer e projeta o que ele poderia se tornar — lado a lado com a sua gestão, desafiando como as coisas funcionam hoje e criando soluções viáveis, permissíveis e executáveis.',
+      'Reunimos todo esse entendimento no seu Business Cockpit — onde a informação em tempo real se encontra com a simulação, tornando visíveis os sinais, os cenários e as possibilidades que importam, enquanto ainda há tempo de agir.',
     ],
     mantra: 'Ver o que é. Imaginar o que poderia ser. "Engineer" a diferença.',
   },
@@ -69,9 +69,11 @@ export function WhyWeExist() {
               transition={{ ...fadeUp.transition, delay: i * 0.12 }}
               className="max-w-4xl font-display text-lg font-medium leading-relaxed text-gray-100 md:text-2xl"
             >
-              {/* "Business Cockpit" se resalta como nombre propio del producto */}
-              {l.split(/(Business Cockpit)/).map((part, k) =>
+              {/* "Business Cockpit" en bicolor de marca; la frase del tiempo en negrita */}
+              {l.split(/(Business Cockpit|while there is still time to act|mientras aún hay tiempo de actuar|enquanto ainda há tempo de agir)/).map((part, k) =>
                 part === 'Business Cockpit' ? (
+                  <strong key={k} className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{part}</strong>
+                ) : part === 'while there is still time to act' || part === 'mientras aún hay tiempo de actuar' || part === 'enquanto ainda há tempo de agir' ? (
                   <strong key={k} className="font-bold text-white">{part}</strong>
                 ) : (
                   part
