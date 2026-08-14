@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getAllPostSlugs } from "@/lib/wordpress";
 
+// Required by `output: "export"`: metadata routes must be resolved at build time.
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://procorp.com";
   const now = new Date();

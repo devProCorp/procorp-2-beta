@@ -1,30 +1,17 @@
 import { Suspense } from "react";
 import { getPosts, getCategories } from "@/lib/wordpress";
 import JournalHeader from "@/components/journal/JournalHeader";
-import CategoryFilter from "@/components/journal/CategoryFilter";
-import ArticleList from "@/components/journal/ArticleList";
-import Pagination from "@/components/journal/Pagination";
+import JournalBrowser from "@/components/journal/JournalBrowser";
 import NewsletterSection from "@/components/journal/NewsletterSection";
 
-interface JournalPageProps {
-  searchParams: Promise<{ cat?: string; page?: string }>;
-}
-
-export default async function Journal({ searchParams }: JournalPageProps) {
-  const params = await searchParams;
-  const currentPage = Math.max(1, Number(params.page) || 1);
-
-  const categories = await getCategories();
-
-  const activeCategory = params.cat
-    ? categories.find((c) => c.slug === params.cat)
-    : undefined;
-
-  const { posts, totalPages } = await getPosts(
-    currentPage,
-    9,
-    activeCategory?.id
-  );
+// The static export cannot read `?cat=`/`?page=` at build time, so the page
+// ships the whole content-free index and JournalBrowser filters and paginates
+// it in the browser. Same URLs, same UI as the previous server-side version.
+export default async function Journal() {
+  const [categories, { posts }] = await Promise.all([
+    getCategories(),
+    getPosts(1, Number.MAX_SAFE_INTEGER),
+  ]);
 
   return (
     <main className="min-h-screen bg-background-dark pb-20">
@@ -32,13 +19,7 @@ export default async function Journal({ searchParams }: JournalPageProps) {
         <JournalHeader />
 
         <Suspense fallback={null}>
-          <CategoryFilter categories={categories} />
-        </Suspense>
-
-        <ArticleList posts={posts} />
-
-        <Suspense fallback={null}>
-          <Pagination currentPage={currentPage} totalPages={totalPages} />
+          <JournalBrowser posts={posts} categories={categories} />
         </Suspense>
 
         <NewsletterSection />
