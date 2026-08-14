@@ -626,7 +626,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.inv.cta': { en: 'Explore Opportunities', es: 'Explorar Oportunidades', pt: 'Explorar Oportunidades' },
 
     // Investment Process Steps
-    'studio.inv.process.label': { en: 'How to Invest', es: 'Cómo Invertir', pt: 'Como Investir' },
+    'studio.inv.process.label': { en: 'About Investing...', es: 'Sobre Invertir...', pt: 'Sobre Investir...' },
     'studio.inv.process.title': { en: 'Investment Process', es: 'Proceso de Inversión', pt: 'Processo de Investimento' },
     'studio.inv.step1.title': { en: 'Initial Consultation', es: 'Consulta Inicial', pt: 'Consulta Inicial' },
     'studio.inv.step1.desc': { en: 'We evaluate your investor profile, objectives, and risk appetite to identify optimal sectors.', es: 'Evaluamos tu perfil de inversionista, objetivos y apetito de riesgo para identificar los sectores óptimos.', pt: 'Avaliamos seu perfil de investidor, objetivos e apetite de risco para identificar os setores ideais.' },
