@@ -440,7 +440,7 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
           const ey = cy + Math.sin(a) * R1 * 0.8 * te;
 
           ctx.strokeStyle = `rgba(206,16,38,${0.55 * mindA * te})`;
-          ctx.lineWidth = 1.5;
+          ctx.lineWidth = 3;
           ctx.beginPath();
           ctx.moveTo(cx, cy);
           ctx.lineTo(ex, ey);
@@ -458,7 +458,7 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
             const kx = ex + Math.cos(ka) * R1 * 0.38 * ke;
             const ky = ey + Math.sin(ka) * R1 * 0.34 * ke;
             ctx.strokeStyle = `rgba(206,16,38,${0.4 * mindA * ke})`;
-            ctx.lineWidth = 1.1;
+            ctx.lineWidth = 2.2;
             ctx.beginPath();
             ctx.moveTo(ex, ey);
             ctx.lineTo(kx, ky);
@@ -784,11 +784,13 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
               ctx.stroke();
               continue;
             }
-            // mapa base: blanco, salvo las líneas entre dos nodos rojos
+            // mapa base: blanco, salvo las líneas entre dos nodos rojos.
+            // Arranca 50% atenuado y termina fuertemente conectado (ramp con cp)
             const isRed = tone[i] === 1 && tone[j] === 1;
             const col = isRed ? '206,16,38' : '225,228,235';
-            ctx.strokeStyle = `rgba(${col},${a * connW * fadeF})`;
-            ctx.lineWidth = 1;
+            const strength = 0.5 + 0.7 * cp;
+            ctx.strokeStyle = `rgba(${col},${clamp(a * strength, 0, 0.9) * connW * fadeF})`;
+            ctx.lineWidth = 1 + 0.5 * cp;
             ctx.beginPath();
             ctx.moveTo(pos[i * 2], pos[i * 2 + 1]);
             ctx.lineTo(pos[j * 2], pos[j * 2 + 1]);

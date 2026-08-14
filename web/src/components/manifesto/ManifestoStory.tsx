@@ -178,8 +178,8 @@ const COPY: Record<Lang, {
 };
 
 // Cadencia por banner: slogan → +3s explicación → +3s cita → +8s cambio
-const SUB_DELAY = 3;
-const QUOTE_DELAY = 6;
+const SUB_DELAY = 4;
+const QUOTE_DELAY = 8;
 const HOLD_AFTER_LAST = 8;
 const N_ACTS = 6;
 // Estado del canvas por acto: vivo · congelado/barrido · bifurcación ·

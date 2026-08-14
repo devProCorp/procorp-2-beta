@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Interruptor "Rolling" (esquina superior derecha de HOME, solo escritorio):
- * ON → la página avanza sección a sección (CSS scroll-snap);
- * OFF (default) → landing de scroll continuo estándar.
+ * Interruptor "No Rolling" (esquina superior derecha de HOME, solo escritorio):
+ * ON (default) → la página avanza sección a sección (CSS scroll-snap);
+ * OFF → landing de scroll continuo estándar.
  * La clase se limpia al salir de HOME.
  */
 export default function RollingToggle() {
-  const [on, setOn] = useState(false);
+  const [on, setOn] = useState(true);
 
   useEffect(() => {
     document.documentElement.classList.toggle('snap-home', on);
