@@ -503,3 +503,27 @@ textarea:focus-visible {
     scroll-snap-align: end;
   }
 }
+
+/* Barra de scroll horizontal del filtro de categorías del blog:
+   delgada y en rojo de marca (la clase existía en el markup sin definir) */
+.hide-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(206, 16, 38, 0.45) transparent;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hide-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(206, 16, 38, 0.45);
+  border-radius: 3px;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(206, 16, 38, 0.75);
+}

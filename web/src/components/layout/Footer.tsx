@@ -31,9 +31,15 @@ const offices = [
 ];
 
 const contactLines = [
-    { labelKey: 'footer.office.contact.label', number: '+57 300 929 2911', href: 'https://wa.me/573009292911' },
-    { labelKey: 'footer.office.contact.wa.spain', number: '+57 311 517 8256', href: 'https://wa.me/573115178256' },
-    { labelKey: 'footer.office.contact.wa.portugal', number: '+57 311 516 3806', href: 'https://wa.me/573115163806' },
+    { labelKey: 'footer.office.contact.label', numbers: [{ number: '+57 318 991 5558', href: 'https://wa.me/573189915558' }] },
+    {
+        labelKey: 'footer.office.contact.wa.spain',
+        numbers: [
+            { number: '+57 311 517 8256', href: 'https://wa.me/573115178256' },
+            { number: '+57 311 516 1285', href: 'https://wa.me/573115161285' },
+        ],
+    },
+    { labelKey: 'footer.office.contact.wa.portugal', numbers: [{ number: '+57 311 516 3806', href: 'https://wa.me/573115163806' }] },
 ];
 
 const Footer = () => {
@@ -121,16 +127,22 @@ const Footer = () => {
                                     <p className="text-white text-sm font-semibold leading-tight mb-1.5">{t('footer.office.contact')}</p>
                                     <div className="flex flex-col gap-1">
                                         {contactLines.map((line) => (
-                                            <a
-                                                key={line.labelKey}
-                                                href={line.href}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="group/line flex items-baseline gap-2 text-xs"
-                                            >
-                                                <span className="text-secondary group-hover/line:text-primary transition-colors">{t(line.labelKey)}</span>
-                                                <span className="text-white font-medium whitespace-nowrap group-hover/line:text-primary transition-colors">{line.number}</span>
-                                            </a>
+                                            <div key={line.labelKey} className="flex flex-wrap items-baseline gap-2 text-xs">
+                                                <span className="text-secondary">{t(line.labelKey)}</span>
+                                                {line.numbers.map((n, i) => (
+                                                    <span key={n.number} className="whitespace-nowrap">
+                                                        {i > 0 && <span className="mr-2 text-secondary">/</span>}
+                                                        <a
+                                                            href={n.href}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-white font-medium transition-colors hover:text-primary"
+                                                        >
+                                                            {n.number}
+                                                        </a>
+                                                    </span>
+                                                ))}
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
