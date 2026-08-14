@@ -577,7 +577,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.sim.errorrate': { en: 'Error Rate', es: 'Tasa de Error', pt: 'Taxa de Erro' },
     'studio.sim.projection': { en: '12-Month Scenario Projection', es: 'Proyección del Escenario a 12 Meses', pt: 'Projeção do Cenário em 12 Meses' },
     'studio.sim.band': { en: 'P10–P90 range', es: 'Rango P10–P90', pt: 'Faixa P10–P90' },
-    'studio.inv.projects.title': { en: 'Some of our projects', es: 'Algunos de nuestros proyectos', pt: 'Alguns dos nossos projetos' },
+    'studio.inv.projects.title': { en: 'Some projects...', es: 'Algunos proyectos...', pt: 'Alguns projetos...' },
     'studio.sim.total': { en: 'Total Operational Efficiency', es: 'Eficiencia Operativa Total', pt: 'Eficiência Operacional Total' },
     'studio.sim.cycle': { en: 'Cycle Time', es: 'Tiempo de Ciclo', pt: 'Tempo de Ciclo' },
     'studio.sim.opex': { en: 'Monthly OPEX Savings', es: 'Ahorro OPEX Mensual', pt: 'Economia Mensal de OPEX' },

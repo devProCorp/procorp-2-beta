@@ -167,8 +167,6 @@ const BELIEFS: Record<Lang, { kicker: string; items: string[] }> = {
       'Technology should serve the business — not define it.',
       'AI should accelerate intelligence, not complexity.',
       'Speed creates value when it accelerates learning.',
-      'The best strategy is the one that can actually be executed.',
-      'Better businesses can be engineered.',
     ],
   },
   es: {
@@ -180,8 +178,6 @@ const BELIEFS: Record<Lang, { kicker: string; items: string[] }> = {
       'La tecnología debe servir al negocio — no definirlo.',
       'La IA debe acelerar la inteligencia, no la complejidad.',
       'La velocidad crea valor cuando acelera el aprendizaje.',
-      'La mejor estrategia es la que realmente puede ejecutarse.',
-      'Los mejores negocios pueden ingenierizarse.',
     ],
   },
   pt: {
@@ -193,8 +189,6 @@ const BELIEFS: Record<Lang, { kicker: string; items: string[] }> = {
       'A tecnologia deve servir ao negócio — não defini-lo.',
       'A IA deve acelerar a inteligência, não a complexidade.',
       'A velocidade cria valor quando acelera o aprendizado.',
-      'A melhor estratégia é a que realmente pode ser executada.',
-      'Negócios melhores podem ser projetados.',
     ],
   },
 };
