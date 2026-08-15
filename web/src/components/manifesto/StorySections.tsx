@@ -87,7 +87,14 @@ export function WhyWeExist() {
           transition={{ ...fadeUp.transition, delay: 0.45 }}
           className="mt-12 font-display text-xl font-bold leading-snug text-white md:text-3xl"
         >
-          {c.mantra}
+          {/* El tramo final ("Engineer…") lleva el bicolor de marca */}
+          {c.mantra.split(/("Engineer" la diferencia\.|"Engineer" a diferença\.|Engineer the difference\.)/).map((part, k) =>
+            /Engineer/.test(part) ? (
+              <span key={k} className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{part}</span>
+            ) : (
+              part
+            )
+          )}
         </motion.p>
       </div>
     </section>
@@ -287,7 +294,7 @@ export function FinalCTA() {
               {/* "Business Cockpit" se resalta como nombre propio del producto */}
               {l.split(/(Business Cockpit)/).map((part, k) =>
                 part === 'Business Cockpit' ? (
-                  <strong key={k} className="font-bold not-italic text-white">{part}</strong>
+                  <strong key={k} className="font-bold not-italic text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{part}</strong>
                 ) : (
                   part
                 )
