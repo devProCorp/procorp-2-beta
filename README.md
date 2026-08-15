@@ -18,7 +18,7 @@ necesidad de ejecutar Node.js en el servidor.
 
 ## Requisitos locales
 
-- Node.js 18 o superior.
+- Node.js 20.9 o superior (Next 16 lo exige en su `engines`; con Node 18 el build falla).
 - Yarn 1.x.
 - Acceso al repositorio en GitHub.
 - Acceso SSH configurado con el alias `procorp-portal`.
@@ -165,6 +165,19 @@ El `.htaccess` de producción hace que Apache prefiera `index.html`, conserva la
 caída a WordPress para las páginas heredadas y redirige los artículos antiguos a
 `/journal/<slug>/`.
 
+> **Ese archivo es el punto único de fallo del sitio.** Contiene marcadores de
+> LiteSpeed Cache y ShortPixel: ambos plugins regeneran el `.htaccess` cuando
+> cambian su configuración, y al hacerlo se llevarían por delante los 166
+> redirects **sin dejar ningún error** — sólo tráfico muriendo en 404 hasta que
+> alguien lo note.
+>
+> Por eso en el servidor está en modo solo lectura (`chmod 444`). Si WordPress se
+> queja de que no puede escribirlo, es intencionado. Para permitírselo
+> temporalmente: `chmod 644`, y volver a `444` al terminar.
+>
+> `./scripts/check-produccion.sh` avisa si las reglas desaparecen. Conviene
+> ejecutarlo periódicamente, no sólo después de publicar.
+
 ### 3. Inspeccionar y respaldar el servidor
 
 Antes de sobrescribir archivos, verifica la identidad del servidor, el espacio,
@@ -180,7 +193,7 @@ ssh -o BatchMode=yes procorp-portal \
 
 Crea un identificador único y un snapshot completo de `public_html` antes de
 publicar. `cp -al` crea enlaces duros en el mismo disco: conserva el contenido
-anterior sin duplicar inicialmente los 43 GB del hosting.
+anterior sin duplicar inicialmente los 42 GB del hosting.
 
 ```bash
 PROCORP_BACKUP_ID="$(date +%Y%m%d-%H%M%S)"
@@ -281,15 +294,26 @@ los archivos presentes en el build; no elimina archivos remotos.
 
 ### 6. Verificación posterior
 
-Comprueba las rutas públicas principales:
+Ejecuta el chequeo automático, que cubre reglas, rutas, portales, redirects e
+indexación de una vez:
 
 ```bash
-curl -sSI https://www.pro-corp.net/
-curl -sSI https://www.pro-corp.net/about/
-curl -sSI https://www.pro-corp.net/projects/
-curl -sSI https://www.pro-corp.net/journal/
-curl -sSI https://www.pro-corp.net/login/
+cd web
+./scripts/check-produccion.sh
 ```
+
+> **Importante — no verifiques contra la URL pública.** El dominio está detrás de
+> Sucuri, que responde a `curl` con un `307` y un challenge de JavaScript **haga
+> lo que haga el servidor**. Un `curl -sSI https://www.pro-corp.net/` devuelve lo
+> mismo con el sitio sano que con el sitio caído, así que daría por buena una
+> publicación rota. Por eso el script comprueba contra el origen:
+>
+> ```bash
+> curl --resolve www.pro-corp.net:443:160.153.72.70 -k -sI https://www.pro-corp.net/
+> ```
+>
+> Una vez purgada la caché de Sucuri, la comprobación desde un navegador real sí
+> es válida: el challenge sólo afecta a clientes sin JavaScript.
 
 Confirma además por SSH que los archivos críticos continúan presentes:
 
