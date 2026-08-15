@@ -227,7 +227,53 @@ export default function ManifestoStory() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [act, setAct] = useState(0);
   const [reduced, setReduced] = useState(false);
+  const [sound, setSound] = useState(false);
+  const [inView, setInView] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const instRef = useRef(0);        // instancia de banner (crece en cada cambio de acto)
+  const playedInstRef = useRef(-1); // última instancia que ya sonó — no repetir al volver a scrollear
   const phase = useMotionValue(0);
+
+  // Si el hero sale de pantalla (skip, scroll, otra sección), el audio para al instante
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => setInView(e.isIntersecting && e.intersectionRatio > 0.3),
+      { threshold: [0, 0.3, 0.6] },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Cada cambio de acto es una instancia nueva de banner
+  useEffect(() => {
+    instRef.current += 1;
+  }, [act]);
+
+  // Voz en off (Sterling): arranca 0,5s después de que aparece cada banner.
+  // Requiere gesto del usuario (política de autoplay) → interruptor de sonido.
+  // Solo suena con el hero visible; al volver de un scroll no re-arranca a mitad de banner.
+  useEffect(() => {
+    if (reduced || !sound || !inView) return;
+    if (playedInstRef.current === instRef.current) return;
+    playedInstRef.current = instRef.current;
+    let cancelled = false;
+    const id = setTimeout(() => {
+      if (cancelled) return;
+      const a = new Audio(`/audio/manifesto/act${act + 1}.mp3`);
+      audioRef.current = a;
+      a.play().catch(() => {});
+    }, 500);
+    return () => {
+      cancelled = true;
+      clearTimeout(id);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, [act, sound, reduced, inView]);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -244,14 +290,28 @@ export default function ManifestoStory() {
     if (reduced) return;
     const cur = c.acts[act];
     const lastAt = cur.quote ? QUOTE_DELAY : cur.sub || act === N_ACTS - 1 ? SUB_DELAY : 0;
-    const id = setTimeout(() => {
+    const advance = () => {
       const next = (act + 1) % N_ACTS;
       setAct(next);
       if (next === 0) phase.set(0); // reinicio del ciclo: la red revive
       else animate(phase, ACT_PHASE[next], { duration: 1.4, ease: 'easeInOut' });
+    };
+    let onEnd: (() => void) | null = null;
+    const id = setTimeout(() => {
+      // si la voz en off sigue sonando, el banner espera a que termine
+      const a = audioRef.current;
+      if (sound && a && !a.paused && !a.ended) {
+        onEnd = advance;
+        a.addEventListener('ended', onEnd, { once: true });
+      } else {
+        advance();
+      }
     }, (lastAt + HOLD_AFTER_LAST) * 1000);
-    return () => clearTimeout(id);
-  }, [act, reduced, phase, c]);
+    return () => {
+      clearTimeout(id);
+      if (onEnd && audioRef.current) audioRef.current.removeEventListener('ended', onEnd);
+    };
+  }, [act, reduced, phase, c, sound]);
 
   const goTo = useCallback(
     (i: number) => {
@@ -273,7 +333,7 @@ export default function ManifestoStory() {
     return (
       <section className="relative flex min-h-[92svh] flex-col items-center justify-center overflow-hidden bg-background-dark px-6 text-center">
         <p className="mb-6 text-xs font-bold uppercase tracking-[0.4em] text-primary">{c.kicker}</p>
-        <h1 className="max-w-5xl font-condensed text-[3.15rem] font-semibold uppercase leading-[0.98] text-white md:text-[7rem]">{c.acts[5].main}</h1>
+        <h1 className="max-w-5xl font-condensed text-[2.5rem] font-semibold uppercase leading-[0.98] text-white md:text-[7rem]">{c.acts[5].main}</h1>
         <div className="mt-8 space-y-1 text-sm text-gray-400">
           {c.thesisLines.map((l) => (
             <p key={l}>{l}</p>
@@ -348,14 +408,28 @@ export default function ManifestoStory() {
           </div>
         </div>
 
-        {/* Skip */}
-        <button
-          type="button"
-          onClick={skip}
-          className="absolute right-6 top-20 z-20 rounded-lg border border-white/15 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-white/60 transition-colors hover:border-primary/60 hover:text-white md:right-12"
-        >
-          {c.skip} →
-        </button>
+        {/* Sonido + Skip */}
+        <div className="absolute right-6 top-20 z-20 flex items-center gap-2 md:right-12">
+          <button
+            type="button"
+            aria-pressed={sound}
+            aria-label={sound ? 'Voice over off' : 'Voice over on'}
+            onClick={() => setSound((v) => !v)}
+            className={`flex items-center justify-center rounded-lg border px-3 py-1.5 transition-colors ${sound
+                ? 'border-primary/60 text-primary-light'
+                : 'border-white/15 text-white/60 hover:border-primary/60 hover:text-white'
+              }`}
+          >
+            <span className="material-symbols-outlined text-[16px] leading-none">{sound ? 'volume_up' : 'volume_off'}</span>
+          </button>
+          <button
+            type="button"
+            onClick={skip}
+            className="rounded-lg border border-white/15 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.25em] text-white/60 transition-colors hover:border-primary/60 hover:text-white"
+          >
+            {c.skip} →
+          </button>
+        </div>
 
         {/* Banner: slogan → explicación → cita — click/tap: siguiente banner */}
         <div
@@ -376,7 +450,7 @@ export default function ManifestoStory() {
             >
               <h2
                 className={`font-condensed font-semibold uppercase leading-[0.98] tracking-tight text-white ${
-                  isThesis ? 'text-[3.15rem] md:text-[7rem]' : 'text-[2.6rem] md:text-[5.25rem]'
+                  isThesis ? 'text-[2.5rem] md:text-[7rem]' : 'text-[2rem] md:text-[5.25rem]'
                 }`}
               >
                 {renderMain(a.main, a.highlight)}
@@ -387,7 +461,7 @@ export default function ManifestoStory() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: SUB_DELAY, duration: 0.8 }}
-                  className="mx-auto mt-14 max-w-3xl text-lg text-gray-400 md:text-2xl"
+                  className="mx-auto mt-8 max-w-3xl text-base text-gray-400 md:mt-14 md:text-2xl"
                 >
                   {a.sub}
                 </motion.p>
@@ -398,7 +472,7 @@ export default function ManifestoStory() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: QUOTE_DELAY, duration: 0.8 }}
-                  className="ml-auto mt-16 max-w-3xl border-r-2 border-primary/70 pr-6 text-right text-base italic leading-relaxed text-gray-300 md:text-xl"
+                  className="ml-auto mt-8 max-w-3xl border-r-2 border-primary/70 pr-6 text-right text-sm italic leading-relaxed text-gray-300 md:mt-16 md:text-xl"
                 >
                   “{a.quote}”
                   <span className="mt-3 block text-xs font-bold not-italic uppercase tracking-[0.3em] text-gray-500 md:text-sm">
@@ -409,7 +483,7 @@ export default function ManifestoStory() {
 
               {isThesis && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: SUB_DELAY, duration: 0.9 }}>
-                  <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-2 text-base font-bold uppercase tracking-[0.2em] text-gray-200 md:text-xl">
+                  <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-bold uppercase tracking-[0.2em] text-gray-200 md:mt-10 md:gap-x-10 md:text-xl">
                     {c.thesisLines.map((l) => (
                       <span key={l}>{l}</span>
                     ))}

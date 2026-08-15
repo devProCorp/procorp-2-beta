@@ -74,11 +74,17 @@ const Navbar = () => {
         return () => { document.body.style.overflow = ''; };
     }, [isOpen]);
 
-    const navLinks = [
+    const linksBefore = [
         { name: t('nav.home'), href: '/' },
         { name: t('nav.about'), href: '/about' },
+    ];
+    // Categoría SOLUTIONS: agrupa los dos pilares
+    const solutionItems = [
         { name: t('nav.growth'), href: '/studio' },
         { name: t('nav.legal'), href: '/projects' },
+    ];
+    const linksAfter = [
+        { name: t('nav.projects'), href: 'https://inversion.pro-corp.net', external: true },
         { name: t('nav.blog'), href: '/journal' },
         { name: t('nav.contact'), href: '/contact' },
     ];
@@ -98,7 +104,7 @@ const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <div className="hidden lg:flex items-center gap-8">
-                    {navLinks.map((link) => (
+                    {linksBefore.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
@@ -110,6 +116,59 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
+                    {/* SOLUTIONS: desplegable con los dos pilares */}
+                    <div className="relative group">
+                        <button
+                            type="button"
+                            className={`flex items-center gap-1 text-sm font-semibold uppercase tracking-wide transition-colors ${solutionItems.some((l) => isActive(l.href))
+                                    ? 'text-white text-shadow-sm'
+                                    : 'text-gray-400 group-hover:text-white'
+                                }`}
+                        >
+                            {t('nav.solutions')}
+                            <span className="material-symbols-outlined text-base leading-none transition-transform group-hover:rotate-180">expand_more</span>
+                        </button>
+                        <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                            <div className="min-w-[260px] rounded-xl border border-surface-border bg-background-dark/95 p-2 shadow-2xl backdrop-blur-xl">
+                                {solutionItems.map((link) => (
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        className={`block rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
+                                                ? 'text-white bg-surface-dark'
+                                                : 'text-gray-400 hover:bg-surface-dark hover:text-white'
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    {linksAfter.map((link) =>
+                        link.external ? (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm font-semibold uppercase tracking-wide text-gray-400 transition-colors hover:text-white"
+                            >
+                                {link.name}
+                            </a>
+                        ) : (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={`text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
+                                        ? 'text-white text-shadow-sm'
+                                        : 'text-gray-400 hover:text-white'
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        )
+                    )}
                 </div>
 
                 {/* Right side: CTA + Lang + Mobile */}
@@ -149,24 +208,65 @@ const Navbar = () => {
                         exit={{ opacity: 0, y: -20 }}
                         className="fixed inset-0 top-20 z-40 bg-background-dark h-screen flex flex-col p-8 lg:hidden"
                     >
-                        <div className="flex flex-col space-y-6 mt-8">
-                            {navLinks.map((link) => (
+                        <div className="flex flex-col space-y-4 mt-8">
+                            {linksBefore.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`text-3xl font-bold uppercase tracking-tight transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
+                                    className={`font-condensed text-lg font-semibold uppercase tracking-wide transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
                                         }`}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
+                            {/* SOLUTIONS: grupo con los dos pilares */}
+                            <div>
+                                <p className="font-condensed text-lg font-semibold uppercase tracking-wide text-gray-500">{t('nav.solutions')}</p>
+                                <div className="mt-3 flex flex-col space-y-3 border-l border-surface-border pl-4">
+                                    {solutionItems.map((link) => (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className={`font-condensed text-lg font-semibold uppercase tracking-wide transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
+                                                }`}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+                            {linksAfter.map((link) =>
+                                link.external ? (
+                                    <a
+                                        key={link.href}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setIsOpen(false)}
+                                        className="font-condensed text-lg font-semibold uppercase tracking-wide text-white transition-colors hover:text-primary"
+                                    >
+                                        {link.name}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`font-condensed text-lg font-semibold uppercase tracking-wide transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
+                                            }`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                )
+                            )}
                             <a
                                 href="https://www.pro-corp.net/login/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => setIsOpen(false)}
-                                className="text-3xl font-bold uppercase tracking-tight text-primary mt-4"
+                                className="font-condensed text-lg font-semibold uppercase tracking-wide text-primary mt-4"
                             >
                                 {t('nav.login')}
                             </a>

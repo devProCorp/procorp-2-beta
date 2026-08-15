@@ -30,6 +30,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'nav.contact': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
     'nav.login': { en: 'Login', es: 'Login', pt: 'Login' },
     'nav.services': { en: 'Services', es: 'Servicios', pt: 'Serviços' },
+    'nav.solutions': { en: 'Solutions', es: 'Soluciones', pt: 'Soluções' },
+    'nav.projects': { en: 'Projects', es: 'Proyectos', pt: 'Projetos' },
     'nav.journal': { en: 'Journal', es: 'Blog', pt: 'Blog' },
 
     // ── ScrollHero ──

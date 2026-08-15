@@ -57,7 +57,14 @@ export default function About() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{t('about.title2')}</span>
           </h1>
           <p className="text-[1.7rem] md:text-3xl font-semibold text-white italic max-w-3xl mx-auto leading-relaxed">
-            {t('about.closing')}
+            {/* El tramo final ("Engineer…") lleva el bicolor de marca */}
+            {t('about.closing').split(/("Engineer" la diferencia\.|"Engineer" a diferença\.|Engineer the difference\.)/).map((part, k) =>
+              /Engineer/.test(part) ? (
+                <span key={k} className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{part}</span>
+              ) : (
+                part
+              )
+            )}
           </p>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed whitespace-pre-line text-justify">
             {t('about.desc')}

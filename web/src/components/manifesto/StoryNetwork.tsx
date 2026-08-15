@@ -284,7 +284,7 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
         prevHand = handAng;
 
         // esfera y marcas: reloj de 36 semanas — bisel con numerales romanos por fuera
-        ctx.strokeStyle = `rgba(255,255,255,${0.7 * clockA})`;
+        ctx.strokeStyle = `rgba(255,255,255,${0.175 * clockA})`;
         ctx.lineWidth = 1.4;
         ctx.beginPath();
         ctx.arc(cx, cy, Rc, 0, Math.PI * 2);
@@ -293,7 +293,7 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
         for (let k = 0; k < 36; k++) {
           const a = -Math.PI / 2 + (k / 36) * Math.PI * 2;
           const major = k % 4 === 0;
-          ctx.strokeStyle = `rgba(255,255,255,${0.7 * clockA})`;
+          ctx.strokeStyle = `rgba(255,255,255,${0.175 * clockA})`;
           ctx.lineWidth = major ? 1.6 : 1;
           ctx.beginPath();
           ctx.moveTo(cx + Math.cos(a) * Rc * (major ? 0.92 : 0.95), cy + Math.sin(a) * Rc * (major ? 0.92 : 0.95));
@@ -312,13 +312,13 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
             ctx.textAlign = 'left';
           }
           ctx.font = `${major ? '700' : '400'} 9px system-ui, sans-serif`;
-          ctx.fillStyle = `rgba(255,255,255,${0.7 * clockA})`;
+          ctx.fillStyle = `rgba(255,255,255,${0.14 * clockA})`;
           ctx.fillText(label, 0, 0);
           ctx.restore();
         }
         ctx.textAlign = 'center';
         ctx.font = '700 9px system-ui, sans-serif';
-        ctx.fillStyle = `rgba(255,255,255,${0.7 * clockA})`;
+        ctx.fillStyle = `rgba(255,255,255,${0.14 * clockA})`;
         ctx.fillText(wkRef.current, cx, cy + Rc * 0.4);
         ctx.textBaseline = 'alphabetic';
 
