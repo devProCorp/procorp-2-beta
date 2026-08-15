@@ -477,31 +477,29 @@ textarea:focus-visible {
   }
 }
 
-/* Modo "Rolling" (interruptor en HOME): la página avanza sección a sección.
-   Solo escritorio/tablet — en móvil las secciones superan el viewport y el
-   snap estorbaría. La clase la pone/quita el interruptor RollingToggle. */
-@media (min-width: 768px) {
-  html.snap-home {
-    scroll-snap-type: y mandatory;
-    scroll-padding-top: 5rem; /* altura del navbar sticky */
-  }
+/* Modo "Rolling" (interruptor en HOME): la página avanza sección a sección
+   en todos los tamaños; las secciones más altas que el viewport (móvil)
+   permiten scroll interno antes de saltar. La clase la pone RollingToggle. */
+html.snap-home {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 5rem; /* altura del navbar sticky */
+}
 
-  html.snap-home main > * {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
+html.snap-home main > * {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
 
-  /* Cada sección se vuelve una "página" completa bajo el navbar */
-  html.snap-home main > section {
-    min-height: calc(100svh - 5rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+/* Cada sección se vuelve una "página" completa bajo el navbar */
+html.snap-home main > section {
+  min-height: calc(100svh - 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  html.snap-home footer {
-    scroll-snap-align: end;
-  }
+html.snap-home footer {
+  scroll-snap-align: end;
 }
 
 /* Barra de scroll horizontal del filtro de categorías del blog:

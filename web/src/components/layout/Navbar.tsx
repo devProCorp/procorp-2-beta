@@ -53,6 +53,19 @@ const LangFlag = ({ lang }: { lang: string }) => {
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    // Desplegable SOLUTIONS: en tablets no hay hover ni focus-en-tap, así que
+    // el botón también alterna por click; se cierra al tocar fuera
+    const [solOpen, setSolOpen] = useState(false);
+    const solRef = React.useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!solOpen) return;
+        const close = (e: MouseEvent | TouchEvent) => {
+            if (solRef.current && !solRef.current.contains(e.target as Node)) setSolOpen(false);
+        };
+        document.addEventListener('click', close);
+        return () => document.removeEventListener('click', close);
+    }, [solOpen]);
     const [scrolled, setScrolled] = useState(false);
     const { lang, toggleLang, t } = useLanguage();
     const pathname = usePathname();
@@ -73,6 +86,14 @@ const Navbar = () => {
         }
         return () => { document.body.style.overflow = ''; };
     }, [isOpen]);
+
+    // Al navegar: fuera de HOME no puede quedar el scroll-snap activo (dejaría
+    // la página nueva "enganchada" en una posición aleatoria) y toda página
+    // nueva arranca arriba
+    useEffect(() => {
+        if (pathname !== '/') document.documentElement.classList.remove('snap-home');
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     const linksBefore = [
         { name: t('nav.home'), href: '/' },
@@ -116,24 +137,30 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    {/* SOLUTIONS: desplegable con los dos pilares */}
-                    <div className="relative group">
+                    {/* SOLUTIONS: desplegable con los dos pilares (hover en desktop, click/tap en tablet) */}
+                    <div ref={solRef} className="relative group">
                         <button
                             type="button"
+                            aria-expanded={solOpen}
+                            onClick={() => setSolOpen((v) => !v)}
                             className={`flex items-center gap-1 text-sm font-semibold uppercase tracking-wide transition-colors ${solutionItems.some((l) => isActive(l.href))
                                     ? 'text-white text-shadow-sm'
                                     : 'text-gray-400 group-hover:text-white'
                                 }`}
                         >
                             {t('nav.solutions')}
-                            <span className="material-symbols-outlined text-base leading-none transition-transform group-hover:rotate-180">expand_more</span>
+                            <span className={`material-symbols-outlined text-base leading-none transition-transform group-hover:rotate-180 ${solOpen ? 'rotate-180' : ''}`}>expand_more</span>
                         </button>
-                        <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                        <div className={`absolute left-1/2 top-full -translate-x-1/2 pt-4 transition-all duration-200 ${solOpen
+                                ? 'visible opacity-100'
+                                : 'invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100'
+                            }`}>
                             <div className="min-w-[260px] rounded-xl border border-surface-border bg-background-dark/95 p-2 shadow-2xl backdrop-blur-xl">
                                 {solutionItems.map((link) => (
                                     <Link
                                         key={link.href}
                                         href={link.href}
+                                        onClick={() => setSolOpen(false)}
                                         className={`block rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
                                                 ? 'text-white bg-surface-dark'
                                                 : 'text-gray-400 hover:bg-surface-dark hover:text-white'

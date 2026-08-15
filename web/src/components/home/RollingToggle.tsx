@@ -22,7 +22,7 @@ export default function RollingToggle() {
       role="switch"
       aria-checked={on}
       onClick={() => setOn((v) => !v)}
-      className="fixed right-6 top-24 z-40 hidden items-center gap-3 rounded-lg border border-white/15 bg-background-dark/70 px-4 py-1.5 backdrop-blur-md transition-colors hover:border-primary/60 md:flex"
+      className="fixed bottom-6 right-4 z-40 flex items-center gap-3 rounded-lg border border-white/15 bg-background-dark/70 px-4 py-1.5 backdrop-blur-md transition-colors hover:border-primary/60 sm:bottom-auto sm:right-24 sm:top-24"
     >
       <span className={`text-[10px] font-bold uppercase tracking-[0.25em] transition-colors ${on ? 'text-white' : 'text-white/60'}`}>
         No Rolling

@@ -232,6 +232,8 @@ export default function ManifestoStory() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const instRef = useRef(0);        // instancia de banner (crece en cada cambio de acto)
   const playedInstRef = useRef(-1); // última instancia que ya sonó — no repetir al volver a scrollear
+  const touchRef = useRef<{ x: number; y: number } | null>(null); // swipe horizontal en móvil/tablet
+  const swipedRef = useRef(false);  // evita que el tap-avance se dispare tras un swipe
   const phase = useMotionValue(0);
 
   // Si el hero sale de pantalla (skip, scroll, otra sección), el audio para al instante
@@ -251,9 +253,33 @@ export default function ManifestoStory() {
     instRef.current += 1;
   }, [act]);
 
-  // Voz en off (Sterling): arranca 0,5s después de que aparece cada banner.
-  // Requiere gesto del usuario (política de autoplay) → interruptor de sonido.
-  // Solo suena con el hero visible; al volver de un scroll no re-arranca a mitad de banner.
+  // Un ÚNICO elemento de audio, desbloqueado en el gesto del usuario — iOS/iPadOS
+  // exige activación por elemento, así que se reutiliza cambiando solo el src.
+  const ensureAudio = useCallback(() => {
+    if (!audioRef.current) audioRef.current = new Audio();
+    return audioRef.current;
+  }, []);
+
+  const toggleSound = useCallback(() => {
+    setSound((v) => {
+      const next = !v;
+      if (next) {
+        // dentro del gesto: desbloquea el elemento y narra el banner visible ya mismo
+        const a = ensureAudio();
+        a.src = `/audio/manifesto/act${act + 1}.mp3`;
+        a.currentTime = 0;
+        playedInstRef.current = instRef.current;
+        a.play().catch(() => {});
+      } else {
+        audioRef.current?.pause();
+      }
+      return next;
+    });
+  }, [act, ensureAudio]);
+
+  // Voz en off (Sterling): arranca 0,5s después de que aparece cada banner —
+  // por avance automático, tap, flechas o swipe. Solo con el hero visible;
+  // al volver de un scroll no re-arranca a mitad de banner.
   useEffect(() => {
     if (reduced || !sound || !inView) return;
     if (playedInstRef.current === instRef.current) return;
@@ -261,19 +287,17 @@ export default function ManifestoStory() {
     let cancelled = false;
     const id = setTimeout(() => {
       if (cancelled) return;
-      const a = new Audio(`/audio/manifesto/act${act + 1}.mp3`);
-      audioRef.current = a;
+      const a = ensureAudio();
+      a.src = `/audio/manifesto/act${act + 1}.mp3`;
+      a.currentTime = 0;
       a.play().catch(() => {});
     }, 500);
     return () => {
       cancelled = true;
       clearTimeout(id);
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
+      audioRef.current?.pause();
     };
-  }, [act, sound, reduced, inView]);
+  }, [act, sound, reduced, inView, ensureAudio]);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -370,7 +394,7 @@ export default function ManifestoStory() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 6 }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
-                    className="whitespace-nowrap text-[11px] font-extrabold uppercase tracking-[0.2em] sm:text-sm md:text-xl"
+                    className="whitespace-nowrap font-condensed text-xs font-extrabold uppercase tracking-[0.15em] sm:text-sm md:font-ui md:text-xl md:tracking-[0.2em]"
                   >
                     {isThesis ? (
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{fl.turn}</span>
@@ -379,7 +403,7 @@ export default function ManifestoStory() {
                         {fl.pre && <span className="text-white">{fl.pre}</span>}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">{fl.brand}</span>
                         {fl.post && <span className="text-white">{fl.post}</span>}
-                        <span className="ml-4 hidden text-primary-light sm:inline">{`0${act + 1} / 05`}</span>
+                        <span className="ml-3 text-primary-light md:ml-4">{`0${act + 1} / 05`}</span>
                       </>
                     )}
                     {/* Paso manual de la presentación */}
@@ -414,7 +438,7 @@ export default function ManifestoStory() {
             type="button"
             aria-pressed={sound}
             aria-label={sound ? 'Voice over off' : 'Voice over on'}
-            onClick={() => setSound((v) => !v)}
+            onClick={toggleSound}
             className={`flex items-center justify-center rounded-lg border px-3 py-1.5 transition-colors ${sound
                 ? 'border-primary/60 text-primary-light'
                 : 'border-white/15 text-white/60 hover:border-primary/60 hover:text-white'
@@ -431,12 +455,28 @@ export default function ManifestoStory() {
           </button>
         </div>
 
-        {/* Banner: slogan → explicación → cita — click/tap: siguiente banner */}
+        {/* Banner: slogan → explicación → cita — click/tap: siguiente banner;
+            swipe horizontal (móvil/tablet): avanza o retrocede; el vertical sigue siendo scroll */}
         <div
           className="relative z-10 flex flex-1 cursor-pointer items-center justify-center px-6"
           onClick={(e) => {
+            if (swipedRef.current) { swipedRef.current = false; return; }
             if ((e.target as HTMLElement).closest('a, button')) return;
             goTo((act + 1) % N_ACTS);
+          }}
+          onTouchStart={(e) => {
+            touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          }}
+          onTouchEnd={(e) => {
+            const t0 = touchRef.current;
+            touchRef.current = null;
+            if (!t0) return;
+            const dx = e.changedTouches[0].clientX - t0.x;
+            const dy = e.changedTouches[0].clientY - t0.y;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+              swipedRef.current = true;
+              goTo(dx < 0 ? (act + 1) % N_ACTS : (act + N_ACTS - 1) % N_ACTS);
+            }
           }}
         >
           <AnimatePresence mode="wait">

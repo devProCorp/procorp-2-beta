@@ -253,7 +253,7 @@ const LiaChat = () => {
     const hasTTS = !!ELEVENLABS_API_KEY && !!(ELEVENLABS_VOICE_ID_EN || ELEVENLABS_VOICE_ID_ES);
 
     return (
-        <section className="bg-background-light dark:bg-background-dark py-24 px-6 md:px-8">
+        <section className="bg-background-dark py-24 px-6 md:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     {/* Left: Info */}
@@ -262,19 +262,19 @@ const LiaChat = () => {
                             <span className="block text-4xl font-extrabold tracking-tight leading-[1.05] md:text-5xl lg:text-6xl">
                                 {t('lia.label').split(/\b(AI|IA)\b/).map((part, i) =>
                                     part === 'AI' || part === 'IA' ? (
-                                        <span key={i} className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-neutral-dark dark:to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">
+                                        <span key={i} className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-white drop-shadow-[0_0_20px_rgba(206,16,38,0.3)]">
                                             {part}
                                         </span>
                                     ) : (
-                                        <span key={i} className="text-neutral-dark dark:text-white">{part}</span>
+                                        <span key={i} className="text-white">{part}</span>
                                     )
                                 )}
                             </span>
-                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter font-display text-neutral-dark dark:text-white">
+                            <h2 className="text-5xl md:text-6xl font-bold tracking-tighter font-display text-white">
                                 {t('lia.title')}<span className="text-primary">.</span>
                             </h2>
                         </div>
-                        <p className="text-lg text-gray-500 dark:text-gray-400 font-light leading-relaxed font-ui max-w-lg">
+                        <p className="text-lg text-gray-400 font-light leading-relaxed font-ui max-w-lg">
                             {t('lia.desc')}
                         </p>
                         <div className="flex items-center gap-6 pt-4">
@@ -282,16 +282,16 @@ const LiaChat = () => {
                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                                 <span className="text-xs font-bold uppercase tracking-widest text-gray-400 font-ui">{t('lia.status')}</span>
                             </div>
-                            <div className="w-px h-4 bg-gray-300 dark:bg-gray-700"></div>
+                            <div className="w-px h-4 bg-gray-700"></div>
                             <span className="text-xs font-bold uppercase tracking-widest text-gray-400 font-ui">{t('lia.powered')}</span>
                         </div>
                     </div>
 
                     {/* Right: Chat Interface */}
                     <div className="relative">
-                        <div className="bg-white dark:bg-stone-900/60 rounded-xl border border-gray-200 dark:border-white/10 shadow-2xl shadow-primary/5 overflow-hidden">
+                        <div className="bg-stone-900/60 rounded-xl border border-white/10 shadow-2xl shadow-primary/5 overflow-hidden">
                             {/* Chat Header */}
-                            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-white/5">
+                            <div className="flex items-center justify-between px-6 py-4 border-b border-white/5">
                                 <div className="flex items-center gap-3">
                                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                                         <span className="material-symbols-outlined text-primary text-sm" style={{ fontVariationSettings: "'wght' 300" }}>
@@ -299,7 +299,7 @@ const LiaChat = () => {
                                         </span>
                                     </div>
                                     <div>
-                                        <span className="font-bold text-sm font-display text-neutral-dark dark:text-white">LIA</span>
+                                        <span className="font-bold text-sm font-display text-white">LIA</span>
                                         <span className="text-[10px] text-gray-400 font-ui block tracking-wider uppercase">{t('lia.chat.subtitle')}</span>
                                     </div>
                                 </div>
@@ -313,19 +313,19 @@ const LiaChat = () => {
                                             className="flex items-center gap-2 group"
                                             title={lang === 'es' ? 'Respuestas por voz' : 'Voice responses'}
                                         >
-                                            <span className={`material-symbols-outlined text-sm transition-colors ${voiceEnabled ? 'text-primary' : 'text-gray-300 dark:text-gray-600'}`}>
+                                            <span className={`material-symbols-outlined text-sm transition-colors ${voiceEnabled ? 'text-primary' : 'text-gray-600'}`}>
                                                 {isSpeaking ? 'volume_up' : 'volume_up'}
                                             </span>
                                             {/* Toggle track */}
-                                            <div className={`relative w-8 h-[18px] rounded-full transition-colors ${voiceEnabled ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-700'}`}>
+                                            <div className={`relative w-8 h-[18px] rounded-full transition-colors ${voiceEnabled ? 'bg-primary' : 'bg-gray-700'}`}>
                                                 <div className={`absolute top-[2px] w-[14px] h-[14px] rounded-full bg-white shadow-sm transition-transform ${voiceEnabled ? 'translate-x-[16px]' : 'translate-x-[2px]'}`} />
                                             </div>
                                         </button>
                                     )}
 
                                     <div className="flex gap-1.5">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-                                        <div className="w-2.5 h-2.5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+                                        <div className="w-2.5 h-2.5 rounded-full bg-gray-700"></div>
+                                        <div className="w-2.5 h-2.5 rounded-full bg-gray-700"></div>
                                         <div className="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
                                     </div>
                                 </div>
@@ -342,7 +342,7 @@ const LiaChat = () => {
                                             className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm font-ui leading-relaxed ${
                                                 msg.role === 'user'
                                                     ? 'bg-primary text-white rounded-br-sm'
-                                                    : 'bg-gray-100 dark:bg-white/5 text-neutral-dark dark:text-gray-300 rounded-bl-sm'
+                                                    : 'bg-white/5 text-gray-300 rounded-bl-sm'
                                             }`}
                                         >
                                             {msg.content}
@@ -353,7 +353,7 @@ const LiaChat = () => {
                                 {/* Typing indicator */}
                                 {loading && (
                                     <div className="flex justify-start">
-                                        <div className="bg-gray-100 dark:bg-white/5 px-4 py-3 rounded-2xl rounded-bl-sm flex items-center gap-1.5">
+                                        <div className="bg-white/5 px-4 py-3 rounded-2xl rounded-bl-sm flex items-center gap-1.5">
                                             <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '0ms' }}></div>
                                             <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '150ms' }}></div>
                                             <div className="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style={{ animationDelay: '300ms' }}></div>
@@ -373,8 +373,8 @@ const LiaChat = () => {
                             </div>
 
                             {/* Chat Input */}
-                            <form onSubmit={handleSubmit} className="px-6 py-4 border-t border-gray-100 dark:border-white/5">
-                                <div className="flex items-center gap-2 bg-gray-50 dark:bg-white/5 rounded-full px-5 py-2">
+                            <form onSubmit={handleSubmit} className="px-6 py-4 border-t border-white/5">
+                                <div className="flex items-center gap-2 bg-white/5 rounded-full px-5 py-2">
                                     <input
                                         ref={inputRef}
                                         type="text"
@@ -386,7 +386,7 @@ const LiaChat = () => {
                                             : t('lia.chat.placeholder')
                                         }
                                         disabled={isListening}
-                                        className="flex-1 bg-transparent text-sm font-ui text-neutral-dark dark:text-white placeholder:text-gray-400 outline-none py-1 disabled:opacity-50"
+                                        className="flex-1 bg-transparent text-sm font-ui text-white placeholder:text-gray-400 outline-none py-1 disabled:opacity-50"
                                     />
 
                                     {/* Mic button */}
