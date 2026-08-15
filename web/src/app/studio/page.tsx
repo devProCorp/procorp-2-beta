@@ -446,7 +446,8 @@ export default function Studio() {
             </div>
           </div>
 
-          {/* How to Invest - Process Steps */}
+          {/* "About Investing..." — OCULTO hasta nueva decisión (cambiar a true para restaurar) */}
+          {false && (
           <div className="mb-20">
             <div className="flex items-center gap-4 mb-10">
               <span className="whitespace-nowrap text-[11px] font-extrabold uppercase tracking-[0.2em] sm:text-sm md:text-xl">
@@ -476,6 +477,7 @@ export default function Studio() {
               ))}
             </div>
           </div>
+          )}
 
           {/* Some of our projects — mismo estilo masthead que "How to Invest" */}
           <div className="mb-10 mt-20 flex items-center gap-6">
