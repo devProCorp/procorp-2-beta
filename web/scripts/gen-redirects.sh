@@ -11,6 +11,11 @@
 # matches what is actually published. Credentials are read from wp-config.php on
 # the server and never leave it.
 #
+# Emits mod_rewrite rules, not mod_alias `Redirect`. In a shared root the rules
+# have to beat WordPress's catch-all, and only mod_rewrite gives a predictable
+# order relative to it — the same ordering problem that made deep /login/ paths
+# fall through to 404 during the beta rehearsal.
+#
 # Usage:  ./scripts/gen-redirects.sh > deploy/redirects-wp-posts.conf
 #
 set -euo pipefail
@@ -37,5 +42,5 @@ cat <<EOF
 EOF
 
 printf '%s\n' "$slugs" | grep . | while read -r s; do
-  echo "Redirect 301 /$s/ /journal/$s/"
+  echo "RewriteRule ^$s/?\$ /journal/$s/ [R=301,L]"
 done

@@ -1,10 +1,24 @@
-# Redirects 301 de los artículos del blog de WordPress al journal del sitio nuevo.
-# Generado desde wp_posts (post_type=post, post_status=publish) el 2026-08-14.
-# Los permalinks eran /%postname%/, es decir los artículos vivían en la raíz del dominio.
-# Regenerar con scripts/gen-redirects.sh — no editar a mano.
+# ─────────────────────────────────────────────────────────────────────────────
+# GENERADO POR scripts/gen-htaccess.sh — NO EDITAR A MANO.
+# Editar las piezas en deploy/ y regenerar.
 #
-# Cobertura: 166 artículos.
+# Convivencia en un único document root:
+#   · DirectoryIndex sirve index.html (sitio nuevo) antes que index.php (WP).
+#   · Los archivos y directorios reales se sirven tal cual — así las rutas del
+#     sitio nuevo ganan a WordPress sin necesidad de ninguna regla, y por eso
+#     migrar una página es simplemente crearla y publicar.
+#   · Lo que no existe en disco cae al bloque de WordPress del final, que
+#     mantiene vivas sus 48 páginas en sus URLs originales.
+#
+# El ORDEN de los bloques importa: todo lo que deba ganar va antes del bloque
+# de WordPress, cuyo catch-all manda cualquier petición no resuelta a index.php.
+# ─────────────────────────────────────────────────────────────────────────────
 
+DirectoryIndex index.html index.php
+
+# ── Artículos del blog → /journal/ ──────────────────────────────────────────
+<IfModule mod_rewrite.c>
+RewriteEngine On
 RewriteRule ^acuerdos-entre-colombia-y-espana/?$ /journal/acuerdos-entre-colombia-y-espana/ [R=301,L]
 RewriteRule ^ahorro-de-horas-hombre-activo-clave-en-empresas/?$ /journal/ahorro-de-horas-hombre-activo-clave-en-empresas/ [R=301,L]
 RewriteRule ^antecedentes-penales-y-judiciales/?$ /journal/antecedentes-penales-y-judiciales/ [R=301,L]
@@ -171,3 +185,117 @@ RewriteRule ^visado-nomada-digital-espana/?$ /journal/visado-nomada-digital-espa
 RewriteRule ^vivir-en-espana/?$ /journal/vivir-en-espana/ [R=301,L]
 RewriteRule ^vivir-en-portugal/?$ /journal/vivir-en-portugal/ [R=301,L]
 RewriteRule ^zona-schengen/?$ /journal/zona-schengen/ [R=301,L]
+</IfModule>
+
+# ── Movimiento 1: portal de clientes ─────────────────────────────────────────
+# El login heredado en /login/ (PHP, ~1.381 clientes) pasa a portal2.pro-corp.net.
+# Nada se borra: el directorio del portal viejo sigue en su sitio, sólo deja de
+# recibir tráfico. Rollback = quitar este bloque.
+#
+# 302 y no 301 a propósito. Un 301 lo cachea el navegador de forma agresiva: si
+# hubiera que volver atrás, quien ya lo recibió seguiría yendo al portal nuevo
+# aunque la regla desaparezca. Pasar a 301 sólo tras varios días de validación.
+#
+# Puerta de escape para el equipo: entrar una vez a /login/?legacy=1 deja una
+# cookie de 8 h que devuelve el acceso al portal viejo con normalidad. Sirve para
+# comparar ambos portales durante la transición sin desactivar el redirect para
+# los clientes.
+#
+# ⚠️ ORDEN OBLIGATORIO: este bloque va ANTES del bloque de WordPress (y de
+# cualquier otro catch-all). Comprobado en el ensayo de beta: colocado después,
+# el catch-all captura primero y /login/principal.php acaba en 404 en vez de
+# redirigir. Sólo /login/ funcionaría, y el fallo no se vería hasta que un
+# cliente entrara por un enlace profundo.
+
+<IfModule mod_rewrite.c>
+  # ?legacy=1 marca la petición para que la respuesta traiga la cookie.
+  RewriteCond %{QUERY_STRING} (^|&)legacy=1(&|$) [NC]
+  RewriteRule ^login(/|$) - [E=LEGACYPORTAL:1]
+
+  # Todo lo demás bajo /login/ va al portal nuevo.
+  RewriteCond %{HTTP_COOKIE} !legacy_portal=1
+  RewriteCond %{QUERY_STRING} !(^|&)legacy=1(&|$) [NC]
+  RewriteRule ^login(/.*)?$ https://portal2.pro-corp.net/ [R=302,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set Set-Cookie "legacy_portal=1; Path=/login; Max-Age=28800; HttpOnly; Secure; SameSite=Lax" env=LEGACYPORTAL
+</IfModule>
+
+# ── Movimiento 3: páginas migradas de WordPress al sitio nuevo ───────────────
+#
+# LA MAYORÍA DE MIGRACIONES NO NECESITAN NADA AQUÍ.
+#
+# Apache sirve los directorios reales antes de llegar al catch-all de WordPress.
+# En cuanto el sitio nuevo genere /golden-visa/index.html, esa URL la sirve el
+# sitio nuevo automáticamente y WordPress deja de verla. Sin reglas, sin reinicio
+# y sin ventana: basta con crear la ruta en Next y publicar. Para revertir, se
+# quita la ruta y WordPress vuelve a atenderla.
+#
+# ESTE ARCHIVO ES SÓLO PARA CUANDO LA URL CAMBIA.
+#
+# Cuatro páginas viven a cuatro niveles de profundidad, por ejemplo
+#   /pro-corp-sas/soluciones-legales-y-comunitarias/nacionalidad-europea-por-ley-sefardi/portugal/
+# Si al migrarlas se acorta la URL, la antigua debe seguir respondiendo con un
+# 301 hacia la nueva: está indexada y enlazada desde fuera. Ese redirect va aquí.
+#
+# Formato (mismo estilo que los redirects del blog, mod_rewrite para que se
+# apliquen antes que el catch-all de WordPress):
+#
+#   RewriteRule ^ruta/vieja/completa/?$ /ruta-nueva/ [R=301,L]
+#
+# Ejemplo, cuando se migre la landing de Portugal:
+#
+#   RewriteRule ^pro-corp-sas/soluciones-legales-y-comunitarias/nacionalidad-europea-por-ley-sefardi/portugal/?$ /portugal-sefardi/ [R=301,L]
+#
+# Tras editar este archivo:
+#   ./scripts/gen-htaccess.sh > deploy/htaccess-produccion
+#   y desplegarlo (ver README).
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# (todavía no hay ninguna página migrada con cambio de URL)
+
+</IfModule>
+
+# BEGIN LSCACHE
+# END LSCACHE
+# BEGIN NON_LSCACHE
+# END NON_LSCACHE
+
+
+
+
+
+
+
+# BEGIN WordPress
+# Las directivas (líneas) entre «BEGIN WordPress» y «END WordPress» son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+# BEGIN LiteSpeed
+# Las directivas (líneas) entre «BEGIN LiteSpeed» y «END LiteSpeed» son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+<IfModule Litespeed>
+SetEnv noabort 1
+</IfModule>
+# END LiteSpeed
+# BEGIN ShortPixelWebp
+# Las directivas (líneas) entre «BEGIN ShortPixelWebp» y «END ShortPixelWebp» son
+# generadas dinámicamente y solo deberían ser modificadas mediante filtros de WordPress.
+# Cualquier cambio en las directivas que hay entre esos marcadores serán sobrescritas.
+
+# END ShortPixelWebp
