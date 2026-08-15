@@ -16,6 +16,10 @@
 # next.js
 /.next/
 /out/
+# Copias del build tipo "out 2/" — las crea Finder al duplicar y iCloud/Dropbox
+# al resolver conflictos. Se colaron 39 archivos así porque /out/ no las cubre.
+/out */
+/out-*/
 
 # production
 /build
