@@ -16,7 +16,10 @@ SITE_URL="https://beta.pro-corp.net"
 
 cd "$(dirname "$0")/.."
 
-RSYNC_FLAGS=(-a --delete --partial --human-readable --info=progress2)
+# --progress, not --info=progress2: macOS ships rsync 2.6.9, which predates it.
+# --checksum compares content instead of timestamps — every build rewrites the
+# whole out/ tree, so without it rsync would resend ~1 GB on each deploy.
+RSYNC_FLAGS=(-a --delete --partial --human-readable --progress --checksum)
 if [[ "${1:-}" == "--dry-run" ]]; then
   RSYNC_FLAGS+=(--dry-run)
   echo "→ DRY RUN: nothing will be written to the server"

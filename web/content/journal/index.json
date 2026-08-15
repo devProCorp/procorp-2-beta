@@ -1,5 +1,96 @@
 [
   {
+    "id": 13121,
+    "slug": "relaciones-complejas-entre-espana-y-marruecos",
+    "date": "2026-08-12T16:12:19",
+    "modified": "2026-08-12T16:12:29",
+    "title": {
+      "rendered": "Relaciones complejas entre España y Marruecos"
+    },
+    "excerpt": {
+      "rendered": "<p>PRO CORP &mdash; BLOGCAST &#9654; Dale click para escuchar este art&iacute;culo Tu navegador no soporta el elemento de audio. La relación entre España y Marruecos es una de las más complejas del Mediterráneo. Ambos países mantienen una estrecha cooperación en materia económica, comercial, migratoria y de seguridad, pero también arrastran importantes desacuerdos territoriales que periódicamente [&hellip;]</p>\n"
+    },
+    "featured_media": 13122,
+    "categories": [
+      1
+    ],
+    "tags": [],
+    "author": 1778,
+    "_embedded": {
+      "author": [
+        {
+          "id": 1778,
+          "name": "Humberto Calderón",
+          "description": "Abogado en Extranjería e Inmigración",
+          "slug": "humberto-calderon",
+          "avatar_urls": {
+            "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
+            "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
+            "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
+          }
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 13122,
+          "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-scaled.jpeg",
+          "alt_text": "",
+          "media_details": {
+            "width": 2560,
+            "height": 2560,
+            "sizes": {
+              "medium": {
+                "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-300x300.jpeg",
+                "width": 300,
+                "height": 300
+              },
+              "large": {
+                "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-1024x1024.jpeg",
+                "width": 1024,
+                "height": 1024
+              },
+              "thumbnail": {
+                "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-150x150.jpeg",
+                "width": 150,
+                "height": 150
+              },
+              "medium_large": {
+                "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-768x768.jpeg",
+                "width": 768,
+                "height": 768
+              },
+              "1536x1536": {
+                "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-1536x1536.jpeg",
+                "width": 1536,
+                "height": 1536
+              },
+              "2048x2048": {
+                "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-2048x2048.jpeg",
+                "width": 2048,
+                "height": 2048
+              },
+              "full": {
+                "source_url": "/journal/media/2026/08/2026-08-12_1786569139514-scaled.jpeg",
+                "width": 2560,
+                "height": 2560
+              }
+            }
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 1,
+            "name": "Uncategorized",
+            "slug": "uncategorized"
+          }
+        ],
+        []
+      ]
+    }
+  },
+  {
     "id": 13116,
     "slug": "crisis-migratoria-en-ceuta-reabre-debate-europeo",
     "date": "2026-07-30T17:22:17",
@@ -6791,7 +6882,7 @@
                 "height": 576
               },
               "elementor_custom_500x500": {
-                "source_url": "/journal/media/2025/02/imagen_blog_espana_israel.jpeg",
+                "source_url": "https://www.pro-corp.net/wp-content/uploads/2025/02/elementor/thumbs/imagen_blog_espana_israel-r1cug5privywn3rtg52zr1kwvsvojp23nnxx8t9jm0.jpeg",
                 "width": 500,
                 "height": 500
               },
