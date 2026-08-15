@@ -92,20 +92,31 @@ const Navbar = () => {
     // nueva arranca arriba
     useEffect(() => {
         if (pathname !== '/') document.documentElement.classList.remove('snap-home');
-        window.scrollTo(0, 0);
+        // con hash (#ancla) el navegador debe saltar a la sección, no al tope
+        if (!window.location.hash) window.scrollTo(0, 0);
     }, [pathname]);
 
     const linksBefore = [
         { name: t('nav.home'), href: '/' },
         { name: t('nav.about'), href: '/about' },
     ];
-    // Categoría SOLUTIONS: agrupa los dos pilares
-    const solutionItems = [
-        { name: t('nav.growth'), href: '/studio' },
-        { name: t('nav.legal'), href: '/projects' },
+    // Categoría SOLUTIONS: dos pilares, cada uno con sus sub-áreas ancladas
+    const solutionGroups = [
+        {
+            name: t('nav.growth'), href: '/studio', children: [
+                { name: t('nav.sol.vfc'), href: '/studio#vfvc' },
+                { name: t('nav.sol.ps'), href: '/studio#project-structuring' },
+            ],
+        },
+        {
+            name: t('nav.legal'), href: '/projects', children: [
+                { name: t('nav.sol.imm'), href: '/projects#immigration-services' },
+                { name: t('nav.sol.ils'), href: '/projects#innovative-legal' },
+            ],
+        },
     ];
     const linksAfter = [
-        { name: t('nav.projects'), href: 'https://inversion.pro-corp.net', external: true },
+        { name: t('nav.projects'), href: '/sectors' },
         { name: t('nav.blog'), href: '/journal' },
         { name: t('nav.contact'), href: '/contact' },
     ];
@@ -113,6 +124,17 @@ const Navbar = () => {
     const isActive = (href: string) => {
         if (href === '/') return pathname === '/';
         return pathname.startsWith(href);
+    };
+
+    // Clic en un enlace SIN ancla: garantiza aterrizar arriba incluso cuando el
+    // pathname no cambia (p. ej. de /studio#vfvc a /studio, donde ni Next ni el
+    // efecto de ruta se disparan y el usuario quedaba "clavado" abajo)
+    const scrollTopAfterNav = () => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                if (!window.location.hash) window.scrollTo(0, 0);
+            });
+        });
     };
 
     return (
@@ -129,6 +151,7 @@ const Navbar = () => {
                         <Link
                             key={link.href}
                             href={link.href}
+                            onClick={scrollTopAfterNav}
                             className={`text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
                                     ? 'text-white text-shadow-sm'
                                     : 'text-gray-400 hover:text-white'
@@ -143,7 +166,7 @@ const Navbar = () => {
                             type="button"
                             aria-expanded={solOpen}
                             onClick={() => setSolOpen((v) => !v)}
-                            className={`flex items-center gap-1 text-sm font-semibold uppercase tracking-wide transition-colors ${solutionItems.some((l) => isActive(l.href))
+                            className={`flex items-center gap-1 text-sm font-semibold uppercase tracking-wide transition-colors ${solutionGroups.some((g) => isActive(g.href))
                                     ? 'text-white text-shadow-sm'
                                     : 'text-gray-400 group-hover:text-white'
                                 }`}
@@ -155,47 +178,47 @@ const Navbar = () => {
                                 ? 'visible opacity-100'
                                 : 'invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100'
                             }`}>
-                            <div className="min-w-[260px] rounded-xl border border-surface-border bg-background-dark/95 p-2 shadow-2xl backdrop-blur-xl">
-                                {solutionItems.map((link) => (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        onClick={() => setSolOpen(false)}
-                                        className={`block rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
-                                                ? 'text-white bg-surface-dark'
-                                                : 'text-gray-400 hover:bg-surface-dark hover:text-white'
-                                            }`}
-                                    >
-                                        {link.name}
-                                    </Link>
+                            <div className="min-w-[300px] rounded-xl border border-surface-border bg-background-dark/95 p-2 shadow-2xl backdrop-blur-xl">
+                                {solutionGroups.map((group) => (
+                                    <div key={group.href} className="py-1">
+                                        <Link
+                                            href={group.href}
+                                            onClick={() => { setSolOpen(false); scrollTopAfterNav(); }}
+                                            className={`block rounded-lg px-4 py-2.5 text-sm font-bold tracking-wide transition-colors ${isActive(group.href)
+                                                    ? 'text-white bg-surface-dark'
+                                                    : 'text-white hover:bg-surface-dark'
+                                                }`}
+                                        >
+                                            {group.name}
+                                        </Link>
+                                        {group.children.map((child) => (
+                                            <Link
+                                                key={child.href}
+                                                href={child.href}
+                                                onClick={() => setSolOpen(false)}
+                                                className="block rounded-lg py-2 pl-9 pr-4 text-[13px] font-medium tracking-wide text-gray-400 transition-colors hover:bg-surface-dark hover:text-white"
+                                            >
+                                                {child.name}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 ))}
                             </div>
                         </div>
                     </div>
-                    {linksAfter.map((link) =>
-                        link.external ? (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-sm font-semibold uppercase tracking-wide text-gray-400 transition-colors hover:text-white"
-                            >
-                                {link.name}
-                            </a>
-                        ) : (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className={`text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
-                                        ? 'text-white text-shadow-sm'
-                                        : 'text-gray-400 hover:text-white'
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        )
-                    )}
+                    {linksAfter.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={scrollTopAfterNav}
+                            className={`text-sm font-semibold uppercase tracking-wide transition-colors ${isActive(link.href)
+                                    ? 'text-white text-shadow-sm'
+                                    : 'text-gray-400 hover:text-white'
+                                }`}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
                 </div>
 
                 {/* Right side: CTA + Lang + Mobile */}
@@ -240,59 +263,59 @@ const Navbar = () => {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={() => { setIsOpen(false); scrollTopAfterNav(); }}
                                     className={`font-condensed text-lg font-semibold uppercase tracking-wide transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
                                         }`}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            {/* SOLUTIONS: grupo con los dos pilares */}
+                            {/* SOLUTIONS: grupo con los dos pilares y sus sub-áreas */}
                             <div>
                                 <p className="font-condensed text-lg font-semibold uppercase tracking-wide text-gray-500">{t('nav.solutions')}</p>
                                 <div className="mt-3 flex flex-col space-y-3 border-l border-surface-border pl-4">
-                                    {solutionItems.map((link) => (
-                                        <Link
-                                            key={link.href}
-                                            href={link.href}
-                                            onClick={() => setIsOpen(false)}
-                                            className={`font-condensed text-lg font-semibold uppercase tracking-wide transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
-                                                }`}
-                                        >
-                                            {link.name}
-                                        </Link>
+                                    {solutionGroups.map((group) => (
+                                        <div key={group.href}>
+                                            <Link
+                                                href={group.href}
+                                                onClick={() => { setIsOpen(false); scrollTopAfterNav(); }}
+                                                className={`font-condensed text-lg font-semibold tracking-wide transition-colors ${isActive(group.href) ? 'text-primary' : 'text-white hover:text-primary'
+                                                    }`}
+                                            >
+                                                {group.name}
+                                            </Link>
+                                            <div className="mt-2 flex flex-col space-y-2 border-l border-surface-border/60 pl-4">
+                                                {group.children.map((child) => (
+                                                    <Link
+                                                        key={child.href}
+                                                        href={child.href}
+                                                        onClick={() => { setIsOpen(false); scrollTopAfterNav(); }}
+                                                        className="font-condensed text-base font-medium tracking-wide text-gray-400 transition-colors hover:text-primary"
+                                                    >
+                                                        {child.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
-                            {linksAfter.map((link) =>
-                                link.external ? (
-                                    <a
-                                        key={link.href}
-                                        href={link.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        onClick={() => setIsOpen(false)}
-                                        className="font-condensed text-lg font-semibold uppercase tracking-wide text-white transition-colors hover:text-primary"
-                                    >
-                                        {link.name}
-                                    </a>
-                                ) : (
-                                    <Link
-                                        key={link.href}
-                                        href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className={`font-condensed text-lg font-semibold uppercase tracking-wide transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
-                                            }`}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                )
-                            )}
+                            {linksAfter.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => { setIsOpen(false); scrollTopAfterNav(); }}
+                                    className={`font-condensed text-lg font-semibold uppercase tracking-wide transition-colors ${isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary'
+                                        }`}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
                             <a
                                 href="https://www.pro-corp.net/login/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => { setIsOpen(false); scrollTopAfterNav(); }}
                                 className="font-condensed text-lg font-semibold uppercase tracking-wide text-primary mt-4"
                             >
                                 {t('nav.login')}

@@ -152,7 +152,7 @@ export default function Projects() {
       </section>
 
       {/* Services Grid */}
-      <section className="px-6 py-24 md:px-10 bg-transparent border-t border-surface-border">
+      <section id="immigration-services" className="scroll-mt-24 px-6 py-24 md:px-10 bg-transparent border-t border-surface-border">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
@@ -173,7 +173,7 @@ export default function Projects() {
       </section>
 
       {/* Advanced Legal Structuring & Support */}
-      <section className="px-6 py-24 md:px-10 bg-transparent border-t border-surface-border">
+      <section id="innovative-legal" className="scroll-mt-24 px-6 py-24 md:px-10 bg-transparent border-t border-surface-border">
         <div className="max-w-7xl mx-auto">
           <div className="glass-panel rounded-[2rem] border border-surface-border/60 shadow-2xl p-8 md:p-14">
             <h2 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-12">

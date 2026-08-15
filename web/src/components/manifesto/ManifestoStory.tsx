@@ -458,19 +458,32 @@ export default function ManifestoStory() {
         {/* Banner: slogan → explicación → cita — click/tap: siguiente banner;
             swipe horizontal (móvil/tablet): avanza o retrocede; el vertical sigue siendo scroll */}
         <div
-          className="relative z-10 flex flex-1 cursor-pointer items-center justify-center px-6"
+          className="relative z-10 flex flex-1 cursor-pointer touch-pan-y items-center justify-center px-6"
           onClick={(e) => {
             if (swipedRef.current) { swipedRef.current = false; return; }
             if ((e.target as HTMLElement).closest('a, button')) return;
             goTo((act + 1) % N_ACTS);
           }}
           onTouchStart={(e) => {
+            swipedRef.current = false;
             touchRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          }}
+          onTouchMove={(e) => {
+            // reconocer el swipe DURANTE el gesto: touchend puede no llegar
+            // (el navegador lo convierte en touchcancel si empieza a scrollear)
+            const t0 = touchRef.current;
+            if (!t0 || swipedRef.current) return;
+            const dx = e.touches[0].clientX - t0.x;
+            const dy = e.touches[0].clientY - t0.y;
+            if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+              swipedRef.current = true;
+              goTo(dx < 0 ? (act + 1) % N_ACTS : (act + N_ACTS - 1) % N_ACTS);
+            }
           }}
           onTouchEnd={(e) => {
             const t0 = touchRef.current;
             touchRef.current = null;
-            if (!t0) return;
+            if (!t0 || swipedRef.current) return;
             const dx = e.changedTouches[0].clientX - t0.x;
             const dy = e.changedTouches[0].clientY - t0.y;
             if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {

@@ -32,6 +32,10 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'nav.services': { en: 'Services', es: 'Servicios', pt: 'Serviços' },
     'nav.solutions': { en: 'Solutions', es: 'Soluciones', pt: 'Soluções' },
     'nav.projects': { en: 'Projects', es: 'Proyectos', pt: 'Projetos' },
+    'nav.sol.vfc': { en: 'Value Finding and Creation', es: 'Descubrimiento y Creación de Valor', pt: 'Descoberta e Criação de Valor' },
+    'nav.sol.ps': { en: 'Project Structuring', es: 'Estructuración de Proyectos', pt: 'Estruturação de Projetos' },
+    'nav.sol.imm': { en: 'Immigration Services', es: 'Servicios Migratorios', pt: 'Serviços Migratórios' },
+    'nav.sol.ils': { en: 'Innovative Legal Solutions', es: 'Soluciones Legales Innovadoras', pt: 'Soluções Legais Inovadoras' },
     'nav.journal': { en: 'Journal', es: 'Blog', pt: 'Blog' },
 
     // ── ScrollHero ──
@@ -112,7 +116,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
 
     // ── LIA Chat Section ──
     'lia.label': { en: 'AI-Powered Agent', es: 'Agente Impulsado por IA', pt: 'Agente com IA' },
-    'lia.title': { en: 'Meet Lia', es: 'Conoce a Lia', pt: 'Conheça a Lia' },
+    'lia.title': { en: 'Meet LIA', es: 'Conoce a LIA', pt: 'Conheça a LIA' },
     'lia.desc': {
         en: 'LIA is our intelligent Business Engineering agent. She navigates complex processes, automates workflows, and delivers structured answers in real time — turning operational complexity into conversational simplicity.',
         es: 'LIA es nuestro agente inteligente de Ingeniería de Negocios. Navega procesos complejos, automatiza flujos de trabajo y entrega respuestas estructuradas en tiempo real — convirtiendo la complejidad operativa en simplicidad conversacional.', pt: 'A LIA é nosso agente inteligente de Engenharia de Negócios. Ela navega processos complexos, automatiza fluxos de trabalho e entrega respostas estruturadas em tempo real — transformando complexidade operacional em simplicidade conversacional.'
@@ -481,8 +485,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'proj.console2': { en: '> Regulatory validation: OK.', es: '> Validación regulatoria: OK.', pt: '> Validação regulatória: OK.' },
     'proj.console3': { en: '> Node engineering: Active.', es: '> Ingeniería de nodos: Activa.', pt: '> Engenharia de nós: Ativa.' },
     'proj.solutions1': { en: 'Immigration ', es: '', pt: '' },
-    'proj.solutions2': { en: 'Solutions', es: 'Soluciones', pt: 'Soluções' },
-    'proj.solutions3': { en: '', es: ' Migratorias', pt: ' Migratórias' },
+    'proj.solutions2': { en: 'Services', es: 'Servicios', pt: 'Serviços' },
+    'proj.solutions3': { en: '', es: ' Migratorios', pt: ' Migratórios' },
     'proj.solutions.desc': { en: 'Your Personal Cockpit — real-time information and management, built into your case.', es: 'Tu Cockpit personal — información y gestión en tiempo real, integrado a tu caso.', pt: 'Seu Cockpit pessoal — informação e gestão em tempo real, integrado ao seu caso.' },
     'proj.s1.title': { en: 'Social Settlement', es: 'Arraigo Social', pt: 'Arraigo Social' },
     'proj.s1.desc': { en: 'Comprehensive regularization management. We automate documentation and requirement tracking to ensure effective socio-labor integration.', es: 'Gestión integral de regularización por arraigo. Automatizamos la documentación y el seguimiento de requisitos para asegurar la integración sociolaboral efectiva.', pt: 'Gestão integral de regularização por arraigo. Automatizamos a documentação e o acompanhamento de requisitos para assegurar a integração sociolaboral efetiva.' },
@@ -583,8 +587,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.sim.total': { en: 'Total Operational Efficiency', es: 'Eficiencia Operativa Total', pt: 'Eficiência Operacional Total' },
     'studio.sim.cycle': { en: 'Cycle Time', es: 'Tiempo de Ciclo', pt: 'Tempo de Ciclo' },
     'studio.sim.opex': { en: 'Monthly OPEX Savings', es: 'Ahorro OPEX Mensual', pt: 'Economia Mensal de OPEX' },
-    'studio.road.label': { en: 'Implementation', es: 'Implementación', pt: 'Implementação' },
-    'studio.road.title1': { en: 'BPA Discovery', es: 'Descubrimiento BPA', pt: 'Descoberta BPA' },
+    'studio.road.label': { en: 'Discovery - Assessment', es: 'Descubrimiento - Diagnóstico', pt: 'Descoberta - Diagnóstico' },
+    'studio.road.title1': { en: 'BPA Model Discovery', es: 'Descubrimiento del Modelo BPA', pt: 'Descoberta do Modelo BPA' },
     'studio.road.title2': { en: ' and Execution Roadmap', es: ' y Roadmap de Ejecución', pt: ' e Roteiro de Execução' },
     'studio.road.s1.title': { en: 'Process Mining', es: 'Process Mining', pt: 'Process Mining' },
     'studio.road.s1.desc': { en: 'Digital X-ray of your current operations. We identify invisible bottlenecks and redundancies through log analysis.', es: 'Radiografía digital de sus operaciones actuales. Identificamos cuellos de botella invisibles y redundancias mediante análisis de logs.', pt: 'Raio-X digital das suas operações atuais. Identificamos gargalos invisíveis e redundâncias por meio da análise de logs.' },
@@ -628,7 +632,19 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.inv.cta': { en: 'Explore Opportunities', es: 'Explorar Oportunidades', pt: 'Explorar Oportunidades' },
 
     // Investment Process Steps
-    'studio.inv.process.label': { en: 'About Investing...', es: 'Sobre Invertir...', pt: 'Sobre Investir...' },
+    'sectors.cta': { en: 'Structure your project', es: 'Estructura tu proyecto', pt: 'Estruture seu projeto' },
+    'sectors.dash.label': { en: 'Project Blueprint', es: 'Plano del Proyecto', pt: 'Plano do Projeto' },
+    'sectors.dash.badge': { en: 'Simulated', es: 'Simulado', pt: 'Simulado' },
+    'sectors.dash.r1.t': { en: 'Viable', es: 'Viable', pt: 'Viável' },
+    'sectors.dash.r1.s': { en: 'Business case tested', es: 'Caso de negocio probado', pt: 'Caso de negócio testado' },
+    'sectors.dash.r2.t': { en: 'Permissible', es: 'Permisible', pt: 'Permissível' },
+    'sectors.dash.r2.s': { en: 'Legal structure compliant', es: 'Estructura legal conforme', pt: 'Estrutura legal conforme' },
+    'sectors.dash.r3.t': { en: 'Executable', es: 'Ejecutable', pt: 'Executável' },
+    'sectors.dash.r3.s': { en: 'Resources and technology in place', es: 'Recursos y tecnología listos', pt: 'Recursos e tecnologia prontos' },
+    'sectors.dash.kpi': { en: 'Time to Market', es: 'Time to Market', pt: 'Time to Market' },
+    'studio.proc.title1': { en: 'Project ', es: '', pt: '' },
+    'studio.proc.title2': { en: 'Structuring', es: 'Estructuración', pt: 'Estruturação' },
+    'studio.proc.title3': { en: '', es: ' de Proyectos', pt: ' de Projetos' },
     'studio.inv.process.title': { en: 'Investment Process', es: 'Proceso de Inversión', pt: 'Processo de Investimento' },
     'studio.inv.step1.title': { en: 'Initial Consultation', es: 'Consulta Inicial', pt: 'Consulta Inicial' },
     'studio.inv.step1.desc': { en: 'We evaluate your investor profile, objectives, and risk appetite to identify optimal sectors.', es: 'Evaluamos tu perfil de inversionista, objetivos y apetito de riesgo para identificar los sectores óptimos.', pt: 'Avaliamos seu perfil de investidor, objetivos e apetite de risco para identificar os setores ideais.' },

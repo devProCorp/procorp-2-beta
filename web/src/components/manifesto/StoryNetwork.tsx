@@ -114,6 +114,8 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
 
     const pos = new Array<number>(N * 2);
     const lifeE = new Array<number>(N);
+    // Acto 1: 1 = dentro de la ameba (rojo), 0 = fuera (blanco)
+    const insideA = new Array<number>(N).fill(1);
     // Acto de conexión: 2/3 del mapa base es blanco, 1/3 rojo; lo NUEVO llega en rojo
     const tone = Array.from({ length: N }, () => (Math.random() < 1 / 3 ? 1 : 0));
     const extras = Array.from({ length: 26 }, () => ({
@@ -192,6 +194,7 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
       const p = clamp(phase.get(), 0, 4);
+      let RmLive = 0; // radio vivo de la ameba (acto 1) para clasificar la red
       const grayF = seg(p, 0.55, 1.05) * (1 - seg(p, 2.55, 3.15)); // gris del acto 2, vuelve el color al elegir futuro
       const aliveF = 1 - seg(p, 0.55, 1.05) * 0.92;                // congela en el acto 2
       const branchF = seg(p, 1.55, 2.45) * (1 - seg(p, 3.45, 3.95));
@@ -221,6 +224,7 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
       // la membrana vive solo en el acto 1: desaparece al entrar el reloj del acto 2
       const memA = (1 - seg(p, 0.55, 1.0)) * (1 - branchF) * (1 - seg(p, 3.45, 3.8)) * fadeF;
       const Rm = Math.min(w, h) * 0.36 * breath * memScale;
+      RmLive = Rm;
       if (memA > 0.02) {
         const cx = w * 0.5, cy = h * 0.5;
         for (let k = 0; k < M; k++) {
@@ -755,6 +759,20 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
       }
       const LD = LINK_DIST * (1 + (connW > 0.05 ? 0.8 * cp : 0)); // el alcance crece: nada queda aislado
 
+      // Acto 1: clasificar cada nodo — solo lo que está DENTRO de la ameba es
+      // rojo; el resto de la red se ve blanco hasta que la membrana lo alcanza
+      if (memA > 0.02 && RmLive > 0) {
+        const acx = w * 0.5, acy = h * 0.5;
+        const rx = RmLive * 1.35, ry = RmLive * 0.85;
+        for (let i = 0; i < N; i++) {
+          const ex = (pos[i * 2] - acx) / rx;
+          const ey = (pos[i * 2 + 1] - acy) / ry;
+          insideA[i] = ex * ex + ey * ey < 1 ? 1 : 0;
+        }
+      } else {
+        insideA.fill(1);
+      }
+
       // Conexiones
       for (let i = 0; i < N; i++) {
         const ni = nodes[i];
@@ -800,9 +818,16 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
           }
           // futuros fantasma vs futuro elegido
           if (hlF > 0) a *= ni.cluster === 1 ? 1 + hlF * 0.7 : 1 - hlF * 0.72;
-          const cr = lerp(R, GRAY, grayF);
-          const cg = lerp(G, GRAY, grayF);
-          const cb = lerp(B, GRAY + 4, grayF);
+          let cr = lerp(R, GRAY, grayF);
+          let cg = lerp(G, GRAY, grayF);
+          let cb = lerp(B, GRAY + 4, grayF);
+          // acto 1: las líneas fuera de la ameba son blancas
+          const wOut = memA * (1 - Math.min(insideA[i], insideA[j]));
+          if (wOut > 0) {
+            cr = lerp(cr, 228, wOut);
+            cg = lerp(cg, 232, wOut);
+            cb = lerp(cb, 238, wOut);
+          }
           ctx.strokeStyle = `rgba(${cr | 0},${cg | 0},${cb | 0},${a * fadeF})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -820,9 +845,16 @@ export default function StoryNetwork({ phase, lang = 'en' }: { phase: MotionValu
         const pr = n.r * 1.45 * (1 + 0.35 * Math.sin(n.pulse) * aliveF) * le;
         let a = (0.55 + 0.35 * Math.sin(n.pulse) * aliveF) * le;
         if (hlF > 0) a *= n.cluster === 1 ? 1 + hlF * 0.6 : 1 - hlF * 0.7;
-        const cr = lerp(R, GRAY, grayF);
-        const cg = lerp(G, GRAY, grayF);
-        const cb = lerp(B, GRAY + 4, grayF);
+        let cr = lerp(R, GRAY, grayF);
+        let cg = lerp(G, GRAY, grayF);
+        let cb = lerp(B, GRAY + 4, grayF);
+        // acto 1: los puntos fuera de la ameba son blancos
+        const wOutN = memA * (1 - insideA[i]);
+        if (wOutN > 0) {
+          cr = lerp(cr, 228, wOutN);
+          cg = lerp(cg, 232, wOutN);
+          cb = lerp(cb, 238, wOutN);
+        }
         if (connW > 0.5) {
           // acto de conexión: el mapa base se ve 2/3 blanco, 1/3 rojo
           ctx.fillStyle = tone[i] === 1

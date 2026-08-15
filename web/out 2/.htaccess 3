@@ -1,0 +1,70 @@
+# Apache config for the static export of the Pro Corp site.
+# Lives in public/ so `next build` copies it verbatim into out/ and rsync ships it.
+# Mirrors the header set that next.config.ts used to serve via headers().
+
+# ---------------------------------------------------------------- clean URLs
+# trailingSlash: true emits /route/index.html, which Apache resolves natively.
+DirectoryIndex index.html
+
+# NOTE: `ErrorDocument` is silently ignored on this host — cPanel restricts
+# AllowOverrideList, so unknown URLs fall back to Apache's bare "404 Not Found"
+# even though mod_rewrite and mod_headers from this same file are honoured.
+# 404.php (reached by the rewrite fallback below) serves Next's 404.html with
+# the correct status instead.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Force HTTPS (the subdomain has a Let's Encrypt cert).
+  # IS_SUBREQ guard: without it Apache's internal subrequest for ErrorDocument
+  # matches this rule, turns the error page into a redirect, gives up, and
+  # serves its own bare "404 Not Found" instead of our 404.html.
+  RewriteCond %{IS_SUBREQ} !=true
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Anything that is not a real file or directory is a 404 (see note above).
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ /404.php [L]
+</IfModule>
+
+# ------------------------------------------------------------------- headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(self), geolocation=(), interest-cohort=()"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.pro-corp.net https://secure.gravatar.com https://lh3.googleusercontent.com https://images.unsplash.com https://*.basemaps.cartocdn.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://*.elevenlabs.io https://*.n8n.cloud https://*.easypanel.host; media-src 'self' https://www.pro-corp.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+
+  # BETA ONLY — keeps this staging copy out of search results so it cannot
+  # compete with the WordPress site on www.pro-corp.net (duplicate content).
+  # REMOVE this line when the subdomain is promoted to the public site.
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+# ------------------------------------------------------------------- caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Hashed build assets are immutable.
+  <FilesMatch "\.(js|css|woff2?)$">
+    ExpiresDefault "access plus 1 year"
+    Header append Cache-Control "immutable"
+  </FilesMatch>
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico|mp4|webm)$">
+    ExpiresDefault "access plus 30 days"
+  </FilesMatch>
+  # HTML must revalidate so redeploys are picked up immediately.
+  <FilesMatch "\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# --------------------------------------------------------------- compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
