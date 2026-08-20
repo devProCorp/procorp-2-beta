@@ -1,79 +1,199 @@
 {
   "id": 12617,
   "slug": "impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025",
-  "date": "2025-10-20T16:40:25",
-  "modified": "2025-10-20T16:40:40",
+  "date": "2025-10-20T21:40:25+00:00",
+  "modified": "2025-10-20T21:40:40+00:00",
   "title": {
     "rendered": "Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario"
   },
   "excerpt": {
-    "rendered": "<p>/journal/media/2024/05/Meloncash-Intro.m4a Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario Introducción La interrupción masiva de AWS en octubre de 2025, originada en la región US-EAST-1, que afectó el Sistema de Nombres de Dominio (DNS) y la base de datos Amazon DynamoDB, tuvo significativos impactos en múltiples sectores, especialmente en el [&hellip;]</p>\n"
+    "rendered": "<p>https://www.pro-corp.net/wp-content/uploads/2024/05/Meloncash-Intro.m4a Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario Introducción La interrupción masiva de AWS en octubre de 2025, originada en la región US-EAST-1, que afectó el Sistema de Nombres de Dominio (DNS) y la base de datos Amazon DynamoDB, tuvo significativos impactos en múltiples sectores, especialmente en el [&hellip;]</p>\n"
   },
   "content": {
-    "rendered": "<p><audio class=\"wp-audio-shortcode\" id=\"audio-1760996424447-1\" preload=\"none\" style=\"width: 100%;\" controls=\"controls\"><source type=\"audio/mpeg\" src=\"/journal/media/2025/10/podcast-audio-141.mp4\" /><a href=\"/journal/media/2024/05/Meloncash-Intro.m4a\">/journal/media/2024/05/Meloncash-Intro.m4a</a></audio></p>\n<h2>Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario</h2>\n</p>\n<p><h2><strong>Introducción</strong></h2>\n</p>\n<p>La <strong>interrupción masiva de AWS</strong> en <em>octubre de 2025</em>, originada en la región <code>US-EAST-1</code>, que afectó el <code>Sistema de Nombres de Dominio (DNS)</code> y la base de datos <code>Amazon DynamoDB</code>, tuvo <strong>significativos impactos</strong> en múltiples sectores, especialmente en el <strong>bancario</strong>.</p>\n<p>Este artículo explorará el <strong>alcance del problema</strong> y sus <strong>repercusiones</strong>, incluyendo la <em>paralización temporal de transacciones digitales</em> y la <strong>importancia de diversificar proveedores</strong> en servicios críticos. Además, se analizarán las <strong>lecciones aprendidas</strong> y se presentarán <strong>recomendaciones</strong> para asegurar la <em>resiliencia de los sistemas financieros</em> ante futuras interrupciones similares.</p>\n<hr>\n<h2><strong>El Incidente: Caída de AWS en Octubre de 2025</strong></h2>\n</p>\n<p>La interrupción de <strong>AWS</strong> que ocurrió en <em>octubre de 2025</em> fue un evento de gran magnitud. Su origen en la región <code>US-EAST-1</code> la convirtió en un punto crítico, afectando servicios esenciales como el <code>DNS</code> y <code>Amazon DynamoDB</code>.</p>\n<p><h3><strong>Detalles de la Interrupción</strong></h3>\n<ul>\n<li><strong>Fecha</strong>: Octubre de 2025</li>\n<li><strong>Región Afectada</strong>: <code>US-EAST-1</code></li>\n<li><strong>Servicios Comprometi2</strong>:</li>\n<li><code>Sistema de Nombres de Dominio (DNS)</code></li>\n<li>Base de datos <code>Amazon DynamoDB</code></li>\n<p>Este incidente global demostró la <strong>interconexión y dependencia</strong> de los servicios digitales en la infraestructura de la nube.</p>\n<hr>\n<h2><strong>Impactos en el Sector Bancario</strong></h2>\n</p>\n<p>El sector bancario, altamente digitalizado y dependiente de la infraestructura en la nube, experimentó consecuencias severas debido a la caída de AWS.</p>\n<p><h3><strong>Consecuencias Directas</strong></h3>\n<p><em>   <strong>Paralización de Transacciones Digitales</strong>: Millones de transacciones bancarias, pagos en línea y operaciones de banca móvil se vieron </em>interrumpidas o retrasadas*.</p>\n<li><strong>Acceso a Servicios Bancarios</strong>: Los clientes tuvieron dificultades para acceder a sus cuentas, realizar transferencias o utilizar tarjetas de crédito y débito que dependían de la infraestructura afectada.</li>\n<li><strong>Impacto en Sistemas Internos</strong>: Numerosos sistemas internos de los bancos, desde la gestión de datos hasta la atención al cliente, sufrieron afectaciones, limitando la capacidad operativa.</li>\n</ul>\n<blockquote>\n<p>«La interrupción de AWS expuso la vulnerabilidad de las instituciones financieras que no contaban con una estrategia robusta de <strong>multicloud</strong> o <strong>diversificación de proveedores</strong>.»</p>\n</blockquote>\n<hr>\n<h2><strong>Lecciones Aprendidas y Recomendaciones</strong></h2>\n</p>\n<p>La caída de AWS en octubre de 2025 sirvió como una <strong>llamada de atención crucial</strong> para la industria financiera, destacando la necesidad imperante de reforzar la <strong>resiliencia operativa</strong>.</p>\n<p><h3><strong>Estrategias Clave para la Resiliencia</strong></h3>\n<li><strong>Diversificación de Proveedores (Multicloud)</strong>: No depender exclusivamente de un único proveedor de servicios en la nube. Implementar arquitecturas que distribuyan cargas de trabajo entre diferentes proveedores (por ejemplo, AWS, Azure, Google Cloud).</li>\n<li><strong>Arquitecturas Tolerantes a Fallos</strong>: Diseñar sistemas que puedan <strong>conmutar automáticamente</strong> a regiones o proveedores alternativos en caso de una interrupción.</li>\n<li><strong>Planes de Contingencia Robustos</strong>: Desarrollar y probar regularmente planes de recuperación ante desastres que incluyan escenarios de fallos de proveedores de servicios externos.</li>\n<li><strong>Monitoreo Proactivo</strong>: Implementar herramientas de monitoreo avanzadas para detectar posibles anomalías o interrupciones en la cadena de suministro de servicios críticos.</li>\n<li><strong>Inversión en Infraestructura Híbrida</strong>: Combinar la nube pública con infraestructuras <em>on-premise</em> para mantener el control sobre datos y aplicaciones críticas, o para proporcionar una capa de <em>failover</em>.</li>\n<p>Estas medidas son fundamentales para que el sector bancario pueda <strong>proteger sus operaciones</strong> y la <strong>confianza de sus clientes</strong> ante eventos de interrupción global.</p>\n"
+    "rendered": "<p><audio class=\"wp-audio-shortcode\" id=\"audio-1760996424447-1\" preload=\"none\" style=\"width: 100%;\" controls=\"controls\"><source type=\"audio/mpeg\" src=\"https://www.pro-corp.net/wp-content/uploads/2025/10/podcast-audio-141.mp4\" /><a href=\"https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Meloncash-Intro.m4a\">https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Meloncash-Intro.m4a</a></audio></p>\n<h2>Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario</h2>\n</p>\n<p><h2><strong>Introducción</strong></h2>\n</p>\n<p>La <strong>interrupción masiva de AWS</strong> en <em>octubre de 2025</em>, originada en la región <code>US-EAST-1</code>, que afectó el <code>Sistema de Nombres de Dominio (DNS)</code> y la base de datos <code>Amazon DynamoDB</code>, tuvo <strong>significativos impactos</strong> en múltiples sectores, especialmente en el <strong>bancario</strong>.</p>\n<p>Este artículo explorará el <strong>alcance del problema</strong> y sus <strong>repercusiones</strong>, incluyendo la <em>paralización temporal de transacciones digitales</em> y la <strong>importancia de diversificar proveedores</strong> en servicios críticos. Además, se analizarán las <strong>lecciones aprendidas</strong> y se presentarán <strong>recomendaciones</strong> para asegurar la <em>resiliencia de los sistemas financieros</em> ante futuras interrupciones similares.</p>\n<hr>\n<h2><strong>El Incidente: Caída de AWS en Octubre de 2025</strong></h2>\n</p>\n<p>La interrupción de <strong>AWS</strong> que ocurrió en <em>octubre de 2025</em> fue un evento de gran magnitud. Su origen en la región <code>US-EAST-1</code> la convirtió en un punto crítico, afectando servicios esenciales como el <code>DNS</code> y <code>Amazon DynamoDB</code>.</p>\n<p><h3><strong>Detalles de la Interrupción</strong></h3>\n<ul>\n<li><strong>Fecha</strong>: Octubre de 2025</li>\n<li><strong>Región Afectada</strong>: <code>US-EAST-1</code></li>\n<li><strong>Servicios Comprometi2</strong>:</li>\n<li><code>Sistema de Nombres de Dominio (DNS)</code></li>\n<li>Base de datos <code>Amazon DynamoDB</code></li>\n<p>Este incidente global demostró la <strong>interconexión y dependencia</strong> de los servicios digitales en la infraestructura de la nube.</p>\n<hr>\n<h2><strong>Impactos en el Sector Bancario</strong></h2>\n</p>\n<p>El sector bancario, altamente digitalizado y dependiente de la infraestructura en la nube, experimentó consecuencias severas debido a la caída de AWS.</p>\n<p><h3><strong>Consecuencias Directas</strong></h3>\n<p><em>   <strong>Paralización de Transacciones Digitales</strong>: Millones de transacciones bancarias, pagos en línea y operaciones de banca móvil se vieron </em>interrumpidas o retrasadas*.</p>\n<li><strong>Acceso a Servicios Bancarios</strong>: Los clientes tuvieron dificultades para acceder a sus cuentas, realizar transferencias o utilizar tarjetas de crédito y débito que dependían de la infraestructura afectada.</li>\n<li><strong>Impacto en Sistemas Internos</strong>: Numerosos sistemas internos de los bancos, desde la gestión de datos hasta la atención al cliente, sufrieron afectaciones, limitando la capacidad operativa.</li>\n</ul>\n<blockquote>\n<p>«La interrupción de AWS expuso la vulnerabilidad de las instituciones financieras que no contaban con una estrategia robusta de <strong>multicloud</strong> o <strong>diversificación de proveedores</strong>.»</p>\n</blockquote>\n<hr>\n<h2><strong>Lecciones Aprendidas y Recomendaciones</strong></h2>\n</p>\n<p>La caída de AWS en octubre de 2025 sirvió como una <strong>llamada de atención crucial</strong> para la industria financiera, destacando la necesidad imperante de reforzar la <strong>resiliencia operativa</strong>.</p>\n<p><h3><strong>Estrategias Clave para la Resiliencia</strong></h3>\n<li><strong>Diversificación de Proveedores (Multicloud)</strong>: No depender exclusivamente de un único proveedor de servicios en la nube. Implementar arquitecturas que distribuyan cargas de trabajo entre diferentes proveedores (por ejemplo, AWS, Azure, Google Cloud).</li>\n<li><strong>Arquitecturas Tolerantes a Fallos</strong>: Diseñar sistemas que puedan <strong>conmutar automáticamente</strong> a regiones o proveedores alternativos en caso de una interrupción.</li>\n<li><strong>Planes de Contingencia Robustos</strong>: Desarrollar y probar regularmente planes de recuperación ante desastres que incluyan escenarios de fallos de proveedores de servicios externos.</li>\n<li><strong>Monitoreo Proactivo</strong>: Implementar herramientas de monitoreo avanzadas para detectar posibles anomalías o interrupciones en la cadena de suministro de servicios críticos.</li>\n<li><strong>Inversión en Infraestructura Híbrida</strong>: Combinar la nube pública con infraestructuras <em>on-premise</em> para mantener el control sobre datos y aplicaciones críticas, o para proporcionar una capa de <em>failover</em>.</li>\n<p>Estas medidas son fundamentales para que el sector bancario pueda <strong>proteger sus operaciones</strong> y la <strong>confianza de sus clientes</strong> ante eventos de interrupción global.</p>\n"
   },
-  "featured_media": 12619,
+  "featured_media": 12617,
   "categories": [
-    1
+    59
   ],
   "tags": [],
   "author": 1778,
+  "seo_title": "Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario - Pro Corp Corporate Development",
+  "seo_description": "https://www.pro-corp.net/wp-content/uploads/2024/05/Meloncash-Intro.m4a Impactos de la Caída de un Servidor Global como AWS en el Sector",
+  "seo_canonical": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 543,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2025-10-20T21:40:40+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1760996436956.png",
+        "datePublished": "2025-10-20T21:40:25+00:00",
+        "articleSection": [
+          "Uncategorized"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/",
+        "url": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/",
+        "name": "Impactos de la Caída de un Servidor Global como AWS en el Sector Bancario - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Meloncash-Intro.m4a Impactos de la Caída de un Servidor Global como AWS en el Sector",
+        "dateModified": "2025-10-20T21:40:40+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1760996436956.png",
+        "datePublished": "2025-10-20T21:40:25+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/impactos-de-la-caida-de-aws-en-el-sector-bancario-en-2025/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1760996436956.png",
+        "@type": "ImageObject",
+        "width": 1024,
+        "height": 1024,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1760996436956.png",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 12619,
-        "source_url": "/journal/media/2025/10/portada_1760996436956.png",
+        "id": 12617,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1760996436956.png",
         "alt_text": "",
         "media_details": {
-          "width": 1024,
-          "height": 1024,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2025/10/portada_1760996436956-300x300.png",
-              "width": 300,
-              "height": 300
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2025/10/portada_1760996436956-150x150.png",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2025/10/portada_1760996436956-768x768.png",
-              "width": 768,
-              "height": 768
-            },
-            "full": {
-              "source_url": "/journal/media/2025/10/portada_1760996436956.png",
-              "width": 1024,
-              "height": 1024
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
     "wp:term": [
       [
         {
-          "id": 1,
-          "name": "Uncategorized",
-          "slug": "uncategorized"
+          "id": 59,
+          "name": "Vivir en Europa",
+          "slug": "vivir-en-europa"
         }
-      ],
-      []
+      ]
     ]
   }
 }

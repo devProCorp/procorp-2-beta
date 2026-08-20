@@ -242,8 +242,8 @@ export default function Studio() {
             </div>
 
             {/* Abajo: el Business Cockpit rojo a todo el ancho */}
-            <div className="bg-gradient-to-br from-primary to-primary-dark p-10 md:p-14 relative overflow-hidden text-white border-t border-primary-light/20">
-              <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/20 rounded-full blur-[60px] mix-blend-overlay pointer-events-none"></div>
+            <div className="bg-gradient-to-br from-primary-dark to-[#5c0712] p-10 md:p-14 relative overflow-hidden text-white border-t border-primary-light/20">
+              <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-[60px] mix-blend-overlay pointer-events-none"></div>
               <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-black/30 rounded-full blur-[50px] pointer-events-none"></div>
 
               <div className="relative z-10">
@@ -261,12 +261,12 @@ export default function Studio() {
                         {Math.round(simEff)}%
                         <span className={`text-3xl ${effOk ? 'text-green-300' : 'animate-pulse text-amber-300'}`} aria-hidden="true">{effOk ? '▲' : '▼'}</span>
                       </h2>
-                      <p className="text-[15px] font-medium text-white/90 mt-2">{t('studio.sim.total')}</p>
-                      <p className="mt-3 text-[11px] font-medium leading-snug text-white/60">{t('studio.sim.disclaimer')}</p>
+                      <p className="text-[15px] font-medium text-white mt-2">{t('studio.sim.total')}</p>
+                      <p className="mt-3 text-[11px] font-medium leading-snug text-white/80">{t('studio.sim.disclaimer')}</p>
                     </div>
                     {/* Selector de escenarios: presets que mueven los mismos sliders */}
                     <div>
-                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">{t('studio.sim.scenarios')}</p>
+                      <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/85">{t('studio.sim.scenarios')}</p>
                       <div className="flex flex-wrap items-center gap-2">
                         {SCENARIOS.map((s) => (
                           <button
@@ -299,9 +299,9 @@ export default function Studio() {
                         { label: t('studio.sim.throughput'), value: <>{simThroughput}x</>, ok: thruOk },
                         { label: t('studio.sim.errorrate'), value: <>{simErrorRate}%</>, ok: errOk },
                       ].map((tile, i) => (
-                        <div key={i} className="rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-md shadow-lg transition-colors hover:bg-white/20">
+                        <div key={i} className="rounded-xl border border-white/20 bg-black/20 p-4 backdrop-blur-md shadow-lg transition-colors hover:bg-black/30">
                           <div className="mb-1 flex items-center justify-between gap-2">
-                            <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/70">{tile.label}</span>
+                            <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/85">{tile.label}</span>
                             <span className={`text-[10px] font-bold ${tile.ok ? 'text-green-300' : 'animate-pulse text-amber-300'}`} aria-hidden="true">{tile.ok ? '▲' : '▼'}</span>
                           </div>
                           <div className="text-xl font-extrabold tracking-tight text-white">{tile.value}</div>
@@ -312,8 +312,8 @@ export default function Studio() {
                     {/* Proyección del escenario: banda P10–P90 que se estrecha con más automatización */}
                     <div className="mt-6">
                       <div className="mb-2 flex items-center justify-between">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">{t('studio.sim.projection')}</span>
-                        <span className="text-[9px] font-medium uppercase tracking-widest text-white/50">{t('studio.sim.band')}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/85">{t('studio.sim.projection')}</span>
+                        <span className="text-[9px] font-medium uppercase tracking-widest text-white/65">{t('studio.sim.band')}</span>
                       </div>
                       <svg className="h-24 w-full" viewBox="0 0 240 80" preserveAspectRatio="none" aria-hidden="true">
                         <line x1="0" y1={py(simEff)} x2="240" y2={py(simEff)} stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeDasharray="4 4" />
@@ -338,7 +338,7 @@ export default function Studio() {
                 {/* Línea de alarma: se dispara cuando un indicador sale de rango */}
                 <div className={`mt-4 flex items-center gap-3 rounded-xl px-4 py-3 text-[11px] font-bold uppercase tracking-widest ${anyAlarm
                     ? 'animate-pulse border border-amber-300/50 bg-black/30 text-amber-300'
-                    : 'border border-white/20 bg-white/10 text-white/90'
+                    : 'border border-white/20 bg-black/20 text-white'
                   }`}>
                   <span className="material-symbols-outlined text-lg">{anyAlarm ? 'warning' : 'check_circle'}</span>
                   {anyAlarm ? t('studio.sim.alarm') : t('studio.sim.allok')}

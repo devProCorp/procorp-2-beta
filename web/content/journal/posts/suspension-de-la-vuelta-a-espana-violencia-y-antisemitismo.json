@@ -1,8 +1,8 @@
 {
   "id": 12111,
   "slug": "suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo",
-  "date": "2025-09-30T08:26:24",
-  "modified": "2025-09-30T08:27:42",
+  "date": "2025-09-30T13:26:24+00:00",
+  "modified": "2025-09-30T13:27:42+00:00",
   "title": {
     "rendered": "Suspensión de la Vuelta a España: Violencia y Antisemitismo "
   },
@@ -12,7 +12,7 @@
   "content": {
     "rendered": "\n<p><strong>Violencia&nbsp;antisemita&nbsp;en la Vuelta a España:&nbsp;La FCJE se pronuncia</strong></p>\n\n\n\n<p>La reciente suspensión de la última etapa de la Vuelta Ciclista a España debido a incidentes violentos protagonizados por grupos propalestinos ha generado una gran conmoción en España y fuera de sus fronteras. La Federación de Comunidades Judías de España (FCJE), institución que representa oficialmente al judaísmo en el país, emitió un comunicado condenando enérgicamente lo sucedido y advirtiendo sobre las consecuencias de normalizar la violencia en la vida pública.</p>\n\n\n\n<p><strong>Los hechos y su impacto inmediato</strong></p>\n\n\n\n<p>La Vuelta Ciclista a España es uno de los eventos deportivos más importantes a nivel internacional y uno de los escaparates más seguidos del deporte español. La interrupción de su última etapa por actos violentos no solo supuso un golpe a la imagen del país como organizador de grandes competiciones, sino que también abrió un debate sobre los límites de la protesta política y el uso del deporte como escenario de reivindicaciones.</p>\n\n\n\n<p>Según el comunicado de la FCJE, la violencia registrada no puede justificarse bajo la bandera de la libertad de expresión. La Federación advirtió que estos episodios representan una amenaza directa al orden público, a la convivencia social y a la seguridad de los ciudadanos. En su mensaje, insistió en que los actos de intimidación y violencia no pueden ser tolerados en una sociedad democrática, y denunció el riesgo de que estas conductas alimenten un antisemitismo creciente en España.</p>\n\n\n\n<p><strong>Contexto y sensibilidad del momento</strong></p>\n\n\n\n<p>La protesta violenta que obligó a cancelar la competición se enmarca en un contexto internacional marcado por la crisis diplomática entre España e Israel. Las recientes declaraciones y medidas del presidente Pedro Sánchez han tensado la relación bilateral y generado un clima de polarización política y social. En este escenario, no resulta casual que manifestaciones propalestinas se intensifiquen y que algunos sectores radicales intenten trasladar la confrontación internacional al ámbito público español.</p>\n\n\n\n<p>El deporte, por su capacidad de convocatoria global, se convierte en un escaparate mediático donde las tensiones políticas se amplifican. Lo ocurrido en la Vuelta recuerda que los grandes eventos internacionales no están exentos de riesgos cuando se convierten en plataformas para mensajes ideológicos o enfrentamientos políticos.</p>\n\n\n\n<p><strong>Reacciones en España e Israel</strong></p>\n\n\n\n<p>La condena de la FCJE fue acompañada por reacciones de autoridades y líderes políticos españoles. Desde el Gobierno y las instituciones deportivas se subrayó que la seguridad de los atletas y del público es prioritaria, y que lo sucedido no puede repetirse. También se recordó que España, como país anfitrión, tiene la obligación de garantizar que manifestaciones legítimas no deriven en violencia ni afecten al normal desarrollo de la vida social.</p>\n\n\n\n<p>Al mismo tiempo, sectores de la sociedad civil mostraron preocupación por el aumento del antisemitismo y el riesgo de que protestas políticas legítimas deriven en actos de odio contra comunidades específicas.</p>\n\n\n\n<p>En Israel, los incidentes fueron recibidos como una muestra de hostilidad que confirma el deterioro de la relación con España. Medios israelíes reflejaron con dureza la suspensión de la Vuelta, interpretándola como una señal de que el conflicto en Gaza y las tensiones diplomáticas tienen eco en el día a día europeo. Voces políticas y comunitarias señalaron que este tipo de episodios no solo afectan la imagen de España, sino que también generan un clima de inseguridad para los judíos en Europa.</p>\n\n\n\n<p><strong>Conclusión</strong></p>\n\n\n\n<p>La suspensión de la última etapa de la Vuelta Ciclista a España por incidentes violentos refleja cómo los conflictos internacionales pueden trasladarse al espacio público europeo. La condena de la Federación de Comunidades Judías de España subraya el riesgo de que la violencia y el antisemitismo se normalicen bajo pretextos ideológicos.</p>\n\n\n\n<p>En Pro Corp, despacho especializado en trámites migratorios, extranjería e inversiones, mantenemos a todos nuestros clientes al día sobre temas de actualidad que impactan en España y en la comunidad internacional, porque entendemos que estar informados es clave para tomar las mejores decisiones.</p>\n"
   },
-  "featured_media": 12112,
+  "featured_media": 12111,
   "categories": [
     56,
     57,
@@ -20,50 +20,174 @@
   ],
   "tags": [],
   "author": 1778,
+  "seo_title": "Suspensión de la Vuelta a España: Violencia y Antisemitismo  - Pro Corp Corporate Development",
+  "seo_description": "La Federación de Comunidades Judías de España (FCJE) condena los incidentes violentos que suspendieron la última etapa de la Vuelta a España, alertando sobre el riesgo de normalizar el antisemitismo y la violencia en la vida pública.",
+  "seo_canonical": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/",
+  "seo_og_image_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/imagen-blog-1.jpg",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "Suspensión de la Vuelta a España: Violencia y Antisemitismo ",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 746,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2025-09-30T13:27:42+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/imagen-blog-1.jpg",
+        "datePublished": "2025-09-30T13:26:24+00:00",
+        "articleSection": [
+          "Ciudadanía europea",
+          "Emigrar a España",
+          "Nacionalidad española por origen sefardí"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/",
+        "url": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/",
+        "name": "Suspensión de la Vuelta a España: Violencia y Antisemitismo  - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "La Federación de Comunidades Judías de España (FCJE) condena los incidentes violentos que suspendieron la última etapa de la Vuelta a España, alertando sobre el riesgo de normalizar el antisemitismo y la violencia en la vida pública.",
+        "dateModified": "2025-09-30T13:27:42+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/imagen-blog-1.jpg",
+        "datePublished": "2025-09-30T13:26:24+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/suspension-de-la-vuelta-a-espana-violencia-y-antisemitismo/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/imagen-blog-1.jpg",
+        "@type": "ImageObject",
+        "width": 1024,
+        "height": 1024,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/imagen-blog-1.jpg",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 12112,
-        "source_url": "/journal/media/2025/09/imagen-blog-1.jpg",
+        "id": 12111,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/imagen-blog-1.jpg",
         "alt_text": "",
         "media_details": {
-          "width": 1024,
-          "height": 1024,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2025/09/imagen-blog-1-300x300.jpg",
-              "width": 300,
-              "height": 300
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2025/09/imagen-blog-1-150x150.jpg",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2025/09/imagen-blog-1-768x768.jpg",
-              "width": 768,
-              "height": 768
-            },
-            "full": {
-              "source_url": "/journal/media/2025/09/imagen-blog-1.jpg",
-              "width": 1024,
-              "height": 1024
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
@@ -84,8 +208,7 @@
           "name": "Nacionalidad española por origen sefardí",
           "slug": "nacionalidad-espanola-por-origen-sefardi"
         }
-      ],
-      []
+      ]
     ]
   }
 }

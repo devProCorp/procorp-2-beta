@@ -1,8 +1,8 @@
 {
   "id": 12586,
   "slug": "plan-paz-donald-trump-conflicto-gaza-2025",
-  "date": "2025-10-20T09:31:16",
-  "modified": "2025-10-20T09:31:16",
+  "date": "2025-10-20T14:31:16+00:00",
+  "modified": "2025-10-20T14:31:16+00:00",
   "title": {
     "rendered": "Trump anuncia un plan de paz para Gaza aceptado por Israel"
   },
@@ -14,33 +14,152 @@
   },
   "featured_media": 0,
   "categories": [
-    1
+    59
   ],
   "tags": [],
   "author": 1778,
+  "seo_title": "Trump anuncia un plan de paz para Gaza aceptado por Israel - Pro Corp Corporate Development",
+  "seo_description": "El 29 de septiembre de 2025, el expresidente estadounidense Donald Trump presentó un plan de paz de 20 puntos para poner fin al conflicto en Gaza, el cual",
+  "seo_canonical": "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/#article",
+        "@type": "Article",
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "Trump anuncia un plan de paz para Gaza aceptado por Israel",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 800,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "datePublished": "2025-10-20T14:31:16+00:00",
+        "articleSection": [
+          "Uncategorized"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/",
+        "url": "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/",
+        "name": "Trump anuncia un plan de paz para Gaza aceptado por Israel - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "El 29 de septiembre de 2025, el expresidente estadounidense Donald Trump presentó un plan de paz de 20 puntos para poner fin al conflicto en Gaza, el cual",
+        "datePublished": "2025-10-20T14:31:16+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/plan-paz-donald-trump-conflicto-gaza-2025/"
+            ]
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:term": [
       [
         {
-          "id": 1,
-          "name": "Uncategorized",
-          "slug": "uncategorized"
+          "id": 59,
+          "name": "Vivir en Europa",
+          "slug": "vivir-en-europa"
         }
-      ],
-      []
+      ]
     ]
   }
 }

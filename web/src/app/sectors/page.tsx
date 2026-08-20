@@ -62,21 +62,21 @@ export default function Sectors() {
           {/* Sector Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: 'apartment', title: t('studio.inv.re.title'), desc: t('studio.inv.re.desc'), tag: t('studio.inv.re.tag'), accent: 'bg-[#CE1026]', href: 'https://inversion.pro-corp.net/real-state' },
-              { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), accent: 'bg-[#F59E0B]', href: 'https://inversion.pro-corp.net/distress-assets' },
-              { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), accent: 'bg-[#10B981]', href: 'https://inversion.pro-corp.net/energy' },
-              { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), accent: 'bg-[#3B82F6]', href: 'https://inversion.pro-corp.net/fintech' },
-              { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), accent: 'bg-[#8B5CF6]', href: 'https://aeronexxt.com/' },
-              { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), accent: 'bg-[#F97316]', href: 'https://inversion.pro-corp.net/edutainment' },
-              { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), accent: 'bg-[#0EA5E9]', href: 'https://inversion.pro-corp.net/' },
+              { icon: 'apartment', title: t('studio.inv.re.title'), desc: t('studio.inv.re.desc'), tag: t('studio.inv.re.tag'), color: '#CE1026', accentBg: 'bg-[#CE1026]/15', href: 'https://inversion.pro-corp.net/real-state' },
+              { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), color: '#F59E0B', accentBg: 'bg-[#F59E0B]/15', href: 'https://inversion.pro-corp.net/distress-assets' },
+              { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), color: '#10B981', accentBg: 'bg-[#10B981]/15', href: 'https://inversion.pro-corp.net/energy' },
+              { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), color: '#3B82F6', accentBg: 'bg-[#3B82F6]/15', href: 'https://inversion.pro-corp.net/fintech' },
+              { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), color: '#8B5CF6', accentBg: 'bg-[#8B5CF6]/15', href: 'https://aeronexxt.com/' },
+              { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), color: '#F97316', accentBg: 'bg-[#F97316]/15', href: 'https://inversion.pro-corp.net/edutainment' },
+              { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), color: '#0EA5E9', accentBg: 'bg-[#0EA5E9]/15', href: 'https://inversion.pro-corp.net/' },
             ].map((sector, i) => (
               <a key={i} href={sector.href} target="_blank" rel="noopener noreferrer" className="group relative glass-panel glass-panel-hover rounded-[1.5rem] overflow-hidden cursor-pointer flex flex-col h-full border border-surface-border/50">
-                <div className="absolute top-0 right-0 w-32 h-32 blur-[40px] opacity-10 group-hover:opacity-30 transition-opacity duration-500 rounded-bl-full pointer-events-none" style={{ backgroundColor: sector.accent.replace('bg-', '').replace('[', '').replace(']', '') }}></div>
+                <div className="absolute top-0 right-0 w-32 h-32 blur-[40px] opacity-10 group-hover:opacity-30 transition-opacity duration-500 rounded-bl-full pointer-events-none" style={{ backgroundColor: sector.color }}></div>
 
                 <div className="relative z-10 p-8 flex flex-col h-full">
                   <div className="flex items-start justify-between mb-8">
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg ${sector.accent} bg-opacity-10 border border-white/5`}>
-                      <span className="material-symbols-outlined text-[28px]" style={{ color: sector.accent.replace('bg-', '').replace('[', '').replace(']', '') }}>{sector.icon}</span>
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg ${sector.accentBg} border border-white/5`}>
+                      <span className="material-symbols-outlined text-[28px]" style={{ color: sector.color }}>{sector.icon}</span>
                     </div>
                     <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 bg-surface-darker/80 border border-surface-border/50 px-3 py-1.5 rounded-full shadow-inner">
                       {sector.tag}

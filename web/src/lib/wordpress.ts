@@ -1,9 +1,12 @@
 /**
- * Journal content reader — serves the snapshotted WordPress export from
- * content/journal/ (see docs/decisions/0001-decommission-wordpress.md).
- * Keeps the WPPost shape and the original fetch-function signatures so
- * consumers did not have to change; there is no WordPress at runtime.
- * Regenerate the snapshot with scripts/snapshot-wp.mjs while WP is alive.
+ * Journal content reader — serves the snapshot in content/journal/, now
+ * sourced from Supabase (schema `blog`, see
+ * docs/decisions/0002-journal-source-supabase.md), originally from WordPress
+ * (see docs/decisions/0001-decommission-wordpress.md). Keeps the WPPost shape
+ * and the original fetch-function signatures so consumers did not have to
+ * change; there is no live dependency on WordPress or Supabase at runtime.
+ * Regenerate the snapshot with:
+ *   node --env-file=.env.local scripts/snapshot-supabase.mjs
  */
 import { promises as fs } from "node:fs";
 import path from "node:path";

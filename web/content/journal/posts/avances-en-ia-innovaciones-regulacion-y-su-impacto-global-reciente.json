@@ -1,8 +1,8 @@
 {
   "id": 11851,
   "slug": "avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente",
-  "date": "2025-09-17T16:12:51",
-  "modified": "2025-09-17T16:12:54",
+  "date": "2025-09-17T21:12:51+00:00",
+  "modified": "2025-09-17T21:12:54+00:00",
   "title": {
     "rendered": "Avances en IA: Innovaciones, Regulación y su Impacto Global Reciente"
   },
@@ -12,68 +12,189 @@
   "content": {
     "rendered": "\n<div class=\"wp-block-cover alignfull is-light\" style=\"padding-top:3rem;padding-bottom:3rem;\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-white-background-color has-background-dim-100 has-background-dim\"></span><div class=\"wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow\">\n<h1 class=\"wp-block-heading\" style=\"font-style:normal;font-weight:700;color:#111111;margin-top:0;margin-bottom:1.5rem\">Avances Recientes en Inteligencia Artificial: Innovaciones y Noticias de la Última Semana</h1>\n\n\n\n<p class=\"has-text-color\" style=\"color:#444444;margin-bottom:0\">La última semana ha sido testigo de emocionantes avances en el campo de la inteligencia artificial (IA), con desarrollos que abarcan tecnología, salud, regulaciones, impacto social y nuevos lanzamientos.</p>\n</div></div>\n\n\n\n<div style=\"height:2rem\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\n\n\n<h2 class=\"wp-block-heading\" style=\"color:#111111;margin-top:1.5rem;margin-bottom:1rem\">Tabla de Contenidos</h2>\n\n\n\n<ul class=\"wp-block-list\"><li><a href=\"#avances-tecnologicos\">Avances Tecnológicos y Aplicaciones Innovadoras</a></li><li><a href=\"#regulaciones-y-controversias\">Regulaciones y Controversias Legales</a></li><li><a href=\"#impacto-social-economico\">Impacto Social, Económico y Laboral</a></li><li><a href=\"#eventos-y-lanzamientos\">Eventos y Lanzamientos Recientes</a></li></ul>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" style=\"margin-top:2rem;margin-bottom:2rem\"/>\n\n\n\n<h2 class=\"wp-block-heading\" style=\"color:#111111;margin-top:1.5rem;margin-bottom:1rem\">Resumen Ejecutivo</h2>\n\n\n\n<div class=\"wp-block-group has-background\" style=\"background-color:#F8F8F8;border-style:solid;border-width:1px;border-color:#8F9295;border-radius:0px;margin-top:0;margin-bottom:1.5rem;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-container-core-group-is-layout-c8e1db9e wp-block-group-is-layout-constrained\">\n<ul class=\"wp-block-list\"><li>✅ <strong>Salud:</strong> Delphi-2M predice riesgos de enfermedades con 20 años de antelación.</li><li>🤖 <strong>Robótica:</strong> OpenAI avanza hacia la IA general con humanoides.</li><li>👓 <strong>Dispositivos:</strong> Meta y Apple lanzan gafas inteligentes y el buscador Apple Intelligence.</li><li>⚖️ <strong>Regulación:</strong> Prohibición de chips Nvidia en China y demandas por derechos de autor.</li><li>💡 <strong>Impacto Social:</strong> Debate sobre el empleo y la IA en educación.</li></ul>\n</div></div>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" style=\"margin-top:2rem;margin-bottom:2rem\"/>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"avances-tecnologicos\" style=\"color:#111111;margin-top:1.5rem;margin-bottom:1rem\">Avances Tecnológicos y Aplicaciones Innovadoras</h2>\n\n\n\n<ul class=\"wp-block-list\"><li>En el campo de la salud, el modelo Delphi-2M, basado en GPT-2, ha revolucionado el pronóstico médico al predecir riesgos para más de 1,250 enfermedades con hasta 20 años de anticipación.</li><li>Dentro de la robótica, OpenAI ha dado pasos significativos hacia la inteligencia artificial general, desarrollando robots humanoides que podrían redefinir la interacción humano-máquina.</li><li>Meta ha lanzado una nueva generación de gafas inteligentes que ofrecen información en tiempo real, <em>blurring</em> las líneas entre la realidad aumentada y la vida diaria.</li><li>Apple, en colaboración con Google, está trabajando para impulsar Siri a través de mejoras y ha lanzado el buscador Apple Intelligence junto con iOS 26.</li></ul>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" style=\"margin-top:2rem;margin-bottom:2rem\"/>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"regulaciones-y-controversias\" style=\"color:#111111;margin-top:1.5rem;margin-bottom:1rem\">Regulaciones y Controversias Legales</h2>\n\n\n\n<ul class=\"wp-block-list\"><li>China ha impuesto una prohibición a las empresas respecto a la compra de chips Nvidia, planteando tensiones en el mercado internacional de semiconductores.</li><li>Se establecen precedentes legales en torno a los derechos de autor, donde Anthropic deberá indemnizar por la utilización de obras protegidas en sus modelos de IA.</li><li>Google enfrenta demandas relacionadas con resúmenes generados, que han impactado a productos de medios de comunicación.</li></ul>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" style=\"margin-top:2rem;margin-bottom:2rem\"/>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"impacto-social-economico\" style=\"color:#111111;margin-top:1.5rem;margin-bottom:1rem\">Impacto Social, Económico y Laboral</h2>\n\n\n\n<ul class=\"wp-block-list\"><li>La discusión en torno al impacto de la IA en el empleo ha cobrado relevancia, con propuestas de reducción de jornadas laborales para mitigar el impacto, apoyadas por personalidades como Bill Gates.</li><li>En el ámbito educativo, la adopción de tecnologías IA continúa en aumento, aunque persisten preocupaciones sobre la fiabilidad y precisión de las fuentes utilizadas.</li><li>China está buscando estrategias para atraer de regreso talento especializado en IA que actualmente reside en Estados Unidos.</li></ul>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" style=\"margin-top:2rem;margin-bottom:2rem\"/>\n\n\n\n<h2 class=\"wp-block-heading\" id=\"eventos-y-lanzamientos\" style=\"color:#111111;margin-top:1.5rem;margin-bottom:1rem\">Eventos y Lanzamientos Recientes</h2>\n\n\n\n<ul class=\"wp-block-list\"><li>La feria IFA Berlin 2025 se ha destacado por la presentación de un impresionante catálogo de robots y dispositivos <em>wearables</em> dotados de IA.</li><li>Durante el Meta Connect 2025, se presentaron anuncios significativos sobre avanzadas gafas inteligentes, mientras que Amazon y OpenAI están preparando próximos lanzamientos estratégicos.</li></ul>\n\n\n\n<hr class=\"wp-block-separator has-css-opacity is-style-wide\" style=\"margin-top:2rem;margin-bottom:2rem\"/>\n\n\n\n<div class=\"wp-block-group has-background\" style=\"background-color:#F8F8F8;border-style:solid;border-width:1px;border-color:#8F9295;border-radius:0px;margin-top:1.5rem;margin-bottom:1.5rem;padding-top:1.5rem;padding-right:1.5rem;padding-bottom:1.5rem;padding-left:1.5rem\"><div class=\"wp-block-group__inner-container is-layout-constrained wp-container-core-group-is-layout-d99188df wp-block-group-is-layout-constrained\">\n<p class=\"has-text-color has-small-font-size\" style=\"color:#444444;line-height:1.6\">Estos hitos recientes en el ámbito de la inteligencia artificial demuestran la constante evolución y la dinámica rápida del sector, presentando tanto oportunidades fascinantes como desafíos complejos. Desde desarrollos tecnológicos hasta debates jurídicos y sociales, la IA continúa transformando nuestra realidad en múltiples dimensiones. Estar informados sobre estas tendencias es vital para anticipar el futuro y comprender el alcance de la tecnología en nuestras vidas cotidianas.</p>\n</div></div>\n\n\n\n<div class=\"wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-825c694a wp-block-buttons-is-layout-flex\" style=\"margin-top:2rem;margin-bottom:2rem\">\n<a class=\"wp-block-button__link has-text-color has-background is-style-fill\" style=\"border-radius:0.5rem;padding-top:0.75rem;padding-right:1.5rem;padding-bottom:0.75rem;padding-left:1.5rem;background-color:#CE1026;color:#ffffff\" href=\"#\">Descubre más sobre IA y sus tendencias</a>\n</div>\n"
   },
-  "featured_media": 11852,
+  "featured_media": 11851,
   "categories": [
-    1
+    59
   ],
   "tags": [],
   "author": 1778,
+  "seo_title": "Avances en IA: Innovaciones, Regulación y su Impacto Global Reciente - Pro Corp Corporate Development",
+  "seo_description": "Avances Recientes en Inteligencia Artificial: Innovaciones y Noticias de la Última Semana La última semana ha sido testigo de emocionantes avances en el",
+  "seo_canonical": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/",
+  "seo_og_image_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1758142360530.png",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "Avances en IA: Innovaciones, Regulación y su Impacto Global Reciente",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 558,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2025-09-17T21:12:54+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1758142360530.png",
+        "datePublished": "2025-09-17T21:12:51+00:00",
+        "articleSection": [
+          "Uncategorized"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/",
+        "url": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/",
+        "name": "Avances en IA: Innovaciones, Regulación y su Impacto Global Reciente - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "Avances Recientes en Inteligencia Artificial: Innovaciones y Noticias de la Última Semana La última semana ha sido testigo de emocionantes avances en el",
+        "dateModified": "2025-09-17T21:12:54+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1758142360530.png",
+        "datePublished": "2025-09-17T21:12:51+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/avances-en-ia-innovaciones-regulacion-y-su-impacto-global-reciente/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1758142360530.png",
+        "@type": "ImageObject",
+        "width": 1024,
+        "height": 1024,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1758142360530.png",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 11852,
-        "source_url": "/journal/media/2025/09/portada_1758142360530.png",
+        "id": 11851,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/portada_1758142360530.png",
         "alt_text": "",
         "media_details": {
-          "width": 1024,
-          "height": 1024,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2025/09/portada_1758142360530-300x300.png",
-              "width": 300,
-              "height": 300
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2025/09/portada_1758142360530-150x150.png",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2025/09/portada_1758142360530-768x768.png",
-              "width": 768,
-              "height": 768
-            },
-            "full": {
-              "source_url": "/journal/media/2025/09/portada_1758142360530.png",
-              "width": 1024,
-              "height": 1024
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
     "wp:term": [
       [
         {
-          "id": 1,
-          "name": "Uncategorized",
-          "slug": "uncategorized"
+          "id": 59,
+          "name": "Vivir en Europa",
+          "slug": "vivir-en-europa"
         }
-      ],
-      []
+      ]
     ]
   }
 }

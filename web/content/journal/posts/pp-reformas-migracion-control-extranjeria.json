@@ -1,8 +1,8 @@
 {
   "id": 12404,
   "slug": "pp-reformas-migracion-control-extranjeria",
-  "date": "2025-10-08T05:17:45",
-  "modified": "2025-10-08T05:17:49",
+  "date": "2025-10-08T10:17:45+00:00",
+  "modified": "2025-10-08T10:17:49+00:00",
   "title": {
     "rendered": "El Partido Popular endurece su propuesta migratoria para España"
   },
@@ -12,73 +12,188 @@
   "content": {
     "rendered": "<p data-start=\"222\" data-end=\"310\">En las últimas semanas el Partido Popular ha intensificado sus propuestas sobre migración y políticas de extranjería, buscando reposicionar el debate público sobre control migratorio, integración y prestaciones sociales. Las iniciativas más destacadas incluyen la introducción de un modelo de visado por puntos, restricciones vinculadas al Ingreso Mínimo Vital (IMV) para inmigrantes, la pérdida de residencia para personas convictas de delitos graves, y normas más rígidas para menores que declaren serlo sin pruebas fehacientes. Estas propuestas han generado reacciones inmediatas del Gobierno, que cuestiona su constitucionalidad y recuerda que muchas medidas similares ya están contempladas con matices en la normativa vigente.</p>\n<p data-start=\"1047\" data-end=\"2179\">El líder del PP, Alberto Núñez Feijóo, ha defendido que España debe tener la capacidad de decidir “quién entra, cómo y para qué”, basando sus últimas propuestas en modelos migratorios como los de Canadá o Australia. En su discurso en Murcia planteó la creación de un visado por puntos, en el que se daría prioridad a trabajadores con contrato, con conocimientos culturales, capacidad de integración, y preferencia para orígenes “culturales próximos”. Acompañando esta propuesta, sugirió la eliminación de ayudas sociales o privilegios a inmigrantes si sus países de origen no colaborasen en repatriaciones. Asimismo, Feijóo propuso que los inmigrantes con delitos graves pierdan su residencia, y que aquellos que declaren falsamente ser menores puedan ser expulsados mediante reforma de la ley de extranjería y del Código Penal. También ha defendido que el IMV quede limitado para aquellos inmigrantes que no tengan residencia de larga duración ni historial de cotización en España. Estas medidas se presentan como una reforma integral del sistema migratorio español, con más control, exigencia de integración y responsabilidades.</p>\n<p data-start=\"2181\" data-end=\"3270\">El Gobierno, por su parte, ha respondido con críticas y advertencias legales. En primer lugar, ha señalado que muchas de las medidas propuestas ya están previstas en la legislación actual —como la expulsión por delitos graves—, por lo que no representan innovaciones estructurales. En segundo lugar, el Ejecutivo ha advertido que algunas propuestas, como el visado por puntos y las restricciones al IMV, podrían chocar con el marco constitucional y con los derechos fundamentales reconocidos en tratados internacionales. Frente a la idea de Feijóo de imponer un sistema de visado basado en “factores volitivos” y “mejor capacidad de integración”, el Gobierno ha insistido en que ese modelo es una construcción vagamente definida y que su concreción legal exige debate profundo y ajustes jurídicos. Además, la ministra de Migraciones ha denunciado el “tufo xenófobo” que, según ella, emanan algunas propuestas del PP y ha acentuado la necesidad de un discurso responsable y basado en datos, recordando que la carga inmigratoria irregular representa solo una parte del fenómeno migratorio.</p>\n<p data-start=\"3272\" data-end=\"4009\">Desde el punto de vista jurídico y práctico, estas propuestas del PP implicarían una importante reforma normativa (modificación de la Ley de Extranjería, alteraciones del Código Penal y ajustes en el sistema de protección social). Su viabilidad dependerá no solo de su aceptación parlamentaria, sino también de su encaje con la Constitución Española y los compromisos internacionales de España. Para inversores y personas extranjeras interesadas en residir o invertir en España, estas iniciativas suponen un escenario de especial atención: cambios en los requisitos de entrada, en las condiciones de conservación de residencia y en el acceso a prestaciones podrían afectar decisiones de inversión, movilidad y planificación migratoria.</p>\n</p>\n<p data-start=\"4011\" data-end=\"4588\">En resumen, el PP está apostando por un discurso migratorio más exigente y restrictivo, orientado a condicionar el acceso social y reforzar la expulsión ante conductas delictivas. El Gobierno, a su vez, critica la vaguedad de muchas de esas medidas y pone reparos constitucionales, lo que anticipa intensos debates legislativos en los meses venideros. Para quienes asesoramos en inmigración, es fundamental seguir de cerca cómo evoluciona esta pugna política y jurídica, y preparar posibles escenarios de adaptación legal para clientes que planeen venir o invertir en España.</p>\n"
   },
-  "featured_media": 12405,
+  "featured_media": 12404,
   "categories": [
-    1
+    57
   ],
   "tags": [],
   "author": 1778,
+  "seo_title": "El Partido Popular endurece su propuesta migratoria para España - Pro Corp Corporate Development",
+  "seo_description": "En las últimas semanas el Partido Popular ha intensificado sus propuestas sobre migración y políticas de extranjería, buscando reposicionar el debate",
+  "seo_canonical": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "El Partido Popular endurece su propuesta migratoria para España",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 720,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2025-10-08T10:17:49+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/out-4.jpg",
+        "datePublished": "2025-10-08T10:17:45+00:00",
+        "articleSection": [
+          "Uncategorized"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/",
+        "url": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/",
+        "name": "El Partido Popular endurece su propuesta migratoria para España - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "En las últimas semanas el Partido Popular ha intensificado sus propuestas sobre migración y políticas de extranjería, buscando reposicionar el debate",
+        "dateModified": "2025-10-08T10:17:49+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/out-4.jpg",
+        "datePublished": "2025-10-08T10:17:45+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/pp-reformas-migracion-control-extranjeria/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/out-4.jpg",
+        "@type": "ImageObject",
+        "width": 1280,
+        "height": 1280,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/out-4.jpg",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 12405,
-        "source_url": "/journal/media/2025/10/out-4.jpg",
+        "id": 12404,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/out-4.jpg",
         "alt_text": "",
         "media_details": {
-          "width": 1280,
-          "height": 1280,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2025/10/out-4-300x300.jpg",
-              "width": 300,
-              "height": 300
-            },
-            "large": {
-              "source_url": "/journal/media/2025/10/out-4-1024x1024.jpg",
-              "width": 1024,
-              "height": 1024
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2025/10/out-4-150x150.jpg",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2025/10/out-4-768x768.jpg",
-              "width": 768,
-              "height": 768
-            },
-            "full": {
-              "source_url": "/journal/media/2025/10/out-4.jpg",
-              "width": 1280,
-              "height": 1280
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
     "wp:term": [
       [
         {
-          "id": 1,
-          "name": "Uncategorized",
-          "slug": "uncategorized"
+          "id": 57,
+          "name": "Emigrar a España",
+          "slug": "emigrar-a-espana"
         }
-      ],
-      []
+      ]
     ]
   }
 }

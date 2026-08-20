@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Headphones } from "lucide-react";
 import type { WPPost } from "@/lib/wordpress-presentation";
 import {
   getFeaturedImageUrl,
@@ -52,6 +53,14 @@ export default function ArticleList({ posts }: ArticleListProps) {
               {categories.length > 0 && (
                 <span className="absolute top-4 left-4 z-20 bg-background-dark/80 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-bold text-white shadow-lg uppercase tracking-[0.15em] hover:bg-primary transition-colors">
                   {categories[0].name}
+                </span>
+              )}
+              {post.audio_url && (
+                <span
+                  className="absolute top-4 right-4 z-20 bg-background-dark/80 border border-white/10 backdrop-blur-md p-1.5 rounded-full text-white shadow-lg"
+                  title="Disponible en audio"
+                >
+                  <Headphones size={14} />
                 </span>
               )}
             </div>

@@ -6,7 +6,8 @@
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start -p 4000",
-    "lint": "eslint"
+    "lint": "eslint",
+    "blog:snapshot": "node --env-file=.env scripts/snapshot-supabase.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

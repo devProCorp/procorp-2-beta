@@ -31,6 +31,14 @@ export interface WPPost {
   categories: number[];
   tags: number[];
   author: number;
+  /** Blogcast audio, migrated from WordPress into Supabase — absent on posts without one. */
+  audio_url?: string;
+  /** Yoast SEO fields, migrated 1:1 from WordPress — prefer these over derived values when present. */
+  seo_title?: string;
+  seo_description?: string;
+  seo_canonical?: string;
+  seo_og_image_url?: string;
+  seo_schema?: unknown;
   _embedded?: {
     author?: WPAuthor[];
     "wp:featuredmedia"?: WPMedia[];

@@ -33,13 +33,15 @@ export async function generateMetadata({
 
   if (!post) return { title: "Article Not Found" };
 
-  const title = stripHtml(post.title.rendered);
-  const description = stripHtml(post.excerpt.rendered).slice(0, 160);
-  const image = getFeaturedImageUrl(post, "large");
+  const title = post.seo_title ?? stripHtml(post.title.rendered);
+  const description =
+    post.seo_description ?? stripHtml(post.excerpt.rendered).slice(0, 160);
+  const image = post.seo_og_image_url ?? getFeaturedImageUrl(post, "large");
 
   return {
     title,
     description,
+    ...(post.seo_canonical && { alternates: { canonical: post.seo_canonical } }),
     openGraph: {
       title,
       description,
@@ -72,6 +74,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">
+      {post.seo_schema != null && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(post.seo_schema) }}
+        />
+      )}
       <article className="max-w-4xl mx-auto">
         {/* Back link */}
         <Link
