@@ -24,8 +24,8 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[]; mantra: str
     kicker: ['Why', ' we exist'],
     lines: [
       'Businesses are living systems. Understanding them changes how you lead them.',
-      'PRO CORP aims to model how your business works, simulates what could happen next, and engineers what it could become — side by side with your management, challenging how things work today and designing solutions that are viable, permissible and executable.',
-      'We bring that understanding together in your Business Cockpit — where real-time information meets simulation, making the signals, scenarios and possibilities that matter visible, while there is still time to act.',
+      'PRO CORP aims to model how your business works, simulates what could happen next, and engineers what it could become, side by side with your management, challenging how things work today and designing solutions that are viable, permissible and executable.',
+      'We bring that understanding together in your Business Cockpit, where real-time information meets simulation, making the signals, scenarios and possibilities that matter visible, while there is still time to act.',
     ],
     mantra: 'See what is. Imagine what could be. Engineer the difference.',
   },
@@ -33,8 +33,8 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[]; mantra: str
     kicker: ['Por qué', ' existimos'],
     lines: [
       'Los negocios son sistemas vivos. Entenderlos cambia la manera de liderarlos.',
-      'PRO CORP busca modelar cómo funciona tu negocio, simula qué podría pasar después y diseña lo que podría llegar a ser — de la mano de tu dirección, cuestionando cómo funcionan las cosas hoy y creando soluciones viables, permisibles y ejecutables.',
-      'Reunimos todo ese entendimiento en tu Business Cockpit — donde la información en tiempo real se encuentra con la simulación, haciendo visibles las señales, los escenarios y las posibilidades que importan, mientras aún hay tiempo de actuar.',
+      'PRO CORP busca modelar cómo funciona tu negocio, simula qué podría pasar después y diseña lo que podría llegar a ser, de la mano de tu dirección, cuestionando cómo funcionan las cosas hoy y creando soluciones viables, permisibles y ejecutables.',
+      'Reunimos todo ese entendimiento en tu Business Cockpit, donde la información en tiempo real se encuentra con la simulación, haciendo visibles las señales, los escenarios y las posibilidades que importan, mientras aún hay tiempo de actuar.',
     ],
     mantra: 'Ver lo que es. Imaginar lo que podría ser. "Engineer" la diferencia.',
   },
@@ -42,8 +42,8 @@ const WHY: Record<Lang, { kicker: [string, string]; lines: string[]; mantra: str
     kicker: ['Por que', ' existimos'],
     lines: [
       'Negócios são sistemas vivos. Entendê-los muda a forma de liderá-los.',
-      'A PRO CORP busca modelar como seu negócio funciona, simula o que pode acontecer e projeta o que ele poderia se tornar — lado a lado com a sua gestão, desafiando como as coisas funcionam hoje e criando soluções viáveis, permissíveis e executáveis.',
-      'Reunimos todo esse entendimento no seu Business Cockpit — onde a informação em tempo real se encontra com a simulação, tornando visíveis os sinais, os cenários e as possibilidades que importam, enquanto ainda há tempo de agir.',
+      'A PRO CORP busca modelar como seu negócio funciona, simula o que pode acontecer e projeta o que ele poderia se tornar, lado a lado com a sua gestão, desafiando como as coisas funcionam hoje e criando soluções viáveis, permissíveis e executáveis.',
+      'Reunimos todo esse entendimento no seu Business Cockpit, onde a informação em tempo real se encontra com a simulação, tornando visíveis os sinais, os cenários e as possibilidades que importam, enquanto ainda há tempo de agir.',
     ],
     mantra: 'Ver o que é. Imaginar o que poderia ser. "Engineer" a diferença.',
   },
@@ -107,22 +107,22 @@ const PILLARS: Record<Lang, { title: [string, string, string]; cards: { icon: 'l
   en: {
     title: ['Where ', 'Business Engineering', ' lives'],
     cards: [
-      { icon: 'legal', name: 'Legal Solutions', desc: 'Governance frameworks, cross-border structuring and compliance — engineered as part of the solution, not as an afterthought.' },
-      { icon: 'growth', name: 'Sustainable Growth - BPA', desc: 'Strategy differentiated by execution: operating models, KPI systems, simulators and Business Process Automation — and we stay for the last mile.' },
+      { icon: 'legal', name: 'Legal Solutions', desc: 'Governance frameworks, cross-border structuring and compliance, engineered as part of the solution, not as an afterthought.' },
+      { icon: 'growth', name: 'Sustainable Growth - BPA', desc: 'Strategy differentiated by execution: operating models, KPI systems, simulators and Business Process Automation, and we stay for the last mile.' },
     ],
   },
   es: {
     title: ['Donde vive la ', 'Ingeniería de Negocios', ''],
     cards: [
-      { icon: 'legal', name: 'Soluciones Legales', desc: 'Gobernanza, estructuración transfronteriza y cumplimiento — ingenierizados como parte de la solución, no como un anexo.' },
-      { icon: 'growth', name: 'Crecimiento Sostenible - BPA', desc: 'Estrategia diferenciada por la ejecución: modelos operativos, KPIs, simuladores y automatización de procesos (BPA) — y nos quedamos para la última milla.' },
+      { icon: 'legal', name: 'Soluciones Legales', desc: 'Gobernanza, estructuración transfronteriza y cumplimiento, ingenierizados como parte de la solución, no como un anexo.' },
+      { icon: 'growth', name: 'Crecimiento Sostenible - BPA', desc: 'Estrategia diferenciada por la ejecución: modelos operativos, KPIs, simuladores y automatización de procesos (BPA), y nos quedamos para la última milla.' },
     ],
   },
   pt: {
     title: ['Onde vive a ', 'Engenharia de Negócios', ''],
     cards: [
-      { icon: 'legal', name: 'Soluções Legais', desc: 'Governança, estruturação internacional e compliance — projetados como parte da solução, não como um anexo.' },
-      { icon: 'growth', name: 'Crescimento Sustentável - BPA', desc: 'Estratégia diferenciada pela execução: modelos operacionais, KPIs, simuladores e automação de processos (BPA) — e ficamos para a última milha.' },
+      { icon: 'legal', name: 'Soluções Legais', desc: 'Governança, estruturação internacional e compliance, projetados como parte da solução, não como um anexo.' },
+      { icon: 'growth', name: 'Crescimento Sustentável - BPA', desc: 'Estratégia diferenciada pela execução: modelos operacionais, KPIs, simuladores e automação de processos (BPA), e ficamos para a última milha.' },
     ],
   },
 };
@@ -170,10 +170,10 @@ const BELIEFS: Record<Lang, { kicker: string; items: string[] }> = {
   en: {
     kicker: 'We believe',
     items: [
-      'Businesses are living systems — and can be understood more deeply.',
+      'Businesses are living systems, and can be understood more deeply.',
       'Possibilities can be explored before decisions are made.',
       'Information should arrive while there is still time to act.',
-      'Technology should serve the business — not define it.',
+      'Technology should serve the business, not define it.',
       'AI should accelerate intelligence, not complexity.',
       'Speed creates value when it accelerates learning.',
     ],
@@ -181,10 +181,10 @@ const BELIEFS: Record<Lang, { kicker: string; items: string[] }> = {
   es: {
     kicker: 'Creemos',
     items: [
-      'Los negocios son sistemas vivos — y pueden entenderse más profundamente.',
+      'Los negocios son sistemas vivos, y pueden entenderse más profundamente.',
       'Las posibilidades pueden explorarse antes de tomar las decisiones.',
       'La información debe llegar mientras aún hay tiempo de actuar.',
-      'La tecnología debe servir al negocio — no definirlo.',
+      'La tecnología debe servir al negocio, no definirlo.',
       'La IA debe acelerar la inteligencia, no la complejidad.',
       'La velocidad crea valor cuando acelera el aprendizaje.',
     ],
@@ -192,10 +192,10 @@ const BELIEFS: Record<Lang, { kicker: string; items: string[] }> = {
   pt: {
     kicker: 'Acreditamos',
     items: [
-      'Os negócios são sistemas vivos — e podem ser entendidos mais profundamente.',
+      'Os negócios são sistemas vivos, e podem ser entendidos mais profundamente.',
       'As possibilidades podem ser exploradas antes de as decisões serem tomadas.',
       'A informação deve chegar enquanto ainda há tempo de agir.',
-      'A tecnologia deve servir ao negócio — não defini-lo.',
+      'A tecnologia deve servir ao negócio, não defini-lo.',
       'A IA deve acelerar a inteligência, não a complexidade.',
       'A velocidade cria valor quando acelera o aprendizado.',
     ],

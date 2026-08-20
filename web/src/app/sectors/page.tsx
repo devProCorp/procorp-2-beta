@@ -63,7 +63,7 @@ export default function Sectors() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: 'apartment', title: t('studio.inv.re.title'), desc: t('studio.inv.re.desc'), tag: t('studio.inv.re.tag'), accent: 'bg-[#CE1026]', href: 'https://inversion.pro-corp.net/real-state' },
-              { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), accent: 'bg-[#F59E0B]', href: 'https://inversion.pro-corp.net/real-state' },
+              { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), accent: 'bg-[#F59E0B]', href: 'https://inversion.pro-corp.net/distress-assets' },
               { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), accent: 'bg-[#10B981]', href: 'https://inversion.pro-corp.net/energy' },
               { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), accent: 'bg-[#3B82F6]', href: 'https://inversion.pro-corp.net/fintech' },
               { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), accent: 'bg-[#8B5CF6]', href: 'https://aeronexxt.com/' },
