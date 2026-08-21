@@ -1,0 +1,30 @@
+/* Tema oscuro para el formulario de JotForm, con la paleta del sitio.
+   Fondo #0B1522, superficie #0f172a, borde #1e293b, acento #CE1026. */
+.form-all{background:transparent!important;border:0!important;box-shadow:none!important;width:100%!important;max-width:100%!important;font-family:Inter,system-ui,sans-serif!important}
+.jotform-form{background:transparent!important;padding:0!important}
+body,html{background:transparent!important}
+.form-line{padding:10px 0!important;background:transparent!important}
+.form-label,.form-label-top,.form-label-left,.form-sub-label{color:#cbd5e1!important;font-weight:600!important;font-size:14px!important}
+.form-sub-label{color:#94a3b8!important;font-weight:400!important}
+.form-header-group,.form-header-group .form-header,.form-header-group .form-subHeader{background:transparent!important;color:#f1f5f9!important;border:0!important}
+input.form-textbox,textarea.form-textarea,select.form-dropdown,input[type=tel],input[type=email],input[type=text]{
+  background:rgba(15,23,42,.6)!important;border:1px solid #1e293b!important;border-radius:12px!important;
+  color:#f1f5f9!important;padding:12px 14px!important;font-size:14px!important;width:100%!important;box-shadow:none!important}
+input.form-textbox:focus,textarea.form-textarea:focus,select.form-dropdown:focus{
+  border-color:rgba(206,16,38,.6)!important;background:rgba(15,23,42,.9)!important;
+  box-shadow:0 0 15px rgba(206,16,38,.15)!important;outline:none!important}
+input::placeholder,textarea::placeholder{color:#64748b!important}
+select.form-dropdown option{background:#0f172a!important;color:#f1f5f9!important}
+.form-radio-item label,.form-checkbox-item label,.form-radio-item,.form-checkbox-item{color:#cbd5e1!important}
+.form-radio-item input,.form-checkbox-item input{accent-color:#CE1026!important}
+.form-submit-button,button[type=submit]{
+  background:#CE1026!important;border:0!important;border-radius:12px!important;color:#fff!important;
+  font-weight:700!important;text-transform:uppercase!important;letter-spacing:.08em!important;
+  font-size:13px!important;padding:14px 28px!important;box-shadow:0 10px 30px rgba(206,16,38,.25)!important;
+  transition:background .2s ease!important}
+.form-submit-button:hover,button[type=submit]:hover{background:#E04555!important}
+.form-line-error{background:transparent!important}
+.form-error-message{background:#9E0C1D!important;color:#fff!important;border-radius:8px!important}
+.form-description,.form-html,.form-html *{color:#94a3b8!important}
+.form-html a{color:#E04555!important}
+.supernova,.supernova body{background:transparent!important}

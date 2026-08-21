@@ -72,23 +72,7 @@ PY
     ;;
   anadir-campos)
     [[ $# -ge 1 ]] || { echo "Uso: $0 anadir-campos <formID>" >&2; exit 2; }
-    form_id="$1"
-    # Se leen las preguntas actuales para no duplicar: el subcomando puede
-    # ejecutarse dos veces sin dejar el formulario con campos repetidos.
-    actuales=$(llamar GET "/form/$form_id/questions")
-    payload=$(python3 scripts/jotform_campos_nuevos.py "$actuales")
-    if [[ "$payload" == "YA_ESTABAN" ]]; then
-      echo "  Los campos ya existen en el formulario. Nada que hacer."
-      exit 0
-    fi
-    resp=$(llamar PUT "/form/$form_id/questions" --data "$payload")
-    python3 - "$resp" <<'PYRESP'
-import json, sys
-d = json.loads(sys.argv[1])
-if d.get("responseCode") != 200:
-    print("  x No se pudieron anadir:", d.get("message")); raise SystemExit(1)
-print(f"  OK Campos anadidos ({len(d.get('content', {}))} nuevos), todos opcionales")
-PYRESP
+    python3 scripts/jotform_anadir.py "$KEY" "$1"
     ;;
   *)
     echo "Uso: $0 {verificar|formularios|campos <id>|anadir-campos <id>}" >&2; exit 2 ;;
