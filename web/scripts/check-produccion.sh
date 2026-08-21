@@ -34,6 +34,23 @@ fetch() {
 code()  { fetch -o /dev/null -w '%{http_code}' "https://$HOST$1"; }
 final() { fetch -L -o /dev/null -w '%{http_code}' "https://$HOST$1"; }
 
+# Imunify360 (instalado en el hosting) sirve un challenge "One moment, please…"
+# con HTTP 200 a clientes que le parecen automatizados. Si eso ocurre, TODAS las
+# comprobaciones de abajo mienten: los redirects parecen 200 en vez de 301 y la
+# portada parece no ser el sitio nuevo. Se detecta antes para no confundir un
+# bloqueo hacia nosotros con un sitio roto.
+sonda=$(fetch "https://$HOST/")
+if grep -qi "One moment, please" <<<"$sonda"; then
+  echo
+  echo "El servidor está sirviendo un challenge anti-bot (Imunify360) a esta máquina,"
+  echo "no el sitio. Las comprobaciones por HTTP no son fiables ahora mismo."
+  echo
+  echo "  · No significa que el sitio esté caído: un navegador real pasa el challenge."
+  echo "  · Suele deberse a muchas peticiones automatizadas seguidas; se pasa solo."
+  echo "  · Para comprobar mientras tanto, mirar los archivos por SSH o abrirlo en el navegador."
+  exit 2
+fi
+
 echo "→ Reglas en el servidor"
 reglas=$(ssh -o BatchMode=yes "$SSH_ALIAS" "grep -c 'R=301' ~/public_html/.htaccess" 2>/dev/null | tr -d '[:space:]')
 if [[ "$reglas" == "$EXPECTED_REDIRECTS" ]]; then
