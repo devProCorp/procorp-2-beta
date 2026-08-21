@@ -1,43 +1,18 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
 import dynamic from 'next/dynamic';
+import JotformEmbed from '@/components/contact/JotformEmbed';
 import { useLanguage } from '@/context/LanguageContext';
 
 const FooterMap = dynamic(() => import('@/components/layout/FooterMap'), { ssr: false });
 
+// Formulario "Contactenos procorpnet" en JotForm. El ID es público: aparece
+// en la URL del propio formulario y no da acceso a nada.
+const JOTFORM_CONTACTO = '223375075396665';
+
 export default function Contact() {
   const { t } = useLanguage();
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus('sending');
-
-    const form = e.currentTarget;
-    const data = {
-      name: (form.elements.namedItem('contact-name') as HTMLInputElement).value,
-      organization: (form.elements.namedItem('contact-org') as HTMLInputElement).value,
-      email: (form.elements.namedItem('contact-email') as HTMLInputElement).value,
-      phone: (form.elements.namedItem('contact-phone') as HTMLInputElement).value,
-      area: (form.elements.namedItem('contact-area') as HTMLSelectElement).value,
-      level: (form.elements.namedItem('contact-level') as HTMLSelectElement).value,
-      details: (form.elements.namedItem('contact-details') as HTMLTextAreaElement).value,
-    };
-
-    try {
-      const res = await fetch('https://n8n-n8n.ukq6rz.easypanel.host/webhook/7599d370-aafb-48fb-a5dc-9e67669994a1', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error('Request failed');
-      setStatus('success');
-      form.reset();
-    } catch {
-      setStatus('error');
-    }
-  }
 
   const infoCards = [
     { icon: 'apartment', title: t('contact.info0.title'), line1: t('contact.info0.line1'), line2: t('contact.info0.line2'), link: { text: t('contact.info0.link'), href: 'https://maps.google.com/?q=Neils+Branch+Dr,+Houston,+TX+77077' } },
@@ -72,132 +47,7 @@ export default function Contact() {
             <div className="rounded-[2rem] glass-panel p-8 md:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 blur-[50px] rounded-full pointer-events-none"></div>
-              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-name" className="text-sm font-medium text-gray-200">{t('contact.name')}</label>
-                    <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
-                        <span className="material-symbols-outlined text-[20px]">person</span>
-                      </div>
-                      <input id="contact-name" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.name.ph')} type="text" />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-org" className="text-sm font-medium text-gray-200">{t('contact.org')}</label>
-                    <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
-                        <span className="material-symbols-outlined text-[20px]">domain</span>
-                      </div>
-                      <input id="contact-org" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.org.ph')} type="text" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-email" className="text-sm font-medium text-gray-200">{t('contact.email')}</label>
-                    <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
-                        <span className="material-symbols-outlined text-[20px]">alternate_email</span>
-                      </div>
-                      <input id="contact-email" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.email.ph')} type="email" />
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label htmlFor="contact-phone" className="text-sm font-medium text-gray-200">{t('contact.phone')}</label>
-                    <div className="relative group">
-                      <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
-                        <span className="material-symbols-outlined text-[20px]">phone_iphone</span>
-                      </div>
-                      <input id="contact-phone" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all outline-none" placeholder={t('contact.phone.ph')} type="tel" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="contact-area" className="text-sm font-medium text-gray-200">{t('contact.area')}</label>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
-                      <span className="material-symbols-outlined text-[20px]">settings_suggest</span>
-                    </div>
-                    <select id="contact-area" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all appearance-none cursor-pointer outline-none" defaultValue="">
-                      <option disabled value="">{t('contact.area.ph')}</option>
-                      <option value="consulting">{t('contact.area.5')}</option>
-                      <option value="process-mapping">{t('contact.area.2')}</option>
-                      <option value="operations-simulation">{t('contact.area.7')}</option>
-                      <option value="financial-simulation">{t('contact.area.6')}</option>
-                      <option value="reengineering">{t('contact.area.3')}</option>
-                      <option value="bpa">{t('contact.area.1')}</option>
-                      <option value="project-mapping-structuring">{t('contact.area.8')}</option>
-                      <option value="tokenization">{t('contact.area.9')}</option>
-                      <option value="legal-express">{t('contact.area.10')}</option>
-                      <option value="business-cockpit">{t('contact.area.11')}</option>
-                      <option value="lia">{t('contact.area.4')}</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
-                      <span className="material-symbols-outlined">expand_more</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="contact-level" className="text-sm font-medium text-gray-200">{t('contact.level')}</label>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-primary transition-colors">
-                      <span className="material-symbols-outlined text-[20px]">bar_chart</span>
-                    </div>
-                    <select id="contact-level" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm pl-12 py-3.5 text-sm text-white focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all appearance-none cursor-pointer outline-none" defaultValue="">
-                      <option disabled value="">{t('contact.level.ph')}</option>
-                      <option value="initial">{t('contact.level.1')}</option>
-                      <option value="developing">{t('contact.level.2')}</option>
-                      <option value="advanced">{t('contact.level.3')}</option>
-                      <option value="optimized">{t('contact.level.4')}</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-gray-400">
-                      <span className="material-symbols-outlined">expand_more</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="contact-details" className="text-sm font-medium text-gray-200">{t('contact.details')}</label>
-                  <textarea id="contact-details" className="w-full rounded-xl border border-surface-border/80 bg-background-dark/50 backdrop-blur-sm p-4 text-sm text-white placeholder-gray-400 focus:border-primary/60 focus:bg-surface-dark/80 focus:shadow-[0_0_15px_rgba(206,16,38,0.15)] transition-all resize-none outline-none" placeholder={t('contact.details.ph')} rows={4}></textarea>
-                </div>
-
-                <div className="flex flex-col gap-6 mt-4 relative z-10">
-                  <label className="flex items-start gap-3 cursor-pointer group">
-                    <input className="mt-1 flex-shrink-0 h-4 w-4 rounded border-surface-border bg-surface-darker text-primary focus:ring-primary/50 transition-all checked:bg-primary" type="checkbox" />
-                    <span className="text-xs text-gray-300 leading-relaxed group-hover:text-white transition-colors">
-                      {t('contact.privacy')} <a className="text-primary hover:underline hover:text-primary-light" href="/privacy">{t('contact.privacy.link')}</a>. {t('contact.privacy.auth')}
-                    </span>
-                  </label>
-                  <button
-                    className="group relative flex w-full items-center justify-center overflow-hidden rounded-xl bg-primary py-4 text-sm uppercase tracking-widest font-bold text-white shadow-lg glow-primary glow-primary-hover transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
-                    type="submit"
-                    disabled={status === 'sending'}
-                  >
-                    <span className="relative z-10 mr-2">
-                      {status === 'sending' ? (t('contact.sending') ?? 'Enviando...') : t('contact.submit')}
-                    </span>
-                    <span className="relative z-10 material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">
-                      {status === 'sending' ? 'hourglass_empty' : 'memory'}
-                    </span>
-                  </button>
-                  {status === 'success' && (
-                    <p className="text-sm text-green-400 text-center flex items-center justify-center gap-2">
-                      <span className="material-symbols-outlined text-[18px]">check_circle</span>
-                      {t('contact.success') ?? 'Mensaje enviado correctamente.'}
-                    </p>
-                  )}
-                  {status === 'error' && (
-                    <p className="text-sm text-red-400 text-center flex items-center justify-center gap-2">
-                      <span className="material-symbols-outlined text-[18px]">error</span>
-                      {t('contact.error') ?? 'Error al enviar. Inténtalo de nuevo.'}
-                    </p>
-                  )}
-                </div>
-              </form>
+              <JotformEmbed formId={JOTFORM_CONTACTO} />
             </div>
           </div>
 
