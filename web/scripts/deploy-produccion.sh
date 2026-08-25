@@ -106,6 +106,20 @@ if (( DRY_RUN )); then
 fi
 
 step "Verificando el sitio publicado…"
+
+# Qué versión quedó arriba. Se lee por SSH y no por HTTP a propósito: el dominio
+# está detrás de Sucuri, que puede servir la copia anterior durante un rato — la
+# URL pública diría la verdad sobre la caché, no sobre el servidor.
+remota=$(ssh -o BatchMode=yes "$SSH_ALIAS" "cat $REMOTE_DIR/version.json" 2>/dev/null || true)
+if [[ -n "$remota" ]]; then
+  echo "  Publicado: $(printf '%s' "$remota" | tr -d ' \n' | sed -n 's/.*"commit":"\([^"]*\)".*/\1/p')"
+  local_commit=$(sed -n 's/.*"commit": "\([^"]*\)".*/\1/p' out/version.json)
+  printf '%s' "$remota" | grep -q "\"commit\": \"$local_commit\"" ||
+    echo "  ⚠ El servidor no reporta el commit que acabas de compilar ($local_commit)."
+else
+  echo "  ⚠ No se pudo leer version.json del servidor."
+fi
+
 ./scripts/check-produccion.sh || abort "el sitio publicado no pasa las comprobaciones. Revisa antes de dar por buena la publicación."
 
 cat <<'EOF'
