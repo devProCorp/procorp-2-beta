@@ -1,17 +1,15 @@
 /**
  * Client-side live reader for the Journal — calls the public `get-blog-posts`
- * Supabase Edge Function directly from the browser, so a post that changes
- * status (draft → publish, or vice versa) shows up without a rebuild+deploy.
- * See docs/decisions/0004-journal-live-fetch.md.
- *
- * Complements, not replaces, the build-time snapshot in wordpress.ts: that
- * snapshot still gives crawlers/no-JS visitors real prerendered HTML for
- * posts known at deploy time. This module is used to refresh that data once
- * the page has hydrated (JournalBrowser) and to render posts published after
- * the last deploy (app/journal/_live/page.tsx).
+ * Supabase Edge Function directly from the browser. The Journal has no
+ * build-time snapshot to fall back on: /journal (JournalBrowser) and every
+ * article page (app/journal/live-fallback/page.tsx) fetch entirely from
+ * here, so a post that changes status (draft → publish, or vice versa)
+ * shows up without a rebuild+deploy. See
+ * docs/decisions/0004-journal-live-fetch.md.
  *
  * The mapping below (blog.posts row -> WPPost) must be kept in sync with
- * `toWPPost` in scripts/snapshot-supabase.mjs.
+ * `toWPPost` in scripts/snapshot-supabase.mjs (still used to regenerate the
+ * sitemap's post list — see wordpress.ts).
  */
 import type { WPCategory, WPPost } from "./wordpress-presentation";
 
@@ -154,9 +152,14 @@ export async function fetchLivePostsPage(
 }
 
 /** Full post (with content) by slug, or null if it doesn't exist / isn't published. */
-export async function fetchLivePostBySlug(slug: string): Promise<WPPost | null> {
-  if (!/^[a-z0-9-]+$/.test(slug)) return null;
-  const res = await fetch(`${FUNCTIONS_URL}?slug=${encodeURIComponent(slug)}`);
+/**
+ * Full post (with content) by id — article URLs are keyed by id (wp_id),
+ * not slug, so they keep working if the title/slug is edited later. See
+ * docs/decisions/0004-journal-live-fetch.md.
+ */
+export async function fetchLivePostById(id: string): Promise<WPPost | null> {
+  if (!/^\d+$/.test(id)) return null;
+  const res = await fetch(`${FUNCTIONS_URL}?id=${encodeURIComponent(id)}`);
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`get-blog-posts: ${res.status}`);
   const row: BlogPostRow | null = await res.json();

@@ -12,11 +12,10 @@ const nextConfig: NextConfig = {
   // `/foo.html`, which the host would not resolve from a clean URL.
   trailingSlash: true,
 
-  // The journal snapshot is read from disk at render time; make sure it is
-  // bundled into serverless/standalone output (see ADR 0001).
+  // /journal and its articles fetch live from Supabase (see ADR 0004) and no
+  // longer read the snapshot at render time. Only the sitemap still does —
+  // make sure it stays bundled into serverless/standalone output.
   outputFileTracingIncludes: {
-    "/journal": ["./content/journal/**/*"],
-    "/journal/[slug]": ["./content/journal/**/*"],
     "/sitemap.xml": ["./content/journal/**/*"],
   },
 

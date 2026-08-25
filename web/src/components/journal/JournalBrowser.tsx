@@ -14,51 +14,30 @@ import {
 
 const PER_PAGE = 9;
 
-interface JournalBrowserProps {
-  /** Every snapshotted post, without content.rendered — the full index. */
-  posts: WPPost[];
-  categories: WPCategory[];
-}
-
 /**
- * Client-side twin of what /journal used to do on the server.
+ * The Journal has no build-time snapshot to fall back on — everything comes
+ * from the live `get-blog-posts` Edge Function, so there's a single source
+ * of truth and nothing to reconcile after the fact (no snapshot-then-swap
+ * jump). See docs/decisions/0004-journal-live-fetch.md.
  *
- * The static export has no request at render time, so `?cat=` and `?page=`
- * cannot be read from searchParams during prerender. The page ships the
- * whole (content-free) index from the last deploy's snapshot once, and this
- * component slices it in the browser, keeping the existing URLs and UI
- * behaviour identical.
- *
- * A post that changed status (draft -> publish, or the reverse) since the
- * last deploy shows up without a rebuild — see
- * docs/decisions/0004-journal-live-fetch.md — via two live refreshes:
- *
- * - Unfiltered view (no ?cat=): server-paginated. Only the page being
- *   rendered (PER_PAGE posts) is fetched from get-blog-posts, so paging
- *   through the Journal never downloads every post's content_html — the
- *   optimization the `page`/`per_page` support on the function was added
- *   for. Falls back to slicing the build-time snapshot until that resolves.
+ * - Unfiltered view (no ?cat=): server-paginated — only the page being
+ *   rendered (PER_PAGE posts) is fetched.
  * - Filtered view (?cat=...): the function has no server-side category
- *   filter, so this still fetches the full live list once and filters/
- *   paginates in the browser, same as before.
- *
- * Either fetch failing (offline, function down) just leaves whatever's
- * already on screen — snapshot or a previously loaded live page.
+ *   filter, so this fetches the full list once and filters/paginates in
+ *   the browser.
  */
-export default function JournalBrowser({
-  posts: snapshotPosts,
-  categories: snapshotCategories,
-}: JournalBrowserProps) {
+export default function JournalBrowser() {
   const searchParams = useSearchParams();
   const catSlug = searchParams.get("cat") ?? "";
   const currentPage = Math.max(1, Number(searchParams.get("page")) || 1);
 
-  const [categories, setCategories] = useState(snapshotCategories);
-  const [allPosts, setAllPosts] = useState(snapshotPosts);
+  const [categories, setCategories] = useState<WPCategory[] | null>(null);
+  const [allPosts, setAllPosts] = useState<WPPost[] | null>(null);
   const [pagedResult, setPagedResult] = useState<{
     posts: WPPost[];
     totalPages: number;
   } | null>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -66,7 +45,9 @@ export default function JournalBrowser({
       .then((live) => {
         if (!cancelled) setCategories(live);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setError(true);
+      });
     return () => {
       cancelled = true;
     };
@@ -79,7 +60,9 @@ export default function JournalBrowser({
       .then((live) => {
         if (!cancelled) setPagedResult({ posts: live.posts, totalPages: live.totalPages });
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setError(true);
+      });
     return () => {
       cancelled = true;
     };
@@ -92,24 +75,21 @@ export default function JournalBrowser({
       .then((live) => {
         if (!cancelled) setAllPosts(live);
       })
-      .catch(() => {});
+      .catch(() => {
+        if (!cancelled) setError(true);
+      });
     return () => {
       cancelled = true;
     };
   }, [catSlug]);
 
-  const { posts: pagePosts, totalPages } = useMemo(() => {
+  const result = useMemo(() => {
     if (!catSlug) {
-      if (pagedResult) return pagedResult;
-      // Live page hasn't resolved yet — slice the snapshot the same way so
-      // first paint isn't empty.
-      const pages = Math.max(1, Math.ceil(allPosts.length / PER_PAGE));
-      const page = Math.min(currentPage, pages);
-      return {
-        posts: allPosts.slice((page - 1) * PER_PAGE, page * PER_PAGE),
-        totalPages: pages,
-      };
+      if (!pagedResult) return null;
+      return pagedResult;
     }
+
+    if (!allPosts || !categories) return null;
 
     const activeCategory = categories.find((c) => c.slug === catSlug);
     const filtered = activeCategory
@@ -126,13 +106,42 @@ export default function JournalBrowser({
     };
   }, [catSlug, categories, allPosts, pagedResult, currentPage]);
 
+  if (error) {
+    return (
+      <p className="text-secondary text-lg py-20 text-center">
+        No se pudo cargar el Journal. Intenta de nuevo en un momento.
+      </p>
+    );
+  }
+
+  if (!categories || !result) {
+    return (
+      <>
+        <div className="sticky top-20 z-40 h-[68px] mb-12" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {Array.from({ length: PER_PAGE }).map((_, i) => (
+            <div
+              key={i}
+              className="rounded-[2rem] p-4 border border-surface-border/50 animate-pulse"
+            >
+              <div className="rounded-[1.5rem] aspect-[4/3] mb-6 bg-surface-dark" />
+              <div className="h-4 w-1/3 bg-surface-dark rounded mb-4" />
+              <div className="h-6 w-full bg-surface-dark rounded mb-2" />
+              <div className="h-4 w-2/3 bg-surface-dark rounded" />
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <CategoryFilter categories={categories} />
-      <ArticleList posts={pagePosts} />
+      <ArticleList posts={result.posts} />
       <Pagination
-        currentPage={Math.min(currentPage, totalPages)}
-        totalPages={totalPages}
+        currentPage={Math.min(currentPage, result.totalPages)}
+        totalPages={result.totalPages}
       />
     </>
   );

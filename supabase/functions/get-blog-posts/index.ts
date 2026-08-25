@@ -50,16 +50,17 @@ Deno.serve(async (req) => {
 
   const params = new URL(req.url).searchParams;
   const slug = params.get("slug");
+  const id = params.get("id");
 
-  // Single-post lookup, used by the live article page — avoids shipping
-  // every post's full content_html just to render one.
-  if (slug) {
-    const { data, error } = await supabase
-      .from("posts")
-      .select("*")
-      .eq("status", "publish")
-      .eq("slug", slug)
-      .maybeSingle();
+  // Single-post lookup, used by the article page — avoids shipping every
+  // post's full content_html just to render one. Article URLs are keyed by
+  // `id` (wp_id) rather than slug so they survive a title/slug edit — see
+  // docs/decisions/0004-journal-live-fetch.md. `slug` lookup stays for
+  // backward compatibility / other callers.
+  if (slug || id) {
+    let query = supabase.from("posts").select("*").eq("status", "publish");
+    query = id ? query.eq("wp_id", Number(id)) : query.eq("slug", slug!);
+    const { data, error } = await query.maybeSingle();
 
     if (error) {
       return new Response(JSON.stringify({ error: error.message }), {

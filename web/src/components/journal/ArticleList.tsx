@@ -34,7 +34,7 @@ export default function ArticleList({ posts }: ArticleListProps) {
         return (
           <Link
             key={post.id}
-            href={`/journal/${post.slug}`}
+            href={`/journal/${post.id}`}
             className="flex flex-col group cursor-pointer glass-panel glass-panel-hover rounded-[2rem] p-4 border border-surface-border/50"
           >
             <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3] mb-6 border border-surface-border/50 group-hover:border-primary/30 transition-colors shadow-inner">

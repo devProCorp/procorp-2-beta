@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPostSlugs } from "@/lib/wordpress";
+import { getAllPostIds } from "@/lib/wordpress";
 
 // Required by `output: "export"`: metadata routes must be resolved at build time.
 export const dynamic = "force-static";
@@ -43,15 +43,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
-    const posts = await getAllPostSlugs();
+    const posts = await getAllPostIds();
     blogRoutes = posts.map((post) => ({
-      url: `${siteUrl}/journal/${post.slug}`,
+      url: `${siteUrl}/journal/${post.id}`,
       lastModified: new Date(post.modified),
       changeFrequency: "monthly" as const,
       priority: 0.6,
     }));
   } catch {
-    // Sitemap still works without blog posts if WP is unreachable
+    // Sitemap still works without a snapshot on disk
   }
 
   return [...staticRoutes, ...blogRoutes];

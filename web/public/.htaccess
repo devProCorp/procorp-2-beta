@@ -22,13 +22,11 @@ DirectoryIndex index.html
   RewriteCond %{HTTPS} !=on
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # Journal posts published after the last deploy have no prebuilt directory
-  # yet (dynamicParams is false, so the export never generated one). Instead
-  # of 404ing, send the single path segment under /journal/ to the live
-  # fallback shell, which fetches the post by slug straight from Supabase.
-  # The rewrite is internal — the browser still sees /journal/<slug>/ — and
-  # only fires when no matching directory was prebuilt, so existing snapshotted
-  # posts keep being served as real static files. See
+  # Every Journal article is fetched live from Supabase — there is no
+  # prebuilt directory for any /journal/<id>/ (the export never generates
+  # one). Send the single path segment under /journal/ to the live shell,
+  # which fetches the post by id straight from Supabase. The rewrite is
+  # internal — the browser still sees /journal/<id>/. See
   # docs/decisions/0004-journal-live-fetch.md.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

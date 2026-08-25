@@ -68,3 +68,56 @@ entirely client-side.
 - `scripts/snapshot-supabase.mjs` keeps working unchanged (minus the now-removed
   secret header) — it's still what produces the prebuilt pages and the
   sitemap.
+
+## Update 2026-08-25: fully live, id-based URLs
+
+The hybrid above (snapshot first, live swap-in after) turned out to be
+confusing in practice: the swap is a visible reflow (posts not in the
+snapshot pop in and push the rest down), and it got worse the longer a
+deploy went without running `yarn blog:snapshot` — everyone kept expecting
+"just build it again" to fix a specific post, when the actual gap was a
+separate snapshot pipeline (`snapshot-wp.mjs`, still wired into
+`deploy-produccion.sh`) silently overwriting the Supabase-sourced snapshot
+with stale WordPress data on every production deploy. Decision, given both
+problems: drop the prebuilt/snapshot path for the Journal entirely.
+
+1. **`/journal/[slug]` is deleted.** There is no more `generateStaticParams`,
+   no per-post prebuilt HTML, no per-post `generateMetadata`. Every article
+   renders through `app/journal/live-fallback/page.tsx` — no longer a
+   fallback for edge cases, it's the only article page. Kept that directory
+   name to avoid re-touching both `.htaccess` files (beta's `public/.htaccess`
+   and production's `deploy/journal-fallback.conf`, installed on the server
+   by hand) for a cosmetic rename.
+2. **`/journal` (`JournalBrowser`) has no snapshot fallback either.** It shows
+   a skeleton grid while the first live fetch is in flight, then renders —
+   one data source, so there's nothing to reconcile and no reflow.
+3. **Articles are now addressed by `id` (the Supabase row's `wp_id`), not
+   `slug`** — `/journal/13121/` instead of `/journal/relaciones-complejas-...`.
+   Editing a post's title/slug in Supabase no longer breaks its URL.
+   `get-blog-posts` gained an `?id=` lookup (`?slug=` stays for compatibility,
+   unused by the app now). `ArticleList` links by `post.id`; `sitemap.ts`
+   reads ids from the snapshot (`getAllPostIds` in `wordpress.ts`, the one
+   remaining use of that file — still needed since sitemaps must be fully
+   known at build time, and re-running `yarn blog:snapshot` before each
+   deploy is enough to keep it reasonably fresh).
+4. **This resets URLs for every already-indexed post** (slug-based →
+   id-based) — accepted tradeoff, decided with ProCorp directly. No redirects
+   were set up from old slug URLs to new id URLs.
+
+### Consequences of the update
+
+- No more "why didn't rebuilding fix it" confusion — there is exactly one
+  source (Supabase, live) for every Journal page, always.
+- Every article page is now client-rendered with no prebuilt HTML — worse
+  SEO/social-card metadata across the board (not just for very recent posts,
+  as before this update), and a brief loading state on every article visit,
+  not only new ones. Accepted for the sake of a single, simple data path.
+- `scripts/snapshot-supabase.mjs` and `content/journal/` still exist, but
+  narrowed to one job: feeding `sitemap.ts` a list of ids to include. Nothing
+  else reads them anymore.
+- `deploy-produccion.sh` was fixed to call `snapshot-supabase.mjs` instead of
+  the legacy `snapshot-wp.mjs`, so production deploys stop overwriting this
+  snapshot with WordPress data. 82 posts that existed in WordPress but were
+  never migrated into `blog.posts` are consequently absent from the sitemap
+  and unreachable via the Journal until/unless they're migrated into
+  Supabase — a known, accepted gap, not an oversight.
