@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface JotformEmbedProps {
   /** ID del formulario: el número de form.jotform.com/<id>. */
@@ -24,6 +24,13 @@ const ORIGEN_JOTFORM = 'https://form.jotform.com';
  * El iframe no puede medirse desde fuera por ser de otro origen, así que JotForm
  * publica su altura por postMessage. Aquí se escucha comprobando el origen del
  * mensaje: sin esa comprobación, cualquier página podría redimensionar el marco.
+ *
+ * El velo de carga no puede depender sólo de `onLoad`: en la exportación
+ * estática el iframe suele terminar de cargar antes de que React hidrate, así
+ * que ese evento se pierde y el velo se quedaría puesto para siempre. Por eso
+ * se retira con cualquiera de las tres señales — onLoad, el primer setHeight, o
+ * un plazo máximo — y además nunca intercepta el puntero: aunque siga visible,
+ * el formulario debajo se puede usar.
  */
 export default function JotformEmbed({
   formId,
@@ -32,6 +39,7 @@ export default function JotformEmbed({
 }: JotformEmbedProps) {
   const [altura, setAltura] = useState(alturaInicial);
   const [cargado, setCargado] = useState(false);
+  const marco = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     function alRecibirMensaje(evento: MessageEvent) {
@@ -47,18 +55,34 @@ export default function JotformEmbed({
       // mensaje inesperado estire la página sin fin.
       if (Number.isFinite(px) && px > 200 && px < 5000) {
         setAltura(px);
+        // Si el formulario ya informa de su altura, está en pie: el velo sobra
+        // aunque el onLoad se haya perdido antes de la hidratación.
+        setCargado(true);
       }
     }
 
     window.addEventListener('message', alRecibirMensaje);
-    return () => window.removeEventListener('message', alRecibirMensaje);
+
+    // El iframe puede haber terminado de cargar mientras React hidrataba. No se
+    // puede consultar su estado por ser de otro origen, así que se vuelve a
+    // escuchar el evento y se pone un plazo por si ya ocurrió.
+    const marcarCargado = () => setCargado(true);
+    const iframe = marco.current;
+    iframe?.addEventListener('load', marcarCargado);
+    const plazo = window.setTimeout(marcarCargado, 4000);
+
+    return () => {
+      window.removeEventListener('message', alRecibirMensaje);
+      iframe?.removeEventListener('load', marcarCargado);
+      window.clearTimeout(plazo);
+    };
   }, []);
 
   return (
     <div className="relative">
       {!cargado && (
         <div
-          className="absolute inset-0 flex items-center justify-center rounded-2xl bg-background-dark/40"
+          className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-2xl bg-background-dark/40"
           style={{ height: altura }}
           aria-hidden="true"
         >
@@ -68,6 +92,7 @@ export default function JotformEmbed({
         </div>
       )}
       <iframe
+        ref={marco}
         title={titulo}
         src={`${ORIGEN_JOTFORM}/${formId}`}
         onLoad={() => setCargado(true)}
