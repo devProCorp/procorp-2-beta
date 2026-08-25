@@ -22,7 +22,19 @@ DirectoryIndex index.html
   RewriteCond %{HTTPS} !=on
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # Anything that is not a real file or directory is a 404 (see note above).
+  # Journal posts published after the last deploy have no prebuilt directory
+  # yet (dynamicParams is false, so the export never generated one). Instead
+  # of 404ing, send the single path segment under /journal/ to the live
+  # fallback shell, which fetches the post by slug straight from Supabase.
+  # The rewrite is internal — the browser still sees /journal/<slug>/ — and
+  # only fires when no matching directory was prebuilt, so existing snapshotted
+  # posts keep being served as real static files. See
+  # docs/decisions/0004-journal-live-fetch.md.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^journal/[^/]+/?$ /journal/live-fallback/index.html [L]
+
+  # Anything else that is not a real file or directory is a 404 (see note above).
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ /404.php [L]
@@ -36,7 +48,7 @@ DirectoryIndex index.html
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(self), geolocation=(), interest-cohort=()"
   Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.pro-corp.net https://secure.gravatar.com https://lh3.googleusercontent.com https://images.unsplash.com https://*.basemaps.cartocdn.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://*.elevenlabs.io https://*.n8n.cloud https://*.easypanel.host; media-src 'self' https://www.pro-corp.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.pro-corp.net https://secure.gravatar.com https://lh3.googleusercontent.com https://images.unsplash.com https://*.basemaps.cartocdn.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://region1.google-analytics.com https://*.elevenlabs.io https://*.n8n.cloud https://*.easypanel.host https://cpojgmwfpbuvtutnbtam.supabase.co; media-src 'self' https://www.pro-corp.net; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 
   # BETA ONLY — keeps this staging copy out of search results so it cannot
   # compete with the WordPress site on www.pro-corp.net (duplicate content).

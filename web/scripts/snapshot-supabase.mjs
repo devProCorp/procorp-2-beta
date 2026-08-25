@@ -16,28 +16,28 @@
  * URLs are safe to reference directly (Supabase Storage is permanent
  * infrastructure here, unlike the WordPress host that was being decommissioned).
  *
- * Fetches posts over HTTPS from the `get-blog-posts` Supabase Edge Function
- * (supabase/functions/get-blog-posts/) instead of querying blog.posts
- * directly — the service-role key needed to read that RLS-protected schema
- * lives only inside the function's runtime, never in this repo or in
- * web/.env. This script only needs the lightweight SNAPSHOT_SECRET the
- * function checks.
+ * Fetches posts over HTTPS from the public `get-blog-posts` Supabase Edge
+ * Function (supabase/functions/get-blog-posts/) instead of querying
+ * blog.posts directly — the service-role key needed to read that
+ * RLS-protected schema lives only inside the function's runtime, never in
+ * this repo or in web/.env. The function is public (always filtered to
+ * status='publish'), so no secret is needed here — see
+ * docs/decisions/0004-journal-live-fetch.md. This snapshot still exists to
+ * prebuild pages known at deploy time; posts published afterward are picked
+ * up live client-side via web/src/lib/journal-live.ts.
  *
  * Usage: node --env-file=.env scripts/snapshot-supabase.mjs
- * Requires SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) and SNAPSHOT_SECRET —
- * the latter must match the `SNAPSHOT_SECRET` set on the Edge Function via
- * `supabase secrets set`.
+ * Requires SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL).
  */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const SUPABASE_URL = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SNAPSHOT_SECRET = process.env.SNAPSHOT_SECRET;
 
-if (!SUPABASE_URL || !SNAPSHOT_SECRET) {
+if (!SUPABASE_URL) {
   console.error(
-    "Missing SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) and/or SNAPSHOT_SECRET.\n" +
+    "Missing SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL).\n" +
       "Run with: node --env-file=.env scripts/snapshot-supabase.mjs"
   );
   process.exit(1);
@@ -66,9 +66,7 @@ const CATEGORY_TABLE = new Map([
 ]);
 
 async function fetchAllPosts() {
-  const res = await fetch(`${SUPABASE_URL}/functions/v1/get-blog-posts`, {
-    headers: { "x-snapshot-secret": SNAPSHOT_SECRET },
-  });
+  const res = await fetch(`${SUPABASE_URL}/functions/v1/get-blog-posts`);
   if (!res.ok) {
     throw new Error(`${res.status} ${res.statusText} — ${await res.text()}`);
   }
