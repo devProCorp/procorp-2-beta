@@ -1,8 +1,8 @@
 {
   "id": 12076,
   "slug": "como-cambia-europa-ante-la-inmigracion-irregular",
-  "date": "2025-09-26T12:14:11",
-  "modified": "2025-09-29T08:06:26",
+  "date": "2025-09-26T17:14:11+00:00",
+  "modified": "2025-09-29T13:06:26+00:00",
   "title": {
     "rendered": "Un puente interrumpido: Europa hace frente común contra la inmigración irregular"
   },
@@ -12,7 +12,7 @@
   "content": {
     "rendered": "\n<p>La inmigración irregular en Europa es uno de los temas más complejos y debatidos en la actualidad. Los Estados europeos buscan equilibrar el respeto a los derechos humanos con la necesidad de gestionar sus fronteras y garantizar la seguridad interna. Para quienes provienen de Latinoamérica y consideran Europa como destino, comprender este panorama es esencial, ya que las decisiones políticas y legales afectan directamente a las posibilidades de residencia y regularización. En los últimos meses, Francia, Reino Unido, Portugal y España han protagonizado noticias relacionadas con la inmigración irregular que reflejan el endurecimiento de políticas y la creciente presión social en torno al tema.<br><strong>Francia: debate sobre la sanidad gratuita para inmigrantes irregulares</strong><br>Uno de los programas más conocidos en materia de atención sanitaria en Francia es el Aide Médicale de l’État (AME), que permitía a personas en situación irregular recibir asistencia médica gratuita si cumplían ciertos requisitos de residencia y vulnerabilidad económica. El gobierno francés ha propuesto sustituir este sistema por un modelo mucho más limitado, que cubra únicamente urgencias y tratamientos básicos. La medida busca reducir costes y desincentivar la inmigración irregular, pero ha generado un amplio rechazo por parte de ONG y expertos en salud pública. Críticos advierten que esta decisión podría tener un impacto negativo en la salud colectiva, ya que dificultaría el acceso a diagnósticos tempranos y tratamientos preventivos, además de obstaculizar la integración social de los inmigrantes.<br><strong>Reino Unido: la identidad digital como herramienta de control migratorio</strong><br>El Reino Unido avanza hacia un sistema de identidad digital obligatoria para todos los residentes. Este proyecto, conocido extraoficialmente como BritCard, tendría implicaciones directas para el control de la inmigración. El sistema permitiría verificar el estatus legal de cualquier persona a la hora de acceder a empleo, vivienda o servicios públicos. El objetivo del gobierno es combatir la inmigración ilegal y reducir la economía sumergida asociada a trabajadores sin papeles. Sin embargo, la medida ha despertado un intenso debate: mientras algunos la ven como un paso hacia la modernización administrativa, otros la consideran una forma de vigilancia masiva que podría fomentar la discriminación hacia inmigrantes. Para quienes planean emigrar al Reino Unido, este posible cambio implica la necesidad de estar plenamente regularizados, ya que la identidad digital limitaría cualquier margen para quienes se encuentren en situación irregular.<br><strong>Portugal: asilo denegado a inmigrantes llegados por vía marítima</strong><br>En el Algarve, región sur de Portugal, se han registrado en los últimos meses varias llegadas de embarcaciones con inmigrantes. La respuesta del gobierno portugués ha sido clara: la mayoría de solicitudes de asilo han sido rechazadas, al considerarse que se trata de inmigración económica irregular y no de refugiados bajo protección internacional. Portugal ha reforzado su vigilancia costera y ha implementado procedimientos de deportación acelerada. Aunque el país se ha caracterizado históricamente por políticas relativamente abiertas, estos casos muestran un endurecimiento del control fronterizo frente a la inmigración irregular. Para inmigrantes latinoamericanos, Portugal sigue siendo una puerta de entrada atractiva por sus visados de residencia y programas de inversión, pero la política de asilo deja claro que la vía irregular es cada vez más inviable.<br><strong>España: el caso del menor extranjero en Hortaleza</strong><br>En Madrid, el barrio de Hortaleza se convirtió en epicentro del debate migratorio tras la detención de un menor extranjero no acompañado acusado de agredir sexualmente a una niña de 14 años. El caso generó un fuerte impacto mediático y abrió un debate político sobre la acogida de menores migrantes en España. Sectores de la derecha pidieron el cierre de centros de acogida y la repatriación inmediata de los menores, mientras que asociaciones de infancia advirtieron sobre los riesgos de estigmatizar a todo un colectivo por un hecho individual. Este suceso refleja las tensiones entre la protección de menores vulnerables y las demandas de mayor seguridad ciudadana, evidenciando la sensibilidad social del tema migratorio en España.<br><strong>Conclusión: riesgos de la inmigración irregular y la importancia de la asesoría legal</strong><br>Los casos de Francia, Reino Unido, Portugal, España, Italia y Alemania evidencian una tendencia común en Europa: el endurecimiento de las políticas frente a la inmigración irregular, sin importar si el gobierno es de izquierda, centro o derecha. Esto demuestra que la gestión de los flujos migratorios se ha convertido en una prioridad de Estado, más allá de la ideología política del momento.<br>Para quienes provienen de latinoamérica, esta realidad es un recordatorio de que emigrar sin la documentación adecuada implica riesgos serios: pérdida de derechos básicos, imposibilidad de trabajar legalmente, mayor exposición a estafas y la amenaza constante de deportación. La vía irregular nunca es la mejor opción.<br>En un contexto europeo cada vez más estricto, lo más seguro es optar por procesos legales de residencia, visados o nacionalidad, siempre con el acompañamiento de asesoría profesional. En Pro Corp ofrecemos el respaldo jurídico especializado que asegura que cada paso migratorio se realice con seguridad, transparencia y dentro de la legalidad.</p>\n"
   },
-  "featured_media": 12077,
+  "featured_media": 12076,
   "categories": [
     56,
     57,
@@ -21,50 +21,175 @@
   ],
   "tags": [],
   "author": 1778,
+  "seo_title": "Cómo cambia Europa ante la inmigración irregular Pro Corp Corporate Development",
+  "seo_description": "Europa endurece el control migratorio: sanidad en Francia, ID digital en Reino Unido y asilo en Portugal. Evita riesgos y asesórate con Pro Corp.",
+  "seo_canonical": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/",
+  "seo_og_image_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Copia-de-imagen_principal-2-_1_.jpeg",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "Un puente interrumpido: Europa hace frente común contra la inmigración irregular",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 918,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2025-09-29T13:06:26+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Copia-de-imagen_principal-2-_1_.jpeg",
+        "datePublished": "2025-09-26T17:14:11+00:00",
+        "articleSection": [
+          "Ciudadanía europea",
+          "Emigrar a España",
+          "Emigrar a Portugal",
+          "Uncategorized"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/",
+        "url": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/",
+        "name": "Cómo cambia Europa ante la inmigración irregular Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "Europa endurece el control migratorio: sanidad en Francia, ID digital en Reino Unido y asilo en Portugal. Evita riesgos y asesórate con Pro Corp.",
+        "dateModified": "2025-09-29T13:06:26+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Copia-de-imagen_principal-2-_1_.jpeg",
+        "datePublished": "2025-09-26T17:14:11+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/como-cambia-europa-ante-la-inmigracion-irregular/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Copia-de-imagen_principal-2-_1_.jpeg",
+        "@type": "ImageObject",
+        "width": 1024,
+        "height": 1024,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Copia-de-imagen_principal-2-_1_.jpeg",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 12077,
-        "source_url": "/journal/media/2025/09/Copia-de-imagen_principal-2-_1_.jpeg",
+        "id": 12076,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/Copia-de-imagen_principal-2-_1_.jpeg",
         "alt_text": "",
         "media_details": {
-          "width": 1024,
-          "height": 1024,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2025/09/Copia-de-imagen_principal-2-_1_-300x300.jpeg",
-              "width": 300,
-              "height": 300
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2025/09/Copia-de-imagen_principal-2-_1_-150x150.jpeg",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2025/09/Copia-de-imagen_principal-2-_1_-768x768.jpeg",
-              "width": 768,
-              "height": 768
-            },
-            "full": {
-              "source_url": "/journal/media/2025/09/Copia-de-imagen_principal-2-_1_.jpeg",
-              "width": 1024,
-              "height": 1024
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
@@ -88,10 +213,9 @@
         {
           "id": 1,
           "name": "Uncategorized",
-          "slug": "uncategorized"
+          "slug": "1"
         }
-      ],
-      []
+      ]
     ]
   }
 }

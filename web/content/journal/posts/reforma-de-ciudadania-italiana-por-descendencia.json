@@ -1,8 +1,8 @@
 {
   "id": 12989,
   "slug": "reforma-de-ciudadania-italiana-por-descendencia",
-  "date": "2026-03-17T07:33:09",
-  "modified": "2026-03-26T09:51:51",
+  "date": "2026-03-17T12:33:09+00:00",
+  "modified": "2026-03-26T14:51:51+00:00",
   "title": {
     "rendered": "Reforma de ciudadanía italiana por descendencia"
   },
@@ -10,73 +10,181 @@
     "rendered": "<p>PRO CORP &mdash; BLOGCAST &#9654; Dale click para escuchar este art&iacute;culo Tu navegador no soporta el elemento de audio. Italia ha endurecido de forma muy importante el acceso a la nacionalidad por descendencia, y el cambio más relevante afecta precisamente a los descendientes más lejanos nacidos fuera de Italia. La reforma comenzó con el Decreto-Ley [&hellip;]</p>\n"
   },
   "content": {
-    "rendered": "<style>\n      /* Contenedor principal */\n      .procorp-audio-container-pcaudio_1773750787616 {\n        background: linear-gradient(135deg, #ce1026 0%, #a00d1e 100%) !important;\n        border-radius: 15px !important;\n        padding: 30px 35px !important;\n        margin: 30px auto !important;\n        max-width: 100% !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        box-shadow: 0 8px 20px rgba(206, 16, 38, 0.25) !important;\n      }</p>\n<p>      /* Título - máxima especificidad */\n      div.procorp-audio-container-pcaudio_1773750787616 div.procorp-blogcast-title-pcaudio_1773750787616,\n      .procorp-audio-container-pcaudio_1773750787616 .procorp-blogcast-title-pcaudio_1773750787616,\n      .procorp-blogcast-title-pcaudio_1773750787616,\n      div[class*=\"procorp-blogcast-title\"] {\n        color: #ffffff !important;\n        -webkit-text-fill-color: #ffffff !important;\n        font-size: 14px !important;\n        font-weight: 700 !important;\n        letter-spacing: 3px !important;\n        margin: 0 0 15px 0 !important;\n        padding: 0 !important;\n        text-align: center !important;\n        text-transform: uppercase !important;\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;\n        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;\n        opacity: 1 !important;\n        line-height: 1.2 !important;\n        background: none !important;\n        background-color: transparent !important;\n        background-image: none !important;\n      }</p>\n<p>      /* Subtítulo click */\n      div.procorp-audio-container-pcaudio_1773750787616 div.procorp-blogcast-subtitle-pcaudio_1773750787616,\n      .procorp-blogcast-subtitle-pcaudio_1773750787616 {\n        color: rgba(255,255,255,0.75) !important;\n        -webkit-text-fill-color: rgba(255,255,255,0.75) !important;\n        font-size: 11px !important;\n        font-weight: 400 !important;\n        letter-spacing: 1.5px !important;\n        margin: 0 0 20px 0 !important;\n        padding: 0 !important;\n        text-align: center !important;\n        text-transform: uppercase !important;\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;\n        opacity: 1 !important;\n        line-height: 1.2 !important;\n        background: none !important;\n        background-color: transparent !important;\n        background-image: none !important;\n      }</p>\n<p>      /* Audio player - forzar ancho completo */\n      .procorp-audio-container-pcaudio_1773750787616 audio,\n      .procorp-audio-container-pcaudio_1773750787616 audio.procorp-audio-player-pcaudio_1773750787616,\n      .procorp-audio-player-pcaudio_1773750787616,\n      audio[class*=\"procorp-audio-player\"] {\n        width: 100% !important;\n        max-width: 100% !important;\n        min-width: 100% !important;\n        height: 54px !important;\n        outline: none !important;\n        border-radius: 10px !important;\n        background: rgba(255, 255, 255, 0.95) !important;\n        display: block !important;\n        box-sizing: border-box !important;\n      }</p>\n<p>      @media (max-width: 768px) {\n        .procorp-audio-container-pcaudio_1773750787616 {\n          padding: 25px 15px !important;\n          margin: 25px 0 !important;\n          border-radius: 10px !important;\n        }</p>\n<p>        div.procorp-audio-container-pcaudio_1773750787616 div.procorp-blogcast-title-pcaudio_1773750787616,\n        .procorp-blogcast-title-pcaudio_1773750787616 {\n          font-size: 12px !important;\n          letter-spacing: 2px !important;\n          color: #ffffff !important;\n          -webkit-text-fill-color: #ffffff !important;\n        }</p>\n<p>        .procorp-blogcast-subtitle-pcaudio_1773750787616 {\n          font-size: 10px !important;\n          color: rgba(255,255,255,0.75) !important;\n          -webkit-text-fill-color: rgba(255,255,255,0.75) !important;\n        }</p>\n<p>        .procorp-audio-container-pcaudio_1773750787616 audio,\n        .procorp-audio-player-pcaudio_1773750787616 {\n          height: 48px !important;\n          width: 100% !important;\n          min-width: 100% !important;\n          max-width: 100% !important;\n        }\n      }\n    </style>\n<div class=\"procorp-audio-container-pcaudio_1773750787616\">\n<div class=\"procorp-blogcast-title-pcaudio_1773750787616\" style=\"color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;\">PRO CORP &mdash; BLOGCAST</div>\n<div class=\"procorp-blogcast-subtitle-pcaudio_1773750787616\" style=\"color:rgba(255,255,255,0.75) !important;-webkit-text-fill-color:rgba(255,255,255,0.75) !important;\">&#9654; Dale click para escuchar este art&iacute;culo</div>\n<p>      <audio class=\"procorp-audio-player-pcaudio_1773750787616\" controls preload=\"metadata\" style=\"width:100% !important;min-width:100% !important;max-width:100% !important;display:block !important;\"><source src=\"/journal/media/2026/03/Adiys_a_la_ciudadanya_italiana_por_bisabuelos.mp4\" type=\"audio/mpeg\">Tu navegador no soporta el elemento de audio.</audio>\n    </div>\n<style>\n      .pccontent_1773750787616-wrapper {\n        max-width: 820px;\n        margin: 0 auto;\n        padding: 15px 0;\n        font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;\n      }</p>\n<p>      .pccontent_1773750787616-heading {\n        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;\n        font-size: 22px;\n        font-weight: 700;\n        margin: 35px 0 14px;\n        line-height: 1.35;\n        letter-spacing: -0.2px;\n        padding-bottom: 8px;\n        border-bottom: 2px solid #f0f0f0;\n      }</p>\n<p>      .pccontent_1773750787616-paragraph {\n        font-size: 16.5px;\n        line-height: 1.9;\n        color: #3a3a3a;\n        margin: 0 0 20px;\n        text-align: justify;\n      }</p>\n<p>      .pccontent_1773750787616-paragraph strong {\n        color: #2d2d2d;\n        font-weight: 600;\n      }</p>\n<p>      .pccontent_1773750787616-list {\n        list-style: none;\n        padding: 0;\n        margin: 0 0 22px 0;\n      }</p>\n<p>      .pccontent_1773750787616-list li {\n        font-size: 16.5px;\n        line-height: 1.85;\n        color: #3a3a3a;\n        padding: 8px 0 8px 28px;\n        position: relative;\n        border-bottom: 1px solid #f5f5f5;\n      }</p>\n<p>      .pccontent_1773750787616-list li:last-child {\n        border-bottom: none;\n      }</p>\n<p>      .pccontent_1773750787616-list li::before {\n        content: '';\n        position: absolute;\n        left: 0;\n        top: 16px;\n        width: 8px;\n        height: 8px;\n        background: #ce1026;\n        border-radius: 50%;\n      }</p>\n<p>      @media (max-width: 768px) {\n        .pccontent_1773750787616-wrapper {\n          padding: 10px 15px;\n        }</p>\n<p>        .pccontent_1773750787616-heading {\n          font-size: 19px;\n          margin: 28px 0 12px;\n        }</p>\n<p>        .pccontent_1773750787616-paragraph,\n        .pccontent_1773750787616-list li {\n          font-size: 15.5px;\n          line-height: 1.8;\n        }\n      }\n    </style>\n<div class=\"pccontent_1773750787616-wrapper\">\n<p data-start=\"133\" data-end=\"673\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Italia ha endurecido de forma muy importante el acceso a la nacionalidad por descendencia, y el cambio más relevante afecta precisamente a los descendientes más lejanos nacidos fuera de Italia. La reforma comenzó con el Decreto-Ley n. 36 de 28 de marzo de 2025 y después fue confirmada con su conversión en la Ley n. 74 de 23 de mayo de 2025. La idea central del nuevo sistema es limitar la transmisión automática de la ciudadanía italiana a quienes mantengan un vínculo más cercano y real con el país. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"675\" data-end=\"788\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"675\" data-end=\"788\" style=\"color: rgb(163, 13, 31);\">El cambio más importante: La cuarta generación nacida en el extranjero queda fuera en la mayoría de los casos</strong></p>\n<p data-start=\"790\" data-end=\"1438\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Este es el punto principal que deben tener claro los descendientes de italianos. Con la nueva normativa, los italo-descendientes nacidos en el extranjero serán automáticamente ciudadanos solo durante dos generaciones. En términos prácticos, esto significa que solo quien tenga al menos un progenitor o un abuelo nacido en Italia podrá encajar, en principio, en el nuevo esquema automático. Como consecuencia, los hijos de italianos de cuarta generación nacidos en el extranjero ya no podrán ser reconocidos como italianos como ocurría antes en muchos expedientes basados en bisabuelos o tatarabuelos italianos. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"1440\" data-end=\"1845\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Durante años, muchas familias en América Latina pudieron tramitar la ciudadanía italiana acreditando una línea familiar lejana. Ese modelo ha cambiado. Ahora ya no basta con demostrar que hubo un ascendiente italiano remoto, sino que la ley exige una conexión mucho más próxima con Italia. Este es, sin duda, el cambio más duro y más trascendental de toda la reforma. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"1847\" data-end=\"1893\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"1847\" data-end=\"1893\" style=\"color: rgb(163, 13, 31);\">¿Quiénes sí pueden seguir teniendo opciones?</strong></p>\n<p data-start=\"1895\" data-end=\"2525\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La ciudadanía por descendencia no desapareció por completo, pero quedó mucho más restringida. Tras la reforma, siguen existiendo opciones para quienes entren en los supuestos que la propia normativa mantiene abiertos, especialmente cuando existe un progenitor o un abuelo nacido en Italia, o en ciertos casos en los que el progenitor haya residido en Italia durante el tiempo exigido por la ley. En otras palabras, el sistema sigue protegiendo vínculos familiares cercanos, pero ya no permite la extensión prácticamente indefinida que existía antes para generaciones nacidas en el extranjero. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"2527\" data-end=\"2588\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"2527\" data-end=\"2588\" style=\"color: rgb(163, 13, 31);\">¿Qué pasa con las solicitudes presentadas antes del cambio?</strong></p>\n<p data-start=\"2590\" data-end=\"3021\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La fecha de presentación del expediente ahora es fundamental. Las solicitudes iniciadas antes de la entrada en vigor de la reforma quedaron, en determinados casos, bajo la normativa anterior. Por eso, no están en la misma situación quienes presentaron su caso antes del 28 de marzo de 2025 y quienes intentaron hacerlo después. Para los nuevos expedientes, ya rige el marco restrictivo actual. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"3023\" data-end=\"3066\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"3023\" data-end=\"3066\" style=\"color: rgb(163, 13, 31);\">La actualización reciente sobre menores</strong></p>\n<p data-start=\"3068\" data-end=\"3556\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Además de esta reforma, en 2026 hubo una actualización importante en materia de menores. La Ley n. 26 de 27 de febrero de 2026 prorrogó hasta el 31 de mayo de 2029 el plazo previsto para ciertos menores nacidos antes del 25 de mayo de 2025. Esta novedad es relevante para algunas familias, pero no altera el punto central de la reforma: Italia ha cerrado de forma muy clara la vía amplia de acceso para descendientes lejanos nacidos en el extranjero. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"3558\" data-end=\"3572\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"3558\" data-end=\"3572\" style=\"color: rgb(163, 13, 31);\">Conclusión</strong></p>\n<p class=\"pccontent_1773750787616-paragraph\">\n<p data-start=\"3574\" data-end=\"4171\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La nacionalidad italiana por descendencia sigue existiendo, pero ya no funciona como antes. El gran cambio es que Italia ha limitado la transmisión automática a las generaciones más cercanas, dejando fuera en la mayoría de los casos a la cuarta generación nacida en el extranjero. Por eso, muchas personas que hace poco habrían tenido opciones hoy deben revisar su caso con mucho más cuidado. En este nuevo escenario, ya no basta con tener un antepasado italiano: ahora importa mucho más cuán cercano es ese vínculo y en qué momento se presentó el expediente.&nbsp;</p>\n</div>\n"
+    "rendered": "<style>\n      /* Contenedor principal */\n      .procorp-audio-container-pcaudio_1773750787616 {\n        background: linear-gradient(135deg, #ce1026 0%, #a00d1e 100%) !important;\n        border-radius: 15px !important;\n        padding: 30px 35px !important;\n        margin: 30px auto !important;\n        max-width: 100% !important;\n        width: 100% !important;\n        box-sizing: border-box !important;\n        box-shadow: 0 8px 20px rgba(206, 16, 38, 0.25) !important;\n      }</p>\n<p>      /* Título - máxima especificidad */\n      div.procorp-audio-container-pcaudio_1773750787616 div.procorp-blogcast-title-pcaudio_1773750787616,\n      .procorp-audio-container-pcaudio_1773750787616 .procorp-blogcast-title-pcaudio_1773750787616,\n      .procorp-blogcast-title-pcaudio_1773750787616,\n      div[class*=\"procorp-blogcast-title\"] {\n        color: #ffffff !important;\n        -webkit-text-fill-color: #ffffff !important;\n        font-size: 14px !important;\n        font-weight: 700 !important;\n        letter-spacing: 3px !important;\n        margin: 0 0 15px 0 !important;\n        padding: 0 !important;\n        text-align: center !important;\n        text-transform: uppercase !important;\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;\n        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;\n        opacity: 1 !important;\n        line-height: 1.2 !important;\n        background: none !important;\n        background-color: transparent !important;\n        background-image: none !important;\n      }</p>\n<p>      /* Subtítulo click */\n      div.procorp-audio-container-pcaudio_1773750787616 div.procorp-blogcast-subtitle-pcaudio_1773750787616,\n      .procorp-blogcast-subtitle-pcaudio_1773750787616 {\n        color: rgba(255,255,255,0.75) !important;\n        -webkit-text-fill-color: rgba(255,255,255,0.75) !important;\n        font-size: 11px !important;\n        font-weight: 400 !important;\n        letter-spacing: 1.5px !important;\n        margin: 0 0 20px 0 !important;\n        padding: 0 !important;\n        text-align: center !important;\n        text-transform: uppercase !important;\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;\n        opacity: 1 !important;\n        line-height: 1.2 !important;\n        background: none !important;\n        background-color: transparent !important;\n        background-image: none !important;\n      }</p>\n<p>      /* Audio player - forzar ancho completo */\n      .procorp-audio-container-pcaudio_1773750787616 audio,\n      .procorp-audio-container-pcaudio_1773750787616 audio.procorp-audio-player-pcaudio_1773750787616,\n      .procorp-audio-player-pcaudio_1773750787616,\n      audio[class*=\"procorp-audio-player\"] {\n        width: 100% !important;\n        max-width: 100% !important;\n        min-width: 100% !important;\n        height: 54px !important;\n        outline: none !important;\n        border-radius: 10px !important;\n        background: rgba(255, 255, 255, 0.95) !important;\n        display: block !important;\n        box-sizing: border-box !important;\n      }</p>\n<p>      @media (max-width: 768px) {\n        .procorp-audio-container-pcaudio_1773750787616 {\n          padding: 25px 15px !important;\n          margin: 25px 0 !important;\n          border-radius: 10px !important;\n        }</p>\n<p>        div.procorp-audio-container-pcaudio_1773750787616 div.procorp-blogcast-title-pcaudio_1773750787616,\n        .procorp-blogcast-title-pcaudio_1773750787616 {\n          font-size: 12px !important;\n          letter-spacing: 2px !important;\n          color: #ffffff !important;\n          -webkit-text-fill-color: #ffffff !important;\n        }</p>\n<p>        .procorp-blogcast-subtitle-pcaudio_1773750787616 {\n          font-size: 10px !important;\n          color: rgba(255,255,255,0.75) !important;\n          -webkit-text-fill-color: rgba(255,255,255,0.75) !important;\n        }</p>\n<p>        .procorp-audio-container-pcaudio_1773750787616 audio,\n        .procorp-audio-player-pcaudio_1773750787616 {\n          height: 48px !important;\n          width: 100% !important;\n          min-width: 100% !important;\n          max-width: 100% !important;\n        }\n      }\n    </style>\n<div class=\"procorp-audio-container-pcaudio_1773750787616\">\n<div class=\"procorp-blogcast-title-pcaudio_1773750787616\" style=\"color:#ffffff !important;-webkit-text-fill-color:#ffffff !important;\">PRO CORP &mdash; BLOGCAST</div>\n<div class=\"procorp-blogcast-subtitle-pcaudio_1773750787616\" style=\"color:rgba(255,255,255,0.75) !important;-webkit-text-fill-color:rgba(255,255,255,0.75) !important;\">&#9654; Dale click para escuchar este art&iacute;culo</div>\n<p>      <audio class=\"procorp-audio-player-pcaudio_1773750787616\" controls preload=\"metadata\" style=\"width:100% !important;min-width:100% !important;max-width:100% !important;display:block !important;\"><source src=\"https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/Adiys_a_la_ciudadanya_italiana_por_bisabuelos.mp4\" type=\"audio/mpeg\">Tu navegador no soporta el elemento de audio.</audio>\n    </div>\n<style>\n      .pccontent_1773750787616-wrapper {\n        max-width: 820px;\n        margin: 0 auto;\n        padding: 15px 0;\n        font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;\n      }</p>\n<p>      .pccontent_1773750787616-heading {\n        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;\n        font-size: 22px;\n        font-weight: 700;\n        margin: 35px 0 14px;\n        line-height: 1.35;\n        letter-spacing: -0.2px;\n        padding-bottom: 8px;\n        border-bottom: 2px solid #f0f0f0;\n      }</p>\n<p>      .pccontent_1773750787616-paragraph {\n        font-size: 16.5px;\n        line-height: 1.9;\n        color: #3a3a3a;\n        margin: 0 0 20px;\n        text-align: justify;\n      }</p>\n<p>      .pccontent_1773750787616-paragraph strong {\n        color: #2d2d2d;\n        font-weight: 600;\n      }</p>\n<p>      .pccontent_1773750787616-list {\n        list-style: none;\n        padding: 0;\n        margin: 0 0 22px 0;\n      }</p>\n<p>      .pccontent_1773750787616-list li {\n        font-size: 16.5px;\n        line-height: 1.85;\n        color: #3a3a3a;\n        padding: 8px 0 8px 28px;\n        position: relative;\n        border-bottom: 1px solid #f5f5f5;\n      }</p>\n<p>      .pccontent_1773750787616-list li:last-child {\n        border-bottom: none;\n      }</p>\n<p>      .pccontent_1773750787616-list li::before {\n        content: '';\n        position: absolute;\n        left: 0;\n        top: 16px;\n        width: 8px;\n        height: 8px;\n        background: #ce1026;\n        border-radius: 50%;\n      }</p>\n<p>      @media (max-width: 768px) {\n        .pccontent_1773750787616-wrapper {\n          padding: 10px 15px;\n        }</p>\n<p>        .pccontent_1773750787616-heading {\n          font-size: 19px;\n          margin: 28px 0 12px;\n        }</p>\n<p>        .pccontent_1773750787616-paragraph,\n        .pccontent_1773750787616-list li {\n          font-size: 15.5px;\n          line-height: 1.8;\n        }\n      }\n    </style>\n<div class=\"pccontent_1773750787616-wrapper\">\n<p data-start=\"133\" data-end=\"673\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Italia ha endurecido de forma muy importante el acceso a la nacionalidad por descendencia, y el cambio más relevante afecta precisamente a los descendientes más lejanos nacidos fuera de Italia. La reforma comenzó con el Decreto-Ley n. 36 de 28 de marzo de 2025 y después fue confirmada con su conversión en la Ley n. 74 de 23 de mayo de 2025. La idea central del nuevo sistema es limitar la transmisión automática de la ciudadanía italiana a quienes mantengan un vínculo más cercano y real con el país. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"675\" data-end=\"788\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"675\" data-end=\"788\" style=\"color: rgb(163, 13, 31);\">El cambio más importante: La cuarta generación nacida en el extranjero queda fuera en la mayoría de los casos</strong></p>\n<p data-start=\"790\" data-end=\"1438\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Este es el punto principal que deben tener claro los descendientes de italianos. Con la nueva normativa, los italo-descendientes nacidos en el extranjero serán automáticamente ciudadanos solo durante dos generaciones. En términos prácticos, esto significa que solo quien tenga al menos un progenitor o un abuelo nacido en Italia podrá encajar, en principio, en el nuevo esquema automático. Como consecuencia, los hijos de italianos de cuarta generación nacidos en el extranjero ya no podrán ser reconocidos como italianos como ocurría antes en muchos expedientes basados en bisabuelos o tatarabuelos italianos. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"1440\" data-end=\"1845\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Durante años, muchas familias en América Latina pudieron tramitar la ciudadanía italiana acreditando una línea familiar lejana. Ese modelo ha cambiado. Ahora ya no basta con demostrar que hubo un ascendiente italiano remoto, sino que la ley exige una conexión mucho más próxima con Italia. Este es, sin duda, el cambio más duro y más trascendental de toda la reforma. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"1847\" data-end=\"1893\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"1847\" data-end=\"1893\" style=\"color: rgb(163, 13, 31);\">¿Quiénes sí pueden seguir teniendo opciones?</strong></p>\n<p data-start=\"1895\" data-end=\"2525\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La ciudadanía por descendencia no desapareció por completo, pero quedó mucho más restringida. Tras la reforma, siguen existiendo opciones para quienes entren en los supuestos que la propia normativa mantiene abiertos, especialmente cuando existe un progenitor o un abuelo nacido en Italia, o en ciertos casos en los que el progenitor haya residido en Italia durante el tiempo exigido por la ley. En otras palabras, el sistema sigue protegiendo vínculos familiares cercanos, pero ya no permite la extensión prácticamente indefinida que existía antes para generaciones nacidas en el extranjero. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"2527\" data-end=\"2588\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"2527\" data-end=\"2588\" style=\"color: rgb(163, 13, 31);\">¿Qué pasa con las solicitudes presentadas antes del cambio?</strong></p>\n<p data-start=\"2590\" data-end=\"3021\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La fecha de presentación del expediente ahora es fundamental. Las solicitudes iniciadas antes de la entrada en vigor de la reforma quedaron, en determinados casos, bajo la normativa anterior. Por eso, no están en la misma situación quienes presentaron su caso antes del 28 de marzo de 2025 y quienes intentaron hacerlo después. Para los nuevos expedientes, ya rige el marco restrictivo actual. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"3023\" data-end=\"3066\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"3023\" data-end=\"3066\" style=\"color: rgb(163, 13, 31);\">La actualización reciente sobre menores</strong></p>\n<p data-start=\"3068\" data-end=\"3556\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Además de esta reforma, en 2026 hubo una actualización importante en materia de menores. La Ley n. 26 de 27 de febrero de 2026 prorrogó hasta el 31 de mayo de 2029 el plazo previsto para ciertos menores nacidos antes del 25 de mayo de 2025. Esta novedad es relevante para algunas familias, pero no altera el punto central de la reforma: Italia ha cerrado de forma muy clara la vía amplia de acceso para descendientes lejanos nacidos en el extranjero. <span class=\"\" data-state=\"closed\"></span></p>\n<p data-start=\"3558\" data-end=\"3572\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\"><strong data-start=\"3558\" data-end=\"3572\" style=\"color: rgb(163, 13, 31);\">Conclusión</strong></p>\n<p class=\"pccontent_1773750787616-paragraph\">\n<p data-start=\"3574\" data-end=\"4171\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La nacionalidad italiana por descendencia sigue existiendo, pero ya no funciona como antes. El gran cambio es que Italia ha limitado la transmisión automática a las generaciones más cercanas, dejando fuera en la mayoría de los casos a la cuarta generación nacida en el extranjero. Por eso, muchas personas que hace poco habrían tenido opciones hoy deben revisar su caso con mucho más cuidado. En este nuevo escenario, ya no basta con tener un antepasado italiano: ahora importa mucho más cuán cercano es ese vínculo y en qué momento se presentó el expediente.&nbsp;</p>\n</div>\n"
   },
-  "featured_media": 12990,
+  "featured_media": 12989,
   "categories": [
     59
   ],
   "tags": [],
   "author": 1778,
+  "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/Adiys_a_la_ciudadanya_italiana_por_bisabuelos.mp4",
+  "seo_title": "Reforma de ciudadanía italiana por descendencia - Pro Corp Corporate Development",
+  "seo_description": "PRO CORP &mdash; BLOGCAST &#9654; Dale click para escuchar este art&iacute;culo Tu navegador no soporta el elemento de audio. Italia ha endurecido de",
+  "seo_canonical": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/",
+  "seo_og_image_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/2026-03-17_1773750789861-scaled.jpeg",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "Reforma de ciudadanía italiana por descendencia",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 673,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2026-03-26T14:51:51+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/2026-03-17_1773750789861-scaled.jpeg",
+        "datePublished": "2026-03-17T12:33:09+00:00",
+        "articleSection": [
+          "Vivir en Europa"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/",
+        "url": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/",
+        "name": "Reforma de ciudadanía italiana por descendencia - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "PRO CORP &mdash; BLOGCAST &#9654; Dale click para escuchar este art&iacute;culo Tu navegador no soporta el elemento de audio. Italia ha endurecido de",
+        "dateModified": "2026-03-26T14:51:51+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/2026-03-17_1773750789861-scaled.jpeg",
+        "datePublished": "2026-03-17T12:33:09+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/reforma-de-ciudadania-italiana-por-descendencia/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/2026-03-17_1773750789861-scaled.jpeg",
+        "@type": "ImageObject",
+        "width": 2560,
+        "height": 2560,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/2026-03-17_1773750789861-scaled.jpeg",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 12990,
-        "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-scaled.jpeg",
+        "id": 12989,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/2026-03-17_1773750789861-scaled.jpeg",
         "alt_text": "",
         "media_details": {
-          "width": 2560,
-          "height": 2560,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-300x300.jpeg",
-              "width": 300,
-              "height": 300
-            },
-            "large": {
-              "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-1024x1024.jpeg",
-              "width": 1024,
-              "height": 1024
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-150x150.jpeg",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-768x768.jpeg",
-              "width": 768,
-              "height": 768
-            },
-            "1536x1536": {
-              "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-1536x1536.jpeg",
-              "width": 1536,
-              "height": 1536
-            },
-            "2048x2048": {
-              "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-2048x2048.jpeg",
-              "width": 2048,
-              "height": 2048
-            },
-            "full": {
-              "source_url": "/journal/media/2026/03/2026-03-17_1773750789861-scaled.jpeg",
-              "width": 2560,
-              "height": 2560
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
@@ -87,8 +195,7 @@
           "name": "Vivir en Europa",
           "slug": "vivir-en-europa"
         }
-      ],
-      []
+      ]
     ]
   }
 }

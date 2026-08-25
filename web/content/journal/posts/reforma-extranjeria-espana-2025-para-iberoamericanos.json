@@ -1,8 +1,8 @@
 {
   "id": 11282,
   "slug": "reforma-extranjeria-espana-2025-para-iberoamericanos",
-  "date": "2025-04-23T07:57:40",
-  "modified": "2025-04-23T08:52:04",
+  "date": "2025-04-23T12:57:40+00:00",
+  "modified": "2025-04-23T13:52:04+00:00",
   "title": {
     "rendered": "Reforma de Extranjería en España: claves para iberoamericanos"
   },
@@ -12,7 +12,7 @@
   "content": {
     "rendered": "\n<p>El 20 de mayo de 2025 entra en vigor en España el nuevo Reglamento de Extranjería, aprobado mediante el Real Decreto 1155/2024.&nbsp;Esta reforma representa una actualización significativa del marco normativo que regula los derechos y libertades de las personas extranjeras en España, con especial relevancia para los ciudadanos iberoamericanos que buscan establecerse en el país.</p>\n\n\n\n<p>Una de las modificaciones más destacadas es la reestructuración de las figuras de arraigo.&nbsp;El arraigo social ahora requiere una residencia continuada de dos años en España, en lugar de los tres años exigidos anteriormente, y la acreditación de vínculos familiares o un informe de inserción social.&nbsp;El arraigo sociolaboral exige dos años de residencia y un contrato laboral de al menos 20 horas semanales, facilitando la regularización de quienes han trabajado en el país.&nbsp;El arraigo socioformativo permite la regularización a través de la formación profesional, aceptando programas presenciales y en línea, y autorizando el trabajo desde el inicio del proceso formativo.&nbsp;Se introduce el arraigo de segunda oportunidad, dirigido a quienes perdieron su autorización de residencia en los últimos dos años y desean regularizar su situación nuevamente.&nbsp;</p>\n\n\n\n<p>Asimismo, se&nbsp;mantiene y actualiza la figura del arraigo familiar como una vía de regularización excepcional destinada a personas extranjeras que tienen un vínculo directo con un ciudadano español. Esta autorización se concede, por ejemplo, a progenitores de menores de nacionalidad española que convivan con ellos o estén a su cargo, así como a hijos de padre o madre originariamente españoles. A diferencia de otras formas de arraigo, no se exige un período mínimo de residencia previa en España para solicitarla. Esta modalidad otorga una autorización de residencia por un año, con habilitación para trabajar tanto por cuenta ajena como por cuenta propia. Es importante subrayar que el arraigo familiar no es aplicable cuando el vínculo es con un ciudadano de otro Estado miembro de la Unión Europea. En esos casos, lo que corresponde es solicitar la Tarjeta de Familiar de Ciudadano de la Unión, conforme al régimen comunitario. La diferencia entre ambas figuras es fundamental y afecta de manera directa a los requisitos, derechos y procedimiento aplicables.</p>\n\n\n\n<p>En cuanto a la reagrupación familiar, se han ampliado los derechos para incluir a hijos mayores de edad hasta los 26 años, parejas no registradas formalmente que puedan demostrar una relación estable, y familiares de víctimas de violencia de género o trata de personas.&nbsp;Estas medidas buscan fortalecer la unidad familiar y facilitar la integración social de los migrantes.</p>\n\n\n\n<p>El nuevo reglamento también introduce mejoras en los procedimientos de visado y residencia.&nbsp;Todos los visados iniciales tendrán una duración de un año, con renovaciones de hasta cuatro años, simplificando los trámites y proporcionando mayor estabilidad a los residentes.&nbsp;Además, se ha creado una autorización específica para trabajadores temporales, garantizando condiciones laborales dignas y la posibilidad de cambiar de empleador en caso de abuso.</p>\n\n\n\n<p>Para los solicitantes de asilo cuya petición haya sido denegada, se establece una vía transitoria que permite acceder a las figuras de arraigo tras seis meses de residencia en España, siempre que cumplan con los requisitos establecidos. Esta medida estará vigente durante el primer año desde la entrada en vigor del reglamento.</p>\n\n\n\n<p>En el ámbito educativo, los estudiantes extranjeros podrán trabajar hasta 30 horas semanales durante sus estudios y, al finalizar, tendrán una vía rápida para obtener una autorización de trabajo, facilitando su incorporación al mercado laboral español.</p>\n\n\n\n<p>En Pro Corp, comprendemos la importancia de estos cambios para nuestros clientes iberoamericanos y ofrecemos asesoramiento especializado para navegar este nuevo panorama legal. Nuestro equipo está preparado para brindar apoyo en la gestión de trámites de residencia, reagrupación familiar, regularización por arraigo y otros procedimientos migratorios, asegurando un proceso eficiente y conforme a la normativa vigente.</p>\n\n\n\n<p>Fecha de publicación: Miércoles 23 de Abril 2025</p>\n\n\n<div class=\"wp-block-post-author-name\">Humberto Calderón</div>\n\n<div class=\"wp-block-post-author-biography\">Abogado en Extranjería e Inmigración</div>"
   },
-  "featured_media": 11283,
+  "featured_media": 11282,
   "categories": [
     56,
     57,
@@ -20,55 +20,174 @@
   ],
   "tags": [],
   "author": 1778,
+  "seo_title": "Reforma de Extranjería en España 2025: claves para iberoamericanos - Pro Corp Corporate Development",
+  "seo_description": "Descubre las claves del nuevo Reglamento de Extranjería 2025 en España y cómo impacta a los ciudadanos iberoamericanos. Arraigo, visados y más.",
+  "seo_canonical": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/",
+  "seo_og_image_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/blog.jpeg",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "Reforma de Extranjería en España: claves para iberoamericanos",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 713,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2025-04-23T13:52:04+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/blog.jpeg",
+        "datePublished": "2025-04-23T12:57:40+00:00",
+        "articleSection": [
+          "Ciudadanía europea",
+          "Emigrar a España",
+          "Vivir en Europa"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/",
+        "url": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/",
+        "name": "Reforma de Extranjería en España 2025: claves para iberoamericanos - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "Descubre las claves del nuevo Reglamento de Extranjería 2025 en España y cómo impacta a los ciudadanos iberoamericanos. Arraigo, visados y más.",
+        "dateModified": "2025-04-23T13:52:04+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/blog.jpeg",
+        "datePublished": "2025-04-23T12:57:40+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/reforma-extranjeria-espana-2025-para-iberoamericanos/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/blog.jpeg",
+        "@type": "ImageObject",
+        "width": 972,
+        "height": 1086,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/blog.jpeg",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 11283,
-        "source_url": "/journal/media/2025/04/blog.jpeg",
+        "id": 11282,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/blog.jpeg",
         "alt_text": "",
         "media_details": {
-          "width": 972,
-          "height": 1086,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2025/04/blog-269x300.jpeg",
-              "width": 269,
-              "height": 300
-            },
-            "large": {
-              "source_url": "/journal/media/2025/04/blog-917x1024.jpeg",
-              "width": 917,
-              "height": 1024
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2025/04/blog-150x150.jpeg",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2025/04/blog-768x858.jpeg",
-              "width": 768,
-              "height": 858
-            },
-            "full": {
-              "source_url": "/journal/media/2025/04/blog.jpeg",
-              "width": 972,
-              "height": 1086
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
@@ -89,8 +208,7 @@
           "name": "Vivir en Europa",
           "slug": "vivir-en-europa"
         }
-      ],
-      []
+      ]
     ]
   }
 }

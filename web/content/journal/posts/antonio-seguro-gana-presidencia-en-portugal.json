@@ -1,8 +1,8 @@
 {
   "id": 12862,
   "slug": "antonio-seguro-gana-presidencia-en-portugal",
-  "date": "2026-02-12T05:28:51",
-  "modified": "2026-03-04T10:05:03",
+  "date": "2026-02-12T10:28:51+00:00",
+  "modified": "2026-03-04T15:05:03+00:00",
   "title": {
     "rendered": "António Seguro gana presidencia en Portugal"
   },
@@ -10,73 +10,181 @@
     "rendered": "<p>PRO CORP &#8211; BLOGCAST Tu navegador no soporta el elemento de audio. Las elecciones presidenciales celebradas el domingo pasado en Portugal concluyeron con la victoria del candidato socialista António José Seguro frente a André Ventura, líder de Chega. El resultado se interpretó como una apuesta mayoritaria por la estabilidad institucional y, al mismo tiempo, como [&hellip;]</p>\n"
   },
   "content": {
-    "rendered": "<style>\n      .procorp-audio-container-pcaudio_1770892129706 {\n        background: linear-gradient(135deg, #ce1026 0%, #a00d1e 100%);\n        border-radius: 15px;\n        padding: 30px 35px;\n        margin: 30px auto;\n        max-width: 900px;\n        box-shadow: 0 8px 20px rgba(206, 16, 38, 0.25);\n        transition: transform 0.3s ease, box-shadow 0.3s ease;\n      }</p>\n<p>      .procorp-audio-container-pcaudio_1770892129706:hover {\n        transform: translateY(-2px);\n        box-shadow: 0 12px 30px rgba(206, 16, 38, 0.35);\n      }</p>\n<p>      .procorp-blogcast-title-pcaudio_1770892129706 {\n        color: #ffffff !important;\n        font-size: 14px;\n        font-weight: 700;\n        letter-spacing: 3px;\n        margin: 0 0 20px 0 !important;\n        padding: 0 !important;\n        text-align: center;\n        text-transform: uppercase;\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;\n        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);\n        opacity: 1 !important;\n        line-height: 1.2;\n      }</p>\n<p>      .procorp-audio-player-pcaudio_1770892129706 {\n        width: 100% !important;\n        max-width: 100% !important;\n        height: 54px !important;\n        outline: none;\n        border-radius: 10px;\n        background: rgba(255, 255, 255, 0.95);\n        display: block !important;\n      }</p>\n<p>      /* Responsive */\n      @media (max-width: 768px) {\n        .procorp-audio-container-pcaudio_1770892129706 {\n          padding: 25px 20px;\n          margin: 25px 10px;\n          max-width: 100%;\n        }</p>\n<p>        .procorp-blogcast-title-pcaudio_1770892129706 {\n          font-size: 12px;\n          letter-spacing: 2px;\n        }</p>\n<p>        .procorp-audio-player-pcaudio_1770892129706 {\n          height: 48px !important;\n        }\n      }</p>\n<p>      @media (min-width: 1200px) {\n        .procorp-audio-container-pcaudio_1770892129706 {\n          max-width: 1000px;\n        }\n      }\n    </style>\n<div class=\"procorp-audio-container-pcaudio_1770892129706\">\n<div class=\"procorp-blogcast-title-pcaudio_1770892129706\">PRO CORP &#8211; BLOGCAST</div>\n<p>      <audio class=\"procorp-audio-player-pcaudio_1770892129706\" controls preload=\"metadata\"><source src=\"/journal/media/2026/02/Portugal_cierra_el_grifo_a_la_inmigraciyn.mp4\" type=\"audio/mpeg\">Tu navegador no soporta el elemento de audio.</audio>\n    </div>\n<p data-start=\"74\" data-end=\"477\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Las elecciones presidenciales celebradas el domingo pasado en Portugal concluyeron con la victoria del candidato socialista António José Seguro frente a André Ventura, líder de Chega. El resultado se interpretó como una apuesta mayoritaria por la estabilidad institucional y, al mismo tiempo, como la confirmación de que la derecha populista ya ocupa un espacio relevante en el mapa político portugués.</p>\n<p data-start=\"479\" data-end=\"948\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Uno de los elementos más determinantes de la campaña fue la inmigración. No apareció como un asunto técnico más, sino como un eje que estructuró buena parte del debate público. Ventura la utilizó como bandera política, vinculándola a preocupaciones sobre seguridad, presión sobre servicios y malestar económico, con un mensaje de endurecimiento y control. Aunque ese enfoque no le alcanzó para ganar la presidencia, sí logró marcar agenda y tensar el marco del debate.</p>\n<p data-start=\"950\" data-end=\"1486\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La victoria de Seguro, en ese contexto, se puede leer como un límite electoral a la narrativa de confrontación. La mayoría del electorado pareció preferir una gestión institucional del fenómeno migratorio: control y legalidad, sí, pero sin convertir la inmigración en un conflicto identitario permanente. Parte de la prensa describió el resultado como un cierre de filas de votantes de sensibilidades distintas que, aun sin compartir programa, priorizaron frenar el avance de la extrema derecha en una elección de alto valor simbólico.</p>\n<p data-start=\"1488\" data-end=\"2047\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Eso no significa que el tema vaya a desaparecer. Portugal enfrenta un desafío muy concreto: combinar la necesidad económica y demográfica de atraer trabajadores con una capacidad administrativa y social que no siempre acompaña el ritmo. Cuando hay retrasos en permisos, saturación en trámites, informalidad laboral o tensión en vivienda, crece la sensación de desorden y aumenta la receptividad hacia discursos de mano dura. En otras palabras, el resultado del domingo no cerró el debate migratorio; lo elevó a prueba de gestión para el nuevo ciclo político.</p>\n<p data-start=\"2049\" data-end=\"2562\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Aquí hay un punto clave para entender lo que viene: en Portugal, la presidencia no gobierna como un primer ministro, pero sí influye. El presidente puede vetar leyes, impulsar consensos y, sobre todo, modular el tono político. Un perfil como el de Seguro puede contribuir a desescalar la polarización, pero esa desescalada solo será sostenible si el Estado ofrece resultados visibles: procedimientos más ágiles, criterios claros, control efectivo y políticas de integración que reduzcan la conflictividad social.</p>\n<p data-start=\"2564\" data-end=\"2970\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Para las personas extranjeras que miran Portugal como destino, el mensaje práctico es sencillo: la inmigración seguirá bajo foco político y mediático, y eso suele traducirse en más exigencia y más escrutinio sobre expedientes. En escenarios así, presentar solicitudes bien estructuradas, con documentación sólida y trazabilidad clara, se vuelve todavía más importante para evitar requerimientos y retrasos.</p>\n<p style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">\n<p data-start=\"2972\" data-end=\"3355\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">En síntesis, Portugal eligió un presidente socialista y frenó la opción populista de derechas, pero la inmigración continuará como campo central de disputa. El margen de maniobra del nuevo liderazgo dependerá menos de los discursos y más de la capacidad de demostrar, con hechos, que la inmigración puede gestionarse con orden, legalidad e integración sin alimentar la polarización.</p>\n"
+    "rendered": "<style>\n      .procorp-audio-container-pcaudio_1770892129706 {\n        background: linear-gradient(135deg, #ce1026 0%, #a00d1e 100%);\n        border-radius: 15px;\n        padding: 30px 35px;\n        margin: 30px auto;\n        max-width: 900px;\n        box-shadow: 0 8px 20px rgba(206, 16, 38, 0.25);\n        transition: transform 0.3s ease, box-shadow 0.3s ease;\n      }</p>\n<p>      .procorp-audio-container-pcaudio_1770892129706:hover {\n        transform: translateY(-2px);\n        box-shadow: 0 12px 30px rgba(206, 16, 38, 0.35);\n      }</p>\n<p>      .procorp-blogcast-title-pcaudio_1770892129706 {\n        color: #ffffff !important;\n        font-size: 14px;\n        font-weight: 700;\n        letter-spacing: 3px;\n        margin: 0 0 20px 0 !important;\n        padding: 0 !important;\n        text-align: center;\n        text-transform: uppercase;\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;\n        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);\n        opacity: 1 !important;\n        line-height: 1.2;\n      }</p>\n<p>      .procorp-audio-player-pcaudio_1770892129706 {\n        width: 100% !important;\n        max-width: 100% !important;\n        height: 54px !important;\n        outline: none;\n        border-radius: 10px;\n        background: rgba(255, 255, 255, 0.95);\n        display: block !important;\n      }</p>\n<p>      /* Responsive */\n      @media (max-width: 768px) {\n        .procorp-audio-container-pcaudio_1770892129706 {\n          padding: 25px 20px;\n          margin: 25px 10px;\n          max-width: 100%;\n        }</p>\n<p>        .procorp-blogcast-title-pcaudio_1770892129706 {\n          font-size: 12px;\n          letter-spacing: 2px;\n        }</p>\n<p>        .procorp-audio-player-pcaudio_1770892129706 {\n          height: 48px !important;\n        }\n      }</p>\n<p>      @media (min-width: 1200px) {\n        .procorp-audio-container-pcaudio_1770892129706 {\n          max-width: 1000px;\n        }\n      }\n    </style>\n<div class=\"procorp-audio-container-pcaudio_1770892129706\">\n<div class=\"procorp-blogcast-title-pcaudio_1770892129706\">PRO CORP &#8211; BLOGCAST</div>\n<p>      <audio class=\"procorp-audio-player-pcaudio_1770892129706\" controls preload=\"metadata\"><source src=\"https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/Portugal_cierra_el_grifo_a_la_inmigraciyn.mp4\" type=\"audio/mpeg\">Tu navegador no soporta el elemento de audio.</audio>\n    </div>\n<p data-start=\"74\" data-end=\"477\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Las elecciones presidenciales celebradas el domingo pasado en Portugal concluyeron con la victoria del candidato socialista António José Seguro frente a André Ventura, líder de Chega. El resultado se interpretó como una apuesta mayoritaria por la estabilidad institucional y, al mismo tiempo, como la confirmación de que la derecha populista ya ocupa un espacio relevante en el mapa político portugués.</p>\n<p data-start=\"479\" data-end=\"948\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Uno de los elementos más determinantes de la campaña fue la inmigración. No apareció como un asunto técnico más, sino como un eje que estructuró buena parte del debate público. Ventura la utilizó como bandera política, vinculándola a preocupaciones sobre seguridad, presión sobre servicios y malestar económico, con un mensaje de endurecimiento y control. Aunque ese enfoque no le alcanzó para ganar la presidencia, sí logró marcar agenda y tensar el marco del debate.</p>\n<p data-start=\"950\" data-end=\"1486\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">La victoria de Seguro, en ese contexto, se puede leer como un límite electoral a la narrativa de confrontación. La mayoría del electorado pareció preferir una gestión institucional del fenómeno migratorio: control y legalidad, sí, pero sin convertir la inmigración en un conflicto identitario permanente. Parte de la prensa describió el resultado como un cierre de filas de votantes de sensibilidades distintas que, aun sin compartir programa, priorizaron frenar el avance de la extrema derecha en una elección de alto valor simbólico.</p>\n<p data-start=\"1488\" data-end=\"2047\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Eso no significa que el tema vaya a desaparecer. Portugal enfrenta un desafío muy concreto: combinar la necesidad económica y demográfica de atraer trabajadores con una capacidad administrativa y social que no siempre acompaña el ritmo. Cuando hay retrasos en permisos, saturación en trámites, informalidad laboral o tensión en vivienda, crece la sensación de desorden y aumenta la receptividad hacia discursos de mano dura. En otras palabras, el resultado del domingo no cerró el debate migratorio; lo elevó a prueba de gestión para el nuevo ciclo político.</p>\n<p data-start=\"2049\" data-end=\"2562\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Aquí hay un punto clave para entender lo que viene: en Portugal, la presidencia no gobierna como un primer ministro, pero sí influye. El presidente puede vetar leyes, impulsar consensos y, sobre todo, modular el tono político. Un perfil como el de Seguro puede contribuir a desescalar la polarización, pero esa desescalada solo será sostenible si el Estado ofrece resultados visibles: procedimientos más ágiles, criterios claros, control efectivo y políticas de integración que reduzcan la conflictividad social.</p>\n<p data-start=\"2564\" data-end=\"2970\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">Para las personas extranjeras que miran Portugal como destino, el mensaje práctico es sencillo: la inmigración seguirá bajo foco político y mediático, y eso suele traducirse en más exigencia y más escrutinio sobre expedientes. En escenarios así, presentar solicitudes bien estructuradas, con documentación sólida y trazabilidad clara, se vuelve todavía más importante para evitar requerimientos y retrasos.</p>\n<p style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">\n<p data-start=\"2972\" data-end=\"3355\" style=\"margin: 1em 0; font-family: Montserrat, sans-serif; line-height: 1.6;\">En síntesis, Portugal eligió un presidente socialista y frenó la opción populista de derechas, pero la inmigración continuará como campo central de disputa. El margen de maniobra del nuevo liderazgo dependerá menos de los discursos y más de la capacidad de demostrar, con hechos, que la inmigración puede gestionarse con orden, legalidad e integración sin alimentar la polarización.</p>\n"
   },
-  "featured_media": 12863,
+  "featured_media": 12862,
   "categories": [
     58
   ],
   "tags": [],
   "author": 1778,
+  "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/Portugal_cierra_el_grifo_a_la_inmigraciyn.mp4",
+  "seo_title": "António Seguro gana presidencia en Portugal - Pro Corp Corporate Development",
+  "seo_description": "PRO CORP - BLOGCAST Tu navegador no soporta el elemento de audio. Las elecciones presidenciales celebradas el domingo pasado en Portugal concluyeron con",
+  "seo_canonical": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/",
+  "seo_og_image_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/image.png-10-scaled.jpeg",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+          "name": "Humberto Calderón"
+        },
+        "headline": "António Seguro gana presidencia en Portugal",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 569,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2026-03-04T15:05:03+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/image.png-10-scaled.jpeg",
+        "datePublished": "2026-02-12T10:28:51+00:00",
+        "articleSection": [
+          "Emigrar a Portugal"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/",
+        "url": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/",
+        "name": "António Seguro gana presidencia en Portugal - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "PRO CORP - BLOGCAST Tu navegador no soporta el elemento de audio. Las elecciones presidenciales celebradas el domingo pasado en Portugal concluyeron con",
+        "dateModified": "2026-03-04T15:05:03+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/image.png-10-scaled.jpeg",
+        "datePublished": "2026-02-12T10:28:51+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/antonio-seguro-gana-presidencia-en-portugal/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/image.png-10-scaled.jpeg",
+        "@type": "ImageObject",
+        "width": 2560,
+        "height": 2560,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/image.png-10-scaled.jpeg",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/8f57bfba139f95701fd3b6a4d106b787",
+        "name": "Humberto Calderón",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Humberto Calderón",
+          "contentUrl": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        },
+        "description": "Abogado en Extranjería e Inmigración"
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1778,
         "name": "Humberto Calderón",
-        "description": "Abogado en Extranjería e Inmigración",
-        "slug": "humberto-calderon",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/ba438f129f9fe7d3e7de37544e2e4598e9cbc4b989a6346c3e45b1cd856578d5?s=96&d=mm&r=g"
-        }
+        "description": "",
+        "slug": "1778",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 12863,
-        "source_url": "/journal/media/2026/02/image.png-10-scaled.jpeg",
+        "id": 12862,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/image.png-10-scaled.jpeg",
         "alt_text": "",
         "media_details": {
-          "width": 2560,
-          "height": 2560,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2026/02/image.png-10-300x300.jpeg",
-              "width": 300,
-              "height": 300
-            },
-            "large": {
-              "source_url": "/journal/media/2026/02/image.png-10-1024x1024.jpeg",
-              "width": 1024,
-              "height": 1024
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2026/02/image.png-10-150x150.jpeg",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2026/02/image.png-10-768x768.jpeg",
-              "width": 768,
-              "height": 768
-            },
-            "1536x1536": {
-              "source_url": "/journal/media/2026/02/image.png-10-1536x1536.jpeg",
-              "width": 1536,
-              "height": 1536
-            },
-            "2048x2048": {
-              "source_url": "/journal/media/2026/02/image.png-10-2048x2048.jpeg",
-              "width": 2048,
-              "height": 2048
-            },
-            "full": {
-              "source_url": "/journal/media/2026/02/image.png-10-scaled.jpeg",
-              "width": 2560,
-              "height": 2560
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
@@ -87,8 +195,7 @@
           "name": "Emigrar a Portugal",
           "slug": "emigrar-a-portugal"
         }
-      ],
-      []
+      ]
     ]
   }
 }

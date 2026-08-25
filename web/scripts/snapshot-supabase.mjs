@@ -26,22 +26,20 @@
  * prebuild pages known at deploy time; posts published afterward are picked
  * up live client-side via web/src/lib/journal-live.ts.
  *
- * Usage: node --env-file=.env scripts/snapshot-supabase.mjs
- * Requires SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL).
+ * Usage: node scripts/snapshot-supabase.mjs
+ * SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL) overrides the default project
+ * URL below if set — it's not a secret (same value already committed in
+ * next.config.ts's image remotePatterns and web/src/lib/journal-live.ts), so
+ * this no longer hard-fails without a .env file.
  */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const SUPABASE_URL = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
-
-if (!SUPABASE_URL) {
-  console.error(
-    "Missing SUPABASE_URL (or NEXT_PUBLIC_SUPABASE_URL).\n" +
-      "Run with: node --env-file=.env scripts/snapshot-supabase.mjs"
-  );
-  process.exit(1);
-}
+const SUPABASE_URL =
+  process.env.SUPABASE_URL ??
+  process.env.NEXT_PUBLIC_SUPABASE_URL ??
+  "https://cpojgmwfpbuvtutnbtam.supabase.co";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT_DIR = path.join(ROOT, "content", "journal");

@@ -1,8 +1,8 @@
 {
   "id": 10796,
   "slug": "eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica",
-  "date": "2024-09-25T17:41:54",
-  "modified": "2024-09-26T08:42:24",
+  "date": "2024-09-25T22:41:54+00:00",
+  "modified": "2024-09-26T13:42:24+00:00",
   "title": {
     "rendered": "¿Eres hijo/a mayor de edad de alguien que está tramitando la nacionalidad española por la Ley de Memoria Democrática?"
   },
@@ -12,71 +12,177 @@
   "content": {
     "rendered": "\n<p>&nbsp;¡Tenemos buenas noticias! </p>\n\n\n\n<p>Puedes iniciar tu propio trámite de nacionalidad <strong>sin esperar a que el proceso de tus padres finalice</strong>.</p>\n\n\n\n<p>En la práctica hay formas para que los <strong>hijos mayores de edad de quienes están realizando el proceso</strong> para obtener la nacionalidad española mediante la <strong>Ley de Memoria Democrática</strong> también <strong>puedan iniciar su propio proceso sin la exigencia de que el trámite de sus padres haya finalizado de manera exitosa</strong>.</p>\n\n\n\n<p>Esta es una <strong>gran oportunidad</strong> para todos los <strong>hijos mayores de edad</strong> de nuestros clientes que se encuentran <strong>actualmente tramitando por este medio su nacionalidad española</strong>. Por eso hemos querido compartirles esta gran oportunidad a todos los interesados, como solemos hacerlo en <strong>Pro Corp, </strong>dado que lo hemos aplicado a muchos clientes ya.</p>\n\n\n\n<p>Si eres uno de esos <strong>hijos mayores de edad que podría beneficiarse con este proceso</strong>, no dudes en <strong>contactarte con nosotros cuanto antes para que te asesoremos</strong> y puedas iniciar rápidamente tu trámite.</p>\n"
   },
-  "featured_media": 10797,
+  "featured_media": 10796,
   "categories": [
     56
   ],
   "tags": [],
   "author": 1776,
+  "seo_title": "¿Eres hijo/a mayor de edad de alguien que está tramitando la nacionalidad española por la Ley de Memoria Democrática? - Pro Corp Corporate Development",
+  "seo_description": "&nbsp;¡Tenemos buenas noticias! Puedes iniciar tu propio trámite de nacionalidad sin esperar a que el proceso de tus padres finalice. En la práctica hay",
+  "seo_canonical": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/",
+  "seo_og_image_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/pexels-mikhail-nilov-7731323-scaled.jpg",
+  "seo_schema": {
+    "@graph": [
+      {
+        "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/#article",
+        "@type": "Article",
+        "image": {
+          "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/#primaryimage"
+        },
+        "author": {
+          "@id": "https://www.pro-corp.net/#/schema/person/bf94a9d24816ba85d3f98abe3b3f114c",
+          "name": "Ximena Valdivia"
+        },
+        "headline": "¿Eres hijo/a mayor de edad de alguien que está tramitando la nacionalidad española por la Ley de Memoria Democrática?",
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/"
+        },
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "wordCount": 190,
+        "inLanguage": "es",
+        "commentCount": 0,
+        "dateModified": "2024-09-26T13:42:24+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/pexels-mikhail-nilov-7731323-scaled.jpg",
+        "datePublished": "2024-09-25T22:41:54+00:00",
+        "articleSection": [
+          "Ciudadanía europea"
+        ],
+        "potentialAction": [
+          {
+            "name": "Comment",
+            "@type": "CommentAction",
+            "target": [
+              "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/#respond"
+            ]
+          }
+        ],
+        "mainEntityOfPage": {
+          "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/",
+        "url": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/",
+        "name": "¿Eres hijo/a mayor de edad de alguien que está tramitando la nacionalidad española por la Ley de Memoria Democrática? - Pro Corp Corporate Development",
+        "@type": "WebPage",
+        "image": {
+          "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/#primaryimage"
+        },
+        "isPartOf": {
+          "@id": "https://www.pro-corp.net/#website"
+        },
+        "inLanguage": "es",
+        "description": "&nbsp;¡Tenemos buenas noticias! Puedes iniciar tu propio trámite de nacionalidad sin esperar a que el proceso de tus padres finalice. En la práctica hay",
+        "dateModified": "2024-09-26T13:42:24+00:00",
+        "thumbnailUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/pexels-mikhail-nilov-7731323-scaled.jpg",
+        "datePublished": "2024-09-25T22:41:54+00:00",
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/"
+            ]
+          }
+        ],
+        "primaryImageOfPage": {
+          "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/#primaryimage"
+        }
+      },
+      {
+        "@id": "https://www.pro-corp.net/eres-hijo-a-mayor-de-edad-de-alguien-que-esta-tramitando-la-nacionalidad-espanola-por-la-ley-de-memoria-democratica/#primaryimage",
+        "url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/pexels-mikhail-nilov-7731323-scaled.jpg",
+        "@type": "ImageObject",
+        "width": 2560,
+        "height": 1868,
+        "contentUrl": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/pexels-mikhail-nilov-7731323-scaled.jpg",
+        "inLanguage": "es"
+      },
+      {
+        "@id": "https://www.pro-corp.net/#website",
+        "url": "https://www.pro-corp.net/",
+        "name": "Pro Corp Corporate Development",
+        "@type": "WebSite",
+        "publisher": {
+          "@id": "https://www.pro-corp.net/#organization"
+        },
+        "inLanguage": "es",
+        "description": "Nacionalidad Europea por Ley Sefardí",
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.pro-corp.net/?s={search_term_string}"
+            },
+            "query-input": {
+              "@type": "PropertyValueSpecification",
+              "valueName": "search_term_string",
+              "valueRequired": true
+            }
+          }
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#organization",
+        "url": "https://www.pro-corp.net/",
+        "logo": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/",
+          "url": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "@type": "ImageObject",
+          "width": 640,
+          "height": 640,
+          "caption": "Pro Corp Corporate Development",
+          "contentUrl": "https://www.pro-corp.net/wp-content/uploads/2020/06/icon.png",
+          "inLanguage": "es"
+        },
+        "name": "Pro Corp Corporate Development",
+        "@type": "Organization",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/logo/image/"
+        },
+        "sameAs": [
+          "https://www.facebook.com/Pro-Corp-Asesoria-legal-y-empresarial-105779337842842/",
+          "https://x.com/Pro_Corp"
+        ]
+      },
+      {
+        "@id": "https://www.pro-corp.net/#/schema/person/bf94a9d24816ba85d3f98abe3b3f114c",
+        "name": "Ximena Valdivia",
+        "@type": "Person",
+        "image": {
+          "@id": "https://www.pro-corp.net/#/schema/person/image/",
+          "url": "https://secure.gravatar.com/avatar/26521dd10cc094b7088594e17151a1859f08a0b7bbe9999f46d243b65097d9c3?s=96&d=mm&r=g",
+          "@type": "ImageObject",
+          "caption": "Ximena Valdivia",
+          "contentUrl": "https://secure.gravatar.com/avatar/26521dd10cc094b7088594e17151a1859f08a0b7bbe9999f46d243b65097d9c3?s=96&d=mm&r=g",
+          "inLanguage": "es"
+        }
+      }
+    ],
+    "@context": "https://schema.org"
+  },
   "_embedded": {
     "author": [
       {
         "id": 1776,
         "name": "Ximena Valdivia",
         "description": "",
-        "slug": "ximena-valdivia",
-        "avatar_urls": {
-          "24": "https://secure.gravatar.com/avatar/26521dd10cc094b7088594e17151a1859f08a0b7bbe9999f46d243b65097d9c3?s=24&d=mm&r=g",
-          "48": "https://secure.gravatar.com/avatar/26521dd10cc094b7088594e17151a1859f08a0b7bbe9999f46d243b65097d9c3?s=48&d=mm&r=g",
-          "96": "https://secure.gravatar.com/avatar/26521dd10cc094b7088594e17151a1859f08a0b7bbe9999f46d243b65097d9c3?s=96&d=mm&r=g"
-        }
+        "slug": "1776",
+        "avatar_urls": {}
       }
     ],
     "wp:featuredmedia": [
       {
-        "id": 10797,
-        "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-scaled.jpg",
+        "id": 10796,
+        "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/pexels-mikhail-nilov-7731323-scaled.jpg",
         "alt_text": "",
         "media_details": {
-          "width": 2560,
-          "height": 1868,
-          "sizes": {
-            "medium": {
-              "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-300x219.jpg",
-              "width": 300,
-              "height": 219
-            },
-            "large": {
-              "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-1024x747.jpg",
-              "width": 1024,
-              "height": 747
-            },
-            "thumbnail": {
-              "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-150x150.jpg",
-              "width": 150,
-              "height": 150
-            },
-            "medium_large": {
-              "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-768x560.jpg",
-              "width": 768,
-              "height": 560
-            },
-            "1536x1536": {
-              "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-1536x1121.jpg",
-              "width": 1536,
-              "height": 1121
-            },
-            "2048x2048": {
-              "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-2048x1494.jpg",
-              "width": 2048,
-              "height": 1494
-            },
-            "full": {
-              "source_url": "/journal/media/2024/09/pexels-mikhail-nilov-7731323-scaled.jpg",
-              "width": 2560,
-              "height": 1868
-            }
-          }
+          "width": 0,
+          "height": 0,
+          "sizes": {}
         }
       }
     ],
@@ -87,8 +193,7 @@
           "name": "Ciudadanía europea",
           "slug": "ciudadania-europea"
         }
-      ],
-      []
+      ]
     ]
   }
 }

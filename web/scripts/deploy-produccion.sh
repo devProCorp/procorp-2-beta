@@ -11,7 +11,7 @@
 # Usage:
 #   ./scripts/deploy-produccion.sh              # snapshot + build + sync
 #   ./scripts/deploy-produccion.sh --dry-run    # rehearse, writes nothing
-#   ./scripts/deploy-produccion.sh --sin-snapshot   # skip the WordPress capture
+#   ./scripts/deploy-produccion.sh --sin-snapshot   # skip the Supabase capture
 #
 set -euo pipefail
 
@@ -34,12 +34,15 @@ done
 abort() { printf '\n✗ %s\n' "$1" >&2; exit 1; }
 step()  { printf '\n→ %s\n' "$1"; }
 
-# ── 1. Capture the WordPress content ────────────────────────────────────────
-# The journal is a snapshot of the WordPress blog taken over its REST API. New
-# articles only reach the static site through this step.
+# ── 1. Capture the journal from Supabase ────────────────────────────────────
+# Supabase (blog.posts) is the source of truth — see
+# docs/decisions/0002-journal-source-supabase.md and
+# docs/decisions/0004-journal-live-fetch.md. WordPress is no longer captured
+# here: doing so overwrites this same content/journal/ snapshot with stale
+# WordPress-only data and drops anything published straight to Supabase.
 if (( SNAPSHOT )); then
-  step "Capturando artículos de WordPress…"
-  node scripts/snapshot-wp.mjs
+  step "Capturando artículos de Supabase…"
+  node scripts/snapshot-supabase.mjs
   if ! git diff --quiet -- content/journal public/journal 2>/dev/null; then
     nuevos=$(git status --porcelain -- content/journal/posts | grep -c '^??' || true)
     echo "  El snapshot trae cambios${nuevos:+ ($nuevos artículos nuevos)}."
