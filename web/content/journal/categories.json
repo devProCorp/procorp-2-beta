@@ -3,30 +3,36 @@
     "id": 56,
     "name": "Ciudadanía europea",
     "slug": "ciudadania-europea",
-    "count": 36
+    "count": 55
   },
   {
     "id": 57,
     "name": "Emigrar a España",
     "slug": "emigrar-a-espana",
-    "count": 50
+    "count": 59
   },
   {
     "id": 58,
     "name": "Emigrar a Portugal",
     "slug": "emigrar-a-portugal",
-    "count": 15
-  },
-  {
-    "id": 59,
-    "name": "Vivir en Europa",
-    "slug": "vivir-en-europa",
-    "count": 50
+    "count": 26
   },
   {
     "id": 156,
     "name": "Nacionalidad española por origen sefardí",
     "slug": "nacionalidad-espanola-por-origen-sefardi",
-    "count": 13
+    "count": 15
+  },
+  {
+    "id": 1,
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "count": 38
+  },
+  {
+    "id": 59,
+    "name": "Vivir en Europa",
+    "slug": "vivir-en-europa",
+    "count": 48
   }
 ]

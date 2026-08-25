@@ -1,0 +1,94 @@
+{
+  "id": 7529,
+  "slug": "acuerdos-entre-colombia-y-espana",
+  "date": "2021-10-02T10:56:32",
+  "modified": "2021-10-25T15:22:06",
+  "title": {
+    "rendered": "Nuevos acuerdos entre Colombia y España durante la visita del presidente Duque"
+  },
+  "excerpt": {
+    "rendered": "<p>Durante la visita oficial del presidente Duque a España se firmaron cuatro acuerdos importantes de cooperación internacional junto con el presidente del Gobierno español Pedro Sánchez. El objetivo de estos acuerdos busca reafirmar el fortalecimiento de las relaciones diplomáticas entre ambas naciones las cuales datan de 140 años atrás. Los jefes de estado de ambos [&hellip;]</p>\n"
+  },
+  "content": {
+    "rendered": "<p>Durante la visita oficial del presidente Duque a España se firmaron cuatro acuerdos importantes de cooperación internacional junto con el presidente del Gobierno español Pedro Sánchez. El objetivo de estos acuerdos busca reafirmar el fortalecimiento de las relaciones diplomáticas entre ambas naciones las cuales datan de 140 años atrás.</p>\n<p>Los jefes de estado de ambos países se reunieron en el Palacio de la Moncloa, en Madrid, buscando reforzar la cooperación en el campo político, económico, comercial y cultural. En el campo de estos acuerdos se busca mejorar la inversión, la seguridad y la lucha contra la delincuencia entre ambos países. Recordemos que España es el segundo país más importante en temas de inversiones para Colombia.</p>\n<p>Los cuatro acuerdos</p>\n<p>Bien, ahora miremos cuáles son estos importantes acuerdos que se firmaron entre ambos países:</p>\n<p>El primer proyecto que se firmó tiene como fin la creación de una Comisión de Alto Nivel (CAN), la cual tiene como objetivo fortalecer la relación y elevar el nivel de interlocución entre ambas naciones.</p>\n<p>El segundo acuerdo que se suscribió entre ambas naciones, es un convenio de promoción y protección recíproca de inversiones, con el cual se busca promover la llegada de inversionistas a cada país, logrando un relacionamiento económico y comercial.</p>\n<p>El tercer acuerdo se enfoca en materia de seguridad donde ambos países buscan una cooperación que permita fortalecer la lucha contra la delincuencia y atacar en operativos conjuntos las organizaciones delictivas entre las autoridades de ambos países.</p>\n<p>Finalmente, el cuarto convenio que se firmó busca reforzar la difusión de la cultura colombiana e iberoamericana con actividades de intercambio cultural por medio del Instituto Cervantes. Los proyectos conjuntos entre ambos países se enfocan en programas académicos, vinculación y cooperación para la enseñanza del idioma español.</p>\n<p>Fecha de publicación: 30 de septiembre de 2021</p>\n"
+  },
+  "featured_media": 7534,
+  "categories": [
+    57
+  ],
+  "tags": [],
+  "author": 1656,
+  "_embedded": {
+    "author": [
+      {
+        "id": 1656,
+        "name": "Christian Andres",
+        "description": "",
+        "slug": "christian-2",
+        "avatar_urls": {
+          "24": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=24&d=mm&r=g",
+          "48": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=48&d=mm&r=g",
+          "96": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=96&d=mm&r=g"
+        }
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "id": 7534,
+        "source_url": "/journal/media/2021/09/Acuerdos-scaled.jpeg",
+        "alt_text": "Nuevos acuerdos entre Colombia y España durante la visita del presidente Duque",
+        "media_details": {
+          "width": 2560,
+          "height": 1707,
+          "sizes": {
+            "medium": {
+              "source_url": "/journal/media/2021/09/Acuerdos-300x200.jpeg",
+              "width": 300,
+              "height": 200
+            },
+            "large": {
+              "source_url": "/journal/media/2021/09/Acuerdos-1024x683.jpeg",
+              "width": 1024,
+              "height": 683
+            },
+            "thumbnail": {
+              "source_url": "/journal/media/2021/09/Acuerdos-150x150.jpeg",
+              "width": 150,
+              "height": 150
+            },
+            "medium_large": {
+              "source_url": "/journal/media/2021/09/Acuerdos-768x512.jpeg",
+              "width": 768,
+              "height": 512
+            },
+            "1536x1536": {
+              "source_url": "/journal/media/2021/09/Acuerdos-1536x1024.jpeg",
+              "width": 1536,
+              "height": 1024
+            },
+            "2048x2048": {
+              "source_url": "/journal/media/2021/09/Acuerdos-2048x1365.jpeg",
+              "width": 2048,
+              "height": 1365
+            },
+            "full": {
+              "source_url": "/journal/media/2021/09/Acuerdos-scaled.jpeg",
+              "width": 2560,
+              "height": 1707
+            }
+          }
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 57,
+          "name": "Emigrar a España",
+          "slug": "emigrar-a-espana"
+        }
+      ],
+      []
+    ]
+  }
+}

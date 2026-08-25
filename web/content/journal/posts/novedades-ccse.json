@@ -1,0 +1,74 @@
+{
+  "id": 6805,
+  "slug": "novedades-ccse",
+  "date": "2021-04-20T16:59:09",
+  "modified": "2021-10-25T14:47:13",
+  "title": {
+    "rendered": "Recomendaciones acerca de la programación de la prueba de conocimientos constitucionales y socioculturales de España (CCSE)"
+  },
+  "excerpt": {
+    "rendered": "<p>Teniendo en cuenta la emergencia sanitaria ocasionada por la pandemia del COVID-19, el Instituto Cervantes ha decidido llevar a cabo las pruebas con las máximas garantías de seguridad e higiene, y con la certeza del cumplimiento de las normativas de aforo, cuarentenas y distanciamiento social marcadas por las autoridades alrededor del mundo. Esto ha obligado [&hellip;]</p>\n"
+  },
+  "content": {
+    "rendered": "<p>Teniendo en cuenta la emergencia sanitaria ocasionada por la pandemia del COVID-19, el Instituto Cervantes ha decidido llevar a cabo las pruebas con las máximas garantías de seguridad e higiene, y con la certeza del cumplimiento de las <strong>normativas de aforo, cuarentenas y distanciamiento social</strong> marcadas por las autoridades alrededor del mundo.</p>\n<p>Esto ha obligado a la entidad a realizar algunos cambios en la programación actual de la prueba.</p>\n<p><strong>Al respecto, queremos recomendarles estar muy atentos a sus correos personales a los cuales llegarán las</strong> <strong>novedades sobre cambios de fecha, horarios y sedes de presentación de la prueba</strong>.</p>\n<p>También pueden acceder a su espacio privado en la página del Instituto Cervantes mediante el siguiente enlace, <a href=\"https://examenes.cervantes.es/es/usuario/inicio-sesion\" target=\"_blank\" rel=\"noopener\">https://examenes.cervantes.es/es/usuario/inicio-sesion</a> con su e-mail o usuario y la contraseña que asignaron al momento de comprar el cupo para presentar la prueba. En la pestaña denominada <strong>Mis Inscripciones</strong>, podrán consultar el estado actual de la fecha programada.</p>\n<p>Para ampliar la información al respecto de las dudas más frecuentes acerca de la prueba, les recomendamos consultar el siguiente artículo publicado en nuestra página web <a href=\"https://www.pro-corp.net/prueba-ccse/\" target=\"_blank\" rel=\"noopener\">https://www.pro-corp.net/prueba-ccse/</a></p>\n<p><strong>¡No olviden seguirnos en nuestras redes sociales en las que estaremos publicando más actualizaciones! </strong></p>\n\n"
+  },
+  "featured_media": 6809,
+  "categories": [
+    56
+  ],
+  "tags": [],
+  "author": 1656,
+  "_embedded": {
+    "author": [
+      {
+        "id": 1656,
+        "name": "Christian Andres",
+        "description": "",
+        "slug": "christian-2",
+        "avatar_urls": {
+          "24": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=24&d=mm&r=g",
+          "48": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=48&d=mm&r=g",
+          "96": "https://secure.gravatar.com/avatar/44c649c955acb993b09db5b4f7c355564af91a9be4f98878e7fe373cc745f526?s=96&d=mm&r=g"
+        }
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "id": 6809,
+        "source_url": "/journal/media/2021/04/unnamed.png",
+        "alt_text": "Instituto Cervantes",
+        "media_details": {
+          "width": 512,
+          "height": 250,
+          "sizes": {
+            "medium": {
+              "source_url": "/journal/media/2021/04/unnamed-300x146.png",
+              "width": 300,
+              "height": 146
+            },
+            "thumbnail": {
+              "source_url": "/journal/media/2021/04/unnamed-150x150.png",
+              "width": 150,
+              "height": 150
+            },
+            "full": {
+              "source_url": "/journal/media/2021/04/unnamed.png",
+              "width": 512,
+              "height": 250
+            }
+          }
+        }
+      }
+    ],
+    "wp:term": [
+      [
+        {
+          "id": 56,
+          "name": "Ciudadanía europea",
+          "slug": "ciudadania-europea"
+        }
+      ],
+      []
+    ]
+  }
+}
