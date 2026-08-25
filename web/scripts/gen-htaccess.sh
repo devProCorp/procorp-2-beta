@@ -27,7 +27,7 @@ for arg in "$@"; do
   esac
 done
 
-for f in deploy/redirects-wp-posts.conf deploy/paginas-migradas.conf deploy/wordpress-block.conf; do
+for f in deploy/redirects-wp-posts.conf deploy/paginas-migradas.conf deploy/journal-fallback.conf deploy/wordpress-block.conf; do
   [[ -s "$f" ]] || { echo "Falta $f" >&2; exit 1; }
 done
 if (( CON_LOGIN )); then
@@ -70,6 +70,9 @@ if (( CON_LOGIN )); then
 fi
 
 cat deploy/paginas-migradas.conf
+echo
+
+cat deploy/journal-fallback.conf
 echo
 
 cat deploy/wordpress-block.conf

@@ -224,6 +224,32 @@ RewriteEngine On
 
 </IfModule>
 
+# ── Artículos del journal publicados después del último despliegue ───────────
+#
+# El listado del Journal se sirve en vivo desde Supabase, así que muestra
+# artículos que la exportación estática todavía no ha generado: sus directorios
+# bajo /journal/ no existen en disco. Sin esta regla esas URLs llegan al
+# catch-all de WordPress del final y mueren en su 404 — el artículo aparece en
+# el listado y no se puede abrir.
+#
+# El rewrite es interno (el navegador sigue viendo /journal/<slug>/) y sólo
+# actúa cuando no hay archivo ni directorio real, de modo que los artículos ya
+# capturados en el snapshot se siguen sirviendo como HTML estático. La página
+# de destino busca el artículo por su slug directamente en Supabase.
+#
+# Va ANTES del bloque de WordPress: el orden es lo que la hace ganar.
+# Réplica de la misma regla en public/.htaccess (beta).
+# Ver docs/decisions/0004-journal-live-fetch.md.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^journal/[^/]+/?$ /journal/live-fallback/index.html [L]
+
+</IfModule>
+
 # BEGIN LSCACHE
 # END LSCACHE
 # BEGIN NON_LSCACHE
