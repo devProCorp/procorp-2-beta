@@ -16,6 +16,8 @@ import type { WPCategory, WPPost } from "./wordpress-presentation";
 // Same project the snapshot script and next.config.ts's image remotePatterns
 // already point at — this is the project URL, not a secret, safe to inline.
 const FUNCTIONS_URL = "https://cpojgmwfpbuvtutnbtam.supabase.co/functions/v1/get-blog-posts";
+const PREVIEW_FUNCTIONS_URL = "https://cpojgmwfpbuvtutnbtam.supabase.co/functions/v1/preview-blog-post";
+const MODERATE_FUNCTIONS_URL = "https://cpojgmwfpbuvtutnbtam.supabase.co/functions/v1/moderate-blog-post";
 
 const CATEGORY_TABLE = new Map([
   [56, { name: "Ciudadanía europea", slug: "ciudadania-europea" }],
@@ -164,6 +166,57 @@ export async function fetchLivePostById(id: string): Promise<WPPost | null> {
   if (!res.ok) throw new Error(`get-blog-posts: ${res.status}`);
   const row: BlogPostRow | null = await res.json();
   return row ? toWPPost(row) : null;
+}
+
+/**
+ * Draft-only preview by id — calls `preview-blog-post`, a separate Edge
+ * Function gated by a shared secret (`key`), never `get-blog-posts` (which
+ * only ever returns `status = 'publish'` rows). Used solely by
+ * app/journal/preview. Any failure (wrong key, unknown id, or the post isn't
+ * a draft) comes back as a 404, so this resolves to null the same way as
+ * "doesn't exist" — the caller can't tell those apart, by design.
+ */
+export async function fetchPreviewPostById(id: string, key: string): Promise<WPPost | null> {
+  if (!/^\d+$/.test(id) || !key) return null;
+  const res = await fetch(
+    `${PREVIEW_FUNCTIONS_URL}?id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}`
+  );
+  if (!res.ok) return null;
+  const row: BlogPostRow | null = await res.json();
+  return row ? toWPPost(row) : null;
+}
+
+export interface ModeratePostFields {
+  title?: string;
+  content_html?: string;
+  excerpt_html?: string;
+  image_base64?: string;
+  image_mime_type?: string;
+}
+
+/**
+ * Write side of the draft preview: publish/trash/save, all gated by the
+ * same PREVIEW_SECRET as fetchPreviewPostById (one internal review
+ * workflow — see moderate-blog-post). Never throws; callers branch on `ok`.
+ */
+export async function moderatePreviewPost(
+  id: string,
+  key: string,
+  action: "publish" | "trash" | "save",
+  fields?: ModeratePostFields
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  try {
+    const res = await fetch(MODERATE_FUNCTIONS_URL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id, key, action, ...fields }),
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) return { ok: false, error: body?.error ?? `request failed: ${res.status}` };
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "network error" };
+  }
 }
 
 /** Real, non-empty categories derived from the live post list — same rule as the snapshot script. */
