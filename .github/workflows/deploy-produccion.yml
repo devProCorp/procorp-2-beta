@@ -71,10 +71,16 @@ jobs:
       # its cache is purged. continue-on-error: the site is already
       # published either way — a failed purge just means Sucuri catches up
       # on its own TTL instead of instantly.
+      #
+      # Runs the curl from the production server itself over the same SSH
+      # connection, not from the runner directly — Sucuri's WAF blocked the
+      # first attempt as "Fake bot access" when it came straight from a
+      # GitHub Actions IP.
       - name: Purgar caché de Sucuri
         continue-on-error: true
+        env:
+          SUCURI_API_KEY: ${{ secrets.SUCURI_API_KEY }}
+          SUCURI_API_SECRET: ${{ secrets.SUCURI_API_SECRET }}
         run: |
-          curl -sS -X POST "https://wafx.sucuri.net/api?v2" \
-            --data-urlencode "k=${{ secrets.SUCURI_API_KEY }}" \
-            --data-urlencode "s=${{ secrets.SUCURI_API_SECRET }}" \
-            --data-urlencode "a=clear_cache"
+          ssh -o BatchMode=yes procorp-portal \
+            "curl -sS -X POST 'https://wafx.sucuri.net/api?v2' --data-urlencode 'k=${SUCURI_API_KEY}' --data-urlencode 's=${SUCURI_API_SECRET}' --data-urlencode 'a=clear_cache'"
