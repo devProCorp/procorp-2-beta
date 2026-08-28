@@ -17,14 +17,29 @@ const GITHUB_DEPLOY_TOKEN = Deno.env.get("GITHUB_DEPLOY_TOKEN")!;
 const REPO = "devProCorp/procorp-2-beta";
 const WORKFLOW = "deploy-produccion.yml";
 
+// Called directly from the browser (the preview page's "Confirmar y
+// publicar" button) with a custom x-preview-secret header — that makes it a
+// non-simple request, so the browser sends a CORS preflight (OPTIONS) first.
+// Without these headers on both the preflight response AND the real one,
+// the browser silently drops the actual POST and this function never runs
+// at all — no error anywhere, it just looks like nothing happened.
+const CORS_HEADERS = {
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "POST, OPTIONS",
+  "access-control-allow-headers": "content-type, x-publish-secret, x-preview-secret",
+};
+
 function jsonResponse(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "content-type": "application/json" },
+    headers: { ...CORS_HEADERS, "content-type": "application/json" },
   });
 }
 
 Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response(null, { status: 204, headers: CORS_HEADERS });
+  }
   if (req.method !== "POST") {
     return jsonResponse({ error: "method not allowed, use POST" }, 405);
   }
