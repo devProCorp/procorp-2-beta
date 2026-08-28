@@ -12,6 +12,8 @@
 #   ./scripts/deploy-produccion.sh              # snapshot + build + sync
 #   ./scripts/deploy-produccion.sh --dry-run    # rehearse, writes nothing
 #   ./scripts/deploy-produccion.sh --sin-snapshot   # skip the Supabase capture
+#   ./scripts/deploy-produccion.sh --yes        # skip the interactive confirm
+#                                                # (CI/deploy-bot only — never type this by hand)
 #
 set -euo pipefail
 
@@ -23,10 +25,12 @@ cd "$(dirname "$0")/.."
 
 DRY_RUN=0
 SNAPSHOT=1
+YES=0
 for arg in "$@"; do
   case "$arg" in
     --dry-run)       DRY_RUN=1 ;;
     --sin-snapshot)  SNAPSHOT=0 ;;
+    --yes)           YES=1 ;;  # skip the interactive confirm — CI/deploy-bot use only, never pass this by hand
     *) echo "Opción desconocida: $arg" >&2; exit 2 ;;
   esac
 done
@@ -91,6 +95,8 @@ RSYNC_FLAGS=(-a --checksum --partial --human-readable --progress --exclude=".hta
 if (( DRY_RUN )); then
   RSYNC_FLAGS+=(--dry-run --itemize-changes)
   step "SIMULACRO: no se escribe nada en el servidor"
+elif (( YES )); then
+  step "Publicando en $SITE_URL (--yes, sin confirmación interactiva)"
 else
   step "Vas a publicar en $SITE_URL (producción, compartida con WordPress y /login/)"
   read -r -p "  Escribe 'publicar' para continuar: " respuesta

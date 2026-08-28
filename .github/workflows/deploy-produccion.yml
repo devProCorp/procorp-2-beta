@@ -1,0 +1,62 @@
+name: Deploy producción
+
+# Disparado por API (workflow_dispatch), no por push — así n8n puede pedir un
+# redeploy justo después de publicar un post, sin que cada commit a main
+# dispare una publicación a un docroot compartido con WordPress/CRM/etc.
+# Ver web/scripts/deploy-produccion.sh — este workflow solo lo envuelve para
+# poder llamarlo por HTTPS; la lógica de build/guardas/rsync vive ahí.
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-produccion
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias
+        working-directory: web
+        run: yarn install --frozen-lockfile
+
+      - name: Escribir web/.env
+        working-directory: web
+        run: |
+          cat > .env <<EOF
+          NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SNAPSHOT_SECRET=${{ secrets.SNAPSHOT_SECRET }}
+          SUPABASE_JWT_SECRET=${{ secrets.SUPABASE_JWT_SECRET }}
+          EOF
+
+      - name: Configurar acceso SSH (llave dedicada de CI, no la personal de nadie)
+        run: |
+          install -d -m 700 ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/procorp_ci_deploy
+          chmod 600 ~/.ssh/procorp_ci_deploy
+          ssh-keyscan -p 22 "${{ secrets.DEPLOY_SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+          cat >> ~/.ssh/config <<EOF
+          Host procorp-portal
+            HostName ${{ secrets.DEPLOY_SSH_HOST }}
+            Port 22
+            User ${{ secrets.DEPLOY_SSH_USER }}
+            IdentityFile ~/.ssh/procorp_ci_deploy
+            IdentitiesOnly yes
+          EOF
+          chmod 600 ~/.ssh/config
+
+      - name: Deploy a producción
+        working-directory: web
+        run: ./scripts/deploy-produccion.sh --yes

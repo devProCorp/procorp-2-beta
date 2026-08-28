@@ -76,9 +76,15 @@ function resolveCategory(input: string | number | undefined | null): {
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const PUBLISH_SECRET = Deno.env.get("PUBLISH_SECRET")!;
+// Optional (not required for publishing itself): lets the response hand back
+// a ready-to-click preview link for drafts. Same project secret
+// preview-blog-post/moderate-blog-post already check — no separate
+// provisioning needed here.
+const PREVIEW_SECRET = Deno.env.get("PREVIEW_SECRET");
 
 const BUCKET = "blog-assets";
 const JOURNAL_BASE_URL = "https://pro-corp.net/journal";
+const PREVIEW_BASE_URL = "https://www.pro-corp.net/journal/preview";
 
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
   db: { schema: "blog" },
@@ -298,6 +304,12 @@ Deno.serve(async (req) => {
     slug: saved.slug,
     journal_url: `${JOURNAL_BASE_URL}/${slug}`,
     category_inferred: category.inferred,
-    note: "web/ is a static export — this post won't appear on pro-corp.net until 'yarn blog:snapshot' runs and the site redeploys.",
+    ...(status === "draft" && PREVIEW_SECRET && {
+      preview_url: `${PREVIEW_BASE_URL}/?id=${saved.wp_id}&key=${PREVIEW_SECRET}`,
+    }),
+    note:
+      status === "draft"
+        ? "Draft — only visible via preview_url above. /journal only ever lists status='publish' posts."
+        : "web/ reads the Journal live from Supabase — this post is visible immediately, no redeploy needed.",
   });
 });
