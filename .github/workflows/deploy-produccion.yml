@@ -44,7 +44,10 @@ jobs:
       - name: Configurar acceso SSH (llave dedicada de CI, no la personal de nadie)
         run: |
           install -d -m 700 ~/.ssh
-          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/procorp_ci_deploy
+          # DEPLOY_SSH_KEY is the private key base64-encoded to one line —
+          # pasting a raw multi-line PEM into a GitHub secret is a common way
+          # to mangle line breaks and get "error in libcrypto" at load time.
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" | base64 -d > ~/.ssh/procorp_ci_deploy
           chmod 600 ~/.ssh/procorp_ci_deploy
           ssh-keyscan -p 22 "${{ secrets.DEPLOY_SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
           cat >> ~/.ssh/config <<EOF
