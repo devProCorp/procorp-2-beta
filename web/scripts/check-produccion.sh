@@ -52,7 +52,10 @@ if grep -qi "One moment, please" <<<"$sonda"; then
 fi
 
 echo "→ Reglas en el servidor"
-reglas=$(ssh -o BatchMode=yes "$SSH_ALIAS" "grep -c 'R=301' ~/public_html/.htaccess" 2>/dev/null | tr -d '[:space:]')
+# Excluye líneas comentadas (p. ej. ejemplos de "cómo agregar un redirect"
+# dejados a mano en el .htaccess) — sin esto, un comentario con "R=301"
+# adentro infla el conteo y dispara un falso positivo.
+reglas=$(ssh -o BatchMode=yes "$SSH_ALIAS" "grep -v '^[[:space:]]*#' ~/public_html/.htaccess | grep -c 'R=301'" 2>/dev/null | tr -d '[:space:]')
 if [[ "$reglas" == "$EXPECTED_REDIRECTS" ]]; then
   ok "$reglas redirects presentes"
 else
