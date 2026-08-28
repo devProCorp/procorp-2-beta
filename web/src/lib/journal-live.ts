@@ -18,6 +18,7 @@ import type { WPCategory, WPPost } from "./wordpress-presentation";
 const FUNCTIONS_URL = "https://cpojgmwfpbuvtutnbtam.supabase.co/functions/v1/get-blog-posts";
 const PREVIEW_FUNCTIONS_URL = "https://cpojgmwfpbuvtutnbtam.supabase.co/functions/v1/preview-blog-post";
 const MODERATE_FUNCTIONS_URL = "https://cpojgmwfpbuvtutnbtam.supabase.co/functions/v1/moderate-blog-post";
+const TRIGGER_DEPLOY_URL = "https://cpojgmwfpbuvtutnbtam.supabase.co/functions/v1/trigger-deploy";
 
 const CATEGORY_TABLE = new Map([
   [56, { name: "Ciudadanía europea", slug: "ciudadania-europea" }],
@@ -216,6 +217,25 @@ export async function moderatePreviewPost(
     return { ok: true };
   } catch {
     return { ok: false, error: "network error" };
+  }
+}
+
+/**
+ * Best-effort: asks GitHub Actions to redeploy production (see
+ * .github/workflows/deploy-produccion.yml). The post is already visible on
+ * /journal either way — get-blog-posts serves it live — this only makes it
+ * show up in the build-time sitemap faster than the next manual deploy.
+ * Never blocks or surfaces an error to the caller; a failed trigger just
+ * means the sitemap catches up whenever someone deploys next.
+ */
+export async function triggerDeploy(key: string): Promise<void> {
+  try {
+    await fetch(TRIGGER_DEPLOY_URL, {
+      method: "POST",
+      headers: { "x-preview-secret": key },
+    });
+  } catch {
+    // best-effort — nothing to do if this fails
   }
 }
 

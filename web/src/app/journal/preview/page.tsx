@@ -4,7 +4,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ArticleView from "@/components/journal/ArticleView";
 import RichTextEditor from "@/components/journal/RichTextEditor";
-import { fetchPreviewPostById, moderatePreviewPost } from "@/lib/journal-live";
+import { fetchPreviewPostById, moderatePreviewPost, triggerDeploy } from "@/lib/journal-live";
 import { getFeaturedImageUrl, type WPPost } from "@/lib/wordpress-presentation";
 
 /**
@@ -158,9 +158,16 @@ function PreviewContent() {
     setActionError(null);
     setWorkingAction("publish");
     const result = await moderatePreviewPost(id, key, "publish");
+    if (result.ok) {
+      // Fire-and-forget: the post is already visible on /journal (live
+      // fetch), this just asks GitHub Actions to redeploy so the sitemap
+      // picks it up sooner. Never blocks the success screen on this.
+      triggerDeploy(key);
+      setState({ status: "published" });
+    } else {
+      setActionError(result.error);
+    }
     setWorkingAction(null);
-    if (result.ok) setState({ status: "published" });
-    else setActionError(result.error);
   }
 
   async function handleTrash() {
@@ -208,8 +215,9 @@ function PreviewContent() {
               : "Movido a la papelera."}
           </p>
           <p className="text-sm text-white/50">
-            web/ es un export estático — el cambio ya está en la base, pero /journal lee en vivo así
-            que no hace falta redeploy.
+            {state.status === "published"
+              ? "/journal lee en vivo, así que ya se ve sin esperar nada. También se disparó un redeploy de producción para que el post entre al sitemap."
+              : "web/ es un export estático, pero /journal lee en vivo — el cambio ya está en la base, no hace falta redeploy."}
           </p>
         </div>
       </main>
