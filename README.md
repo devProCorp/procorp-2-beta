@@ -5,6 +5,7 @@ exportación completamente estática para publicarse en el hosting compartido de
 GoDaddy, donde Apache sirve los archivos HTML, CSS, JavaScript y recursos sin
 necesidad de ejecutar Node.js en el servidor.
 
+
 ## Estructura del repositorio
 
 - `web/`: aplicación Next.js.
