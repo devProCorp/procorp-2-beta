@@ -243,7 +243,8 @@ function PreviewContent() {
             )}
             <button
               onClick={handlePublish}
-              disabled={workingAction !== null}
+              disabled={workingAction !== null || editing}
+              title={editing ? "Guardá o cancelá los cambios antes de publicar" : undefined}
               className={`${BUTTON_BASE} px-4 py-1.5 text-xs bg-black text-white hover:bg-black/70`}
             >
               {workingAction === "publish" && <Spinner />}
@@ -251,13 +252,19 @@ function PreviewContent() {
             </button>
             <button
               onClick={handleTrash}
-              disabled={workingAction !== null}
+              disabled={workingAction !== null || editing}
+              title={editing ? "Guardá o cancelá los cambios antes de eliminar" : undefined}
               className={`${BUTTON_BASE} px-4 py-1.5 text-xs bg-black/10 hover:bg-black/30`}
             >
               {workingAction === "trash" && <Spinner />}
               {workingAction === "trash" ? "Moviendo…" : "Eliminar"}
             </button>
           </div>
+          {editing && (
+            <p className="text-center text-xs text-black/70 pb-2 px-4">
+              Guardá o cancelá los cambios para poder publicar o eliminar.
+            </p>
+          )}
           {actionError && (
             <p className="text-center text-xs text-red-900 pb-2 px-4">{actionError}</p>
           )}
