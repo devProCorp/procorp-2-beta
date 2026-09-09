@@ -61,15 +61,16 @@ export default function Sectors() {
 
           {/* Sector Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
+            {(() => { const sectors = [
               { icon: 'apartment', title: t('studio.inv.re.title'), desc: t('studio.inv.re.desc'), tag: t('studio.inv.re.tag'), color: '#CE1026', accentBg: 'bg-[#CE1026]/15', href: 'https://inversion.pro-corp.net/real-state' },
               { icon: 'trending_down', title: t('studio.inv.da.title'), desc: t('studio.inv.da.desc'), tag: t('studio.inv.da.tag'), color: '#F59E0B', accentBg: 'bg-[#F59E0B]/15', href: 'https://inversion.pro-corp.net/distress-assets' },
+              { icon: 'terrain', title: t('studio.inv.pr.title'), desc: t('studio.inv.pr.desc'), tag: t('studio.inv.pr.tag'), color: '#65A30D', accentBg: 'bg-[#65A30D]/15', href: 'https://inversion.pro-corp.net/predios' },
               { icon: 'bolt', title: t('studio.inv.en.title'), desc: t('studio.inv.en.desc'), tag: t('studio.inv.en.tag'), color: '#10B981', accentBg: 'bg-[#10B981]/15', href: 'https://inversion.pro-corp.net/energy' },
               { icon: 'account_balance', title: t('studio.inv.ft.title'), desc: t('studio.inv.ft.desc'), tag: t('studio.inv.ft.tag'), color: '#3B82F6', accentBg: 'bg-[#3B82F6]/15', href: 'https://inversion.pro-corp.net/fintech' },
               { icon: 'flight', title: t('studio.inv.av.title'), desc: t('studio.inv.av.desc'), tag: t('studio.inv.av.tag'), color: '#8B5CF6', accentBg: 'bg-[#8B5CF6]/15', href: 'https://aeronexxt.com/' },
               { icon: 'school', title: t('studio.inv.ed.title'), desc: t('studio.inv.ed.desc'), tag: t('studio.inv.ed.tag'), color: '#F97316', accentBg: 'bg-[#F97316]/15', href: 'https://inversion.pro-corp.net/edutainment' },
               { icon: 'neurology', title: t('studio.inv.tech.title'), desc: t('studio.inv.tech.desc'), tag: t('studio.inv.tech.tag'), color: '#0EA5E9', accentBg: 'bg-[#0EA5E9]/15', href: 'https://inversion.pro-corp.net/' },
-            ].map((sector, i) => (
+            ]; return sectors.map((sector, i) => (
               <a key={i} href={sector.href} target="_blank" rel="noopener noreferrer" className="group relative glass-panel glass-panel-hover rounded-[1.5rem] overflow-hidden cursor-pointer flex flex-col h-full border border-surface-border/50">
                 <div className="absolute top-0 right-0 w-32 h-32 blur-[40px] opacity-10 group-hover:opacity-30 transition-opacity duration-500 rounded-bl-full pointer-events-none" style={{ backgroundColor: sector.color }}></div>
 
@@ -85,12 +86,12 @@ export default function Sectors() {
                   <h4 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-white transition-colors">{sector.title}</h4>
                   <p className="text-[14px] text-gray-400 font-light leading-relaxed flex-1 group-hover:text-gray-300 transition-colors">{sector.desc}</p>
                   <div className="mt-8 pt-5 border-t border-surface-border/50 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase text-gray-500 tracking-[0.2em]">{String(i + 1).padStart(2, '0')} / 07</span>
+                    <span className="text-[10px] font-bold uppercase text-gray-500 tracking-[0.2em]">{String(i + 1).padStart(2, '0')} / {String(sectors.length).padStart(2, '0')}</span>
                     <span className="material-symbols-outlined text-primary-light text-xl group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
                   </div>
                 </div>
               </a>
-            ))}
+            )); })()}
           </div>
 
           {/* Explore Opportunities */}
