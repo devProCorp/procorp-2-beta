@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ClientProviders from "@/components/layout/ClientProviders";
+import { OG_IMAGE_SIZE, ogImagePath } from "@/lib/og/paths";
 import "./globals.css";
 
 const inter = Inter({
@@ -22,7 +23,7 @@ const outfit = Outfit({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://procorp.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.pro-corp.net";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -68,9 +69,8 @@ export const metadata: Metadata = {
       "Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: ogImagePath("site"),
+        ...OG_IMAGE_SIZE,
         alt: "PRO CORP — Technology-Based Orchestration",
       },
     ],
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: "PRO CORP | Technology-Based Orchestration",
     description:
       "Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.",
-    images: ["/og-image.png"],
+    images: [ogImagePath("site")],
   },
   alternates: {
     canonical: siteUrl,
