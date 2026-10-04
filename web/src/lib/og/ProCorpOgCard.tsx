@@ -33,19 +33,28 @@ export function ProCorpOgCard({
   eyebrow,
 }: ProCorpOgCardProps) {
   const hasImage = Boolean(imageUrl);
-  const displayTitle = truncate(title, hasImage ? 50 : 68);
-  const displaySubtitle = truncate(subtitle, hasImage ? 180 : 220);
+  // Long titles (journal articles) drop to a smaller size and up to 3 lines.
+  const displayTitle = truncate(title, hasImage ? 84 : 100);
+  const longTitle = displayTitle.length > (hasImage ? 50 : 68);
+  const displaySubtitle = truncate(
+    subtitle,
+    longTitle ? (hasImage ? 110 : 120) : hasImage ? 150 : 170,
+  );
   const titleSize = hasImage
-    ? displayTitle.length > 38
+    ? displayTitle.length > 60
+      ? 40
+      : displayTitle.length > 38
+        ? 48
+        : displayTitle.length > 24
+          ? 56
+          : 64
+    : displayTitle.length > 68
       ? 48
-      : displayTitle.length > 24
-        ? 56
-        : 64
-    : displayTitle.length > 52
-      ? 54
-      : displayTitle.length > 32
-        ? 62
-        : 72;
+      : displayTitle.length > 52
+        ? 54
+        : displayTitle.length > 32
+          ? 62
+          : 72;
   const textWidth = hasImage ? 600 : 820;
   const sidePadding = hasImage ? 58 : 72;
 
@@ -244,7 +253,7 @@ export function ProCorpOgCard({
         <div
           style={{
             display: "flex",
-            maxHeight: titleSize * 2.3,
+            maxHeight: titleSize * (longTitle ? 3.4 : 2.3),
             overflow: "hidden",
             color: "#F7F7F5",
             fontSize: titleSize,

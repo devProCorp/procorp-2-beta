@@ -7,6 +7,31 @@ import {
   loadCardPhoto,
 } from "@/lib/og/service-cards";
 
+export async function renderArticleCard({
+  title,
+  subtitle,
+  category,
+  photo,
+}: {
+  title: string;
+  subtitle: string;
+  category?: string;
+  photo?: string | null;
+}) {
+  const imageUrl = await loadCardPhoto(photo);
+
+  return new ImageResponse(
+    <ProCorpOgCard
+      eyebrow={category ? `Journal · ${category}` : "Journal"}
+      title={title}
+      subtitle={subtitle}
+      domain={OG_DOMAIN}
+      imageUrl={imageUrl}
+    />,
+    PRO_CORP_OG_SIZE,
+  );
+}
+
 export function renderSiteCard() {
   return new ImageResponse(
     <ProCorpOgCard
