@@ -1,3 +1,4 @@
+import sharp from "sharp";
 import { services } from "@/lib/services";
 
 export const OG_DOMAIN = "pro-corp.net";
@@ -51,16 +52,26 @@ function cardPhotoUrl(url: string) {
   }
 }
 
-/** Fetch the photo at build time; any failure falls back to the plain card. */
-export async function loadCardPhoto(url: string | undefined) {
+/**
+ * Fetch the photo at build time and crop it to the card's photo panel as a
+ * light JPEG (any source format sharp reads). Failures fall back to the plain
+ * card instead of breaking the build.
+ */
+export async function loadCardPhoto(url: string | undefined | null) {
   const source = url ? cardPhotoUrl(url) : undefined;
   if (!source) return undefined;
   try {
-    const response = await fetch(source, { signal: AbortSignal.timeout(8000) });
+    const response = await fetch(source, { signal: AbortSignal.timeout(10000) });
     const type = response.headers.get("content-type")?.split(";")[0] ?? "";
-    if (!response.ok || !/^image\/(jpeg|png)$/.test(type)) return undefined;
-    const bytes = Buffer.from(await response.arrayBuffer());
-    return `data:${type};base64,${bytes.toString("base64")}`;
+    if (!response.ok || !type.startsWith("image/")) return undefined;
+    const photo = await sharp(Buffer.from(await response.arrayBuffer()), {
+      limitInputPixels: 40_000_000,
+    })
+      .rotate()
+      .resize(460, 630, { fit: "cover" })
+      .jpeg({ quality: 80, mozjpeg: true })
+      .toBuffer();
+    return `data:image/jpeg;base64,${photo.toString("base64")}`;
   } catch {
     return undefined;
   }

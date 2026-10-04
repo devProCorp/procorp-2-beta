@@ -123,6 +123,40 @@ export async function fetchLivePosts(): Promise<WPPost[]> {
     .map((p) => ({ ...p, content: { rendered: "" } }));
 }
 
+let buildPostsPromise: Promise<WPPost[]> | null = null;
+
+/**
+ * Every published post WITH content, for the static export: one request per
+ * build worker serves all /journal/<id>/ and /journal/<slug>/ pages and their
+ * social cards. Unlike fetchLivePosts, content.rendered is kept.
+ */
+export function fetchPublishedPostsForBuild(): Promise<WPPost[]> {
+  buildPostsPromise ??= fetch(FUNCTIONS_URL)
+    .then((res) => {
+      if (!res.ok) throw new Error(`get-blog-posts: ${res.status}`);
+      return res.json() as Promise<BlogPostRow[]>;
+    })
+    .then((rows) => rows.map(toWPPost))
+    .catch((error) => {
+      buildPostsPromise = null;
+      throw error;
+    });
+  return buildPostsPromise;
+}
+
+/** Published post by numeric wp_id or slug, from the build-time list. */
+export async function findPublishedPostForBuild(
+  identifier: string
+): Promise<WPPost | null> {
+  const value = decodeURIComponent(identifier).trim();
+  const posts = await fetchPublishedPostsForBuild();
+  return (
+    posts.find((post) =>
+      /^\d+$/.test(value) ? String(post.id) === value : post.slug === value
+    ) ?? null
+  );
+}
+
 interface PagedResponse {
   posts: BlogPostRow[];
   total: number;
