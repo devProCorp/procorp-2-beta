@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { PRO_CORP_LOGO } from "./logo";
 
 export const PRO_CORP_OG_SIZE = {
   width: 1200,
@@ -180,53 +181,13 @@ export function ProCorpOgCard({
           margin: `${hasImage ? 48 : 58}px ${sidePadding}px 0`,
         }}
       >
-        <div
-          style={{
-            width: 54,
-            height: 54,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: 27,
-            background: "#CE1026",
-            color: "white",
-            fontSize: 18,
-            fontWeight: 800,
-            letterSpacing: -1,
-          }}
-        >
-          PC
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: 16,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              fontSize: 24,
-              fontWeight: 800,
-              letterSpacing: 1.2,
-            }}
-          >
-            PRO CORP
-          </div>
-          <div
-            style={{
-              display: "flex",
-              marginTop: 3,
-              color: "#A7ADB7",
-              fontSize: 12,
-              fontWeight: 600,
-              letterSpacing: 2.1,
-            }}
-          >
-            BUSINESS ENGINEERING
-          </div>
-        </div>
+        <img
+          src={PRO_CORP_LOGO.src}
+          alt="PRO CORP"
+          width={280}
+          height={49}
+          style={{ width: 280, height: 49 }}
+        />
       </div>
 
       <div
