@@ -1,4 +1,3 @@
-import sharp from "sharp";
 import { renderServiceCard, renderSiteCard } from "@/lib/og/render";
 import { services } from "@/lib/services";
 
@@ -21,12 +20,7 @@ export async function GET(
 ) {
   const { file } = await params;
   const slug = file.replace(/\.jpg$/, "");
-  const card = slug === "site" ? renderSiteCard() : await renderServiceCard(slug);
-  const png = Buffer.from(await card.arrayBuffer());
-  const jpeg = await sharp(png)
-    .flatten({ background: "#101216" })
-    .jpeg({ quality: 82, mozjpeg: true })
-    .toBuffer();
+  const jpeg = slug === "site" ? await renderSiteCard() : await renderServiceCard(slug);
 
   return new Response(new Uint8Array(jpeg), {
     headers: { "Content-Type": "image/jpeg" },

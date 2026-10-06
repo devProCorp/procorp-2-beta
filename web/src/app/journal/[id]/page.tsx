@@ -11,6 +11,7 @@ import {
   getArticleTitle,
 } from "@/lib/og/journal-cards";
 import { OG_IMAGE_SIZE } from "@/lib/og/paths";
+import { getCardRevision } from "@/lib/og/render";
 
 // Prerendered article pages so WhatsApp, LinkedIn and X — which do not run
 // JavaScript — get real title, description and card for each article. Built
@@ -45,7 +46,10 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   const title = getArticleTitle(post);
   const description = getArticleDescription(post);
   const canonical = `/journal/${post.slug}/`;
-  const image = articleOgImagePath(post);
+  // ?r= revisión publicada en el Taller de tarjetas: Apache la ignora, pero
+  // WhatsApp ve una URL nueva y no reutiliza la tarjeta anterior de su caché.
+  const revision = await getCardRevision("article", "article", String(post.id));
+  const image = `${articleOgImagePath(post)}?r=${revision}`;
 
   return {
     title: { absolute: `${title} | PRO CORP` },
