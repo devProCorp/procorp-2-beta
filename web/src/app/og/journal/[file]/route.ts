@@ -1,4 +1,3 @@
-import sharp from "sharp";
 import { fetchPublishedPostsForBuild } from "@/lib/journal-live";
 import {
   getArticleCategory,
@@ -32,7 +31,8 @@ export async function GET(
   const posts = await fetchPublishedPostsForBuild().catch(() => []);
   const post = posts.find((p) => String(p.id) === id);
 
-  const card = await renderArticleCard(
+  const jpeg = await renderArticleCard(
+    id,
     post
       ? {
           title: getArticleTitle(post),
@@ -42,10 +42,6 @@ export async function GET(
         }
       : { title: "Journal", subtitle: "PRO CORP" },
   );
-  const jpeg = await sharp(Buffer.from(await card.arrayBuffer()))
-    .flatten({ background: "#101216" })
-    .jpeg({ quality: 82, mozjpeg: true })
-    .toBuffer();
 
   return new Response(new Uint8Array(jpeg), {
     headers: { "Content-Type": "image/jpeg" },

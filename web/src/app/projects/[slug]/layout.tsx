@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { getServiceCard } from '@/lib/og/service-cards';
 import { OG_IMAGE_SIZE, ogImagePath } from '@/lib/og/paths';
+import { getCardRevision } from '@/lib/og/render';
 import { services } from '@/lib/services';
 
 // page.tsx is a client component (it reads the slug via useParams), and a
@@ -24,7 +25,9 @@ export async function generateMetadata({
     if (!card) return {};
 
     const title = `${card.title} | PRO CORP`;
-    const image = ogImagePath(slug);
+    // ?r= revisión publicada en el Taller de tarjetas (caché de WhatsApp).
+    const revision = await getCardRevision('service', 'service', slug);
+    const image = `${ogImagePath(slug)}?r=${revision}`;
     return {
         openGraph: {
             type: 'website',
