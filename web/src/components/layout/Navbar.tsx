@@ -142,7 +142,7 @@ const Navbar = () => {
             <div className="flex h-20 items-center justify-between px-4 md:px-10 max-w-[1440px] mx-auto w-full">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
-                    <Image src="/brand/Signature_PCP.png" alt="Pro Corp" width={160} height={40} className="h-10 w-auto object-contain" priority />
+                    <Image src="/brand/Logo_PCP_Business_Engineering.png" alt="Pro Corp" width={160} height={28} className="h-10 w-auto object-contain" priority />
                 </Link>
 
                 {/* Desktop Nav */}

@@ -54,7 +54,7 @@ const Footer = () => {
                     {/* Logo + Desc */}
                     <div className="md:col-span-3">
                         <div className="mb-4">
-                            <Image src="/brand/Signature_PCP.png" alt="Pro Corp" width={140} height={35} className="h-9 w-auto object-contain" />
+                            <Image src="/brand/Logo_PCP_Business_Engineering.png" alt="Pro Corp" width={140} height={25} className="h-9 w-auto object-contain" />
                         </div>
                         <p className="text-sm leading-relaxed mb-4 font-medium text-secondary">
                             {t('footer.desc')}
