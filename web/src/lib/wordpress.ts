@@ -19,9 +19,9 @@ const CONTENT_DIR = path.join(process.cwd(), "content", "journal");
 export * from "./wordpress-presentation";
 
 export async function getAllPostIds(): Promise<
-  { id: number; modified: string }[]
+  { id: number; slug: string; modified: string }[]
 > {
   const raw = await fs.readFile(path.join(CONTENT_DIR, "index.json"), "utf8");
-  const posts: { id: number; modified: string }[] = JSON.parse(raw);
-  return posts.map((p) => ({ id: p.id, modified: p.modified }));
+  const posts: { id: number; slug: string; modified: string }[] = JSON.parse(raw);
+  return posts.map((p) => ({ id: p.id, slug: p.slug, modified: p.modified }));
 }

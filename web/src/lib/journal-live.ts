@@ -190,13 +190,15 @@ export async function fetchLivePostsPage(
 
 /** Full post (with content) by slug, or null if it doesn't exist / isn't published. */
 /**
- * Full post (with content) by id — article URLs are keyed by id (wp_id),
- * not slug, so they keep working if the title/slug is edited later. See
+ * Full post (with content) by id (wp_id) or slug. Public links use the slug —
+ * it is the canonical URL, the one in the sitemap and the one Google indexes —
+ * and /journal/<id>/ keeps resolving for links shared before the change. See
  * docs/decisions/0004-journal-live-fetch.md.
  */
 export async function fetchLivePostById(id: string): Promise<WPPost | null> {
-  if (!/^\d+$/.test(id)) return null;
-  const res = await fetch(`${FUNCTIONS_URL}?id=${encodeURIComponent(id)}`);
+  const param = /^\d+$/.test(id) ? "id" : /^[a-z0-9-]+$/.test(id) ? "slug" : null;
+  if (!param) return null;
+  const res = await fetch(`${FUNCTIONS_URL}?${param}=${encodeURIComponent(id)}`);
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`get-blog-posts: ${res.status}`);
   const row: BlogPostRow | null = await res.json();
