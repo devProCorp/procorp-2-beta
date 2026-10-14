@@ -16,25 +16,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: `${siteUrl}/projects`,
+      url: `${siteUrl}/projects/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/studio`,
+      url: `${siteUrl}/studio/`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/journal`,
+      url: `${siteUrl}/journal/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/contact`,
+      url: `${siteUrl}/contact/`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
@@ -44,8 +44,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogRoutes: MetadataRoute.Sitemap = [];
   try {
     const posts = await getAllPostIds();
+    // Slug, not id: the sitemap must list the canonical URL of each article
+    // (generateMetadata in journal/[id]) or Google gets contradictory signals.
     blogRoutes = posts.map((post) => ({
-      url: `${siteUrl}/journal/${post.id}`,
+      url: `${siteUrl}/journal/${post.slug.trim() || post.id}/`,
       lastModified: new Date(post.modified),
       changeFrequency: "monthly" as const,
       priority: 0.6,
