@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ArticleView from "@/components/journal/ArticleView";
-import { fetchLivePostById } from "@/lib/journal-live";
-import { stripHtml } from "@/lib/wordpress-presentation";
+import { fetchLivePostById, fetchLivePosts } from "@/lib/journal-live";
+import { pickRelatedPosts, stripHtml } from "@/lib/wordpress-presentation";
 import type { WPPost } from "@/lib/wordpress-presentation";
 
 function setMetaTag(name: string, content: string) {
@@ -30,6 +30,7 @@ export default function LiveArticlePage() {
   const [state, setState] = useState<
     { status: "loading" } | { status: "found"; post: WPPost } | { status: "not-found" }
   >({ status: "loading" });
+  const [related, setRelated] = useState<WPPost[]>([]);
 
   useEffect(() => {
     const id = window.location.pathname.split("/").filter(Boolean).pop() ?? "";
@@ -54,6 +55,14 @@ export default function LiveArticlePage() {
           setMetaTag("robots", "noindex");
         }
         setState(post ? { status: "found", post } : { status: "not-found" });
+        if (post) {
+          // "Sigue leyendo" is a nice-to-have: if the list fails, the article still shows.
+          fetchLivePosts()
+            .then((posts) => {
+              if (!cancelled) setRelated(pickRelatedPosts(post, posts));
+            })
+            .catch(() => {});
+        }
       })
       .catch(() => {
         if (!cancelled) {
@@ -67,7 +76,7 @@ export default function LiveArticlePage() {
     };
   }, []);
 
-  if (state.status === "found") return <ArticleView post={state.post} />;
+  if (state.status === "found") return <ArticleView post={state.post} related={related} />;
 
   return (
     <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">

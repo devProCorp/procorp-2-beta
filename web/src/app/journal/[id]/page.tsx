@@ -10,6 +10,7 @@ import {
   getArticleDescription,
   getArticleTitle,
 } from "@/lib/og/journal-cards";
+import { pickRelatedPosts } from "@/lib/wordpress-presentation";
 import { OG_IMAGE_SIZE } from "@/lib/og/paths";
 import { getCardRevision } from "@/lib/og/render";
 
@@ -74,5 +75,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const { id } = await params;
   const post = await findPublishedPostForBuild(id).catch(() => null);
   if (!post) notFound();
-  return <ArticleView post={post} />;
+  const posts = await fetchPublishedPostsForBuild().catch(() => []);
+  return <ArticleView post={post} related={pickRelatedPosts(post, posts)} />;
 }
