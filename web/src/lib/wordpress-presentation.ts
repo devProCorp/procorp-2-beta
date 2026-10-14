@@ -124,3 +124,19 @@ export function pickRelatedPosts(post: WPPost, posts: WPPost[], limit = 3): WPPo
   const picked = [...sameCategory, ...others.filter((p) => !sameCategory.includes(p))];
   return picked.slice(0, limit).map((p) => ({ ...p, content: { rendered: "" } }));
 }
+
+/**
+ * Some articles arrive with their subheadings saved as a paragraph that is
+ * entirely bold (`<p><strong>Process Mining: …</strong></p>`) instead of an
+ * <h2>. Readers and search engines then see one flat run of paragraphs, so
+ * those paragraphs are promoted to <h2>. Only short, bold-only paragraphs
+ * that don't end like a sentence or a label ("Fuente:") qualify — a bold
+ * sentence inside the text stays a paragraph.
+ */
+export function normalizeArticleHtml(html: string): string {
+  return html.replace(
+    /<p\b[^>]*>\s*<(strong|b)>([^<]{3,150})<\/\1>\s*<\/p>/g,
+    (match, _tag: string, text: string) =>
+      /[.;,:]$/.test(text.replace(/&nbsp;/g, " ").trim()) ? match : `<h2>${text.trim()}</h2>`
+  );
+}
