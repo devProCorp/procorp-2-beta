@@ -11,7 +11,7 @@
  * `toWPPost` in scripts/snapshot-supabase.mjs (still used to regenerate the
  * sitemap's post list — see wordpress.ts).
  */
-import type { WPCategory, WPPost } from "./wordpress-presentation";
+import { normalizeArticleHtml, type WPCategory, type WPPost } from "./wordpress-presentation";
 
 // Same project the snapshot script and next.config.ts's image remotePatterns
 // already point at — this is the project URL, not a secret, safe to inline.
@@ -68,7 +68,7 @@ function toWPPost(row: BlogPostRow): WPPost {
     modified: row.modified_at,
     title: { rendered: row.title ?? "" },
     excerpt: { rendered: row.excerpt_html ?? "" },
-    content: { rendered: row.content_html ?? "" },
+    content: { rendered: normalizeArticleHtml(row.content_html ?? "") },
     featured_media: row.featured_image_url ? row.wp_id : 0,
     categories: categoryIds,
     tags: tagIds,
