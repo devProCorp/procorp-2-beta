@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RelatedArticles from "./RelatedArticles";
 import {
   getFeaturedImageUrl,
   getFeaturedImageAlt,
@@ -15,8 +16,15 @@ import {
  * fallback at /journal/_live (posts published after the last deploy — see
  * docs/decisions/0004-journal-live-fetch.md). Pure presentation: both
  * callers are responsible for fetching `post` and handling the not-found case.
+ * `related` feeds the "Sigue leyendo" block (see pickRelatedPosts).
  */
-export default function ArticleView({ post }: { post: WPPost }) {
+export default function ArticleView({
+  post,
+  related = [],
+}: {
+  post: WPPost;
+  related?: WPPost[];
+}) {
   const imageUrl = getFeaturedImageUrl(post, "large");
   const imageAlt = getFeaturedImageAlt(post);
   const categories = getPostCategories(post);
@@ -114,8 +122,12 @@ export default function ArticleView({ post }: { post: WPPost }) {
           className="wp-content max-w-none font-ui"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
+      </article>
 
-        {/* Bottom nav */}
+      <RelatedArticles posts={related} />
+
+      {/* Bottom nav */}
+      <div className="max-w-4xl mx-auto">
         <div className="border-t border-white/10 mt-20 pt-10">
           <Link
             href="/journal"
@@ -127,7 +139,7 @@ export default function ArticleView({ post }: { post: WPPost }) {
             Back to Journal
           </Link>
         </div>
-      </article>
+      </div>
     </main>
   );
 }

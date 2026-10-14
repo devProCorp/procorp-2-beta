@@ -107,3 +107,20 @@ export function formatDate(dateStr: string, locale = "en-US"): string {
     day: "numeric",
   });
 }
+
+/**
+ * "Keep reading" picks for the end of an article: posts sharing a category
+ * first, then the most recent ones, never the current post. Content is
+ * dropped — the cards only need title, excerpt and image, and a full
+ * content.rendered per card would bloat every prebuilt article page.
+ */
+export function pickRelatedPosts(post: WPPost, posts: WPPost[], limit = 3): WPPost[] {
+  const others = posts
+    .filter((p) => p.id !== post.id)
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  const sameCategory = others.filter((p) =>
+    p.categories.some((id) => post.categories.includes(id))
+  );
+  const picked = [...sameCategory, ...others.filter((p) => !sameCategory.includes(p))];
+  return picked.slice(0, limit).map((p) => ({ ...p, content: { rendered: "" } }));
+}
