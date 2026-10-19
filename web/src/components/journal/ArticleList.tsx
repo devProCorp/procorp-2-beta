@@ -7,8 +7,8 @@ import {
   getFeaturedImageAlt,
   getPostCategories,
   stripHtml,
-  formatDate,
 } from "@/lib/wordpress-presentation";
+import { T, CategoryName, PostDate, AudioBadgeTitle } from "./Txt";
 
 interface ArticleListProps {
   posts: WPPost[];
@@ -18,7 +18,7 @@ export default function ArticleList({ posts }: ArticleListProps) {
   if (posts.length === 0) {
     return (
       <p className="text-secondary text-lg py-20 text-center">
-        No se encontraron artículos.
+        <T k="journal.empty" />
       </p>
     );
   }
@@ -52,23 +52,22 @@ export default function ArticleList({ posts }: ArticleListProps) {
               )}
               {categories.length > 0 && (
                 <span className="absolute top-4 left-4 z-20 bg-background-dark/80 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-bold text-white shadow-lg uppercase tracking-[0.15em] hover:bg-primary transition-colors">
-                  {categories[0].name}
+                  <CategoryName slug={categories[0].slug} name={categories[0].name} />
                 </span>
               )}
               {post.audio_url && (
-                <span
-                  className="absolute top-4 right-4 z-20 bg-background-dark/80 border border-white/10 backdrop-blur-md p-1.5 rounded-full text-white shadow-lg"
-                  title="Disponible en audio"
-                >
-                  <Headphones size={14} />
+                <span className="absolute top-4 right-4 z-20 bg-background-dark/80 border border-white/10 backdrop-blur-md p-1.5 rounded-full text-white shadow-lg">
+                  <AudioBadgeTitle>
+                    <Headphones size={14} />
+                  </AudioBadgeTitle>
                 </span>
               )}
             </div>
             <div className="flex flex-col gap-4 px-2 pb-2">
               <div className="flex items-center gap-3 text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-                <span>{formatDate(post.date, "es-ES")}</span>
+                <span><PostDate date={post.date} /></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-primary-light shadow-[0_0_8px_rgba(206,16,38,0.8)] animate-pulse"></span>
-                <span>5 min lectura</span>
+                <span><T k="journal.readTime" /></span>
               </div>
               <h3
                 className="text-2xl font-extrabold text-white group-hover:text-primary-light transition-colors leading-[1.2] tracking-tight drop-shadow-sm"
@@ -80,7 +79,7 @@ export default function ArticleList({ posts }: ArticleListProps) {
                 </p>
               )}
               <span className="inline-flex items-center text-primary font-bold text-[11px] uppercase tracking-widest mt-2 hover:text-white transition-colors group/link w-fit">
-                Leer más <span className="material-symbols-outlined text-[16px] ml-1 group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                <T k="journal.readMore" /> <span className="material-symbols-outlined text-[16px] ml-1 group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
               </span>
             </div>
           </Link>

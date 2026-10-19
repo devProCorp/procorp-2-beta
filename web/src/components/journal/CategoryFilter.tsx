@@ -3,21 +3,11 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import type { WPCategory } from "@/lib/wordpress-presentation";
+import { catName } from "@/lib/blog-categories";
 
 interface CategoryFilterProps {
   categories: WPCategory[];
 }
-
-// Nombres de categorías del snapshot (contenido en ES) traducidos por slug;
-// si aparece una categoría nueva sin traducción, cae al nombre original.
-const CAT_NAMES: Record<string, Record<string, string>> = {
-  "ciudadania-europea": { en: "European Citizenship", es: "Ciudadanía europea", pt: "Cidadania europeia" },
-  "emigrar-a-espana": { en: "Moving to Spain", es: "Emigrar a España", pt: "Emigrar para a Espanha" },
-  "emigrar-a-portugal": { en: "Moving to Portugal", es: "Emigrar a Portugal", pt: "Emigrar para Portugal" },
-  "nacionalidad-espanola-por-origen-sefardi": { en: "Spanish Nationality by Sephardic Origin", es: "Nacionalidad española por origen sefardí", pt: "Nacionalidade espanhola por origem sefardita" },
-  "uncategorized": { en: "Uncategorized", es: "Sin categoría", pt: "Sem categoria" },
-  "vivir-en-europa": { en: "Living in Europe", es: "Vivir en Europa", pt: "Viver na Europa" },
-};
 
 export default function CategoryFilter({ categories }: CategoryFilterProps) {
   const router = useRouter();
@@ -65,7 +55,7 @@ export default function CategoryFilter({ categories }: CategoryFilterProps) {
                 : "glass-panel text-gray-400 hover:text-white border border-surface-border hover:border-primary/50 hover:bg-surface-dark"
               }`}
           >
-            {CAT_NAMES[cat.slug]?.[lang] ?? cat.name}
+            {catName(cat.slug, cat.name, lang)}
           </button>
         ))}
       </div>

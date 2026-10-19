@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import RelatedArticles from "./RelatedArticles";
+import { T, CategoryName, PostDate } from "./Txt";
 import {
   getFeaturedImageUrl,
   getFeaturedImageAlt,
   getPostCategories,
   getPostAuthor,
   stripHtml,
-  formatDate,
   type WPPost,
 } from "@/lib/wordpress-presentation";
 
@@ -47,7 +47,7 @@ export default function ArticleView({
           <span className="material-symbols-outlined text-base">
             arrow_back
           </span>
-          Journal
+          <T k="journal.eyebrow" />
         </Link>
 
         {/* Categories */}
@@ -58,7 +58,7 @@ export default function ArticleView({
                 key={cat.id}
                 className="text-xs font-bold uppercase tracking-widest text-primary font-ui"
               >
-                {cat.name}
+                <CategoryName slug={cat.slug} name={cat.name} />
               </span>
             ))}
           </div>
@@ -99,7 +99,7 @@ export default function ArticleView({
             <span className="w-px h-8 bg-white/15 hidden sm:block" />
           )}
           <time className="text-sm text-white/40 font-ui uppercase tracking-widest">
-            {formatDate(post.date, "en-US")}
+            <PostDate date={post.date} />
           </time>
         </div>
 
@@ -136,7 +136,7 @@ export default function ArticleView({
             <span className="material-symbols-outlined text-base">
               arrow_back
             </span>
-            Back to Journal
+            <T k="journal.back" />
           </Link>
         </div>
       </div>

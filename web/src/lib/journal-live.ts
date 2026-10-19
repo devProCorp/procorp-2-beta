@@ -32,6 +32,9 @@ const CATEGORY_TABLE = new Map([
       slug: "nacionalidad-espanola-por-origen-sefardi",
     },
   ],
+  [157, { name: "Ingeniería de Negocios", slug: "ingenieria-de-negocios" }],
+  [158, { name: "Inversiones", slug: "inversiones" }],
+  [159, { name: "Actualidad internacional", slug: "actualidad-internacional" }],
 ]);
 
 interface BlogPostRow {
