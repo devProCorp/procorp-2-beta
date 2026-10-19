@@ -20,7 +20,8 @@ set -uo pipefail
 SSH_ALIAS="procorp-portal"
 ORIGIN_IP="160.153.72.70"
 HOST="www.pro-corp.net"
-EXPECTED_REDIRECTS=166
+# 166 artículos de WordPress + 5 de slugs renombrados (deploy/paginas-migradas.conf).
+EXPECTED_REDIRECTS=171
 
 fallos=0
 ok()   { printf '  \033[32m✓\033[0m %s\n' "$1"; }
