@@ -10,8 +10,11 @@
 //
 // Request: multipart/form-data POST, header `x-publish-secret`.
 // Text fields: title*, slug*, content_html*, excerpt_html, category
-//   (id/slug/name — one of the 5 real categories, falls back to "Vivir en
-//   Europa" + category_inferred=true if missing/unrecognized), tags
+//   (id/slug/name of one of the real categories, or up to two separated by
+//   commas). Missing, "auto" or unrecognized → Claude picks 1–2 categories
+//   from the title and text (category_inferred=true); if that call fails,
+//   "Vivir en Europa". Re-posting a slug whose categories were chosen by a
+//   person (category_inferred=false) keeps them. tags
 //   (comma-separated), author_name, status (default "publish"),
 //   published_at (ISO, default now), seo_title, seo_description.
 // File fields: audio (mp4/mpeg), image (jpeg/png/webp) — both optional.
@@ -25,6 +28,7 @@
 // resolved by looking up the existing slug first) instead of creating a
 // duplicate — safe to retry a failed n8n run.
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import Anthropic from "npm:@anthropic-ai/sdk@0.135.0";
 
 // Inlined rather than imported from ../_shared/blog-categories.ts: the
 // Management API's single-file deploy path (used to ship this function,
@@ -74,6 +78,93 @@ function resolveCategory(input: string | number | undefined | null): {
   }
   const fallback = CATEGORIES.find((c) => c.id === FALLBACK_CATEGORY_ID)!;
   return { id: fallback.id, name: fallback.name, inferred: true };
+}
+
+type Category = (typeof CATEGORIES)[number];
+type ResolvedCategories = { list: Category[]; inferred: boolean };
+
+/** Up to two categories given by the caller ("56", "inversiones", "157,158"…); null if none is valid. */
+function categoriesFromInput(input: string | null): Category[] | null {
+  const parts = (input ?? "")
+    .split(",")
+    .map((p) => p.trim())
+    .filter((p) => p && foldDiacritics(p) !== "auto");
+  const found: Category[] = [];
+  for (const part of parts) {
+    const r = resolveCategory(part);
+    const c = CATEGORIES.find((x) => x.id === r.id)!;
+    if (!r.inferred && !found.includes(c)) found.push(c);
+  }
+  return found.length ? found.slice(0, 2) : null;
+}
+
+// --- Automatic categorization (Claude) ---
+// One short structured-output call: the answer can only be slugs from
+// CATEGORIES. Any failure (no key, refusal, network) falls back to the old
+// behavior instead of failing the publish.
+const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY");
+const anthropic = ANTHROPIC_API_KEY ? new Anthropic({ apiKey: ANTHROPIC_API_KEY }) : null;
+
+const CATEGORY_GUIDE: Record<string, string> = {
+  "ciudadania-europea": "nacionalidad o ciudadanía de un país europeo (requisitos, leyes de nietos, descendencia, conservación, récords de nacionalizaciones)",
+  "emigrar-a-espana": "mudarse, residir o regularizarse en España (visados, residencias, extranjería, vida práctica)",
+  "emigrar-a-portugal": "mudarse, residir o nacionalizarse en Portugal",
+  "vivir-en-europa": "política migratoria europea o de varios países de Europa, fronteras, UE",
+  "nacionalidad-espanola-por-origen-sefardi": "nacionalidad española o portuguesa por origen sefardí",
+  "ingenieria-de-negocios": "empresa, procesos, automatización, inteligencia artificial, tecnología, productividad, casos de PRO CORP",
+  "inversiones": "invertir, mercado inmobiliario, economía, capital, patrimonio",
+  "actualidad-internacional": "noticias políticas, diplomáticas o de actualidad sin foco en trámites migratorios",
+};
+
+const stripTags = (html: string) =>
+  html.replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+
+async function classifyWithClaude(title: string, contentHtml: string): Promise<Category[] | null> {
+  if (!anthropic) return null;
+  const text = stripTags(contentHtml).slice(0, 6000);
+  try {
+    const response = await anthropic.beta.messages.create({
+      model: "claude-opus-5-5",
+      max_tokens: 2000,
+      betas: ["server-side-fallback-2026-07-01"],
+      fallbacks: "default",
+      output_config: {
+        effort: "low",
+        format: {
+          type: "json_schema",
+          schema: {
+            type: "object",
+            properties: {
+              categories: {
+                type: "array",
+                items: { type: "string", enum: CATEGORIES.map((c) => c.slug) },
+              },
+            },
+            required: ["categories"],
+            additionalProperties: false,
+          },
+        },
+      },
+      system:
+        "Clasificas artículos del blog de PRO CORP (Ingeniería de Negocios, inversiones, migración y residencia en España y Portugal). " +
+        "Devuelve la categoría principal. Añade una segunda solo si ese segundo tema ocupa una parte central del artículo; una mención o el contexto del país no bastan. En la duda, una sola.\n" +
+        CATEGORIES.map((c) => `- ${c.slug}: ${CATEGORY_GUIDE[c.slug] ?? c.name}`).join("\n"),
+      messages: [{ role: "user", content: `Título: ${title}\n\nTexto:\n${text}` }],
+    });
+    if (response.stop_reason === "refusal") return null;
+    const block = response.content.find((b) => b.type === "text");
+    if (!block || block.type !== "text") return null;
+    const slugs: unknown = JSON.parse(block.text)?.categories;
+    if (!Array.isArray(slugs)) return null;
+    const list = [...new Set(slugs)]
+      .map((s) => CATEGORIES.find((c) => c.slug === s))
+      .filter((c): c is Category => !!c)
+      .slice(0, 2);
+    return list.length ? list : null;
+  } catch (err) {
+    console.error("[publish-blog-post] categorización automática falló:", err);
+    return null;
+  }
 }
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -155,7 +246,6 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: "slug resolved to empty string after normalization" }, 400);
   }
 
-  const category = resolveCategory((form.get("category") as string | null) ?? undefined);
   const tagNames = ((form.get("tags") as string | null) ?? "")
     .split(",")
     .map((t) => t.trim())
@@ -173,11 +263,28 @@ Deno.serve(async (req) => {
   // the real WordPress id space (see the 0001 migration for why).
   const { data: existing, error: lookupError } = await supabase
     .from("posts")
-    .select("wp_id")
+    .select("wp_id, category_ids, category_names, category_inferred")
     .eq("slug", slug)
     .maybeSingle();
   if (lookupError) {
     return jsonResponse({ error: `slug lookup failed: ${lookupError.message}` }, 500);
+  }
+
+  // Categories: the caller's choice, else the ones a person already set on
+  // this slug, else Claude, else the historical fallback.
+  let categories: ResolvedCategories;
+  const given = categoriesFromInput(form.get("category") as string | null);
+  const keptFromHuman =
+    existing && existing.category_inferred === false && existing.category_ids?.length
+      ? CATEGORIES.filter((c) => existing.category_ids.includes(c.id))
+      : [];
+  if (given) categories = { list: given, inferred: false };
+  else if (keptFromHuman.length) categories = { list: keptFromHuman, inferred: false };
+  else {
+    const auto = await classifyWithClaude(title!, contentHtml!);
+    categories = auto
+      ? { list: auto, inferred: true }
+      : { list: [CATEGORIES.find((c) => c.id === FALLBACK_CATEGORY_ID)!], inferred: true };
   }
 
   let wpId: number;
@@ -275,9 +382,9 @@ Deno.serve(async (req) => {
     author_name: authorName,
     featured_image_url: featuredImageUrl,
     audio_url: audioUrl,
-    category_ids: [category.id],
-    category_names: [category.name],
-    category_inferred: category.inferred,
+    category_ids: categories.list.map((c) => c.id),
+    category_names: categories.list.map((c) => c.name),
+    category_inferred: categories.inferred,
     tag_ids: [],
     tag_names: tagNames,
     seo_title: seoTitle,
@@ -285,7 +392,7 @@ Deno.serve(async (req) => {
     raw_json: {
       source: "n8n",
       received_at: new Date().toISOString(),
-      fields: { title, slug, category: category.name, tags: tagNames, status, author_name: authorName },
+      fields: { title, slug, categories: categories.list.map((c) => c.name), tags: tagNames, status, author_name: authorName },
     },
     published_at: publishedAt,
     modified_at: new Date().toISOString(),
@@ -306,7 +413,8 @@ Deno.serve(async (req) => {
     wp_id: saved.wp_id,
     slug: saved.slug,
     journal_url: `${JOURNAL_BASE_URL}/${slug}`,
-    category_inferred: category.inferred,
+    categories: categories.list.map((c) => c.name),
+    category_inferred: categories.inferred,
     ...(status === "draft" && PREVIEW_SECRET && {
       preview_url: `${PREVIEW_BASE_URL}/?id=${saved.wp_id}&key=${PREVIEW_SECRET}`,
     }),
