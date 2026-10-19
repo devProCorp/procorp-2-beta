@@ -103,21 +103,21 @@ const Navbar = () => {
     // Categoría SOLUTIONS: dos pilares, cada uno con sus sub-áreas ancladas
     const solutionGroups = [
         {
-            name: t('nav.growth'), href: '/studio', children: [
-                { name: t('nav.sol.vfc'), href: '/studio#vfvc' },
-                { name: t('nav.sol.ps'), href: '/studio#project-structuring' },
+            name: t('nav.growth'), href: '/sustainable-growth', children: [
+                { name: t('nav.sol.vfc'), href: '/sustainable-growth#vfvc' },
+                { name: t('nav.sol.ps'), href: '/sustainable-growth#project-structuring' },
             ],
         },
         {
-            name: t('nav.legal'), href: '/projects', children: [
-                { name: t('nav.sol.imm'), href: '/projects#immigration-services' },
-                { name: t('nav.sol.ils'), href: '/projects#innovative-legal' },
+            name: t('nav.legal'), href: '/legal-solutions', children: [
+                { name: t('nav.sol.imm'), href: '/legal-solutions#immigration-services' },
+                { name: t('nav.sol.ils'), href: '/legal-solutions#innovative-legal' },
             ],
         },
     ];
     const linksAfter = [
-        { name: t('nav.projects'), href: '/sectors' },
-        { name: t('nav.blog'), href: '/journal' },
+        { name: t('nav.projects'), href: '/projects' },
+        { name: t('nav.blog'), href: '/blog' },
         { name: t('nav.contact'), href: '/contact' },
     ];
 

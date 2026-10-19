@@ -55,7 +55,7 @@ DirectoryIndex index.html index.php
 
 CABECERA
 
-echo "# ── Artículos del blog → /journal/ ──────────────────────────────────────────"
+echo "# ── Artículos del blog → /blog/ ─────────────────────────────────────────────"
 grep -v '^#' deploy/redirects-wp-posts.conf | grep -v '^[[:space:]]*$' | {
   echo "<IfModule mod_rewrite.c>"
   echo "RewriteEngine On"

@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
   const title = getArticleTitle(post);
   const description = getArticleDescription(post);
-  const canonical = `/journal/${post.slug}/`;
+  const canonical = `/blog/${post.slug}/`;
   // ?r= revisión publicada en el Taller de tarjetas: Apache la ignora, pero
   // WhatsApp ve una URL nueva y no reutiliza la tarjeta anterior de su caché.
   const revision = await getCardRevision("article", "article", String(post.id));

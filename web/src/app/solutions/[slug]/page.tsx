@@ -23,7 +23,7 @@ export default function ProjectDetail() {
                 {/* Back */}
                 <div className="mb-12">
                     <Link
-                        href="/projects"
+                        href="/legal-solutions"
                         className="inline-flex items-center gap-2 text-sm font-ui uppercase tracking-widest text-neutral-gray dark:text-gray-400 hover:text-primary transition-colors"
                     >
                         <span className="material-symbols-outlined text-base">arrow_back</span>
@@ -129,7 +129,7 @@ export default function ProjectDetail() {
                         {t('svc.next')}
                     </span>
                     <Link
-                        href={`/projects/${next.slug}`}
+                        href={`/solutions/${next.slug}`}
                         className="text-4xl md:text-6xl font-display font-bold uppercase text-neutral-dark dark:text-white hover:text-primary transition-colors"
                     >
                         {t(next.title)}

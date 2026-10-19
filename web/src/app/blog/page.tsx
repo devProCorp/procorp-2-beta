@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import JournalHeader from "@/components/journal/JournalHeader";
 import JournalBrowser from "@/components/journal/JournalBrowser";
@@ -7,6 +8,8 @@ import NewsletterSection from "@/components/journal/NewsletterSection";
 // everything live from Supabase on mount, so this page never shows stale
 // content that then jumps to the real thing. See
 // docs/decisions/0004-journal-live-fetch.md.
+export const metadata: Metadata = { alternates: { canonical: "/blog/" } };
+
 export default function Journal() {
   return (
     <main className="min-h-screen bg-background-dark pb-20">

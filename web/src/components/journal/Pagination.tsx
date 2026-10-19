@@ -24,7 +24,7 @@ export default function Pagination({
       params.set("page", String(page));
     }
     const qs = params.toString();
-    router.push(qs ? `/journal?${qs}` : "/journal");
+    router.push(qs ? `/blog?${qs}` : "/blog");
   }
 
   return (

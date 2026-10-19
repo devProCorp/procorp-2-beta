@@ -22,15 +22,23 @@ DirectoryIndex index.html
   RewriteCond %{HTTPS} !=on
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # Every Journal article is fetched live from Supabase — there is no
+  # Every blog article is fetched live from Supabase — there is no
   # prebuilt directory for any /journal/<id>/ (the export never generates
-  # one). Send the single path segment under /journal/ to the live shell,
+  # one). Send the single path segment under /blog/ to the live shell,
   # which fetches the post by id straight from Supabase. The rewrite is
-  # internal — the browser still sees /journal/<id>/. See
+  # internal — the browser still sees /blog/<id>/. See
   # docs/decisions/0004-journal-live-fetch.md.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^journal/[^/]+/?$ /journal/live-fallback/index.html [L]
+  RewriteRule ^blog/[^/]+/?$ /blog/live-fallback/index.html [L]
+
+  # Slugs anteriores → nuevos (mismas reglas que deploy/paginas-migradas.conf).
+  RewriteRule ^sectors/?$ /projects/ [R=301,L]
+  RewriteRule ^studio/?$ /sustainable-growth/ [R=301,L]
+  RewriteRule ^projects/(legal-solutions|sustainable-growth|ip2-engineering|exchange-platform|business-process-automation)/?$ /solutions/$1/ [R=301,L]
+  RewriteRule ^journal/?$ /blog/ [R=301,L]
+  RewriteCond %{REQUEST_URI} !^/journal/media/
+  RewriteRule ^journal/(.+?)/?$ /blog/$1/ [R=301,L]
 
   # Anything else that is not a real file or directory is a 404 (see note above).
   RewriteCond %{REQUEST_FILENAME} !-f

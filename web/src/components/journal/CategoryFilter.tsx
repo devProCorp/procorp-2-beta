@@ -34,7 +34,7 @@ export default function CategoryFilter({ categories }: CategoryFilterProps) {
       params.delete("page");
     }
     const qs = params.toString();
-    router.push(qs ? `/journal?${qs}` : "/journal");
+    router.push(qs ? `/blog?${qs}` : "/blog");
   }
 
   return (
@@ -47,7 +47,7 @@ export default function CategoryFilter({ categories }: CategoryFilterProps) {
             params.delete("cat");
             params.delete("page");
             const qs = params.toString();
-            router.push(qs ? `/journal?${qs}` : "/journal");
+            router.push(qs ? `/blog?${qs}` : "/blog");
           }}
           className={`flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl px-6 transition-all text-[11px] font-bold uppercase tracking-widest ${!active
               ? "bg-primary text-white shadow-[0_0_15px_rgba(206,16,38,0.4)] border border-primary-light/50"
