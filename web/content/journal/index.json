@@ -1,23 +1,447 @@
 [
   {
-    "id": 900000003,
-    "slug": "relacion-compleja-entre-espana-y-marruecos",
-    "date": "2026-08-25T16:21:44.112+00:00",
-    "modified": "2026-08-25T16:21:46.731+00:00",
+    "id": 900000048,
+    "slug": "europa-enfrenta-tensiones-por-politicas-migratorias-divergentes",
+    "date": "2026-10-19T14:06:54.709+00:00",
+    "modified": "2026-10-19T14:39:13.659+00:00",
     "title": {
-      "rendered": "Relación compleja entre España y Marruecos"
+      "rendered": "La inmigración divide a Europa y marca la política española"
     },
     "excerpt": {
       "rendered": ""
     },
-    "featured_media": 900000003,
+    "featured_media": 900000048,
     "categories": [
       57
     ],
     "tags": [],
     "author": 0,
-    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/relacion-compleja-entre-espana-y-marruecos.mp4",
-    "seo_title": "Relación compleja entre España y Marruecos",
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/europa-enfrenta-tensiones-por-politicas-migratorias-divergentes.mp4",
+    "seo_title": "Europa enfrenta tensiones por políticas migratorias divergentes",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 0,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000048,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/europa-enfrenta-tensiones-por-politicas-migratorias-divergentes.jpg",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000032,
+    "slug": "innovacion-empresarial-con-inteligencia-artificial-y-automatizacion",
+    "date": "2026-10-14T13:19:49.044+00:00",
+    "modified": "2026-10-14T13:26:49.339+00:00",
+    "title": {
+      "rendered": "Pro Corp: IA para reducir costes, optimizar procesos y hacer crecer tu negocio"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000032,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 0,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/innovacion-empresarial-con-inteligencia-artificial-y-automatizacion.mp4",
+    "seo_title": "Innovación Empresarial con Inteligencia Artificial y Automatización",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 0,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000032,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/innovacion-empresarial-con-inteligencia-artificial-y-automatizacion.jpg",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000031,
+    "slug": "supremo-mantiene-suspension-del-voto-por-ley-de-nietos",
+    "date": "2026-10-13T10:41:19.664+00:00",
+    "modified": "2026-10-13T10:46:24.849+00:00",
+    "title": {
+      "rendered": "El Supremo suspende el voto el 29-N a los nacionalizados por la Ley de Nietos"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000031,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 0,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/supremo-mantiene-suspension-del-voto-por-ley-de-nietos.mp4",
+    "seo_title": "Supremo mantiene suspensión del voto por Ley de Nietos",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 0,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000031,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/supremo-mantiene-suspension-del-voto-por-ley-de-nietos.png",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000030,
+    "slug": "espana-convoca-elecciones-anticipadas-en-medio-de-crisis-politica",
+    "date": "2026-10-07T14:05:38.58+00:00",
+    "modified": "2026-10-07T14:08:25.139+00:00",
+    "title": {
+      "rendered": "España irá a elecciones el 29 de noviembre"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000030,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 0,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/espana-convoca-elecciones-anticipadas-en-medio-de-crisis-politica.mp4",
+    "seo_title": "España convoca elecciones anticipadas en medio de crisis política",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 0,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000030,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/espana-convoca-elecciones-anticipadas-en-medio-de-crisis-politica.jpg",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000028,
+    "slug": "crisis-migratoria-en-ceuta-desafio-para-espana-y-la-ue",
+    "date": "2026-10-02T14:47:09.294+00:00",
+    "modified": "2026-10-02T15:26:46.777527+00:00",
+    "title": {
+      "rendered": "Crisis migratoria en Ceuta: desafío para España y la UE"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000028,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 1778,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/crisis-migratoria-en-ceuta-desafio-para-espana-y-la-ue.mp4",
+    "seo_title": "Crisis migratoria en Ceuta: desafío para España y la UE",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 1778,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "1778",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000028,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/crisis-migratoria-en-ceuta-desafio-para-espana-y-la-ue.jpg",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000027,
+    "slug": "automatizacion-empresarial-con-ia-en-pro-corp",
+    "date": "2026-10-02T14:43:28.522+00:00",
+    "modified": "2026-10-02T15:26:46.777527+00:00",
+    "title": {
+      "rendered": "Pro Corp impulsa la automatización empresarial con IA"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000027,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 1778,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/automatizacion-empresarial-con-ia-en-pro-corp.mp4",
+    "seo_title": "Automatización empresarial con IA en Pro Corp",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 1778,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "1778",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000027,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/automatizacion-empresarial-con-ia-en-pro-corp.jpg",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000026,
+    "slug": "el-fin-del-acceso-sefardi-a-la-nacionalidad-portuguesa",
+    "date": "2026-10-02T14:38:59.906+00:00",
+    "modified": "2026-10-02T15:26:46.777527+00:00",
+    "title": {
+      "rendered": "Nacionalidad sefardí en Portugal: Cinco años de espera"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000026,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 1778,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/el-fin-del-acceso-sefardi-a-la-nacionalidad-portuguesa.mp4",
+    "seo_title": "El fin del acceso sefardí a la nacionalidad portuguesa",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 1778,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "1778",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000026,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/el-fin-del-acceso-sefardi-a-la-nacionalidad-portuguesa.jpg",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000025,
+    "slug": "europa-redefine-su-politica-migratoria-un-consenso-emergente",
+    "date": "2026-10-02T14:31:50.46+00:00",
+    "modified": "2026-10-02T15:26:46.777527+00:00",
+    "title": {
+      "rendered": "Europa endurece su política migratoria: Italia y Dinamarca marcan el nuevo rumbo"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000025,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 1778,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/europa-redefine-su-politica-migratoria-un-consenso-emergente.mp4",
+    "seo_title": "Europa redefine su política migratoria: un consenso emergente",
+    "seo_description": "Descripción SEO",
+    "_embedded": {
+      "author": [
+        {
+          "id": 1778,
+          "name": "Humberto Calderón",
+          "description": "",
+          "slug": "1778",
+          "avatar_urls": {}
+        }
+      ],
+      "wp:featuredmedia": [
+        {
+          "id": 900000025,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/europa-redefine-su-politica-migratoria-un-consenso-emergente.jpg",
+          "alt_text": "",
+          "media_details": {
+            "width": 0,
+            "height": 0,
+            "sizes": {}
+          }
+        }
+      ],
+      "wp:term": [
+        [
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": 900000010,
+    "slug": "paralisis-en-resoluciones-de-nacionalidad-espanola-por-ley-sefardi",
+    "date": "2026-09-10T14:54:30.296+00:00",
+    "modified": "2026-09-10T14:54:52.744+00:00",
+    "title": {
+      "rendered": "Nacionalidad sefardí en 2026: la vía ordinaria sigue sin dar señales reales de reactivación"
+    },
+    "excerpt": {
+      "rendered": ""
+    },
+    "featured_media": 900000010,
+    "categories": [
+      57
+    ],
+    "tags": [],
+    "author": 0,
+    "audio_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/audio/paralisis-en-resoluciones-de-nacionalidad-espanola-por-ley-sefardi.mp4",
+    "seo_title": "Nacionalidad sefardí en 2026: la vía ordinaria sigue sin dar señales reales de reactivación",
     "seo_description": "Descripción SEO",
     "_embedded": {
       "author": [
@@ -31,8 +455,8 @@
       ],
       "wp:featuredmedia": [
         {
-          "id": 900000003,
-          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/relacion-compleja-entre-espana-y-marruecos.jpg",
+          "id": 900000010,
+          "source_url": "https://cpojgmwfpbuvtutnbtam.supabase.co/storage/v1/object/public/blog-assets/images/paralisis-en-resoluciones-de-nacionalidad-espanola-por-ley-sefardi.jpg",
           "alt_text": "",
           "media_details": {
             "width": 0,
