@@ -14,10 +14,7 @@
   },
   "featured_media": 11235,
   "categories": [
-    56,
-    57,
-    156,
-    59
+    156
   ],
   "tags": [],
   "author": 1780,
@@ -195,24 +192,9 @@
     "wp:term": [
       [
         {
-          "id": 56,
-          "name": "Ciudadanía europea",
-          "slug": "ciudadania-europea"
-        },
-        {
-          "id": 57,
-          "name": "Emigrar a España",
-          "slug": "emigrar-a-espana"
-        },
-        {
           "id": 156,
           "name": "Nacionalidad española por origen sefardí",
           "slug": "nacionalidad-espanola-por-origen-sefardi"
-        },
-        {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
         }
       ]
     ]

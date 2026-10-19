@@ -14,7 +14,6 @@
   },
   "featured_media": 11288,
   "categories": [
-    57,
     59
   ],
   "tags": [],
@@ -190,11 +189,6 @@
     ],
     "wp:term": [
       [
-        {
-          "id": 57,
-          "name": "Emigrar a España",
-          "slug": "emigrar-a-espana"
-        },
         {
           "id": 59,
           "name": "Vivir en Europa",

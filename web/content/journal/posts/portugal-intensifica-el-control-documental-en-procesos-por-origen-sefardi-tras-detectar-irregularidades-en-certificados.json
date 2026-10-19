@@ -14,11 +14,8 @@
   },
   "featured_media": 11530,
   "categories": [
-    56,
-    57,
-    58,
     156,
-    59
+    58
   ],
   "tags": [],
   "author": 1778,
@@ -198,29 +195,14 @@
     "wp:term": [
       [
         {
-          "id": 56,
-          "name": "Ciudadanía europea",
-          "slug": "ciudadania-europea"
-        },
-        {
-          "id": 57,
-          "name": "Emigrar a España",
-          "slug": "emigrar-a-espana"
-        },
-        {
-          "id": 58,
-          "name": "Emigrar a Portugal",
-          "slug": "emigrar-a-portugal"
-        },
-        {
           "id": 156,
           "name": "Nacionalidad española por origen sefardí",
           "slug": "nacionalidad-espanola-por-origen-sefardi"
         },
         {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
+          "id": 58,
+          "name": "Emigrar a Portugal",
+          "slug": "emigrar-a-portugal"
         }
       ]
     ]

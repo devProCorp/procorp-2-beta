@@ -15,8 +15,7 @@
   "featured_media": 11243,
   "categories": [
     56,
-    57,
-    59
+    57
   ],
   "tags": [],
   "author": 1780,
@@ -201,11 +200,6 @@
           "id": 57,
           "name": "Emigrar a España",
           "slug": "emigrar-a-espana"
-        },
-        {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
         }
       ]
     ]

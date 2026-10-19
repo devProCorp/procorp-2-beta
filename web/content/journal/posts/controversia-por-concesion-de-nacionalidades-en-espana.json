@@ -14,7 +14,8 @@
   },
   "featured_media": 13097,
   "categories": [
-    56
+    56,
+    57
   ],
   "tags": [],
   "author": 1778,
@@ -195,6 +196,11 @@
           "id": 56,
           "name": "Ciudadanía europea",
           "slug": "ciudadania-europea"
+        },
+        {
+          "id": 57,
+          "name": "Emigrar a España",
+          "slug": "emigrar-a-espana"
         }
       ]
     ]

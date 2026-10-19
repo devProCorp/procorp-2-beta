@@ -14,8 +14,6 @@
   },
   "featured_media": 12631,
   "categories": [
-    56,
-    57,
     59
   ],
   "tags": [],
@@ -190,16 +188,6 @@
     ],
     "wp:term": [
       [
-        {
-          "id": 56,
-          "name": "Ciudadanía europea",
-          "slug": "ciudadania-europea"
-        },
-        {
-          "id": 57,
-          "name": "Emigrar a España",
-          "slug": "emigrar-a-espana"
-        },
         {
           "id": 59,
           "name": "Vivir en Europa",

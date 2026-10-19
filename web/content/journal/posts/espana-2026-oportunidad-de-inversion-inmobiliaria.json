@@ -14,8 +14,7 @@
   },
   "featured_media": 12979,
   "categories": [
-    56,
-    57
+    158
   ],
   "tags": [],
   "author": 1778,
@@ -193,14 +192,9 @@
     "wp:term": [
       [
         {
-          "id": 56,
-          "name": "Ciudadanía europea",
-          "slug": "ciudadania-europea"
-        },
-        {
-          "id": 57,
-          "name": "Emigrar a España",
-          "slug": "emigrar-a-espana"
+          "id": 158,
+          "name": "Inversiones",
+          "slug": "inversiones"
         }
       ]
     ]

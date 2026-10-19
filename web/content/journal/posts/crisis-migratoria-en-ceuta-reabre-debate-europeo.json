@@ -14,8 +14,8 @@
   },
   "featured_media": 13116,
   "categories": [
-    57,
-    59
+    59,
+    159
   ],
   "tags": [],
   "author": 1778,
@@ -191,14 +191,14 @@
     "wp:term": [
       [
         {
-          "id": 57,
-          "name": "Emigrar a España",
-          "slug": "emigrar-a-espana"
-        },
-        {
           "id": 59,
           "name": "Vivir en Europa",
           "slug": "vivir-en-europa"
+        },
+        {
+          "id": 159,
+          "name": "Actualidad internacional",
+          "slug": "actualidad-internacional"
         }
       ]
     ]
