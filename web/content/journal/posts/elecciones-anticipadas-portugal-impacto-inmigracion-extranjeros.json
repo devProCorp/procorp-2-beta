@@ -14,7 +14,8 @@
   },
   "featured_media": 11215,
   "categories": [
-    58
+    58,
+    159
   ],
   "tags": [],
   "author": 1778,
@@ -193,6 +194,11 @@
           "id": 58,
           "name": "Emigrar a Portugal",
           "slug": "emigrar-a-portugal"
+        },
+        {
+          "id": 159,
+          "name": "Actualidad internacional",
+          "slug": "actualidad-internacional"
         }
       ]
     ]

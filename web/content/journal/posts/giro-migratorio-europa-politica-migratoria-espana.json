@@ -14,10 +14,8 @@
   },
   "featured_media": 11451,
   "categories": [
-    56,
-    57,
-    58,
-    59
+    59,
+    57
   ],
   "tags": [],
   "author": 1778,
@@ -196,24 +194,14 @@
     "wp:term": [
       [
         {
-          "id": 56,
-          "name": "Ciudadanía europea",
-          "slug": "ciudadania-europea"
+          "id": 59,
+          "name": "Vivir en Europa",
+          "slug": "vivir-en-europa"
         },
         {
           "id": 57,
           "name": "Emigrar a España",
           "slug": "emigrar-a-espana"
-        },
-        {
-          "id": 58,
-          "name": "Emigrar a Portugal",
-          "slug": "emigrar-a-portugal"
-        },
-        {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
         }
       ]
     ]

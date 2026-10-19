@@ -14,8 +14,7 @@
   },
   "featured_media": 11308,
   "categories": [
-    56,
-    59
+    56
   ],
   "tags": [],
   "author": 1778,
@@ -185,11 +184,6 @@
           "id": 56,
           "name": "Ciudadanía europea",
           "slug": "ciudadania-europea"
-        },
-        {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
         }
       ]
     ]

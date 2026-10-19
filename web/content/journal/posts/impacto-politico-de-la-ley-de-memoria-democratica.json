@@ -14,7 +14,7 @@
   },
   "featured_media": 13080,
   "categories": [
-    59
+    56
   ],
   "tags": [],
   "author": 1778,
@@ -191,9 +191,9 @@
     "wp:term": [
       [
         {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
+          "id": 56,
+          "name": "Ciudadanía europea",
+          "slug": "ciudadania-europea"
         }
       ]
     ]

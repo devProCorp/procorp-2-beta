@@ -14,7 +14,7 @@
   },
   "featured_media": 11851,
   "categories": [
-    59
+    157
   ],
   "tags": [],
   "author": 1778,
@@ -190,9 +190,9 @@
     "wp:term": [
       [
         {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
+          "id": 157,
+          "name": "Ingeniería de Negocios",
+          "slug": "ingenieria-de-negocios"
         }
       ]
     ]

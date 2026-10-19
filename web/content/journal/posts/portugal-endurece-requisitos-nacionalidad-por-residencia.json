@@ -14,8 +14,8 @@
   },
   "featured_media": 13045,
   "categories": [
-    57,
-    58
+    58,
+    56
   ],
   "tags": [],
   "author": 1778,
@@ -191,14 +191,14 @@
     "wp:term": [
       [
         {
-          "id": 57,
-          "name": "Emigrar a España",
-          "slug": "emigrar-a-espana"
-        },
-        {
           "id": 58,
           "name": "Emigrar a Portugal",
           "slug": "emigrar-a-portugal"
+        },
+        {
+          "id": 56,
+          "name": "Ciudadanía europea",
+          "slug": "ciudadania-europea"
         }
       ]
     ]

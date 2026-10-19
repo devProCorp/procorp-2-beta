@@ -12,6 +12,7 @@
     },
     "featured_media": 900000048,
     "categories": [
+      159,
       57
     ],
     "tags": [],
@@ -44,6 +45,11 @@
       "wp:term": [
         [
           {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
+          },
+          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
@@ -65,7 +71,7 @@
     },
     "featured_media": 900000032,
     "categories": [
-      57
+      157
     ],
     "tags": [],
     "author": 0,
@@ -97,9 +103,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 157,
+            "name": "Ingeniería de Negocios",
+            "slug": "ingenieria-de-negocios"
           }
         ]
       ]
@@ -118,6 +124,7 @@
     },
     "featured_media": 900000031,
     "categories": [
+      56,
       57
     ],
     "tags": [],
@@ -150,6 +157,11 @@
       "wp:term": [
         [
           {
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
+          },
+          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
@@ -171,7 +183,7 @@
     },
     "featured_media": 900000030,
     "categories": [
-      57
+      159
     ],
     "tags": [],
     "author": 0,
@@ -203,9 +215,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -224,7 +236,8 @@
     },
     "featured_media": 900000028,
     "categories": [
-      57
+      59,
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -256,9 +269,14 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 59,
+            "name": "Vivir en Europa",
+            "slug": "vivir-en-europa"
+          },
+          {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -277,7 +295,7 @@
     },
     "featured_media": 900000027,
     "categories": [
-      57
+      157
     ],
     "tags": [],
     "author": 1778,
@@ -309,9 +327,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 157,
+            "name": "Ingeniería de Negocios",
+            "slug": "ingenieria-de-negocios"
           }
         ]
       ]
@@ -330,7 +348,8 @@
     },
     "featured_media": 900000026,
     "categories": [
-      57
+      156,
+      58
     ],
     "tags": [],
     "author": 1778,
@@ -362,9 +381,14 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 156,
+            "name": "Nacionalidad española por origen sefardí",
+            "slug": "nacionalidad-espanola-por-origen-sefardi"
+          },
+          {
+            "id": 58,
+            "name": "Emigrar a Portugal",
+            "slug": "emigrar-a-portugal"
           }
         ]
       ]
@@ -383,7 +407,8 @@
     },
     "featured_media": 900000025,
     "categories": [
-      57
+      59,
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -415,9 +440,14 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 59,
+            "name": "Vivir en Europa",
+            "slug": "vivir-en-europa"
+          },
+          {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -436,7 +466,7 @@
     },
     "featured_media": 900000010,
     "categories": [
-      57
+      156
     ],
     "tags": [],
     "author": 0,
@@ -468,9 +498,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 156,
+            "name": "Nacionalidad española por origen sefardí",
+            "slug": "nacionalidad-espanola-por-origen-sefardi"
           }
         ]
       ]
@@ -489,7 +519,7 @@
     },
     "featured_media": 13121,
     "categories": [
-      57
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -665,9 +695,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -686,8 +716,8 @@
     },
     "featured_media": 13116,
     "categories": [
-      57,
-      59
+      59,
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -863,14 +893,14 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
+          },
+          {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -1290,7 +1320,8 @@
     },
     "featured_media": 13097,
     "categories": [
-      56
+      56,
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -1471,6 +1502,11 @@
             "id": 56,
             "name": "Ciudadanía europea",
             "slug": "ciudadania-europea"
+          },
+          {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
           }
         ]
       ]
@@ -1489,8 +1525,7 @@
     },
     "featured_media": 13093,
     "categories": [
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -1670,11 +1705,6 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -1891,7 +1921,7 @@
     },
     "featured_media": 13080,
     "categories": [
-      59
+      56
     ],
     "tags": [],
     "author": 1778,
@@ -2068,9 +2098,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
           }
         ]
       ]
@@ -2089,8 +2119,7 @@
     },
     "featured_media": 13076,
     "categories": [
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -2270,11 +2299,6 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -2689,7 +2713,6 @@
     },
     "featured_media": 13063,
     "categories": [
-      57,
       59
     ],
     "tags": [],
@@ -2866,11 +2889,6 @@
       ],
       "wp:term": [
         [
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
           {
             "id": 59,
             "name": "Vivir en Europa",
@@ -3090,8 +3108,8 @@
     },
     "featured_media": 13055,
     "categories": [
-      58,
-      156
+      156,
+      58
     ],
     "tags": [],
     "author": 1778,
@@ -3267,14 +3285,14 @@
       "wp:term": [
         [
           {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
-          },
-          {
             "id": 156,
             "name": "Nacionalidad española por origen sefardí",
             "slug": "nacionalidad-espanola-por-origen-sefardi"
+          },
+          {
+            "id": 58,
+            "name": "Emigrar a Portugal",
+            "slug": "emigrar-a-portugal"
           }
         ]
       ]
@@ -3293,7 +3311,7 @@
     },
     "featured_media": 13049,
     "categories": [
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -3469,9 +3487,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -3490,8 +3508,8 @@
     },
     "featured_media": 13045,
     "categories": [
-      57,
-      58
+      58,
+      56
     ],
     "tags": [],
     "author": 1778,
@@ -3667,14 +3685,14 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 58,
             "name": "Emigrar a Portugal",
             "slug": "emigrar-a-portugal"
+          },
+          {
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
           }
         ]
       ]
@@ -3693,7 +3711,8 @@
     },
     "featured_media": 13041,
     "categories": [
-      57
+      57,
+      59
     ],
     "tags": [],
     "author": 1778,
@@ -3872,6 +3891,11 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
+          },
+          {
+            "id": 59,
+            "name": "Vivir en Europa",
+            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -3890,7 +3914,8 @@
     },
     "featured_media": 13033,
     "categories": [
-      57
+      57,
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -4069,6 +4094,11 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
+          },
+          {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -4284,7 +4314,7 @@
     },
     "featured_media": 13025,
     "categories": [
-      57
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -4460,9 +4490,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -4481,7 +4511,8 @@
     },
     "featured_media": 13018,
     "categories": [
-      58
+      58,
+      56
     ],
     "tags": [],
     "author": 1778,
@@ -4660,6 +4691,11 @@
             "id": 58,
             "name": "Emigrar a Portugal",
             "slug": "emigrar-a-portugal"
+          },
+          {
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
           }
         ]
       ]
@@ -4875,7 +4911,7 @@
     },
     "featured_media": 13006,
     "categories": [
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -5052,9 +5088,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -5073,7 +5109,7 @@
     },
     "featured_media": 12989,
     "categories": [
-      59
+      56
     ],
     "tags": [],
     "author": 1778,
@@ -5250,9 +5286,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
           }
         ]
       ]
@@ -5271,9 +5307,7 @@
     },
     "featured_media": 12985,
     "categories": [
-      56,
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -5452,19 +5486,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -5483,8 +5507,7 @@
     },
     "featured_media": 12979,
     "categories": [
-      56,
-      57
+      158
     ],
     "tags": [],
     "author": 1778,
@@ -5662,14 +5685,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           }
         ]
       ]
@@ -5688,7 +5706,7 @@
     },
     "featured_media": 12975,
     "categories": [
-      59
+      157
     ],
     "tags": [],
     "author": 1775,
@@ -5868,9 +5886,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 157,
+            "name": "Ingeniería de Negocios",
+            "slug": "ingenieria-de-negocios"
           }
         ]
       ]
@@ -5889,7 +5907,7 @@
     },
     "featured_media": 12946,
     "categories": [
-      59
+      157
     ],
     "tags": [],
     "author": 1775,
@@ -6069,9 +6087,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 157,
+            "name": "Ingeniería de Negocios",
+            "slug": "ingenieria-de-negocios"
           }
         ]
       ]
@@ -6090,10 +6108,7 @@
     },
     "featured_media": 12941,
     "categories": [
-      56,
-      57,
-      156,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -6273,24 +6288,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 156,
-            "name": "Nacionalidad española por origen sefardí",
-            "slug": "nacionalidad-espanola-por-origen-sefardi"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -6309,9 +6309,7 @@
     },
     "featured_media": 12876,
     "categories": [
-      56,
-      57,
-      58
+      59
     ],
     "tags": [],
     "author": 1778,
@@ -6490,19 +6488,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
+            "id": 59,
+            "name": "Vivir en Europa",
+            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -6521,7 +6509,6 @@
     },
     "featured_media": 12871,
     "categories": [
-      56,
       59
     ],
     "tags": [],
@@ -6700,11 +6687,6 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
@@ -6726,6 +6708,7 @@
     },
     "featured_media": 12862,
     "categories": [
+      159,
       58
     ],
     "tags": [],
@@ -6903,6 +6886,11 @@
       "wp:term": [
         [
           {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
+          },
+          {
             "id": 58,
             "name": "Emigrar a Portugal",
             "slug": "emigrar-a-portugal"
@@ -6924,9 +6912,7 @@
     },
     "featured_media": 12808,
     "categories": [
-      56,
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -7105,19 +7091,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -7136,9 +7112,8 @@
     },
     "featured_media": 12737,
     "categories": [
-      56,
       57,
-      156
+      56
     ],
     "tags": [],
     "author": 1778,
@@ -7316,19 +7291,14 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
           },
           {
-            "id": 156,
-            "name": "Nacionalidad española por origen sefardí",
-            "slug": "nacionalidad-espanola-por-origen-sefardi"
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
           }
         ]
       ]
@@ -7347,10 +7317,8 @@
     },
     "featured_media": 12721,
     "categories": [
-      56,
-      57,
       156,
-      59
+      56
     ],
     "tags": [],
     "author": 1780,
@@ -7528,24 +7496,14 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 156,
             "name": "Nacionalidad española por origen sefardí",
             "slug": "nacionalidad-espanola-por-origen-sefardi"
           },
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
           }
         ]
       ]
@@ -7564,9 +7522,7 @@
     },
     "featured_media": 12710,
     "categories": [
-      56,
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -7744,19 +7700,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -7775,8 +7721,7 @@
     },
     "featured_media": 12656,
     "categories": [
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -7955,11 +7900,6 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -7978,7 +7918,6 @@
     },
     "featured_media": 12641,
     "categories": [
-      57,
       59
     ],
     "tags": [],
@@ -8154,11 +8093,6 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
@@ -8180,8 +8114,6 @@
     },
     "featured_media": 12631,
     "categories": [
-      56,
-      57,
       59
     ],
     "tags": [],
@@ -8357,16 +8289,6 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
@@ -8388,8 +8310,6 @@
     },
     "featured_media": 12625,
     "categories": [
-      56,
-      57,
       59
     ],
     "tags": [],
@@ -8565,16 +8485,6 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
@@ -8596,7 +8506,7 @@
     },
     "featured_media": 12617,
     "categories": [
-      59
+      157
     ],
     "tags": [],
     "author": 1778,
@@ -8771,9 +8681,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 157,
+            "name": "Ingeniería de Negocios",
+            "slug": "ingenieria-de-negocios"
           }
         ]
       ]
@@ -8792,7 +8702,7 @@
     },
     "featured_media": 0,
     "categories": [
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -8933,9 +8843,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -8954,7 +8864,7 @@
     },
     "featured_media": 12579,
     "categories": [
-      57
+      158
     ],
     "tags": [],
     "author": 1778,
@@ -9130,9 +9040,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           }
         ]
       ]
@@ -9151,7 +9061,7 @@
     },
     "featured_media": 12552,
     "categories": [
-      57
+      158
     ],
     "tags": [],
     "author": 1778,
@@ -9326,9 +9236,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           }
         ]
       ]
@@ -9347,7 +9257,8 @@
     },
     "featured_media": 12404,
     "categories": [
-      57
+      57,
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -9525,6 +9436,11 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
+          },
+          {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -9543,7 +9459,7 @@
     },
     "featured_media": 12344,
     "categories": [
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -9719,9 +9635,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -9740,9 +9656,7 @@
     },
     "featured_media": 12111,
     "categories": [
-      56,
-      57,
-      156
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -9920,19 +9834,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 156,
-            "name": "Nacionalidad española por origen sefardí",
-            "slug": "nacionalidad-espanola-por-origen-sefardi"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -9951,10 +9855,7 @@
     },
     "featured_media": 12080,
     "categories": [
-      56,
-      57,
-      58,
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -10133,24 +10034,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -10169,10 +10055,7 @@
     },
     "featured_media": 12076,
     "categories": [
-      56,
-      57,
-      58,
-      1
+      59
     ],
     "tags": [],
     "author": 1778,
@@ -10351,24 +10234,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
-          },
-          {
-            "id": 1,
-            "name": "Uncategorized",
-            "slug": "1"
+            "id": 59,
+            "name": "Vivir en Europa",
+            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -10387,7 +10255,7 @@
     },
     "featured_media": 11851,
     "categories": [
-      59
+      157
     ],
     "tags": [],
     "author": 1778,
@@ -10563,9 +10431,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 157,
+            "name": "Ingeniería de Negocios",
+            "slug": "ingenieria-de-negocios"
           }
         ]
       ]
@@ -10584,8 +10452,7 @@
     },
     "featured_media": 11635,
     "categories": [
-      57,
-      59
+      158
     ],
     "tags": [],
     "author": 1778,
@@ -10762,14 +10629,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           }
         ]
       ]
@@ -10788,9 +10650,7 @@
     },
     "featured_media": 11597,
     "categories": [
-      56,
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -10968,19 +10828,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -10999,9 +10849,8 @@
     },
     "featured_media": 11576,
     "categories": [
-      58,
       156,
-      59
+      58
     ],
     "tags": [],
     "author": 1778,
@@ -11179,19 +11028,14 @@
       "wp:term": [
         [
           {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
-          },
-          {
             "id": 156,
             "name": "Nacionalidad española por origen sefardí",
             "slug": "nacionalidad-espanola-por-origen-sefardi"
           },
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 58,
+            "name": "Emigrar a Portugal",
+            "slug": "emigrar-a-portugal"
           }
         ]
       ]
@@ -11210,8 +11054,7 @@
     },
     "featured_media": 11550,
     "categories": [
-      56,
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -11388,14 +11231,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -11415,9 +11253,7 @@
     "featured_media": 11539,
     "categories": [
       56,
-      57,
-      156,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -11604,16 +11440,6 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 156,
-            "name": "Nacionalidad española por origen sefardí",
-            "slug": "nacionalidad-espanola-por-origen-sefardi"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -11632,11 +11458,8 @@
     },
     "featured_media": 11530,
     "categories": [
-      56,
-      57,
-      58,
       156,
-      59
+      58
     ],
     "tags": [],
     "author": 1778,
@@ -11816,29 +11639,14 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
-          },
-          {
             "id": 156,
             "name": "Nacionalidad española por origen sefardí",
             "slug": "nacionalidad-espanola-por-origen-sefardi"
           },
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 58,
+            "name": "Emigrar a Portugal",
+            "slug": "emigrar-a-portugal"
           }
         ]
       ]
@@ -11857,10 +11665,7 @@
     },
     "featured_media": 11504,
     "categories": [
-      56,
-      57,
-      156,
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -12039,24 +11844,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 156,
-            "name": "Nacionalidad española por origen sefardí",
-            "slug": "nacionalidad-espanola-por-origen-sefardi"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -12076,7 +11866,7 @@
     "featured_media": 11484,
     "categories": [
       56,
-      58
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -12258,9 +12048,9 @@
             "slug": "ciudadania-europea"
           },
           {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
           }
         ]
       ]
@@ -12279,8 +12069,8 @@
     },
     "featured_media": 11468,
     "categories": [
-      58,
-      59
+      57,
+      58
     ],
     "tags": [],
     "author": 1778,
@@ -12457,14 +12247,14 @@
       "wp:term": [
         [
           {
+            "id": 57,
+            "name": "Emigrar a España",
+            "slug": "emigrar-a-espana"
+          },
+          {
             "id": 58,
             "name": "Emigrar a Portugal",
             "slug": "emigrar-a-portugal"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -12483,10 +12273,8 @@
     },
     "featured_media": 11451,
     "categories": [
-      56,
-      57,
-      58,
-      59
+      59,
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -12665,24 +12453,14 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
+            "id": 59,
+            "name": "Vivir en Europa",
+            "slug": "vivir-en-europa"
           },
           {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 58,
-            "name": "Emigrar a Portugal",
-            "slug": "emigrar-a-portugal"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -12701,9 +12479,8 @@
     },
     "featured_media": 11434,
     "categories": [
-      56,
       58,
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -12881,19 +12658,14 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 58,
             "name": "Emigrar a Portugal",
             "slug": "emigrar-a-portugal"
           },
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -12912,10 +12684,8 @@
     },
     "featured_media": 11422,
     "categories": [
-      56,
-      57,
-      156,
-      59
+      158,
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -13094,24 +12864,14 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           },
           {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 156,
-            "name": "Nacionalidad española por origen sefardí",
-            "slug": "nacionalidad-espanola-por-origen-sefardi"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -13130,9 +12890,7 @@
     },
     "featured_media": 11344,
     "categories": [
-      56,
-      57,
-      59
+      158
     ],
     "tags": [],
     "author": 1778,
@@ -13300,19 +13058,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           }
         ]
       ]
@@ -13331,8 +13079,7 @@
     },
     "featured_media": 11308,
     "categories": [
-      56,
-      59
+      56
     ],
     "tags": [],
     "author": 1778,
@@ -13502,11 +13249,6 @@
             "id": 56,
             "name": "Ciudadanía europea",
             "slug": "ciudadania-europea"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -13525,7 +13267,6 @@
     },
     "featured_media": 11288,
     "categories": [
-      57,
       59
     ],
     "tags": [],
@@ -13702,11 +13443,6 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
@@ -13728,9 +13464,7 @@
     },
     "featured_media": 11282,
     "categories": [
-      56,
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -13908,19 +13642,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -13939,7 +13663,6 @@
     },
     "featured_media": 11276,
     "categories": [
-      56,
       59
     ],
     "tags": [],
@@ -14117,11 +13840,6 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
@@ -14143,7 +13861,7 @@
     },
     "featured_media": 11248,
     "categories": [
-      59
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -14319,9 +14037,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -14341,8 +14059,7 @@
     "featured_media": 11243,
     "categories": [
       56,
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1780,
@@ -14527,11 +14244,6 @@
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -14550,10 +14262,7 @@
     },
     "featured_media": 11235,
     "categories": [
-      56,
-      57,
-      156,
-      59
+      156
     ],
     "tags": [],
     "author": 1780,
@@ -14731,24 +14440,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
-          },
-          {
             "id": 156,
             "name": "Nacionalidad española por origen sefardí",
             "slug": "nacionalidad-espanola-por-origen-sefardi"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -14767,7 +14461,7 @@
     },
     "featured_media": 11220,
     "categories": [
-      59
+      56
     ],
     "tags": [],
     "author": 1778,
@@ -14943,9 +14637,9 @@
       "wp:term": [
         [
           {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
+            "id": 56,
+            "name": "Ciudadanía europea",
+            "slug": "ciudadania-europea"
           }
         ]
       ]
@@ -14964,7 +14658,8 @@
     },
     "featured_media": 11215,
     "categories": [
-      58
+      58,
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -15143,6 +14838,11 @@
             "id": 58,
             "name": "Emigrar a Portugal",
             "slug": "emigrar-a-portugal"
+          },
+          {
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -15161,7 +14861,6 @@
     },
     "featured_media": 11209,
     "categories": [
-      56,
       59
     ],
     "tags": [],
@@ -15339,11 +15038,6 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 59,
             "name": "Vivir en Europa",
             "slug": "vivir-en-europa"
@@ -15365,9 +15059,7 @@
     },
     "featured_media": 11204,
     "categories": [
-      56,
-      57,
-      59
+      57
     ],
     "tags": [],
     "author": 1778,
@@ -15545,19 +15237,9 @@
       "wp:term": [
         [
           {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
-          {
             "id": 57,
             "name": "Emigrar a España",
             "slug": "emigrar-a-espana"
-          },
-          {
-            "id": 59,
-            "name": "Vivir en Europa",
-            "slug": "vivir-en-europa"
           }
         ]
       ]
@@ -15576,7 +15258,6 @@
     },
     "featured_media": 11199,
     "categories": [
-      56,
       59
     ],
     "tags": [],
@@ -15753,11 +15434,6 @@
       ],
       "wp:term": [
         [
-          {
-            "id": 56,
-            "name": "Ciudadanía europea",
-            "slug": "ciudadania-europea"
-          },
           {
             "id": 59,
             "name": "Vivir en Europa",
@@ -16371,7 +16047,7 @@
     },
     "featured_media": 11093,
     "categories": [
-      57
+      159
     ],
     "tags": [],
     "author": 1778,
@@ -16547,9 +16223,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 159,
+            "name": "Actualidad internacional",
+            "slug": "actualidad-internacional"
           }
         ]
       ]
@@ -16568,7 +16244,7 @@
     },
     "featured_media": 11087,
     "categories": [
-      57
+      158
     ],
     "tags": [],
     "author": 1778,
@@ -16744,9 +16420,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           }
         ]
       ]
@@ -17159,7 +16835,7 @@
     },
     "featured_media": 10956,
     "categories": [
-      57
+      158
     ],
     "tags": [
       95
@@ -17339,9 +17015,9 @@
       "wp:term": [
         [
           {
-            "id": 57,
-            "name": "Emigrar a España",
-            "slug": "emigrar-a-espana"
+            "id": 158,
+            "name": "Inversiones",
+            "slug": "inversiones"
           }
         ]
       ]

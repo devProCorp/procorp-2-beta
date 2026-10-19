@@ -14,9 +14,8 @@
   },
   "featured_media": 11576,
   "categories": [
-    58,
     156,
-    59
+    58
   ],
   "tags": [],
   "author": 1778,
@@ -194,19 +193,14 @@
     "wp:term": [
       [
         {
-          "id": 58,
-          "name": "Emigrar a Portugal",
-          "slug": "emigrar-a-portugal"
-        },
-        {
           "id": 156,
           "name": "Nacionalidad española por origen sefardí",
           "slug": "nacionalidad-espanola-por-origen-sefardi"
         },
         {
-          "id": 59,
-          "name": "Vivir en Europa",
-          "slug": "vivir-en-europa"
+          "id": 58,
+          "name": "Emigrar a Portugal",
+          "slug": "emigrar-a-portugal"
         }
       ]
     ]
