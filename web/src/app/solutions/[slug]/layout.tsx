@@ -32,7 +32,7 @@ export async function generateMetadata({
         openGraph: {
             type: 'website',
             siteName: 'PRO CORP',
-            url: `/projects/${slug}/`,
+            url: `/solutions/${slug}/`,
             title,
             description: card.subtitle,
             images: [{ url: image, ...OG_IMAGE_SIZE, alt: title }],

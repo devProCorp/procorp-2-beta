@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Generate the 301 map from the old WordPress blog to the new /journal.
+# Generate the 301 map from the old WordPress blog to the new /blog.
 #
 # WordPress used /%postname%/ permalinks, so every article lived at the root of
 # the domain — the same space the new site occupies. Each published post needs an
@@ -32,7 +32,7 @@ while (\$row = \$r->fetch_row()) echo \$row[0] . \"\n\";
 count=$(printf '%s\n' "$slugs" | grep -c . || true)
 
 cat <<EOF
-# Redirects 301 de los artículos del blog de WordPress al journal del sitio nuevo.
+# Redirects 301 de los artículos del blog de WordPress al blog del sitio nuevo.
 # Generado desde wp_posts (post_type=post, post_status=publish) el $(date +%Y-%m-%d).
 # Los permalinks eran /%postname%/, es decir los artículos vivían en la raíz del dominio.
 # Regenerar con scripts/gen-redirects.sh — no editar a mano.
@@ -42,5 +42,5 @@ cat <<EOF
 EOF
 
 printf '%s\n' "$slugs" | grep . | while read -r s; do
-  echo "RewriteRule ^$s/?\$ /journal/$s/ [R=301,L]"
+  echo "RewriteRule ^$s/?\$ /blog/$s/ [R=301,L]"
 done

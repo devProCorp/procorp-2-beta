@@ -86,7 +86,7 @@ export default function LiveArticlePage() {
         ) : (
           <>
             <p className="mb-6">Artículo no encontrado.</p>
-            <Link href="/journal" className="text-primary hover:underline">
+            <Link href="/blog" className="text-primary hover:underline">
               Volver al Journal
             </Link>
           </>

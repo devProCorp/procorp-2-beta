@@ -76,7 +76,7 @@ case "$titulo" in
   *)            fail "la portada no parece el sitio nuevo: ${titulo:-sin título}" ;;
 esac
 
-for ruta in /about/ /journal/ /projects/ /studio/ /contact/; do
+for ruta in /about/ /blog/ /projects/ /legal-solutions/ /sustainable-growth/ /contact/; do
   c=$(code "$ruta")
   [[ "$c" == "200" ]] && ok "$ruta responde 200" || fail "$ruta responde $c"
 done

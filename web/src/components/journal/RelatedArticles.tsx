@@ -24,7 +24,7 @@ export default function RelatedArticles({ posts }: { posts: WPPost[] }) {
           </h2>
         </div>
         <Link
-          href="/journal/"
+          href="/blog/"
           className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui"
         >
           Ver todos los artículos

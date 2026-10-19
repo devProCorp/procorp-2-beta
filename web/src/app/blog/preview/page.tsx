@@ -216,7 +216,7 @@ function PreviewContent() {
           </p>
           <p className="text-sm text-white/50">
             {state.status === "published"
-              ? "/journal lee en vivo, así que ya se ve sin esperar nada. También se disparó un redeploy de producción para que el post entre al sitemap."
+              ? "/blog lee en vivo, así que ya se ve sin esperar nada. También se disparó un redeploy de producción para que el post entre al sitemap."
               : "web/ es un export estático, pero /journal lee en vivo — el cambio ya está en la base, no hace falta redeploy."}
           </p>
         </div>

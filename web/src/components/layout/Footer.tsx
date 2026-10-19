@@ -74,15 +74,15 @@ const Footer = () => {
                         <h4 className="text-white font-bold mb-3 text-sm uppercase tracking-wider">{t('footer.company')}</h4>
                         <ul className="flex flex-col gap-2.5 text-sm font-medium">
                             <li><Link href="/about" className="hover:text-primary transition-colors">{t('footer.about')}</Link></li>
-                            <li><Link href="/journal" className="hover:text-primary transition-colors">{t('footer.blog')}</Link></li>
+                            <li><Link href="/blog" className="hover:text-primary transition-colors">{t('footer.blog')}</Link></li>
                             <li><Link href="/contact" className="hover:text-primary transition-colors">{t('footer.contact')}</Link></li>
                         </ul>
                     </div>
                     <div className="md:col-span-2">
                         <h4 className="text-white font-bold mb-3 text-sm uppercase tracking-wider">{t('footer.services')}</h4>
                         <ul className="flex flex-col gap-2.5 text-sm font-medium">
-                            <li><Link href="/projects" className="hover:text-primary transition-colors">{t('footer.legal.solutions')}</Link></li>
-                            <li><Link href="/studio" className="hover:text-primary transition-colors">{t('footer.legal.growth')}</Link></li>
+                            <li><Link href="/legal-solutions" className="hover:text-primary transition-colors">{t('footer.legal.solutions')}</Link></li>
+                            <li><Link href="/sustainable-growth" className="hover:text-primary transition-colors">{t('footer.legal.growth')}</Link></li>
                         </ul>
                     </div>
                     {/* Offices */}

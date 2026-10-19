@@ -41,7 +41,7 @@ export default function ArticleView({
       <article className="max-w-4xl mx-auto">
         {/* Back link */}
         <Link
-          href="/journal"
+          href="/blog"
           className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui mb-12"
         >
           <span className="material-symbols-outlined text-base">
@@ -130,7 +130,7 @@ export default function ArticleView({
       <div className="max-w-4xl mx-auto">
         <div className="border-t border-white/10 mt-20 pt-10">
           <Link
-            href="/journal"
+            href="/blog"
             className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui"
           >
             <span className="material-symbols-outlined text-base">

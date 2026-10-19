@@ -38,7 +38,7 @@ const Manifesto = () => {
                                 <p className="text-lg text-gray-400 font-light leading-relaxed relative z-10">{t('manifesto.p1')}</p>
                                 <p className="text-lg text-gray-400 font-light leading-relaxed relative z-10">{t('manifesto.p2')}</p>
                                 <div className="pt-8 relative z-10">
-                                    <Link href="/studio" className="inline-flex items-center justify-center gap-3 h-14 px-8 rounded-xl bg-primary hover:bg-primary-light text-white font-bold transition-all glow-primary glow-primary-hover uppercase tracking-widest text-sm group/btn border border-primary-light/50 w-full sm:w-auto">
+                                    <Link href="/sustainable-growth" className="inline-flex items-center justify-center gap-3 h-14 px-8 rounded-xl bg-primary hover:bg-primary-light text-white font-bold transition-all glow-primary glow-primary-hover uppercase tracking-widest text-sm group/btn border border-primary-light/50 w-full sm:w-auto">
                                         <span>{t('manifesto.cta')}</span>
                                         <span className="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                                     </Link>

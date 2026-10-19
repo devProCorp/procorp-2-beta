@@ -83,8 +83,8 @@ const PUBLISH_SECRET = Deno.env.get("PUBLISH_SECRET")!;
 const PREVIEW_SECRET = Deno.env.get("PREVIEW_SECRET");
 
 const BUCKET = "blog-assets";
-const JOURNAL_BASE_URL = "https://pro-corp.net/journal";
-const PREVIEW_BASE_URL = "https://www.pro-corp.net/journal/preview";
+const JOURNAL_BASE_URL = "https://www.pro-corp.net/blog";
+const PREVIEW_BASE_URL = "https://www.pro-corp.net/blog/preview";
 
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
   db: { schema: "blog" },
