@@ -27,6 +27,9 @@ export default function Sectors() {
               <p className="text-gray-300 text-lg font-light leading-relaxed border-l-4 border-primary pl-6">
                 {t('studio.inv.desc')}
               </p>
+              <p className="mt-4 text-gray-300 text-lg font-light leading-relaxed border-l-4 border-primary pl-6">
+                {t('studio.inv.offer')}
+              </p>
               <p className="mt-4 border-l-4 border-primary-light/60 pl-6 text-base font-medium italic leading-relaxed text-white">
                 {t('studio.inv.bridge')}
               </p>
