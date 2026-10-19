@@ -36,7 +36,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'nav.sol.ps': { en: 'Project Structuring', es: 'Estructuración de Proyectos', pt: 'Estruturação de Projetos' },
     'nav.sol.imm': { en: 'Immigration Services', es: 'Servicios Migratorios', pt: 'Serviços Migratórios' },
     'nav.sol.ils': { en: 'Innovative Legal Solutions', es: 'Soluciones Legales Innovadoras', pt: 'Soluções Legais Inovadoras' },
-    'nav.journal': { en: 'Journal', es: 'Blog', pt: 'Blog' },
+    'nav.journal': { en: 'Blog', es: 'Blog', pt: 'Blog' },
 
     // ── ScrollHero ──
     'hero.label': { en: 'Technology-Based Orchestration', es: 'Orquestación Basada en Tecnología', pt: 'Orquestração Baseada em Tecnologia' },
@@ -330,7 +330,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'svc.05.feat3.desc': { en: 'End-to-end automation pipelines that connect systems, eliminate handoffs, and ensure execution consistency.', es: 'Pipelines de automatización end-to-end que conectan sistemas, eliminan transferencias manuales y aseguran consistencia en la ejecución.' },
 
     // ── Journal Page ──
-    'journal.title': { en: 'Journal', es: 'Blog' },
+    'journal.title': { en: 'Blog', es: 'Blog', pt: 'Blog' },
     'journal.desc': {
         en: 'Our blog offers much more than information: we explore the trends, news and opportunities that connect Business Engineering, business growth, investments and cross-border life. Discover how we optimize processes, drive businesses, structure investment opportunities and support migration and residence processes in Spain and Portugal.',
         es: 'En nuestro blog encontrarás mucho más que información: exploramos las tendencias, noticias y oportunidades que conectan la Ingeniería de Negocios, el crecimiento empresarial, las inversiones y la vida transfronteriza. Conoce cómo optimizamos procesos, impulsamos negocios, estructuramos oportunidades de inversión y acompañamos procesos de migración y residencia en España y Portugal.',
@@ -345,6 +345,19 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'journal.newsletter.desc': { en: 'Receive deep analysis on process engineering and legal trends.', es: 'Recibe análisis profundo sobre ingeniería de procesos y tendencias legales.', pt: 'Receba análises profundas sobre engenharia de processos e tendências jurídicas.' },
     'journal.newsletter.placeholder': { en: 'Your corporate email', es: 'Tu correo corporativo', pt: 'Seu e-mail corporativo' },
     'journal.newsletter.button': { en: 'Subscribe', es: 'Suscribirse', pt: 'Assinar' },
+    'journal.eyebrow': { en: 'Blog', es: 'Blog', pt: 'Blog' },
+    'journal.empty': { en: 'No articles found.', es: 'No se encontraron artículos.', pt: 'Nenhum artigo encontrado.' },
+    'journal.audio': { en: 'Available as audio', es: 'Disponible en audio', pt: 'Disponível em áudio' },
+    'journal.readTime': { en: '5 min read', es: '5 min lectura', pt: '5 min de leitura' },
+    'journal.readMore': { en: 'Read more', es: 'Leer más', pt: 'Ler mais' },
+    'journal.loadError': { en: 'The blog could not be loaded. Please try again in a moment.', es: 'No se pudo cargar el blog. Intenta de nuevo en un momento.', pt: 'Não foi possível carregar o blog. Tente novamente em instantes.' },
+    'journal.keepReading': { en: 'Keep reading', es: 'Sigue leyendo', pt: 'Continue lendo' },
+    'journal.viewAll': { en: 'View all articles', es: 'Ver todos los artículos', pt: 'Ver todos os artigos' },
+    'journal.back': { en: 'Back to the blog', es: 'Volver al blog', pt: 'Voltar ao blog' },
+    'journal.loading': { en: 'Loading…', es: 'Cargando…', pt: 'Carregando…' },
+    'journal.notFound': { en: 'Article not found.', es: 'Artículo no encontrado.', pt: 'Artigo não encontrado.' },
+    'journal.prev': { en: 'Prev', es: 'Anterior', pt: 'Anterior' },
+    'journal.next': { en: 'Next', es: 'Siguiente', pt: 'Próximo' },
     'journal.filter.by': { en: 'Filter by:', es: 'Filtrar por:', pt: 'Filtrar por:' },
     'journal.filter.all': { en: 'All', es: 'Todos', pt: 'Todos' },
 
@@ -583,7 +596,9 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.sim.errorrate': { en: 'Error Rate', es: 'Tasa de Error', pt: 'Taxa de Erro' },
     'studio.sim.projection': { en: '12-Month Scenario Projection', es: 'Proyección del Escenario a 12 Meses', pt: 'Projeção do Cenário em 12 Meses' },
     'studio.sim.band': { en: 'P10–P90 range', es: 'Rango P10–P90', pt: 'Faixa P10–P90' },
-    'studio.inv.projects.title': { en: 'Some projects...', es: 'Algunos proyectos...', pt: 'Alguns projetos...' },
+    'studio.inv.projects.title': { en: 'Our projects', es: 'Nuestros proyectos', pt: 'Nossos projetos' },
+    'studio.inv.projects.more': { en: 'View project', es: 'Ver proyecto', pt: 'Ver projeto' },
+    'studio.inv.projects.error': { en: 'Projects could not be loaded. Please try again in a moment.', es: 'No se pudieron cargar los proyectos. Intenta de nuevo en un momento.', pt: 'Não foi possível carregar os projetos. Tente novamente em instantes.' },
     'studio.sim.total': { en: 'Total Operational Efficiency', es: 'Eficiencia Operativa Total', pt: 'Eficiência Operacional Total' },
     'studio.sim.cycle': { en: 'Cycle Time', es: 'Tiempo de Ciclo', pt: 'Tempo de Ciclo' },
     'studio.sim.opex': { en: 'Monthly OPEX Savings', es: 'Ahorro OPEX Mensual', pt: 'Economia Mensal de OPEX' },

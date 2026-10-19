@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ArticleView from "@/components/journal/ArticleView";
+import { T } from "@/components/journal/Txt";
 import { fetchLivePostById, fetchLivePosts } from "@/lib/journal-live";
 import { pickRelatedPosts, stripHtml } from "@/lib/wordpress-presentation";
 import type { WPPost } from "@/lib/wordpress-presentation";
@@ -82,12 +83,12 @@ export default function LiveArticlePage() {
     <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">
       <div className="max-w-4xl mx-auto text-center text-white/60 font-ui">
         {state.status === "loading" ? (
-          <p>Cargando…</p>
+          <p><T k="journal.loading" /></p>
         ) : (
           <>
-            <p className="mb-6">Artículo no encontrado.</p>
+            <p className="mb-6"><T k="journal.notFound" /></p>
             <Link href="/blog" className="text-primary hover:underline">
-              Volver al Journal
+              <T k="journal.back" />
             </Link>
           </>
         )}

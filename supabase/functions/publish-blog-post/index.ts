@@ -43,6 +43,9 @@ const CATEGORIES: { id: number; name: string; slug: string }[] = [
     name: "Nacionalidad española por origen sefardí",
     slug: "nacionalidad-espanola-por-origen-sefardi",
   },
+  { id: 157, name: "Ingeniería de Negocios", slug: "ingenieria-de-negocios" },
+  { id: 158, name: "Inversiones", slug: "inversiones" },
+  { id: 159, name: "Actualidad internacional", slug: "actualidad-internacional" },
 ];
 const FALLBACK_CATEGORY_ID = 59; // "Vivir en Europa" — same fallback the original WP migration used.
 const CATEGORY_DIACRITICS_RE = /[̀-ͯ]/g;

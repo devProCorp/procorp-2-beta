@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface PaginationProps {
   currentPage: number;
@@ -13,6 +14,7 @@ export default function Pagination({
 }: PaginationProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { t } = useLanguage();
 
   if (totalPages <= 1) return null;
 
@@ -34,7 +36,7 @@ export default function Pagination({
         disabled={currentPage <= 1}
         className="px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white/60 border border-white/20 rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary transition-colors"
       >
-        Prev
+        {t("journal.prev")}
       </button>
 
       <span className="text-sm text-white/50 tracking-widest">
@@ -46,7 +48,7 @@ export default function Pagination({
         disabled={currentPage >= totalPages}
         className="px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white/60 border border-white/20 rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary transition-colors"
       >
-        Next
+        {t("journal.next")}
       </button>
     </div>
   );

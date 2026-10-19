@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { useLanguage } from "@/context/LanguageContext";
 import CategoryFilter from "./CategoryFilter";
 import ArticleList from "./ArticleList";
 import Pagination from "./Pagination";
@@ -28,6 +29,7 @@ const PER_PAGE = 9;
  */
 export default function JournalBrowser() {
   const searchParams = useSearchParams();
+  const { t } = useLanguage();
   const catSlug = searchParams.get("cat") ?? "";
   const currentPage = Math.max(1, Number(searchParams.get("page")) || 1);
 
@@ -109,7 +111,7 @@ export default function JournalBrowser() {
   if (error) {
     return (
       <p className="text-secondary text-lg py-20 text-center">
-        No se pudo cargar el Journal. Intenta de nuevo en un momento.
+        {t("journal.loadError")}
       </p>
     );
   }
