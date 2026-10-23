@@ -29,7 +29,7 @@ export default function RollingToggle() {
       </span>
       <span className={`relative h-4 w-8 shrink-0 rounded-full transition-colors ${on ? 'bg-primary' : 'bg-white/20'}`}>
         <span
-          className={`absolute top-0.5 h-3 w-3 rounded-full bg-white shadow transition-transform ${on ? 'translate-x-[18px]' : 'translate-x-0.5'}`}
+          className={`absolute left-0 top-0.5 h-3 w-3 rounded-full bg-white shadow transition-transform ${on ? 'translate-x-[18px]' : 'translate-x-0.5'}`}
         ></span>
       </span>
     </button>
