@@ -29,6 +29,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'nav.about': { en: 'About Us', es: 'Sobre Nosotros', pt: 'Sobre Nós' },
     'nav.contact': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
     'nav.login': { en: 'Login', es: 'Login', pt: 'Login' },
+    'nav.intranet': { en: 'Intranet', es: 'Intranet', pt: 'Intranet' },
     'nav.services': { en: 'Services', es: 'Servicios', pt: 'Serviços' },
     'nav.solutions': { en: 'Solutions', es: 'Soluciones', pt: 'Soluções' },
     'nav.projects': { en: 'Projects', es: 'Proyectos', pt: 'Projetos' },

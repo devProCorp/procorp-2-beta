@@ -543,6 +543,12 @@ html.snap-home footer {
   scroll-snap-align: end;
 }
 
+/* La barra superior de accesos (Intranet) también es un punto de enganche:
+   sin esto el snap mandatory salta a la primera sección y la deja oculta */
+html.snap-home .site-topbar {
+  scroll-snap-align: start;
+}
+
 /* Barra de scroll horizontal del filtro de categorías del blog:
    delgada y en rojo de marca (la clase existía en el markup sin definir) */
 .hide-scrollbar {

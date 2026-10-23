@@ -138,6 +138,21 @@ const Navbar = () => {
     };
 
     return (
+        <>
+        {/* Barra superior de accesos (como la de los portales universitarios):
+            no es sticky, se va al hacer scroll y el navbar conserva sus 5rem */}
+        <div className="site-topbar w-full bg-primary">
+            <div className="flex h-8 items-center px-4 md:px-10 max-w-[1440px] mx-auto w-full text-xs font-medium tracking-wide text-white">
+                <a
+                    href="https://intranet.pro-corp.net"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline underline-offset-4"
+                >
+                    {t('nav.intranet')}
+                </a>
+            </div>
+        </div>
         <nav className="sticky top-0 z-50 w-full border-b border-surface-border/50 bg-background-dark/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background-dark/60">
             <div className="flex h-20 items-center justify-between px-4 md:px-10 max-w-[1440px] mx-auto w-full">
                 {/* Logo */}
@@ -325,6 +340,7 @@ const Navbar = () => {
                 )}
             </AnimatePresence>
         </nav>
+        </>
     );
 };
 
