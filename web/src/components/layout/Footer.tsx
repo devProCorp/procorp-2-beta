@@ -153,8 +153,10 @@ const Footer = () => {
 
                 <div className="border-t border-surface-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
                     <p>&copy; {new Date().getFullYear()} Pro Corp. {t('footer.rights')}</p>
-                    <div className="flex items-center gap-4">
-                        <Link href="/privacy" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.privacy')}</Link>
+                    <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                        <Link href="/politica-de-privacidad" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.privacy')}</Link>
+                        <span className="text-surface-border">·</span>
+                        <Link href="/tratamiento-de-datos-personales" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.dataProcessing')}</Link>
                         <span className="text-surface-border">·</span>
                         <Link href="/privacy" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.terms')}</Link>
                         <span className="text-surface-border">·</span>

@@ -419,6 +419,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'footer.legal.growth': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
     'footer.legal.consulting': { en: 'Consulting', es: 'Consultoría', pt: 'Consultoria' },
     'footer.legal.privacy': { en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' },
+    'footer.legal.dataProcessing': { en: 'Personal Data Processing', es: 'Tratamiento de Datos Personales', pt: 'Tratamento de Dados Pessoais' },
     'footer.legal.terms': { en: 'Terms of Use', es: 'Términos de Uso', pt: 'Termos de Uso' },
     'footer.legal.cookies': { en: 'Cookies', es: 'Cookies', pt: 'Cookies' },
     'footer.desc': { en: 'Business Engineering for sustainable business growth.', es: 'Ingeniería de Negocios para el crecimiento empresarial sostenible.', pt: 'Engenharia de Negócios para o crescimento empresarial sustentável.' },

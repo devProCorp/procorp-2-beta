@@ -8,10 +8,13 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function PaginaLegal({
   titulo,
   actualizado,
+  ancho = false,
   children,
 }: {
   titulo: string;
   actualizado?: string;
+  /** Usa todo el ancho de la columna (visor de PDF) en vez de la medida de lectura. */
+  ancho?: boolean;
   children: ReactNode;
 }) {
   const { t, lang } = useLanguage();
@@ -36,7 +39,7 @@ export default function PaginaLegal({
           )}
         </div>
 
-        <div lang="es" className="text-secondary text-base leading-relaxed space-y-5 max-w-[72ch]">
+        <div lang="es" className={`text-secondary text-base leading-relaxed space-y-5 ${ancho ? '' : 'max-w-[72ch]'}`}>
           {children}
         </div>
       </div>
