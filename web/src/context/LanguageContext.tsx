@@ -822,6 +822,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'footer.map.close': { en: 'Close', es: 'Cerrar', pt: 'Fechar' },
 
     // ── Privacy Policy Page ──
+    'legal.spanishOnly': { en: 'This legal text is available in Spanish only.', es: 'Este texto legal solo está disponible en español.', pt: 'Este texto legal está disponível apenas em espanhol.' },
     'privacy.badge': { en: 'Legal', es: 'Legal', pt: 'Legal' },
     'privacy.title': { en: 'Data Processing Policy', es: 'Política de Tratamiento de Datos', pt: 'Política de Tratamento de Dados' },
     'privacy.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026', pt: 'Última atualização: março de 2026' },
