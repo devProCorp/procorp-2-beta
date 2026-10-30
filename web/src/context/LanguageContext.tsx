@@ -419,6 +419,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'footer.legal.growth': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
     'footer.legal.consulting': { en: 'Consulting', es: 'Consultoría', pt: 'Consultoria' },
     'footer.legal.privacy': { en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' },
+    'footer.legal.dataProcessing': { en: 'Personal Data Processing', es: 'Tratamiento de Datos Personales', pt: 'Tratamento de Dados Pessoais' },
     'footer.legal.terms': { en: 'Terms of Use', es: 'Términos de Uso', pt: 'Termos de Uso' },
     'footer.legal.cookies': { en: 'Cookies', es: 'Cookies', pt: 'Cookies' },
     'footer.desc': { en: 'Business Engineering for sustainable business growth.', es: 'Ingeniería de Negocios para el crecimiento empresarial sostenible.', pt: 'Engenharia de Negócios para o crescimento empresarial sustentável.' },
@@ -822,6 +823,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'footer.map.close': { en: 'Close', es: 'Cerrar', pt: 'Fechar' },
 
     // ── Privacy Policy Page ──
+    'legal.spanishOnly': { en: 'This legal text is available in Spanish only.', es: 'Este texto legal solo está disponible en español.', pt: 'Este texto legal está disponível apenas em espanhol.' },
     'privacy.badge': { en: 'Legal', es: 'Legal', pt: 'Legal' },
     'privacy.title': { en: 'Data Processing Policy', es: 'Política de Tratamiento de Datos', pt: 'Política de Tratamento de Dados' },
     'privacy.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026', pt: 'Última atualização: março de 2026' },
