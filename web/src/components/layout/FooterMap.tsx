@@ -25,10 +25,14 @@ export default function FooterMap() {
             touchZoom: false,
         });
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            subdomains: 'abcd',
+        // Carto dejó de servir teselas sin clave: pinta «API KEY REQUIRED» encima del
+        // mapa. OpenStreetMap no pide clave pero sí atribución; .mapa-oscuro lo oscurece.
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
+            className: 'mapa-oscuro',
+            attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>',
         }).addTo(map);
+        L.control.attribution({ prefix: false }).addTo(map);
 
         // Custom red marker
         const icon = L.divIcon({

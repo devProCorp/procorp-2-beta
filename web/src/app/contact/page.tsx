@@ -1,14 +1,10 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import JotformEmbed from '@/components/contact/JotformEmbed';
+import FormularioContacto from '@/components/contact/FormularioContacto';
 import { useLanguage } from '@/context/LanguageContext';
 
 const FooterMap = dynamic(() => import('@/components/layout/FooterMap'), { ssr: false });
-
-// Formulario "Contactenos procorpnet" en JotForm. El ID es público: aparece
-// en la URL del propio formulario y no da acceso a nada.
-const JOTFORM_CONTACTO = '223375075396665';
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -22,7 +18,7 @@ export default function Contact() {
   ];
 
   return (
-    <main className="relative flex-1 bg-background-dark min-h-screen text-white">
+    <main className="relative flex-1 overflow-x-clip bg-background-dark min-h-screen text-white">
       <div className="absolute top-0 right-0 -z-10 h-[600px] w-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 -z-10 h-[500px] w-[500px] bg-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
 
@@ -44,13 +40,10 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Form */}
           <div className="lg:col-span-7">
-            {/* Contenedor claro a propósito: el formulario de JotForm se sirve con
-                su fondo blanco y no puede teñirse desde aquí (es otro origen), y
-                oscurecerlo en JotForm rompería /contacto-pcp/, donde el mismo
-                formulario vive sobre una página clara. Enmarcarlo como tarjeta lo
-                convierte en una decisión de diseño en vez de un parche. */}
-            <div className="rounded-[2rem] bg-white p-3 md:p-5 shadow-2xl shadow-primary/10 relative overflow-hidden ring-1 ring-white/10">
-              <JotformEmbed formId={JOTFORM_CONTACTO} />
+            <div className="rounded-[2rem] glass-panel p-8 md:p-12 shadow-2xl relative">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 blur-[50px] rounded-full pointer-events-none"></div>
+              <FormularioContacto />
             </div>
           </div>
 

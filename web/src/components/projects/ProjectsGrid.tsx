@@ -83,7 +83,7 @@ export default function ProjectsGrid({ initial }: { initial: ProjectsData | null
           const { name, description } = localized(p, lang);
           const tarjeta = (
             <>
-              <div className="relative aspect-[16/10] overflow-hidden border-b border-surface-border/50">
+              <div className="@container relative aspect-[16/10] overflow-hidden border-b border-surface-border/50">
                 {p.image_url ? (
                   // eslint-disable-next-line @next/next/no-img-element -- export estático: imágenes de varios hosts sin optimizar
                   <img
@@ -101,8 +101,13 @@ export default function ProjectsGrid({ initial }: { initial: ProjectsData | null
                     <span className="text-2xl font-extrabold uppercase tracking-tight text-white/90">{name}</span>
                   </div>
                 )}
+                {/* Logo sobre fondo opaco: varias fotos traen el antiguo en esa esquina. */}
+                <div className="absolute right-0 top-0 rounded-bl-[3cqw] bg-background-dark px-[3cqw] py-[2.2cqw]">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- export estático */}
+                  <img src="/brand/Logo_PCP_Business_Engineering.png" alt="" className="w-[30cqw]" />
+                </div>
                 {c && (
-                  <span className="absolute left-4 top-4 rounded-full border border-white/10 bg-background-dark/80 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
+                  <span className="absolute left-4 top-4 max-w-[calc(64cqw-1.5rem)] truncate rounded-full border border-white/10 bg-background-dark/80 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md">
                     <span className="mr-1.5 inline-block h-2 w-2 rounded-full align-middle" style={{ backgroundColor: color }} />
                     {localized(c, lang).name}
                   </span>
