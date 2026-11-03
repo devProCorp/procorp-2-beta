@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ClientProviders from "@/components/layout/ClientProviders";
+import VentanaSalida from "@/components/layout/VentanaSalida";
 import { OG_IMAGE_SIZE, ogImagePath } from "@/lib/og/paths";
 import "./globals.css";
 
@@ -121,6 +122,7 @@ export default function RootLayout({
           <Navbar />
           <div id="main-content">{children}</div>
           <Footer />
+          <VentanaSalida />
         </ClientProviders>
       </body>
       {gaId && gaId !== "G-XXXXXXXXXX" && <GoogleAnalytics gaId={gaId} />}
