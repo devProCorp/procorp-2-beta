@@ -10,6 +10,7 @@ import {
   stripHtml,
   type WPPost,
 } from "@/lib/wordpress-presentation";
+import { articleJsonLd } from "@/lib/og/journal-cards";
 
 /**
  * Article body, shared by the prebuilt /journal/[slug] page and the live
@@ -32,12 +33,17 @@ export default function ArticleView({
 
   return (
     <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">
-      {post.seo_schema != null && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(post.seo_schema) }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          // Yoast schema when migrated; otherwise a BlogPosting built here.
+          // `<` escaped so article text can never close the script tag.
+          __html: JSON.stringify(post.seo_schema ?? articleJsonLd(post)).replace(
+            /</g,
+            "\\u003c",
+          ),
+        }}
+      />
       <article className="max-w-4xl mx-auto">
         {/* Back link */}
         <Link
