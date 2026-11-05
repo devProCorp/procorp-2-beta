@@ -28,6 +28,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'nav.growth': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
     'nav.about': { en: 'About Us', es: 'Sobre Nosotros', pt: 'Sobre Nós' },
     'nav.contact': { en: 'Contact', es: 'Contacto', pt: 'Contato' },
+    'nav.diagnostico': { en: 'Investment diagnosis', es: 'Diagnóstico de inversión', pt: 'Diagnóstico de investimento' },
     'nav.login': { en: 'Login', es: 'Login', pt: 'Login' },
     'nav.intranet': { en: 'Intranet', es: 'Intranet', pt: 'Intranet' },
     'nav.services': { en: 'Services', es: 'Servicios', pt: 'Serviços' },
@@ -51,8 +52,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     // ── ScrollHero Phase 2 ──
     'hero.manifesto.label': { en: 'What We Are / Since 2008', es: 'Quiénes Somos / Desde 2008', pt: 'O Que Somos / Desde 2008' },
     'hero.manifesto.text': {
-        en: 'Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.',
-        es: 'Pro Corp rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente.', pt: 'A Pro Corp redesenha modelos operacionais, automatiza a execução e integra ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente.'
+        en: 'PRO CORP redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.',
+        es: 'PRO CORP rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente.', pt: 'A PRO CORP redesenha modelos operacionais, automatiza a execução e integra ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente.'
     },
     'hero.manifesto.sub': {
         en: 'Not a consulting firm. Not a software house. We do both — re-engineering and execution — amplified by intelligent marketing systems.',
@@ -85,16 +86,16 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'manifesto.title.accent2': { en: 'execution.', es: 'ejecución.', pt: 'execução.' },
     'manifesto.title.3': { en: 'Automation meets architecture.', es: 'Automatización y arquitectura.', pt: 'Automação encontra arquitetura.' },
     'manifesto.text': {
-        en: 'Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.',
-        es: 'Pro Corp rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente — amplificada por sistemas inteligentes de marketing.', pt: 'A Pro Corp redesenha modelos operacionais, automatiza a execução e integra ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente — amplificada por sistemas inteligentes de marketing.'
+        en: 'PRO CORP redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.',
+        es: 'PRO CORP rediseña modelos operativos, automatiza la ejecución e integra activos, capital y expertise a través de una plataforma de intercambio transparente — amplificada por sistemas inteligentes de marketing.', pt: 'A PRO CORP redesenha modelos operacionais, automatiza a execução e integra ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente — amplificada por sistemas inteligentes de marketing.'
     },
     'manifesto.p1': {
         en: 'Not a consulting firm. Not a software house. Not a marketplace. We re-engineer processes and implement them through scalable cloud architecture — then amplify through automated marketing systems.',
         es: 'No somos una consultora. No somos una casa de software. No somos un marketplace. Reingenieramos procesos y los implementamos a través de arquitectura cloud escalable — y luego amplificamos con sistemas automatizados de marketing.', pt: 'Não somos uma consultoria. Não somos uma software house. Não somos um marketplace. Reengenhamos processos e os implementamos com arquitetura cloud escalável — e depois amplificamos com sistemas automatizados de marketing.'
     },
     'manifesto.p2': {
-        en: 'Automation without re-engineering is inefficient. Re-engineering without execution is theoretical. Pro Corp does both. Complex models become conversational experiences. Technology becomes a bridge — not a barrier.',
-        es: 'Automatización sin reingeniería es ineficiente. Reingeniería sin ejecución es teórica. Pro Corp hace ambas. Los modelos complejos se convierten en experiencias conversacionales. La tecnología se convierte en puente — no en barrera.', pt: 'Automação sem reengenharia é ineficiente. Reengenharia sem execução é teórica. A Pro Corp faz ambas. Modelos complexos viram experiências conversacionais. A tecnologia vira uma ponte — não uma barreira.'
+        en: 'Automation without re-engineering is inefficient. Re-engineering without execution is theoretical. PRO CORP does both. Complex models become conversational experiences. Technology becomes a bridge — not a barrier.',
+        es: 'Automatización sin reingeniería es ineficiente. Reingeniería sin ejecución es teórica. PRO CORP hace ambas. Los modelos complejos se convierten en experiencias conversacionales. La tecnología se convierte en puente — no en barrera.', pt: 'Automação sem reengenharia é ineficiente. Reengenharia sem execução é teórica. A PRO CORP faz ambas. Modelos complexos viram experiências conversacionais. A tecnologia vira uma ponte — não uma barreira.'
     },
     'manifesto.cta': { en: 'Explore our methodology', es: 'Explora nuestra metodología', pt: 'Explore nossa metodologia' },
 
@@ -160,8 +161,8 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'studio.hero.title.1': { en: 'Technology-based', es: 'Orquestación', pt: 'Orquestração baseada' },
     'studio.hero.title.2': { en: 'orchestration', es: 'basada en tecnología', pt: 'em tecnologia' },
     'studio.hero.p1': {
-        en: 'Pro Corp is a technology-based orchestration company specialized in Business Process Automation. We redesign operating models, automate execution, and integrate assets, capital, and expertise through a transparent exchange platform.',
-        es: 'Pro Corp es una empresa de orquestación basada en tecnología, especializada en Automatización de Procesos de Negocio. Rediseñamos modelos operativos, automatizamos la ejecución e integramos activos, capital y expertise a través de una plataforma de intercambio transparente.', pt: 'A Pro Corp é uma empresa de orquestração baseada em tecnologia, especializada em Business Process Automation. Redesenhamos modelos operacionais, automatizamos a execução e integramos ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente.'
+        en: 'PRO CORP is a technology-based orchestration company specialized in Business Process Automation. We redesign operating models, automate execution, and integrate assets, capital, and expertise through a transparent exchange platform.',
+        es: 'PRO CORP es una empresa de orquestación basada en tecnología, especializada en Automatización de Procesos de Negocio. Rediseñamos modelos operativos, automatizamos la ejecución e integramos activos, capital y expertise a través de una plataforma de intercambio transparente.', pt: 'A PRO CORP é uma empresa de orquestração baseada em tecnologia, especializada em Business Process Automation. Redesenhamos modelos operacionais, automatizamos a execução e integramos ativos, capital e expertise por meio de uma plataforma de intercâmbio transparente.'
     },
     'studio.hero.p2': {
         en: 'Prepared with discipline. Structured for scale. Designed for transparent execution.',
@@ -472,7 +473,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'home.eco.used': { en: 'Used', es: 'Utilizado' },
     'home.eco.available': { en: 'Available', es: 'Disponible' },
     'home.cta.title': { en: 'Ready to scale your corporation?', es: '¿Listo para escalar tu corporación?' },
-    'home.cta.desc': { en: 'Join the leading companies already building their future with Pro Corp. Schedule a strategic consultation today.', es: 'Únete a las empresas líderes que ya están construyendo su futuro con Pro Corp. Agenda una consultoría estratégica hoy.' },
+    'home.cta.desc': { en: 'Join the leading companies already building their future with PRO CORP. Schedule a strategic consultation today.', es: 'Únete a las empresas líderes que ya están construyendo su futuro con PRO CORP. Agenda una consultoría estratégica hoy.' },
     'home.cta.button': { en: 'CONTACT US', es: 'CONTACTANOS' },
 
     // ── How We Work ──
@@ -721,7 +722,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'about.team.label': { en: 'Our Team', es: 'Nuestro Equipo', pt: 'Nossa Equipe' },
     'about.team.title': { en: 'Business Engineers', es: 'Ingenieros de Negocios', pt: 'Engenheiros de Negócios' },
     'about.method.label': { en: 'Our Methodology', es: 'Nuestra Metodología', pt: 'Nossa Metodologia' },
-    'about.method.title.pre': { en: 'Pro Corp', es: 'El Ciclo Pro Corp de', pt: 'O Ciclo Pro Corp de' },
+    'about.method.title.pre': { en: 'PRO CORP', es: 'El Ciclo PRO CORP de', pt: 'O Ciclo PRO CORP de' },
     'about.method.title.accent': { en: 'Value Finding and Value Creation', es: 'Descubrimiento y Creación de Valor', pt: 'Descoberta e Criação de Valor' },
     'about.method.title.post': { en: 'Cycle', es: '', pt: '' },
     'about.method.desc': { en: 'Our Business Engineering methodology is a continuous cycle designed to eliminate uncertainty and maximize return.', es: 'Nuestra metodología de Ingeniería de Negocios es un ciclo continuo diseñado para eliminar la incertidumbre y maximizar el retorno.', pt: 'Nossa metodologia de Engenharia de Negócios é um ciclo contínuo projetado para eliminar a incerteza e maximizar o retorno.' },
@@ -799,12 +800,12 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'contact.consent.1': { en: "I authorize the processing of my personal data under Law 1581 of 2012, the", es: "Autorizo el tratamiento de mis datos personales conforme a la Ley 1581 de 2012, la", pt: "Autorizo o tratamento dos meus dados pessoais conforme a Lei 1581 de 2012, a" },
     'contact.consent.data': { en: "Personal Data Processing Policy", es: "Política de Tratamiento de Datos Personales", pt: "Política de Tratamento de Dados Pessoais" },
     'contact.consent.2': { en: "and the", es: "y la", pt: "e a" },
-    'contact.consent.3': { en: "of Pro Corp.", es: "de Pro Corp.", pt: "da Pro Corp." },
+    'contact.consent.3': { en: "of PRO CORP.", es: "de PRO CORP.", pt: "da PRO CORP." },
     'contact.sending': { en: "Sending…", es: "Enviando…", pt: "Enviando…" },
     'contact.error': { en: "It could not be sent. What you wrote is still here: try again in a moment.", es: "No se pudo enviar. Lo que escribiste sigue aquí: inténtalo de nuevo en un momento.", pt: "Não foi possível enviar. O que você escreveu continua aqui: tente novamente em instantes." },
     'contact.ok.title': { en: "We have received your details", es: "Hemos recibido tus datos", pt: "Recebemos seus dados" },
     'contact.ok.project': { en: "Your inquiry is about", es: "Tu consulta es sobre", pt: "Sua consulta é sobre" },
-    'contact.ok.text': { en: "The Pro Corp team will contact you.", es: "El equipo de Pro Corp te contactará.", pt: "A equipe da Pro Corp entrará em contato." },
+    'contact.ok.text': { en: "The PRO CORP team will contact you.", es: "El equipo de PRO CORP te contactará.", pt: "A equipe da PRO CORP entrará em contato." },
     'contact.err.required': { en: "This field is required.", es: "Este campo es obligatorio.", pt: "Este campo é obrigatório." },
     'contact.err.name': { en: "Enter your full name.", es: "Escribe tu nombre y apellidos.", pt: "Escreva seu nome completo." },
     'contact.err.email': { en: "Check the email. Example: name@company.com", es: "Revisa el correo. Ejemplo: nombre@empresa.com", pt: "Verifique o e-mail. Exemplo: nome@empresa.com" },

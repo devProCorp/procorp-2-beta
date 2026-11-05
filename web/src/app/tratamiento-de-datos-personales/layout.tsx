@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Política de tratamiento de datos personales | Pro Corp',
+  title: 'Política de tratamiento de datos personales | PRO CORP',
   alternates: { canonical: '/tratamiento-de-datos-personales/' },
 };
 

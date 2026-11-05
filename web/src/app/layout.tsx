@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | PRO CORP",
   },
   description:
-    "Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.",
+    "PRO CORP redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.",
   keywords: [
     "PRO CORP",
     "BPA",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title:
       "PRO CORP | Technology-Based Orchestration — BPA, Legal Solutions & Sustainable Growth",
     description:
-      "Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.",
+      "PRO CORP redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform — amplified by intelligent marketing systems.",
     images: [
       {
         url: ogImagePath("site"),
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PRO CORP | Technology-Based Orchestration",
     description:
-      "Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.",
+      "PRO CORP redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.",
     images: [ogImagePath("site")],
   },
   alternates: {

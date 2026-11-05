@@ -142,7 +142,7 @@ const Navbar = () => {
         {/* Barra superior de accesos (como la de los portales universitarios):
             no es sticky, se va al hacer scroll y el navbar conserva sus 5rem */}
         <div className="site-topbar w-full bg-primary">
-            <div className="flex h-8 items-center px-4 md:px-10 max-w-[1440px] mx-auto w-full text-xs font-medium tracking-wide text-white">
+            <div className="flex h-8 items-center justify-between gap-4 px-4 md:px-10 max-w-[1440px] mx-auto w-full text-xs font-medium tracking-wide text-white">
                 <a
                     href="https://intranet.pro-corp.net"
                     target="_blank"
@@ -151,13 +151,23 @@ const Navbar = () => {
                 >
                     {t('nav.intranet')}
                 </a>
+                {/* Autodiagnóstico de inversion.pro-corp.net en el idioma de la persona
+                    (pedido de Lina, 2026-11-05). */}
+                <a
+                    href={`${process.env.NEXT_PUBLIC_INVERSION_URL ?? 'https://inversion.pro-corp.net'}${lang === 'es' ? '' : `/${lang}`}/diagnostico`}
+                    target="_blank"
+                    rel="noopener"
+                    className="truncate font-semibold hover:underline underline-offset-4"
+                >
+                    {t('nav.diagnostico')}
+                </a>
             </div>
         </div>
         <nav className="sticky top-0 z-50 w-full border-b border-surface-border/50 bg-background-dark/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background-dark/60">
             <div className="flex h-20 items-center justify-between px-4 md:px-10 max-w-[1440px] mx-auto w-full">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
-                    <Image src="/brand/Logo_PCP_Business_Engineering.png" alt="Pro Corp" width={160} height={28} className="h-10 w-auto object-contain" priority />
+                    <Image src="/brand/Logo_PCP_Business_Engineering.png" alt="PRO CORP" width={160} height={28} className="h-10 w-auto object-contain" priority />
                 </Link>
 
                 {/* Desktop Nav */}

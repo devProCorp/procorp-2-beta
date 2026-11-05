@@ -5,7 +5,7 @@ export const OG_DOMAIN = "pro-corp.net";
 export const SITE_CARD = {
   title: "Technology-Based Orchestration",
   subtitle:
-    "Pro Corp redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.",
+    "PRO CORP redesigns operating models, automates execution, and integrates assets, capital, and expertise through a transparent exchange platform.",
 };
 
 // LanguageContext is a client module, so its translations cannot be read while

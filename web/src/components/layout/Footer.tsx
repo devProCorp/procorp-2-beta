@@ -54,7 +54,7 @@ const Footer = () => {
                     {/* Logo + Desc */}
                     <div className="md:col-span-3">
                         <div className="mb-4">
-                            <Image src="/brand/Logo_PCP_Business_Engineering.png" alt="Pro Corp" width={140} height={25} className="h-9 w-auto object-contain" />
+                            <Image src="/brand/Logo_PCP_Business_Engineering.png" alt="PRO CORP" width={140} height={25} className="h-9 w-auto object-contain" />
                         </div>
                         <p className="text-sm leading-relaxed mb-4 font-medium text-secondary">
                             {t('footer.desc')}
@@ -152,7 +152,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-surface-border pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
-                    <p>&copy; {new Date().getFullYear()} Pro Corp. {t('footer.rights')}</p>
+                    <p>&copy; {new Date().getFullYear()} PRO CORP. {t('footer.rights')}</p>
                     <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
                         <Link href="/politica-de-privacidad" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.privacy')}</Link>
                         <span className="text-surface-border">·</span>

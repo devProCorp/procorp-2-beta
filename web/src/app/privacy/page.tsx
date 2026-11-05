@@ -54,7 +54,7 @@ export default function Privacy() {
 
         <div className="mt-16 pt-8 border-t border-surface-border text-center">
           <p className="text-secondary text-xs">
-            &copy; {new Date().getFullYear()} Pro Corp S.A.S. — extranjeria@pro-corp.net
+            &copy; {new Date().getFullYear()} PRO CORP S.A.S. — extranjeria@pro-corp.net
           </p>
         </div>
       </div>
