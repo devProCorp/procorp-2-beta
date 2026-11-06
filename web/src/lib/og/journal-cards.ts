@@ -13,6 +13,16 @@ const PLAYER_TEXT =
 // Placeholder the CMS leaves in seo_description when nobody filled it in.
 const PLACEHOLDER_DESCRIPTIONS = new Set(["descripción seo", "descripcion seo"]);
 
+// Shorter than this, a stored description is a fragment, not a summary: in
+// 29 migrated posts Yoast saved the player text cut at ~90 characters, so
+// what is left after PLAYER_TEXT is "La relación entre España y". Such a
+// candidate is skipped and the next one (excerpt, then body) is used.
+const MIN_DESCRIPTION_LENGTH = 70;
+
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.pro-corp.net"
+).replace(/\/$/, "");
+
 const NAMED_ENTITIES: Record<string, string> = {
   amp: "&", quot: '"', apos: "'", lt: "<", gt: ">", nbsp: " ",
   hellip: "…", ndash: "–", mdash: "—", lsquo: "‘", rsquo: "’",
@@ -64,8 +74,10 @@ export function getArticleDescription(post: WPPost, maxLength = 160) {
     ? body.slice(body.lastIndexOf("</audio>") + "</audio>".length)
     : body;
   const candidates = [post.seo_description, post.excerpt.rendered, afterPlayer];
-  for (const candidate of candidates) {
+  for (const [index, candidate] of candidates.entries()) {
     const text = plainText(candidate).replace(PLAYER_TEXT, "").trim();
+    const isLast = index === candidates.length - 1;
+    if (text.length < MIN_DESCRIPTION_LENGTH && !isLast) continue;
     if (text && !PLACEHOLDER_DESCRIPTIONS.has(text.toLowerCase())) {
       return text.length > maxLength
         ? `${text.slice(0, maxLength - 1).trimEnd()}…`
@@ -84,6 +96,31 @@ export function getArticleCategory(post: WPPost) {
 /** Photo for the card: the featured image, else the Yoast OG image. */
 export function getArticlePhoto(post: WPPost) {
   return getFeaturedImageUrl(post, "full") ?? post.seo_og_image_url ?? null;
+}
+
+/**
+ * schema.org BlogPosting for posts without the Yoast schema migrated from
+ * WordPress (`seo_schema`). Posts written after the migration have none, so
+ * 93 of 177 articles carried no structured data (audit 2026-11-04).
+ */
+export function articleJsonLd(post: WPPost) {
+  const url = `${SITE_URL}/blog/${post.slug}/`;
+  const image = getArticlePhoto(post);
+  const organization = { "@type": "Organization", name: "PRO CORP", url: SITE_URL };
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: getArticleTitle(post).slice(0, 110),
+    description: getArticleDescription(post),
+    datePublished: post.date,
+    dateModified: post.modified,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    url,
+    inLanguage: "es",
+    ...(image && { image: [image] }),
+    author: organization,
+    publisher: organization,
+  };
 }
 
 export function articleOgImagePath(post: WPPost) {
