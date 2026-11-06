@@ -8,6 +8,8 @@ import {
 import {
   articleOgImagePath,
   getArticleDescription,
+  getArticleDocumentTitle,
+  getArticleSeoTitle,
   getArticleTitle,
 } from "@/lib/og/journal-cards";
 import { pickRelatedPosts } from "@/lib/wordpress-presentation";
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   const post = await findPublishedPostForBuild(id).catch(() => null);
   if (!post) return { title: "Artículo no encontrado", robots: { index: false, follow: false } };
 
-  const title = getArticleTitle(post);
+  const title = getArticleSeoTitle(post);
   const description = getArticleDescription(post);
   const canonical = `/blog/${post.slug}/`;
   // ?r= revisión publicada en el Taller de tarjetas: Apache la ignora, pero
@@ -53,7 +55,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   const image = `${articleOgImagePath(post)}?r=${revision}`;
 
   return {
-    title: { absolute: `${title} | PRO CORP` },
+    title: { absolute: getArticleDocumentTitle(post) },
     description,
     alternates: { canonical },
     openGraph: {
@@ -65,7 +67,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       description,
       publishedTime: post.date,
       modifiedTime: post.modified,
-      images: [{ url: image, ...OG_IMAGE_SIZE, alt: title }],
+      images: [{ url: image, ...OG_IMAGE_SIZE, alt: getArticleTitle(post) }],
     },
     twitter: { card: "summary_large_image", title, description, images: [image] },
   };

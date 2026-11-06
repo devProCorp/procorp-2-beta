@@ -66,6 +66,33 @@ export function getArticleTitle(post: WPPost) {
   return plainText(post.title.rendered) || plainText(post.seo_title);
 }
 
+// Search results cut titles longer than this; the audit of 2026-11-04 found
+// 134 articles above it. Counts the " | PRO CORP" suffix.
+const MAX_SEO_TITLE_LENGTH = 65;
+const SEO_TITLE_BRAND = " | PRO CORP";
+// Yoast saved the site name inside seo_title ("… - Pro Corp Corporate Development").
+const SEO_TITLE_SITE_NAME = /\s*[-–|]\s*pro[ -]corp(?: corporate development)?\s*$/i;
+
+/**
+ * Title for <title>, og:title and twitter:title. The visible H1 while it fits
+ * with the brand; otherwise the CMS «Título SEO» (seo_title) when it fits.
+ * The slug and the H1 never change.
+ */
+export function getArticleSeoTitle(post: WPPost) {
+  const title = getArticleTitle(post);
+  if ((title + SEO_TITLE_BRAND).length <= MAX_SEO_TITLE_LENGTH) return title;
+  const seoTitle = plainText(post.seo_title).replace(SEO_TITLE_SITE_NAME, "").trim();
+  return seoTitle && seoTitle.length <= MAX_SEO_TITLE_LENGTH ? seoTitle : title;
+}
+
+/** <title>: SEO title plus the brand, without the brand when it does not fit. */
+export function getArticleDocumentTitle(post: WPPost) {
+  const title = getArticleSeoTitle(post);
+  return (title + SEO_TITLE_BRAND).length <= MAX_SEO_TITLE_LENGTH
+    ? title + SEO_TITLE_BRAND
+    : title;
+}
+
 /** Meta description: Yoast/CMS text, then excerpt, then the article body. */
 export function getArticleDescription(post: WPPost, maxLength = 160) {
   // The body opens with the Blogcast audio player; the text starts after it.
