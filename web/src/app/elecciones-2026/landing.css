@@ -1,0 +1,96 @@
+/* Landing «Inteligencia electoral» de Innovación (Lina Díaz, 2026-11-09), CSS original
+   acotado a .landing-electoral para no afectar al resto de la web. */
+.landing-electoral{
+  --navy:#0b1422;--navy2:#101c2d;--navy3:#152338;--red:#d60925;
+  --coral:#f07883;--white:#f5f6fa;--muted:#a0aaba;--border:#263448;
+  --soft:#d6dce6;--green:#75c7a1;
+}
+.landing-electoral,.landing-electoral *{box-sizing:border-box;margin:0;padding:0}
+/* Lo que el navegador da por defecto y la base de Tailwind de la web quita. */
+.landing-electoral h1,.landing-electoral h2,.landing-electoral h3,.landing-electoral h4,.landing-electoral strong{font-weight:bold}
+html:has(.landing-electoral){scroll-behavior:smooth;scroll-padding-top:100px}
+.landing-electoral{background:var(--navy);color:var(--white);font-family:Inter,Arial,Helvetica,sans-serif;line-height:1.6}
+.landing-electoral a{color:inherit;text-decoration:none}
+.landing-electoral button,.landing-electoral input,.landing-electoral select{font:inherit}
+.landing-electoral button{cursor:pointer}
+.landing-electoral .container{width:min(1160px,90%);margin:auto}
+.landing-electoral .gradient{background:linear-gradient(100deg,var(--red),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.landing-electoral header{position:sticky;top:0;z-index:100;background:rgba(11,20,34,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(14px)}
+.landing-electoral .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.landing-electoral .logo{color:var(--red);font-weight:950;font-size:27px;font-style:italic;line-height:1;letter-spacing:-1px}
+.landing-electoral .logo small{display:block;font-size:10px;color:#929aaa;letter-spacing:2px;font-style:normal;margin-top:5px}
+.landing-electoral .nav-links{display:flex;align-items:center;gap:25px}
+.landing-electoral .nav-links a{color:#aab3c0;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;transition:.2s}
+.landing-electoral .nav-links a:hover{color:var(--coral)}
+.landing-electoral .nav-actions{display:flex;align-items:center;gap:10px}
+.landing-electoral .lang{border:1px solid var(--border);padding:9px 13px;border-radius:8px;color:#d5dbe5;font-size:12px}
+.landing-electoral .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;border:1px solid var(--red);padding:13px 22px;border-radius:8px;font-size:11px;font-weight:900;letter-spacing:1.5px;transition:.2s}
+.landing-electoral .btn:hover{background:#f02b43;transform:translateY(-2px);box-shadow:0 8px 25px #d6092538}
+.landing-electoral .btn-secondary{background:transparent;border-color:#45536a;color:var(--white)}
+.landing-electoral .menu-toggle{display:none;background:none;border:0;color:white;font-size:25px}
+.landing-electoral .hero{min-height:570px;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);isolation:isolate}
+.landing-electoral .hero:before{content:"";position:absolute;z-index:-1;width:680px;height:520px;right:-100px;top:10px;background:radial-gradient(ellipse,#d6092524,transparent 68%)}
+.landing-electoral .network{position:absolute;inset:0;z-index:-1;opacity:.42;pointer-events:none}
+.landing-electoral .hero-content{padding:90px 0;position:relative;z-index:2}
+.landing-electoral .eyebrow{color:var(--coral);font-size:11px;letter-spacing:4px;font-weight:900;text-transform:uppercase;margin-bottom:22px}
+.landing-electoral .hero h1{font-size:clamp(43px,7vw,82px);line-height:1.02;letter-spacing:-3px;font-weight:950;max-width:900px}
+.landing-electoral .hero p{margin-top:24px;color:var(--muted);font-size:18px;max-width:680px}
+.landing-electoral .date-label{display:inline-block;margin:26px 0 24px;border:1px solid #8d3445;color:var(--coral);padding:8px 16px;border-radius:4px;font-size:11px;font-weight:900;letter-spacing:3px}
+.landing-electoral section{padding:82px 0}
+.landing-electoral .section-title{font-size:clamp(30px,4vw,48px);line-height:1.15;letter-spacing:-1.5px;margin-bottom:12px}
+.landing-electoral .section-subtitle{color:var(--muted);font-size:14px;margin-bottom:35px}
+.landing-electoral .modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}
+.landing-electoral .module{background:var(--navy2);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:.25s}
+.landing-electoral .module:hover{border-color:#a13b4d;transform:translateY(-4px)}
+.landing-electoral .module-image{height:205px;position:relative;background-size:cover;background-position:center}
+.landing-electoral .module-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--navy2),transparent 75%)}
+.landing-electoral .module-body{padding:25px}
+.landing-electoral .module-number{color:var(--coral);font-size:11px;letter-spacing:3px;font-weight:900}
+.landing-electoral .module h3{font-size:23px;line-height:1.25;margin:8px 0 10px}
+.landing-electoral .module p{color:var(--muted);font-size:14px;min-height:58px}
+.landing-electoral .explore{display:inline-block;margin-top:16px;color:var(--coral);font-size:12px;font-weight:900;letter-spacing:1.2px}
+.landing-electoral .interactive{display:none;background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:30px;margin-top:28px;scroll-margin-top:105px}
+.landing-electoral .interactive.active{display:block;animation:appear .25s ease}
+@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.landing-electoral .interactive h3{font-size:25px;margin-bottom:8px}
+.landing-electoral .interactive>p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.landing-electoral .field{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.landing-electoral label{color:#d9dee8;font-size:12px;font-weight:800}
+.landing-electoral input,.landing-electoral select{background:var(--navy);border:1px solid var(--border);color:white;border-radius:7px;padding:12px;width:100%;min-height:45px}
+.landing-electoral input:focus,.landing-electoral select:focus{outline:1px solid var(--coral);border-color:var(--coral)}
+.landing-electoral .comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.landing-electoral .comparison-card,.landing-electoral .result{background:var(--navy);border:1px solid var(--border);border-radius:8px;padding:19px}
+.landing-electoral .comparison-card h4{font-size:16px;margin:8px 0}
+.landing-electoral .comparison-card p,.landing-electoral .result p{font-size:13px;color:var(--muted);margin-top:7px}
+.landing-electoral .result{border-left:3px solid var(--coral);margin-top:18px}
+.landing-electoral .result strong{color:var(--coral)}
+.landing-electoral .data-note{font-size:11px;color:#8995a7;margin-top:15px}
+.landing-electoral .pill{display:inline-block;border:1px solid #42516a;border-radius:99px;padding:4px 9px;color:#cbd3df;font-size:10px;margin:3px}
+.landing-electoral .investment-section{background:linear-gradient(135deg,#111c2b,#171421);border-top:1px solid #713344;border-bottom:1px solid #713344}
+.landing-electoral .investment-box{border:1px solid #713344;border-radius:14px;padding:42px;background:radial-gradient(ellipse at top right,#d6092518,transparent 60%)}
+.landing-electoral .investment-box h2{font-size:clamp(33px,5vw,55px);line-height:1.08;margin:13px 0}
+.landing-electoral .investment-box>p{color:var(--muted);max-width:720px;margin-bottom:25px}
+.landing-electoral .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.landing-electoral .consent{display:flex;gap:10px;align-items:flex-start;margin:17px 0 21px;color:var(--muted);font-size:11px;font-weight:400}
+.landing-electoral .consent input{width:16px;min-height:16px;margin-top:3px;flex:none}
+.landing-electoral footer{padding:42px 0;text-align:center}
+.landing-electoral footer p{font-size:12px;color:var(--muted);margin-top:8px}
+.landing-electoral .hidden{display:none!important}
+@media(max-width:850px){.landing-electoral .nav-links{display:none;position:absolute;top:82px;left:0;right:0;padding:22px 5%;background:var(--navy);border-bottom:1px solid var(--border);flex-direction:column;align-items:flex-start}
+.landing-electoral .nav-links.open{display:flex}
+.landing-electoral .menu-toggle{display:block}
+.landing-electoral .nav-actions .lang{display:none}}
+@media(max-width:650px){.landing-electoral section{padding:60px 0}
+.landing-electoral .modules{grid-template-columns:1fr}
+.landing-electoral .hero{min-height:500px}
+.landing-electoral .hero h1{letter-spacing:-1.5px}
+.landing-electoral .hero p{font-size:16px}
+.landing-electoral .comparison-grid,.landing-electoral .form-grid{grid-template-columns:1fr}
+.landing-electoral .interactive{padding:20px}
+.landing-electoral .investment-box{padding:24px}
+.landing-electoral .module-image{height:185px}}
+.landing-electoral .logo-link,.landing-electoral .footer-brand{display:inline-flex;align-items:center;line-height:0}
+.landing-electoral .brand-logo{display:block;width:230px;max-width:100%;height:auto;max-height:58px;object-fit:contain;object-position:left center}
+.landing-electoral .footer-brand{justify-content:center;margin-bottom:15px}
+.landing-electoral .footer-brand .brand-logo{width:205px;max-height:54px;object-position:center}
+@media(max-width:650px){.landing-electoral .brand-logo{width:185px;max-height:48px}}
