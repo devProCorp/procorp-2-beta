@@ -256,7 +256,7 @@ const Navbar = () => {
                         {lang.toUpperCase()}
                     </button>
                     <a
-                        href="https://www.pro-corp.net/login/"
+                        href="https://portal2.pro-corp.net/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hidden md:flex cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary-light text-white text-[11px] font-bold uppercase tracking-[0.2em] glow-primary glow-primary-hover transition-all border border-primary-light/30"
@@ -337,7 +337,7 @@ const Navbar = () => {
                                 </Link>
                             ))}
                             <a
-                                href="https://www.pro-corp.net/login/"
+                                href="https://portal2.pro-corp.net/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => { setIsOpen(false); scrollTopAfterNav(); }}
