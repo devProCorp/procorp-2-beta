@@ -22,7 +22,8 @@ import {
 } from './datos';
 import './landing.css';
 
-const LOGO = '/elecciones-2026/logo-pro-corp.svg';
+// El mismo logo y tamaño que la cabecera (40 px) y el pie (36 px) del resto de la web.
+const LOGO = '/brand/Logo_PCP_Business_Engineering.png';
 const API_INTERES = `${process.env.NEXT_PUBLIC_INVERSION_URL ?? 'https://inversion.pro-corp.net'}/api/interes`;
 
 const TEMAS = [
