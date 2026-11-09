@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Inter, Outfit } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import ClientProviders from "@/components/layout/ClientProviders";
-import VentanaSalida from "@/components/layout/VentanaSalida";
+import MarcoSitio from "@/components/layout/MarcoSitio";
 import { OG_IMAGE_SIZE, ogImagePath } from "@/lib/og/paths";
 import "./globals.css";
 
@@ -119,10 +117,9 @@ export default function RootLayout({
           <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm focus:font-bold">
             Skip to content
           </a>
-          <Navbar />
-          <div id="main-content">{children}</div>
-          <Footer />
-          <VentanaSalida />
+          <MarcoSitio>
+            <div id="main-content">{children}</div>
+          </MarcoSitio>
         </ClientProviders>
       </body>
       {gaId && gaId !== "G-XXXXXXXXXX" && <GoogleAnalytics gaId={gaId} />}
