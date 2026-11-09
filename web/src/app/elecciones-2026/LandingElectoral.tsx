@@ -7,7 +7,6 @@
 // herramientas reales de PRO CORP. El contenido vive en datos.ts con su fuente.
 
 import { useEffect, useRef, useState } from 'react';
-import { fetchProjects, type InvestmentProject } from '@/lib/projects-live';
 import {
   CALENDARIO,
   ETAPAS,
@@ -15,6 +14,7 @@ import {
   GRUPOS_SENADO,
   HERRAMIENTAS,
   PARTIDOS,
+  PROYECTOS_ABIERTOS,
   QUE_SE_ELIGE,
   QUIEN_VOTA,
   REVISADO,
@@ -37,11 +37,6 @@ const TEMAS = [
   'Inmigración y extranjería',
 ];
 
-// Proyectos que ya no admiten inversión: el estado va en el nombre (igual que en inversiones).
-const CERRADO = /sold out|cerrado|finalizado/i;
-
-type Proyecto = InvestmentProject & { sector: string };
-
 function Fuente({ f }: { f: { titulo: string; url: string } }) {
   return (
     <a href={f.url} target="_blank" rel="noopener noreferrer" className="pill">
@@ -63,30 +58,17 @@ export default function LandingElectoral() {
     email: '',
   });
   const [consent, setConsent] = useState(false);
-  const [proyectos, setProyectos] = useState<Proyecto[]>([]);
   const [envio, setEnvio] = useState<'idle' | 'enviando' | 'ok' | 'error'>('idle');
   // Momento en que se abrió la página: la API descarta envíos en menos de 1,5 s (bots).
   const abierto = useRef(0);
 
-  // Proyectos reales de inversion.pro-corp.net (los mismos de /projects/).
   useEffect(() => {
     abierto.current = Date.now();
-    fetchProjects().then((d) => {
-      if (!d) return;
-      const sector = new Map(d.categories.map((c) => [c.id, c.name]));
-      setProyectos(
-        d.projects
-          .map((p) => ({ ...p, sector: sector.get(p.category_id) ?? '' }))
-          .filter((p) => SECTORES.includes(p.sector) && !CERRADO.test(p.name)),
-      );
-    });
   }, []);
 
   const cerrarMenu = () => setMenuAbierto(false);
   const cambiar = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
-
-  const coincidencias = proyectos.filter((p) => p.sector === form.interest);
 
   async function submitInvestment() {
     const name = form.name.trim();
@@ -337,7 +319,8 @@ export default function LandingElectoral() {
                 ))}
               </div>
 
-              <h3 style={{ fontSize: 25, margin: '28px 0 20px' }}>Explorador de inversiones</h3>
+              <h3 style={{ fontSize: 25, margin: '28px 0 8px' }}>Explorador de inversiones</h3>
+              <p style={{ marginBottom: 20 }}>Selecciona las opciones de tu interés</p>
               <div className="form-grid">
                 <div className="field">
                   <label htmlFor="interest">INTERÉS DE INVERSIÓN</label>
@@ -377,19 +360,17 @@ export default function LandingElectoral() {
                 </div>
               </div>
 
-              {coincidencias.length > 0 && (
-                <div className="result" style={{ margin: '4px 0 18px' }}>
-                  <strong>Proyectos abiertos · {form.interest}</strong>
-                  {coincidencias.map((p) => (
-                    <p key={p.id}>
-                      •{' '}
-                      <a href={p.url ?? '/projects/'} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-                        {p.name}
-                      </a>
-                    </p>
-                  ))}
-                </div>
-              )}
+              <div className="result" style={{ margin: '4px 0 18px' }}>
+                <strong>Proyectos abiertos</strong>
+                {PROYECTOS_ABIERTOS.map((p) => (
+                  <p key={p.url}>
+                    •{' '}
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+                      {p.nombre}
+                    </a>
+                  </p>
+                ))}
+              </div>
 
               <div className="field">
                 <label htmlFor="name">NOMBRE COMPLETO</label>

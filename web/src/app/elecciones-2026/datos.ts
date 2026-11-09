@@ -143,3 +143,10 @@ export const HERRAMIENTAS = [
     url: 'https://predios.pro-corp.net/',
   },
 ];
+
+// Proyectos abiertos que se destacan en el explorador (Javier Jaramillo, 2026-11-09).
+// Nombre y enlace como en investment_projects (inversion.pro-corp.net).
+export const PROYECTOS_ABIERTOS = [
+  { nombre: 'Latitud 58', url: 'https://inversion.pro-corp.net/latitud-58' },
+  { nombre: 'Geely', url: 'https://inversion.pro-corp.net/geely' },
+];
