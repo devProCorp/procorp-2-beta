@@ -20,6 +20,7 @@ import {
   REVISADO,
   SECTORES,
 } from './datos';
+import VideoBienvenida from './VideoBienvenida';
 import './landing.css';
 
 // El mismo logo y tamaño que la cabecera (40 px) y el pie (36 px) del resto de la web.
@@ -130,6 +131,7 @@ export default function LandingElectoral() {
 
   return (
     <div className="landing-electoral">
+      <VideoBienvenida />
       <header>
         <div className="container nav">
           <a href="#home" className="logo-link" aria-label="PRO CORP, inicio">

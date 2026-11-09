@@ -109,3 +109,12 @@ html:has(.landing-electoral){scroll-behavior:smooth;scroll-padding-top:100px}
 .landing-electoral .lista-grupos li{margin-top:6px}
 @media(max-width:850px){.landing-electoral .lista-etapas{grid-template-columns:1fr 1fr}}
 @media(max-width:650px){.landing-electoral .lista-etapas{grid-template-columns:1fr}.landing-electoral .calendario li{grid-template-columns:1fr;gap:2px}}
+
+/* Ventana del vídeo de bienvenida (2026-11-09). */
+.landing-electoral .video-bienvenida{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(5,9,16,.86);backdrop-filter:blur(6px);animation:appear .25s ease}
+.landing-electoral .video-bienvenida-caja{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;max-height:100%}
+.landing-electoral .video-bienvenida video{display:block;height:min(78vh,760px);max-width:calc(100vw - 40px);aspect-ratio:720/1272;object-fit:cover;border-radius:14px;border:1px solid var(--border);background:#000;box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.landing-electoral .video-bienvenida-cerrar{position:absolute;top:-14px;right:-14px;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--navy2);color:var(--white);font-size:16px}
+.landing-electoral .video-bienvenida-cerrar:hover{border-color:var(--coral)}
+.landing-electoral .video-bienvenida-sonido{position:absolute;top:16px;left:50%;transform:translateX(-50%);padding:9px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.35);background:rgba(11,20,34,.82);color:var(--white);font-size:11px;font-weight:900;letter-spacing:1.5px}
+@media(max-width:650px){.landing-electoral .video-bienvenida video{height:min(72vh,640px)}.landing-electoral .video-bienvenida-cerrar{top:-10px;right:-6px}}
