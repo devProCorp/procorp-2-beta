@@ -94,3 +94,18 @@ html:has(.landing-electoral){scroll-behavior:smooth;scroll-padding-top:100px}
 .landing-electoral .footer-brand{justify-content:center;margin-bottom:15px}
 .landing-electoral .footer-brand .brand-logo{width:205px;max-height:54px;object-position:center}
 @media(max-width:650px){.landing-electoral .brand-logo{width:185px;max-height:48px}}
+
+/* Bloques añadidos con los cambios del 2026-11-09 (Panorama, calendario, grupos). */
+.landing-electoral .pill{margin:12px 6px 0 0}
+.landing-electoral a.pill:hover{border-color:var(--coral);color:var(--white)}
+.landing-electoral .lista-etapas{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:12px}
+.landing-electoral .lista-etapas h4{font-size:14px;margin:0 0 4px}
+.landing-electoral .lista-etapas p{margin-top:0}
+.landing-electoral .calendario{list-style:none;margin-top:10px}
+.landing-electoral .calendario li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted)}
+.landing-electoral .calendario li strong{color:var(--soft);font-weight:700}
+.landing-electoral .calendario li.destacado strong,.landing-electoral .calendario li.destacado span{color:var(--coral)}
+.landing-electoral .lista-grupos{margin:10px 0 0 18px;font-size:13px;color:var(--muted)}
+.landing-electoral .lista-grupos li{margin-top:6px}
+@media(max-width:850px){.landing-electoral .lista-etapas{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.landing-electoral .lista-etapas{grid-template-columns:1fr}.landing-electoral .calendario li{grid-template-columns:1fr;gap:2px}}
