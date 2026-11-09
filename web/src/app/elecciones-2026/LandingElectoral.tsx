@@ -1,47 +1,92 @@
 'use client';
 
 // Landing «Inteligencia electoral» de Innovación (Lina Díaz, 2026-11-09), pasada de
-// HTML a React sin cambiar textos, estructura ni estilos (landing.css). Lo que en el
-// original eran onclick y innerHTML ahora es estado de React; el comportamiento es
-// el mismo, incluidos los avisos con alert() del formulario demostrativo.
+// HTML a React con su estructura y estilos (landing.css). Cambios pedidos por Lina el
+// mismo día: todo en español, «Panorama electoral» con La Moncloa, el Senado y RTVE,
+// comparador a partir del listado del Senado, y oportunidades con los proyectos y
+// herramientas reales de PRO CORP. El contenido vive en datos.ts con su fuente.
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { fetchProjects, type InvestmentProject } from '@/lib/projects-live';
+import {
+  CALENDARIO,
+  ETAPAS,
+  FUENTES,
+  GRUPOS_SENADO,
+  HERRAMIENTAS,
+  PARTIDOS,
+  QUE_SE_ELIGE,
+  QUIEN_VOTA,
+  REVISADO,
+  SECTORES,
+} from './datos';
 import './landing.css';
 
 const LOGO = '/elecciones-2026/logo-pro-corp.svg';
-const PENDIENTE = 'Contenido pendiente: incorporar la propuesta verificada, el documento fuente y la página de referencia.';
+const API_INTERES = `${process.env.NEXT_PUBLIC_INVERSION_URL ?? 'https://inversion.pro-corp.net'}/api/interes`;
 
-const policyData: Record<string, { title: string; a: string; b: string }> = {
-  economy: { title: 'Economía y fiscalidad', a: PENDIENTE, b: PENDIENTE },
-  housing: { title: 'Vivienda e inmobiliario', a: PENDIENTE, b: PENDIENTE },
-  technology: { title: 'Inteligencia artificial y tecnología', a: PENDIENTE, b: PENDIENTE },
-  employment: { title: 'Empleo', a: PENDIENTE, b: PENDIENTE },
-  energy: { title: 'Energía y sostenibilidad', a: PENDIENTE, b: PENDIENTE },
-  investment: { title: 'Inversión extranjera', a: PENDIENTE, b: PENDIENTE },
-};
-
-const demoProjects = [
-  { name: 'Sector inmobiliario Project — España', interest: 'realestate', market: 'spain' },
-  { name: 'Sector inmobiliario Tokenization — República Dominicana', interest: 'tokenization', market: 'dominican' },
-  { name: 'Tecnología Project — Colombia', interest: 'technology', market: 'colombia' },
-  { name: 'Energía Project — España', interest: 'energy', market: 'spain' },
+const TEMAS = [
+  'Economía y fiscalidad',
+  'Vivienda e inmobiliario',
+  'Inteligencia artificial y tecnología',
+  'Empleo',
+  'Energía y sostenibilidad',
+  'Inversión extranjera',
+  'Inmigración y extranjería',
 ];
 
-type Resultado = { nombre: string; matches: string[] } | null;
+// Proyectos que ya no admiten inversión: el estado va en el nombre (igual que en inversiones).
+const CERRADO = /sold out|cerrado|finalizado/i;
+
+type Proyecto = InvestmentProject & { sector: string };
+
+function Fuente({ f }: { f: { titulo: string; url: string } }) {
+  return (
+    <a href={f.url} target="_blank" rel="noopener noreferrer" className="pill">
+      Fuente: {f.titulo}
+    </a>
+  );
+}
 
 export default function LandingElectoral() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [modulo, setModulo] = useState<string | null>(null);
-  const [tema, setTema] = useState('economy');
-  const [form, setForm] = useState({ interest: 'realestate', market: 'spain', capital: 'under50', horizon: 'short', name: '', email: '' });
+  const [tema, setTema] = useState(TEMAS[0]);
+  const [form, setForm] = useState({
+    interest: SECTORES[0],
+    market: 'España',
+    capital: 'Menos de 50.000 €',
+    horizon: 'Corto plazo',
+    name: '',
+    email: '',
+  });
   const [consent, setConsent] = useState(false);
-  const [resultado, setResultado] = useState<Resultado>(null);
+  const [proyectos, setProyectos] = useState<Proyecto[]>([]);
+  const [envio, setEnvio] = useState<'idle' | 'enviando' | 'ok' | 'error'>('idle');
+  // Momento en que se abrió la página: la API descarta envíos en menos de 1,5 s (bots).
+  const abierto = useRef(0);
+
+  // Proyectos reales de inversion.pro-corp.net (los mismos de /projects/).
+  useEffect(() => {
+    abierto.current = Date.now();
+    fetchProjects().then((d) => {
+      if (!d) return;
+      const sector = new Map(d.categories.map((c) => [c.id, c.name]));
+      setProyectos(
+        d.projects
+          .map((p) => ({ ...p, sector: sector.get(p.category_id) ?? '' }))
+          .filter((p) => SECTORES.includes(p.sector) && !CERRADO.test(p.name)),
+      );
+    });
+  }, []);
 
   const cerrarMenu = () => setMenuAbierto(false);
   const cambiar = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  function submitInvestment() {
+  const coincidencias = proyectos.filter((p) => p.sector === form.interest);
+
+  async function submitInvestment() {
     const name = form.name.trim();
     const email = form.email.trim();
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -52,16 +97,35 @@ export default function LandingElectoral() {
       alert('Por favor, acepta la autorización de contacto.');
       return;
     }
-    const matches = demoProjects
-      .filter((p) => p.interest === form.interest && (p.market === form.market || form.market === 'other'))
-      .map((p) => p.name);
-    setResultado({ nombre: name, matches });
+    const mensaje = [
+      'Consulta desde la landing de las Elecciones Generales 2026 (Explorador de inversiones).',
+      `Interés de inversión: ${form.interest}`,
+      `Mercado de interés: ${form.market}`,
+      `Rango de inversión: ${form.capital}`,
+      `Horizonte de inversión: ${form.horizon}`,
+    ].join('\n');
+    setEnvio('enviando');
+    try {
+      const res = await fetch(API_INTERES, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          general: true,
+          campos: { nombre: name, email, mensaje },
+          consentimiento: true,
+          origen: { idioma: 'es', pagina: window.location.pathname, referente: document.referrer },
+          sitio_web: (document.getElementById('sitio_web') as HTMLInputElement | null)?.value ?? '',
+          ms_abierto: Date.now() - abierto.current,
+        }),
+      });
+      setEnvio(res.ok ? 'ok' : 'error');
+    } catch {
+      setEnvio('error');
+    }
     requestAnimationFrame(() =>
       document.getElementById('investmentResult')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }),
     );
   }
-
-  const d = policyData[tema];
 
   return (
     <div className="landing-electoral">
@@ -69,13 +133,13 @@ export default function LandingElectoral() {
         <div className="container nav">
           <a href="#home" className="logo-link" aria-label="PRO CORP, inicio">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="brand-logo" src={LOGO} alt="PRO CORP — Business Engineering" />
+            <img className="brand-logo" src={LOGO} alt="PRO CORP" />
           </a>
           <nav className={`nav-links${menuAbierto ? ' open' : ''}`} id="navLinks">
             <a href="#home" onClick={cerrarMenu}>Inicio</a>
             <a href="#election" onClick={cerrarMenu}>Elecciones</a>
-            <a href="#overview" onClick={cerrarMenu}>Panorama</a>
-            <a href="#policies" onClick={cerrarMenu}>Programas</a>
+            <a href="#overview-tool" onClick={() => { cerrarMenu(); setModulo('overview-tool'); }}>Panorama</a>
+            <a href="#policies" onClick={() => { cerrarMenu(); setModulo('policies'); }}>Programas</a>
             <a href="#investment" onClick={cerrarMenu}>Inversión</a>
           </nav>
           <div className="nav-actions">
@@ -144,61 +208,104 @@ export default function LandingElectoral() {
             </div>
 
             <div className={`interactive${modulo === 'overview-tool' ? ' active' : ''}`} id="overview-tool">
-              <div className="eyebrow">01 / ELECCIONES OVERVIEW</div>
-              <h3>Understand the electoral landscape.</h3>
-              <p>Consulta información sobre el proceso electoral, las instituciones y el sistema de representación.</p>
+              <div className="eyebrow">01 / PANORAMA ELECTORAL</div>
+              <h3>Comprende el panorama electoral.</h3>
+              <p>Información sobre el proceso electoral, las instituciones y el calendario de las elecciones del 29 de noviembre.</p>
               <div className="comparison-grid">
                 <div className="comparison-card">
-                  <div className="module-number">SISTEMA ELECTORAL</div>
-                  <h4>Congreso de los Diputados</h4>
-                  <p>Información explicativa sobre el sistema de representación y la distribución territorial de escaños.</p>
+                  <div className="module-number">QUÉ SE ELIGE</div>
+                  <h4>Congreso de los Diputados y Senado</h4>
+                  <p>{QUE_SE_ELIGE}</p>
+                  <Fuente f={FUENTES.moncloa} />
                 </div>
                 <div className="comparison-card">
-                  <div className="module-number">CALENDARIO ELECTORAL</div>
-                  <h4>29 November 2026</h4>
-                  <p>Fechas, plazos e hitos electorales. Incorporar aquí el calendario oficial validado.</p>
+                  <div className="module-number">QUIÉN PUEDE VOTAR</div>
+                  <h4>Electores</h4>
+                  {QUIEN_VOTA.map((t) => (
+                    <p key={t}>{t}</p>
+                  ))}
+                  <Fuente f={FUENTES.moncloa} />
                 </div>
               </div>
-              <div className="result">
-                <strong>Información oficial</strong>
-                <p>Conectar con la Junta Electoral Central y el Ministerio del Interior para publicar datos y calendario verificados.</p>
+
+              <div className="comparison-card" style={{ marginTop: 14 }}>
+                <div className="module-number">ETAPAS DEL PROCESO ELECTORAL</div>
+                <ol className="lista-etapas">
+                  {ETAPAS.map((e, i) => (
+                    <li key={e.titulo}>
+                      <h4>{i + 1}. {e.titulo}</h4>
+                      <p>{e.texto}</p>
+                    </li>
+                  ))}
+                </ol>
+                <Fuente f={FUENTES.moncloa} />
               </div>
-              <p className="data-note">Módulo demostrativo. Completar con fuentes oficiales antes de publicar.</p>
+
+              <div className="comparison-card" style={{ marginTop: 14 }}>
+                <div className="module-number">CALENDARIO ELECTORAL</div>
+                <h4>Fechas clave hasta el 23 de diciembre</h4>
+                <ul className="calendario">
+                  {CALENDARIO.map((c) => (
+                    <li key={c.fecha + c.texto} className={c.destacado ? 'destacado' : undefined}>
+                      <strong>{c.fecha}</strong>
+                      <span>{c.texto}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Fuente f={FUENTES.rtve} /> <Fuente f={FUENTES.boe} />
+              </div>
+
+              <div className="comparison-card" style={{ marginTop: 14 }}>
+                <div className="module-number">PARTIDOS Y GRUPOS PARLAMENTARIOS</div>
+                <h4>Grupos parlamentarios del Senado</h4>
+                <p>Disueltas las Cámaras el 6 de octubre de 2026, la composición del Senado se reduce a la Diputación Permanente. Estos eran sus grupos parlamentarios:</p>
+                <ul className="lista-grupos">
+                  {GRUPOS_SENADO.map((g) => (
+                    <li key={g}>{g}</li>
+                  ))}
+                </ul>
+                <Fuente f={FUENTES.senadoPartidos} />
+              </div>
+
+              <p className="data-note">Información revisada el {REVISADO}.</p>
             </div>
 
             <div className={`interactive${modulo === 'policies' ? ' active' : ''}`} id="policies">
-              <div className="eyebrow">02 / POLICY COMPARATOR</div>
+              <div className="eyebrow">02 / COMPARADOR DE PROGRAMAS</div>
               <h3>Compara propuestas políticas.</h3>
-              <p>Selecciona una temática para consultar las propuestas documentadas de las formaciones políticas.</p>
+              <p>Selecciona una temática para consultar las propuestas documentadas de las formaciones políticas representadas en el Senado.</p>
               <div className="field">
                 <label htmlFor="policyTopic">SELECCIONA UN TEMA</label>
                 <select id="policyTopic" value={tema} onChange={(e) => setTema(e.target.value)}>
-                  <option value="economy">Economía y fiscalidad</option>
-                  <option value="housing">Vivienda e inmobiliario</option>
-                  <option value="technology">Inteligencia artificial y tecnología</option>
-                  <option value="employment">Empleo</option>
-                  <option value="energy">Energía y sostenibilidad</option>
-                  <option value="investment">Inversión extranjera</option>
+                  {TEMAS.map((t) => (
+                    <option key={t}>{t}</option>
+                  ))}
                 </select>
               </div>
+              <div className="result" style={{ marginBottom: 18 }}>
+                <strong>{tema}</strong>
+                <p>
+                  Estamos revisando los programas electorales de cada formación para el 29 de noviembre. Cada propuesta se
+                  publicará aquí con su documento fuente, fecha y página. Mientras tanto, puedes consultar el programa en la
+                  web de cada partido.
+                </p>
+              </div>
               <div className="comparison-grid" id="comparisonResults">
-                <div className="comparison-card">
-                  <div className="module-number">FORMACIÓN POLÍTICA A</div>
-                  <h4>{d.title}</h4>
-                  <p>{d.a}</p>
-                  <span className="pill">Fuente pendiente</span>
-                </div>
-                <div className="comparison-card">
-                  <div className="module-number">FORMACIÓN POLÍTICA B</div>
-                  <h4>{d.title}</h4>
-                  <p>{d.b}</p>
-                  <span className="pill">Fuente pendiente</span>
-                </div>
+                {PARTIDOS.map((p) => (
+                  <div className="comparison-card" key={p.nombre}>
+                    <div className="module-number">FORMACIÓN POLÍTICA</div>
+                    <h4>{p.nombre}</h4>
+                    <a href={p.web} target="_blank" rel="noopener noreferrer" className="pill">
+                      Web oficial del partido
+                    </a>
+                  </div>
+                ))}
               </div>
               <p className="data-note">
-                Los partidos y las propuestas que se incorporen deberán identificarse con su fuente, fecha y página. No se
-                incluyen posiciones políticas reales en esta demo.
+                Formaciones con representación en el Senado según su listado de programas electorales. PRO CORP no recomienda
+                el voto a ninguna formación.
               </p>
+              <Fuente f={FUENTES.senadoProgramas} />
             </div>
           </div>
         </section>
@@ -213,47 +320,74 @@ export default function LandingElectoral() {
                 de inversión.
               </h2>
               <p>Conoce los proyectos y las oportunidades de inversión estructurados por PRO CORP y encuentra aquellos que coincidan con tus intereses.</p>
+
+              <h3 style={{ fontSize: 25, margin: '28px 0 20px' }}>Herramientas de inversión</h3>
+              <div className="comparison-grid">
+                {HERRAMIENTAS.map((h) => (
+                  <div className="comparison-card" key={h.titulo}>
+                    <h4>{h.titulo}</h4>
+                    <p>{h.texto}</p>
+                    <a href={h.url} className="explore" {...(h.url.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                      {h.accion.toUpperCase()} →
+                    </a>
+                  </div>
+                ))}
+              </div>
+
               <h3 style={{ fontSize: 25, margin: '28px 0 20px' }}>Explorador de inversiones</h3>
               <div className="form-grid">
                 <div className="field">
                   <label htmlFor="interest">INTERÉS DE INVERSIÓN</label>
                   <select id="interest" value={form.interest} onChange={cambiar('interest')}>
-                    <option value="realestate">Sector inmobiliario</option>
-                    <option value="tokenization">Sector inmobiliario Tokenization</option>
-                    <option value="technology">Tecnología</option>
-                    <option value="energy">Energía</option>
-                    <option value="other">Otras oportunidades</option>
+                    {SECTORES.map((s) => (
+                      <option key={s}>{s}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="field">
                   <label htmlFor="market">MERCADO DE INTERÉS</label>
                   <select id="market" value={form.market} onChange={cambiar('market')}>
-                    <option value="spain">España</option>
-                    <option value="colombia">Colombia</option>
-                    <option value="dominican">República Dominicana</option>
-                    <option value="other">Otro</option>
+                    <option>España</option>
+                    <option>Colombia</option>
+                    <option>República Dominicana</option>
+                    <option>Otro</option>
                   </select>
                 </div>
                 <div className="field">
                   <label htmlFor="capital">RANGO DE INVERSIÓN</label>
                   <select id="capital" value={form.capital} onChange={cambiar('capital')}>
-                    <option value="under50">Menos de 50.000 €</option>
-                    <option value="50-100">50.000 € – 100.000 €</option>
-                    <option value="100-500">100.000 € – 500.000 €</option>
-                    <option value="over500">Más de 500.000 €</option>
-                    <option value="undecided">Aún no lo he definido</option>
+                    <option>Menos de 50.000 €</option>
+                    <option>50.000 € – 100.000 €</option>
+                    <option>100.000 € – 500.000 €</option>
+                    <option>Más de 500.000 €</option>
+                    <option>Aún no lo he definido</option>
                   </select>
                 </div>
                 <div className="field">
                   <label htmlFor="horizon">HORIZONTE DE INVERSIÓN</label>
                   <select id="horizon" value={form.horizon} onChange={cambiar('horizon')}>
-                    <option value="short">Corto plazo</option>
-                    <option value="medium">Mediano plazo</option>
-                    <option value="long">Largo plazo</option>
-                    <option value="undecided">Aún no lo he definido</option>
+                    <option>Corto plazo</option>
+                    <option>Mediano plazo</option>
+                    <option>Largo plazo</option>
+                    <option>Aún no lo he definido</option>
                   </select>
                 </div>
               </div>
+
+              {coincidencias.length > 0 && (
+                <div className="result" style={{ margin: '4px 0 18px' }}>
+                  <strong>Proyectos abiertos · {form.interest}</strong>
+                  {coincidencias.map((p) => (
+                    <p key={p.id}>
+                      •{' '}
+                      <a href={p.url ?? '/projects/'} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+                        {p.name}
+                      </a>
+                    </p>
+                  ))}
+                </div>
+              )}
+
               <div className="field">
                 <label htmlFor="name">NOMBRE COMPLETO</label>
                 <input id="name" type="text" placeholder="Tu nombre" autoComplete="name" value={form.name} onChange={cambiar('name')} />
@@ -262,33 +396,34 @@ export default function LandingElectoral() {
                 <label htmlFor="email">CORREO ELECTRÓNICO</label>
                 <input id="email" type="email" placeholder="tu@correo.com" autoComplete="email" value={form.email} onChange={cambiar('email')} />
               </div>
+              {/* Trampa para bots: invisible para las personas. */}
+              <div aria-hidden="true" style={{ position: 'absolute', left: -9999, height: 0, overflow: 'hidden' }}>
+                <input id="sitio_web" name="sitio_web" tabIndex={-1} autoComplete="off" />
+              </div>
               <label className="consent">
                 <input type="checkbox" id="consent" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
-                <span>Autorizo a PRO CORP a tratar mis datos de contacto para responder a mi consulta de inversión. He leído el aviso de privacidad.</span>
+                <span>
+                  Autorizo a PRO CORP a tratar mis datos de contacto para responder a mi consulta de inversión. He leído la{' '}
+                  <a href="/politica-de-privacidad/" style={{ textDecoration: 'underline' }}>política de privacidad</a>.
+                </span>
               </label>
-              <button className="btn" onClick={submitInvestment}>EXPLORAR OPORTUNIDADES →</button>
-              <div id="investmentResult" className={`result${resultado ? '' : ' hidden'}`} aria-live="polite">
-                {resultado &&
-                  (resultado.matches.length ? (
-                    <>
-                      <strong>Coincidencias demostrativas</strong>
-                      <p>Gracias, {resultado.nombre}. Estas categorías de proyectos de ejemplo coinciden con tus selecciones:</p>
-                      {resultado.matches.map((m) => (
-                        <p key={m}>• {m}</p>
-                      ))}
-                      <p>Estas entradas son ilustrativas y no constituyen ofertas vigentes. Antes del lanzamiento, conecta el catálogo real de proyectos de PRO CORP y el CRM.</p>
-                    </>
-                  ) : (
-                    <>
-                      <strong>Gracias, {resultado.nombre}.</strong>
-                      <p>No hay proyectos demostrativos que coincidan con esta selección. El catálogo publicado deberá mostrar únicamente oportunidades realmente disponibles a través de PRO CORP.</p>
-                    </>
-                  ))}
+              <button className="btn" onClick={submitInvestment} disabled={envio === 'enviando'}>
+                {envio === 'enviando' ? 'ENVIANDO…' : 'EXPLORAR OPORTUNIDADES →'}
+              </button>
+              <div id="investmentResult" className={`result${envio === 'ok' || envio === 'error' ? '' : ' hidden'}`} aria-live="polite">
+                {envio === 'ok' && (
+                  <>
+                    <strong>Gracias, {form.name.trim()}.</strong>
+                    <p>Hemos recibido tu consulta. El equipo de PRO CORP te escribirá con las oportunidades que encajen con tus preferencias.</p>
+                  </>
+                )}
+                {envio === 'error' && (
+                  <>
+                    <strong>No pudimos enviar tu consulta.</strong>
+                    <p>Inténtalo de nuevo en unos minutos o escríbenos desde la página de contacto.</p>
+                  </>
+                )}
               </div>
-              <p className="data-note">
-                Formulario demostrativo: esta versión no transmite ni almacena datos. Antes de recopilar información real,
-                conectar un backend seguro e incorporar el aviso de privacidad completo.
-              </p>
             </div>
           </div>
         </section>
@@ -298,9 +433,9 @@ export default function LandingElectoral() {
         <div className="container">
           <div className="footer-brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="brand-logo" src={LOGO} alt="PRO CORP — Business Engineering" />
+            <img className="brand-logo" src={LOGO} alt="PRO CORP" />
           </div>
-          <p>Business Engineering · Tecnología · Intelligence</p>
+          <p>Ingeniería de negocios · Tecnología · Inteligencia</p>
           <p>© 2026 PRO CORP. Todos los derechos reservados.</p>
         </div>
       </footer>
