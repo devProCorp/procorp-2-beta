@@ -90,10 +90,10 @@ html:has(.landing-electoral){scroll-behavior:smooth;scroll-padding-top:100px}
 .landing-electoral .investment-box{padding:24px}
 .landing-electoral .module-image{height:185px}}
 .landing-electoral .logo-link,.landing-electoral .footer-brand{display:inline-flex;align-items:center;line-height:0}
-.landing-electoral .brand-logo{display:block;width:230px;max-width:100%;height:auto;max-height:58px;object-fit:contain;object-position:left center}
+/* Como la cabecera de la web: 40 px de alto; si falta espacio (móvil) se reduce en proporción. */
+.landing-electoral .brand-logo{display:block;width:227px;max-width:100%;height:auto}
 .landing-electoral .footer-brand{justify-content:center;margin-bottom:15px}
-.landing-electoral .footer-brand .brand-logo{width:205px;max-height:54px;object-position:center}
-@media(max-width:650px){.landing-electoral .brand-logo{width:185px;max-height:48px}}
+.landing-electoral .footer-brand .brand-logo{width:204px}
 
 /* Bloques añadidos con los cambios del 2026-11-09 (Panorama, calendario, grupos). */
 .landing-electoral .pill{margin:12px 6px 0 0}
