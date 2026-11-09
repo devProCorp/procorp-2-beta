@@ -1,4 +1,4 @@
-// Contenido del Centro de novedades (/novedades/).
+// Contenido del Centro de novedades (/centro-de-novedades/).
 //
 // Las fechas del proceso electoral salen del artículo del Journal «España irá a
 // elecciones el 29 de noviembre» (Humberto Calderón, 2026-10-07), que cita el
