@@ -128,6 +128,7 @@ export default function LandingElectoral() {
             <a href="#overview-tool" onClick={() => { cerrarMenu(); setModulo('overview-tool'); }}>Panorama</a>
             <a href="#policies" onClick={() => { cerrarMenu(); setModulo('policies'); }}>Programas</a>
             <a href="#investment" onClick={cerrarMenu}>Inversión</a>
+            <a href="/about/#equipo" onClick={cerrarMenu}>Sobre nosotros</a>
           </nav>
           <div className="nav-actions">
             <span className="lang">🇪🇸 ES</span>
