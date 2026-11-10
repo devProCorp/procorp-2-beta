@@ -161,13 +161,13 @@ export default function LandingElectoral() {
             <p>Comprende el panorama político. Compara propuestas. Descubre oportunidades de inversión.</p>
             <div className="date-label">29 DE NOVIEMBRE DE 2026</div>
             <br />
-            <a href="#election" className="btn">EXPLORA LA PLATAFORMA →</a>
+            <a href="#election" className="btn">CONOCER MÁS →</a>
           </div>
         </div>
 
         <section id="election">
           <div className="container">
-            <div className="eyebrow">EXPLORA LA PLATAFORMA</div>
+            <div className="eyebrow">Conoce más sobre las elecciones</div>
             <h2 className="section-title">
               Comprende qué está pasando en <span className="gradient">España.</span>
             </h2>
