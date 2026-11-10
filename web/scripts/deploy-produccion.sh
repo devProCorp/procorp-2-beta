@@ -81,6 +81,24 @@ archivos=$(find out -type f | wc -l | tr -d ' ')
 (( archivos > 500 )) || abort "sólo $archivos archivos en out/: el build parece truncado."
 echo "  $archivos archivos, robots y sitemap correctos."
 
+# Artículos prerenderizados como 404. Si durante el build falla la consulta a
+# get-blog-posts de algún artículo, Next genera su página igual, pero con el
+# «404: This page could not be found», y Apache la sirve en vez del fallback en
+# vivo: el blog entero queda sin artículos (ni blogcast). Pasó el 2026-11-10.
+# __sin-articulos es el marcador intencional de «Supabase caído» y se excluye.
+articulos_404=()
+for pagina in out/blog/*/index.html; do
+  case "$pagina" in
+    out/blog/live-fallback/*|out/blog/preview/*|out/blog/__sin-articulos/*) continue ;;
+  esac
+  if grep -q 'NEXT_HTTP_ERROR_FALLBACK;404' "$pagina"; then articulos_404+=("$pagina"); fi
+done
+if (( ${#articulos_404[@]} > 0 )); then
+  printf '  %s\n' "${articulos_404[@]:0:5}" >&2
+  abort "${#articulos_404[@]} artículos del blog salieron como 404 (falló la consulta a Supabase durante el build). Vuelve a compilar."
+fi
+echo "  Artículos del blog prerenderizados sin 404."
+
 # ── 4. Sync ─────────────────────────────────────────────────────────────────
 # --checksum: every build rewrites out/ with new timestamps, so without it rsync
 #   resends the whole ~1 GB each time.
