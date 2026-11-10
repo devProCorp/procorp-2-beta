@@ -118,3 +118,14 @@ html:has(.landing-electoral){scroll-behavior:smooth;scroll-padding-top:100px}
 .landing-electoral .video-bienvenida-cerrar:hover{border-color:var(--coral)}
 .landing-electoral .video-bienvenida-sonido{position:absolute;top:16px;left:50%;transform:translateX(-50%);padding:9px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.35);background:rgba(11,20,34,.82);color:var(--white);font-size:11px;font-weight:900;letter-spacing:1.5px}
 @media(max-width:650px){.landing-electoral .video-bienvenida video{height:min(72vh,640px)}.landing-electoral .video-bienvenida-cerrar{top:-10px;right:-6px}}
+
+/* Burbuja de WhatsApp, solo en esta landing (2026-11-10). Por debajo de la ventana
+   del vídeo (z-index 1000) y por encima del resto. */
+.landing-electoral .burbuja-whatsapp{position:fixed;right:24px;bottom:24px;z-index:900;display:flex;align-items:center;gap:12px}
+.landing-electoral .burbuja-whatsapp-boton{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#25d366;box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 0 4px rgba(37,211,102,.18);transition:transform .2s,box-shadow .2s}
+.landing-electoral .burbuja-whatsapp-boton:hover,.landing-electoral .burbuja-whatsapp-boton:focus-visible{transform:translateY(-2px) scale(1.05);box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 6px rgba(37,211,102,.25)}
+.landing-electoral .burbuja-whatsapp-boton:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.landing-electoral .burbuja-whatsapp-etiqueta{order:-1;padding:10px 14px;border-radius:10px;background:var(--navy2);border:1px solid var(--border);color:var(--white);font-size:13px;font-weight:700;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;transform:translateX(8px);pointer-events:none;transition:opacity .25s,transform .25s}
+.landing-electoral .burbuja-whatsapp.con-aviso .burbuja-whatsapp-etiqueta,.landing-electoral .burbuja-whatsapp:hover .burbuja-whatsapp-etiqueta,.landing-electoral .burbuja-whatsapp:focus-within .burbuja-whatsapp-etiqueta{opacity:1;transform:none}
+@media(max-width:650px){.landing-electoral .burbuja-whatsapp{right:16px;bottom:16px}.landing-electoral .burbuja-whatsapp-boton{width:54px;height:54px}.landing-electoral .burbuja-whatsapp-etiqueta{font-size:12px;padding:8px 12px}}
+@media(prefers-reduced-motion:reduce){.landing-electoral .burbuja-whatsapp-boton,.landing-electoral .burbuja-whatsapp-etiqueta{transition:none}}

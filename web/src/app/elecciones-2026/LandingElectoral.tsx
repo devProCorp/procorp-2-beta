@@ -20,6 +20,7 @@ import {
   REVISADO,
   SECTORES,
 } from './datos';
+import BurbujaWhatsApp from './BurbujaWhatsApp';
 import VideoBienvenida from './VideoBienvenida';
 import './landing.css';
 
@@ -114,6 +115,7 @@ export default function LandingElectoral() {
   return (
     <div className="landing-electoral">
       <VideoBienvenida />
+      <BurbujaWhatsApp />
       <header>
         <div className="container nav">
           <a href="#home" className="logo-link" aria-label="PRO CORP, inicio">
