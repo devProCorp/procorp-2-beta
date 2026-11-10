@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { Beliefs } from '@/components/manifesto/StorySections';
 import ProCorpStory from '@/components/about/ProCorpStory';
+import { GERENTES } from '@/lib/equipo';
 
 export default function About() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
 
 
@@ -125,6 +126,31 @@ export default function About() {
         </div>
       </section>
 
+
+      {/* Nuestro equipo: nombres y caras visibles (pedido de Javier, 2026-11-10). */}
+      <section id="equipo" className="py-24 px-6 bg-transparent border-b border-surface-border scroll-mt-24">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] mb-3 text-primary-light">{t('about.team.label')}</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">{t('about.team.managers')}</h2>
+          <p className="text-gray-400 font-light max-w-2xl mb-12">{t('about.team.desc')}</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {GERENTES.map((g) => (
+              <article key={g.nombre} className="glass-panel rounded-2xl border border-surface-border/60 overflow-hidden flex flex-col">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={g.foto} alt={g.nombre} width={600} height={750} loading="lazy" className="w-full aspect-[4/5] object-cover object-top bg-white" />
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-white font-bold text-lg leading-tight">{g.nombre}</h3>
+                  <p className="text-primary-light text-sm font-semibold mt-1">{g.cargo[lang] ?? g.cargo.es}</p>
+                  <p className="text-gray-400 text-sm font-light leading-relaxed mt-3 flex-1">{g.formacion[lang] ?? g.formacion.es}</p>
+                  <p className="text-gray-500 text-xs mt-4">
+                    {t('about.team.languages')}: {g.idiomas[lang] ?? g.idiomas.es}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* We Believe */}
       <Beliefs />

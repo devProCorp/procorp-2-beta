@@ -70,7 +70,7 @@ export default function VideoBienvenida() {
           </button>
         )}
         <button type="button" className="btn video-bienvenida-continuar" onClick={cerrar}>
-          EXPLORA LA PLATAFORMA →
+          CONOCER MÁS →
         </button>
       </div>
     </div>
