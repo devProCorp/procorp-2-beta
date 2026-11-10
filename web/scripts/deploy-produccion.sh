@@ -92,6 +92,33 @@ echo "  $archivos archivos, robots y sitemap correctos."
 #   microsites, none of which exist in out/.
 RSYNC_FLAGS=(-a --checksum --partial --human-readable --progress --exclude=".htaccess" --stats)
 
+# ── 4a. Quota guard ─────────────────────────────────────────────────────────
+# The GoDaddy account is capped at 250 000 files (inodes) shared with WordPress,
+# the client portals and their hourly syncs. A deploy writes ~3 600 files plus
+# the same number into the rollback copy. If the quota runs out mid-sync, rsync
+# fails on mkstemp ("Disk quota exceeded") and can leave the site half-published,
+# and the portal syncs start failing with "Unable to create temporary file"
+# (2026-11-09/10). Stop before that happens.
+MIN_INODOS=12000
+libres=$(ssh -o BatchMode=yes "$SSH_ALIAS" 'uapi --output=json Quota get_quota_info' 2>/dev/null |
+  sed -n 's/.*"inodes_remain":"\{0,1\}\([0-9][0-9]*\).*/\1/p' || true)
+if [[ -z "$libres" ]]; then
+  echo "  ⚠ No se pudo leer la cuota de archivos de la cuenta."
+elif (( libres < MIN_INODOS )); then
+  abort "quedan $libres archivos libres en la cuenta (mínimo $MIN_INODOS). Libera ~/backups-cutover antes de publicar."
+else
+  echo "  Cuota de archivos: $libres libres."
+fi
+
+# ── 4b. Rollback copy ───────────────────────────────────────────────────────
+# Every file this sync replaces is moved to ~/backups-cutover/<id>/ (same paths
+# as in public_html). It keeps only what changed, not a full copy: never use
+# `cp -al public_html` — that full hard-link snapshot exhausts the inode quota.
+# Old copies are rotated at the end (step 6).
+BACKUP_ID="$(date +%Y%m%d-%H%M)-$(git rev-parse --short HEAD 2>/dev/null || echo build)-rsync"
+CONSERVAR_RESPALDOS=2
+(( DRY_RUN )) || RSYNC_FLAGS+=(--backup "--backup-dir=../backups-cutover/$BACKUP_ID")
+
 if (( DRY_RUN )); then
   RSYNC_FLAGS+=(--dry-run --itemize-changes)
   step "SIMULACRO: no se escribe nada en el servidor"
@@ -99,6 +126,7 @@ elif (( YES )); then
   step "Publicando en $SITE_URL (--yes, sin confirmación interactiva)"
 else
   step "Vas a publicar en $SITE_URL (producción, compartida con WordPress y /login/)"
+  # Sin terminal (p. ej. desde Claude Code): printf 'publicar\n' | ./scripts/deploy-produccion.sh
   read -r -p "  Escribe 'publicar' para continuar: " respuesta
   [[ "$respuesta" == "publicar" ]] || abort "Cancelado."
 fi
@@ -127,6 +155,19 @@ else
 fi
 
 ./scripts/check-produccion.sh || abort "el sitio publicado no pasa las comprobaciones. Revisa antes de dar por buena la publicación."
+
+echo "  Respaldo de lo reemplazado: ~/backups-cutover/$BACKUP_ID"
+
+# ── 6. Rotate rollback copies ───────────────────────────────────────────────
+# Only after the published site passed the checks. Keeps the newest
+# $CONSERVAR_RESPALDOS "*-rsync" copies; anything else in backups-cutover
+# (manual snapshots, .htaccess copies) is left alone.
+step "Rotando respaldos (se conservan los $CONSERVAR_RESPALDOS más recientes)…"
+ssh -o BatchMode=yes "$SSH_ALIAS" "cd backups-cutover && ls -1dt -- *-rsync 2>/dev/null | tail -n +$((CONSERVAR_RESPALDOS + 1)) |
+  while IFS= read -r d; do
+    case \"\$d\" in ''|*[!A-Za-z0-9._-]*) continue ;; esac
+    [ -d \"\$d\" ] && rm -rf -- \"./\$d\" && echo \"  borrado \$d\"
+  done" || echo "  ⚠ No se pudieron rotar los respaldos; revisa ~/backups-cutover a mano."
 
 cat <<'EOF'
 

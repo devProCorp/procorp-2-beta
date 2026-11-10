@@ -192,9 +192,23 @@ ssh -o BatchMode=yes procorp-portal \
    test -d public_html/crm && echo "crm: presente"'
 ```
 
-Crea un identificador único y un snapshot completo de `public_html` antes de
-publicar. `cp -al` crea enlaces duros en el mismo disco: conserva el contenido
-anterior sin duplicar inicialmente los 42 GB del hosting.
+> **Usa `./scripts/deploy-produccion.sh`.** Desde 2026-11-10 el script hace
+> solo el respaldo que hace falta: mueve a `~/backups-cutover/<fecha>-<commit>-rsync/`
+> cada archivo que la publicación reemplaza (`rsync --backup-dir`), se niega a
+> publicar si quedan menos de 12.000 archivos libres en la cuenta y, tras
+> comprobar el sitio, borra los respaldos `*-rsync` salvo los 2 más recientes.
+> Sin terminal (p. ej. desde Claude Code): `printf 'publicar\n' | ./scripts/deploy-produccion.sh`.
+>
+> ⚠️ **No uses el snapshot completo `cp -al public_html` de abajo en una
+> publicación normal.** La cuenta de GoDaddy está limitada a 250.000 archivos
+> (inodos) compartidos con WordPress y los portales de clientes: el `cp -al`
+> duplica cerca de 185.000 entradas y agota la cuota (octubre de 2026). Con la
+> cuota agotada, las subidas quedan a medias sin aviso y fallan las
+> sincronizaciones horarias de los portales (noviembre de 2026). Resérvalo para
+> operaciones excepcionales y bórralo en cuanto deje de hacer falta.
+
+Snapshot completo (solo operaciones excepcionales): `cp -al` crea enlaces duros
+en el mismo disco; no duplica los datos, pero sí consume un inodo por entrada.
 
 ```bash
 PROCORP_BACKUP_ID="$(date +%Y%m%d-%H%M%S)"
@@ -366,6 +380,19 @@ Si la validación falla:
 
 Conserva el respaldo hasta que el build haya sido validado tanto en el origen
 como a través de Sucuri.
+
+Con el script, el respaldo de cada publicación está en
+`~/backups-cutover/<fecha>-<commit>-rsync/` con las mismas rutas que
+`public_html` (sin el prefijo `public_html/`). Para volver atrás una
+publicación, copia de vuelta solo lo que haya en esa carpeta:
+
+```bash
+ssh -o BatchMode=yes procorp-portal \
+  "rsync -a backups-cutover/<id>-rsync/ public_html/"
+```
+
+El script conserva los 2 respaldos más recientes; si necesitas uno más antiguo,
+renómbralo (quitando `-rsync` del final) antes de la siguiente publicación.
 
 ## Notas de seguridad
 
