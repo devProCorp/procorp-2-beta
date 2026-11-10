@@ -8,7 +8,7 @@
 import { useEffect, useState } from 'react';
 
 // Número de Javier en formato internacional, solo dígitos (sin «+», espacios ni guiones).
-export const WHATSAPP_JAVIER = '';
+export const WHATSAPP_JAVIER = '34677173832';
 
 const MENSAJE = 'Hola, vengo de la página de Elecciones Generales de PRO CORP.';
 const ETIQUETA = '¿Necesitas ayuda? Escríbenos';
