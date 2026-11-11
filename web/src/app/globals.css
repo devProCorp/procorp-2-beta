@@ -352,6 +352,16 @@ textarea:focus-visible {
   text-align: left !important;
 }
 
+/* Justified body text on wider screens (brand guideline), hyphenated so the
+   gaps between words stay even. Phones keep the left alignment above. */
+@media (min-width: 768px) {
+  .wp-content p,
+  .wp-content li {
+    text-align: justify !important;
+    hyphens: auto;
+  }
+}
+
 /* Subheadings without a class of their own: the ones promoted from bold
    paragraphs (normalizeArticleHtml) and plain <h2>/<h3> from the editor.
    Headings that bring their own template class keep its styling. */
