@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Eliminación de datos | PRO CORP',
-  description: 'Cómo pedir a Pro Corp la eliminación de los datos de su conversación por Instagram.',
+  title: 'Procedimiento de eliminación de datos personales | PRO CORP',
+  description: 'Cómo solicitar a PRO CORP S.A.S. la eliminación de datos personales tratados en relación con mensajes directos enviados a @pro.corp.',
   alternates: { canonical: '/eliminacion-de-datos/' },
 };
 

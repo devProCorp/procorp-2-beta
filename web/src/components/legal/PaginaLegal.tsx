@@ -7,11 +7,14 @@ import { useLanguage } from '@/context/LanguageContext';
 // Marco común de los textos legales: mismo aspecto que /privacy y /cookies.
 export default function PaginaLegal({
   titulo,
+  subtitulo,
   actualizado,
   ancho = false,
   children,
 }: {
   titulo: string;
+  /** Línea bajo el título, tal como figura en el documento fuente. */
+  subtitulo?: string;
   actualizado?: string;
   /** Usa todo el ancho de la columna (visor de PDF) en vez de la medida de lectura. */
   ancho?: boolean;
@@ -32,6 +35,7 @@ export default function PaginaLegal({
             {t('privacy.badge')}
           </span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{titulo}</h1>
+          {subtitulo && <p className="text-white/80 text-lg mb-2">{subtitulo}</p>}
           {actualizado && <p className="text-secondary text-sm">{actualizado}</p>}
           {/* El texto legal no se traduce sin revisión jurídica. */}
           {lang !== 'es' && (
