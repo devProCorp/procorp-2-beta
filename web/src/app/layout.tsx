@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Inter, Outfit } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import ConsentimientoCookies from "@/components/legal/ConsentimientoCookies";
 import ClientProviders from "@/components/layout/ClientProviders";
 import MarcoSitio from "@/components/layout/MarcoSitio";
 import { OG_IMAGE_SIZE, ogImagePath } from "@/lib/og/paths";
@@ -99,8 +99,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
   return (
     <html lang="es" className="dark">
       <head>
@@ -120,9 +118,9 @@ export default function RootLayout({
           <MarcoSitio>
             <div id="main-content">{children}</div>
           </MarcoSitio>
+          <ConsentimientoCookies />
         </ClientProviders>
       </body>
-      {gaId && gaId !== "G-XXXXXXXXXX" && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }

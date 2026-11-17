@@ -6,6 +6,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import { ABRIR_AVISO_COOKIES } from '@/components/legal/ConsentimientoCookies';
 
 const FooterMap = dynamic(() => import('./FooterMap'), { ssr: false });
 
@@ -159,6 +160,8 @@ const Footer = () => {
                         <Link href="/tratamiento-de-datos-personales" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.dataProcessing')}</Link>
                         <span className="text-surface-border">·</span>
                         <Link href="/privacy" className="text-secondary hover:text-primary transition-colors">{t('footer.legal.terms')}</Link>
+                        <span className="text-surface-border">·</span>
+                        <button type="button" onClick={() => window.dispatchEvent(new Event(ABRIR_AVISO_COOKIES))} className="text-secondary hover:text-primary transition-colors">{t('footer.legal.cookieSettings')}</button>
                         <span className="text-surface-border">·</span>
                         <span className="flex items-center gap-1">
                             <span className="w-2 h-2 rounded-full bg-green-500"></span> {t('footer.system')}
