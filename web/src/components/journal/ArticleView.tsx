@@ -11,6 +11,7 @@ import {
   type WPPost,
 } from "@/lib/wordpress-presentation";
 import { articleJsonLd } from "@/lib/og/journal-cards";
+import { getAuthorDetails } from "@/lib/journal-authors";
 
 /**
  * Article body, shared by the prebuilt /journal/[slug] page and the live
@@ -30,6 +31,7 @@ export default function ArticleView({
   const imageAlt = getFeaturedImageAlt(post);
   const categories = getPostCategories(post);
   const author = getPostAuthor(post);
+  const authorDetails = author ? getAuthorDetails(author.name) : null;
 
   return (
     <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">
@@ -93,10 +95,16 @@ export default function ArticleView({
                 <span className="block text-sm font-semibold text-white font-ui">
                   {author.name}
                 </span>
-                {author.description && (
-                  <span className="block text-xs text-white/40 font-ui">
-                    {author.description}
+                {authorDetails ? (
+                  <span className="block text-xs text-white/60 font-ui">
+                    <T k={authorDetails.role} /> · <T k={authorDetails.office} />
                   </span>
+                ) : (
+                  author.description && (
+                    <span className="block text-xs text-white/40 font-ui">
+                      {author.description}
+                    </span>
+                  )
                 )}
               </div>
             </div>
