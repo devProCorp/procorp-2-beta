@@ -46,7 +46,7 @@ export default function ArticleView({
           ),
         }}
       />
-      <article className="max-w-4xl mx-auto">
+      <article className="max-w-[42rem] mx-auto">
         {/* Back link */}
         <Link
           href="/blog"
@@ -125,7 +125,7 @@ export default function ArticleView({
               alt={imageAlt || stripHtml(post.title.rendered)}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 896px"
+              sizes="(max-width: 768px) 100vw, 672px"
               priority
             />
           </div>
@@ -141,7 +141,7 @@ export default function ArticleView({
       <RelatedArticles posts={related} />
 
       {/* Bottom nav */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-[42rem] mx-auto">
         <div className="border-t border-white/10 mt-20 pt-10">
           <Link
             href="/blog"
