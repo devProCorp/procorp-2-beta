@@ -377,6 +377,26 @@ textarea:focus-visible {
   }
 }
 
+/* The blogcast sits under the cover image, which spans the whole article
+   (max-w-4xl) while the text column is 40rem: match the image's width and
+   corners so the two read as one block. On narrow screens both equal the
+   viewport minus the page padding (px-6). */
+.wp-content [class^="procorp-audio-container"] {
+  box-sizing: border-box !important;
+  width: min(56rem, calc(100vw - 3rem)) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: 12px !important;
+}
+
+/* The templates' wrapper pads the text 15px on each side, so on mobile the
+   paragraphs sat indented from the image and the blogcast above them. */
+.wp-content [class^="pccontent"][class$="-wrapper"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* Article templates draw a light-grey rule under their headings, meant for
    a white page; on navy it reads as a stray white line. */
 .wp-content [class*="-heading"] {

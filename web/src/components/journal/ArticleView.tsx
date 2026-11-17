@@ -119,7 +119,7 @@ export default function ArticleView({
 
         {/* Featured image */}
         {imageUrl && (
-          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-sm bg-white/10 mb-14">
+          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-white/10 mb-14">
             <Image
               src={imageUrl}
               alt={imageAlt || stripHtml(post.title.rendered)}
