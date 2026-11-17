@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import RelatedArticles from "./RelatedArticles";
+import InvestCta from "./InvestCta";
 import { T, CategoryName, PostDate } from "./Txt";
 import {
   getFeaturedImageUrl,
@@ -136,6 +137,8 @@ export default function ArticleView({
           className="wp-content max-w-none font-ui"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
+
+        <InvestCta slug={post.slug} />
       </article>
 
       <RelatedArticles posts={related} />
