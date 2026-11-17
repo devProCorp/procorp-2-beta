@@ -81,6 +81,21 @@ archivos=$(find out -type f | wc -l | tr -d ' ')
 (( archivos > 500 )) || abort "sólo $archivos archivos en out/: el build parece truncado."
 echo "  $archivos archivos, robots y sitemap correctos."
 
+# Articles prerendered as Next's 404 page (2026-11-10): if the build fails to
+# fetch a post, its page is written as «This page could not be found» and Apache
+# serves it instead of /blog/live-fallback/. That text is in every page's RSC
+# payload, so the check is the article itself: an <h1> and no 404 <title>.
+# live-fallback and preview are client-rendered on purpose.
+sin_articulo=()
+for f in out/blog/*/index.html; do
+  d=$(basename "$(dirname "$f")")
+  case "$d" in live-fallback|preview) continue ;; esac
+  if ! grep -q '<h1' "$f" || grep -q '<title>404' "$f"; then sin_articulo+=("$d"); fi
+done
+(( ${#sin_articulo[@]} == 0 )) ||
+  abort "${#sin_articulo[@]} artículos salieron como 404 en el build (${sin_articulo[*]:0:3}…). Repite el build."
+echo "  Ningún artículo del blog salió como 404."
+
 # ── 4. Sync ─────────────────────────────────────────────────────────────────
 # --checksum: every build rewrites out/ with new timestamps, so without it rsync
 #   resends the whole ~1 GB each time.
@@ -154,7 +169,30 @@ else
   echo "  ⚠ No se pudo leer version.json del servidor."
 fi
 
-./scripts/check-produccion.sh || abort "el sitio publicado no pasa las comprobaciones. Revisa antes de dar por buena la publicación."
+# check-produccion.sh exits 2 when Imunify360 serves its anti-bot challenge to
+# this machine (it does after the many requests of a deploy): the HTTP checks
+# can't say anything then. That is not a broken site, so instead of aborting —
+# which also skipped the backup rotation and let the inode quota fill up — the
+# publication is checked over SSH: every file of the build is on the server
+# (rsync dry run finds nothing left) and version.json is this commit.
+set +e
+./scripts/check-produccion.sh
+estado_check=$?
+set -e
+case $estado_check in
+  0) ;;
+  2)
+    step "Comprobando la publicación por SSH (el HTTP está bloqueado por el anti-bot)…"
+    pendientes=$(rsync -an --checksum --itemize-changes --exclude=".htaccess" -e ssh out/ "$SSH_ALIAS:$REMOTE_DIR/" 2>/dev/null |
+      grep -vc '^\.d' || true)
+    (( pendientes == 0 )) || abort "quedan $pendientes archivos sin subir: la publicación está a medias. Repite el rsync."
+    [[ -n "$remota" ]] && printf '%s' "$remota" | grep -q "\"commit\": \"$local_commit\"" ||
+      abort "el servidor no reporta el commit que acabas de compilar."
+    echo "  ✓ Todo el build está en el servidor y version.json es el del commit."
+    echo "  ⚠ Abre el sitio en un navegador (pasa el challenge) para verlo con tus ojos."
+    ;;
+  *) abort "el sitio publicado no pasa las comprobaciones. Revisa antes de dar por buena la publicación." ;;
+esac
 
 echo "  Respaldo de lo reemplazado: ~/backups-cutover/$BACKUP_ID"
 
