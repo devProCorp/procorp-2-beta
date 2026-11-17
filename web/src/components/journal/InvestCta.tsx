@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { trackArticle } from "@/lib/journal-engagement";
 
 /**
  * Invitation at the end of every article to register in the investment
@@ -9,7 +10,7 @@ import { useLanguage } from "@/context/LanguageContext";
  * tags are stored with the registration, so the team sees which article
  * brought each reader.
  */
-export default function InvestCta({ slug }: { slug: string }) {
+export default function InvestCta({ slug, postId }: { slug: string; postId: number }) {
   const { t, lang } = useLanguage();
   const base = process.env.NEXT_PUBLIC_INVERSION_URL ?? "https://inversion.pro-corp.net";
   const utm = new URLSearchParams({
@@ -36,6 +37,7 @@ export default function InvestCta({ slug }: { slug: string }) {
       </p>
       <a
         href={href}
+        onClick={() => trackArticle(postId, "invest")}
         target="_blank"
         rel="noopener"
         className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary hover:bg-primary-light px-6 py-3 text-sm font-bold text-white transition-colors font-ui"

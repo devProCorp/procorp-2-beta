@@ -1,10 +1,42 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import ArticleList from "./ArticleList";
 import { T } from "./Txt";
 import type { WPPost } from "@/lib/wordpress-presentation";
+import { fetchPopularity, rankRecommendations, readHistory } from "@/lib/journal-engagement";
 
-/** "Sigue leyendo" block at the end of an article: keeps the reader in the Journal. */
-export default function RelatedArticles({ posts }: { posts: WPPost[] }) {
+/**
+ * Recommendations at the end of an article. The page ships a pool of
+ * candidates (pickRecommendationPool); the first three render straight away
+ * (also without JavaScript). In the browser they are re-ranked by popularity
+ * among readers and by this reader's own history, which never leaves the
+ * device. With some history the heading becomes «Recomendado para ti».
+ */
+export default function RelatedArticles({ post, pool }: { post: WPPost; pool: WPPost[] }) {
+  const [posts, setPosts] = useState(() => pool.slice(0, 3));
+  const [personal, setPersonal] = useState(false);
+
+  useEffect(() => {
+    if (pool.length === 0) return;
+    let cancelled = false;
+    // The current article is already in the history (ArticleTracker), so
+    // «personal» means at least one *other* article read before.
+    const history = readHistory().filter((h) => h.id !== post.id);
+    const apply = (popularity: Map<number, number>) => {
+      if (cancelled) return;
+      setPosts(rankRecommendations(pool, post.categories, popularity, history));
+      setPersonal(history.length > 0);
+    };
+    fetchPopularity()
+      .then(apply)
+      .catch(() => apply(new Map()));
+    return () => {
+      cancelled = true;
+    };
+  }, [post.id, post.categories, pool]);
+
   if (posts.length === 0) return null;
 
   return (
@@ -21,7 +53,7 @@ export default function RelatedArticles({ posts }: { posts: WPPost[] }) {
             id="sigue-leyendo"
             className="text-3xl md:text-5xl font-bold tracking-tighter uppercase font-display text-white leading-[0.95]"
           >
-            <T k="journal.keepReading" />
+            <T k={personal ? "journal.forYou" : "journal.keepReading"} />
           </h2>
         </div>
         <Link

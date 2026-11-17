@@ -126,6 +126,37 @@ export function pickRelatedPosts(post: WPPost, posts: WPPost[], limit = 3): WPPo
 }
 
 /**
+ * Candidates for the recommendations at the end of an article, prebuilt with
+ * the page so the browser can rank them by popularity and by what this reader
+ * has read (lib/journal-engagement). The first three are the classic
+ * same-category picks, shown as-is when there is no JavaScript or no data;
+ * then more from the same category and the latest of every other category,
+ * so a reader's other interests have somewhere to land. Heavy fields are
+ * dropped: the cards only need title, excerpt, image and categories.
+ */
+export function pickRecommendationPool(post: WPPost, posts: WPPost[], size = 18): WPPost[] {
+  const others = posts
+    .filter((p) => p.id !== post.id)
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  const pool: WPPost[] = [];
+  const add = (p: WPPost) => {
+    if (pool.length < size && !pool.some((x) => x.id === p.id)) pool.push(p);
+  };
+  pickRelatedPosts(post, posts, 3).forEach((p) => add(others.find((o) => o.id === p.id)!));
+  others.filter((p) => p.categories.some((c) => post.categories.includes(c))).slice(0, 6).forEach(add);
+  const categories = [...new Set(others.flatMap((p) => p.categories))];
+  for (const c of categories) others.filter((p) => p.categories.includes(c)).slice(0, 2).forEach(add);
+  others.forEach(add);
+  return pool.map((p) => ({
+    ...p,
+    content: { rendered: "" },
+    seo_schema: undefined,
+    seo_description: undefined,
+    seo_title: undefined,
+  }));
+}
+
+/**
  * Some articles arrive with their subheadings saved as a paragraph that is
  * entirely bold (`<p><strong>Process Mining: …</strong></p>`) instead of an
  * <h2>. Readers and search engines then see one flat run of paragraphs, so

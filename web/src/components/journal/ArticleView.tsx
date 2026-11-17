@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RelatedArticles from "./RelatedArticles";
 import InvestCta from "./InvestCta";
+import ArticleTracker from "./ArticleTracker";
 import { T, CategoryName, PostDate } from "./Txt";
 import {
   getFeaturedImageUrl,
@@ -19,7 +20,8 @@ import { getAuthorDetails } from "@/lib/journal-authors";
  * fallback at /journal/_live (posts published after the last deploy — see
  * docs/decisions/0004-journal-live-fetch.md). Pure presentation: both
  * callers are responsible for fetching `post` and handling the not-found case.
- * `related` feeds the "Sigue leyendo" block (see pickRelatedPosts).
+ * `related` is the pool of candidates for the recommendations at the end
+ * (see pickRecommendationPool); the browser picks three of them.
  */
 export default function ArticleView({
   post,
@@ -137,11 +139,13 @@ export default function ArticleView({
           className="wp-content max-w-none font-ui"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
+        <div id="fin-del-articulo" aria-hidden="true" />
+        <ArticleTracker id={post.id} categories={post.categories} />
 
-        <InvestCta slug={post.slug} />
+        <InvestCta slug={post.slug} postId={post.id} />
       </article>
 
-      <RelatedArticles posts={related} />
+      <RelatedArticles post={post} pool={related} />
 
       {/* Bottom nav */}
       <div className="max-w-[42rem] mx-auto">
