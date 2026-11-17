@@ -419,6 +419,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'footer.legal.solutions': { en: 'Legal Solutions', es: 'Soluciones Legales', pt: 'Soluções Legais' },
     'footer.legal.growth': { en: 'Sustainable Growth - BPA', es: 'Crecimiento Sostenible - BPA', pt: 'Crescimento Sustentável - BPA' },
     'footer.legal.consulting': { en: 'Consulting', es: 'Consultoría', pt: 'Consultoria' },
+    'footer.legal.cookieSettings': { en: 'Cookie settings', es: 'Configurar cookies', pt: 'Configurar cookies' },
     'footer.legal.privacy': { en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' },
     'footer.legal.dataProcessing': { en: 'Personal Data Processing', es: 'Tratamiento de Datos Personales', pt: 'Tratamento de Dados Pessoais' },
     'footer.legal.terms': { en: 'Terms of Use', es: 'Términos de Uso', pt: 'Termos de Uso' },
@@ -920,6 +921,15 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     },
 
     // ── Cookie Policy Page ──
+    'cookies.banner.title': { en: 'We use cookies', es: 'Usamos cookies', pt: 'Usamos cookies' },
+    'cookies.banner.text': {
+      en: 'We use our own essential cookies so the site works and, only if you accept, Google Analytics cookies to measure visits and improve our content. You can change your choice at any time from “Cookie settings” at the bottom of the page.',
+      es: 'Usamos cookies propias necesarias para que la web funcione y, solo si usted lo acepta, cookies de Google Analytics para medir las visitas y mejorar nuestros contenidos. Puede cambiar su elección en cualquier momento desde «Configurar cookies», al pie de la página.',
+      pt: 'Usamos cookies próprios necessários para o funcionamento do site e, apenas se aceitar, cookies do Google Analytics para medir as visitas e melhorar os nossos conteúdos. Pode alterar a sua escolha a qualquer momento em «Configurar cookies», no rodapé da página.',
+    },
+    'cookies.banner.policy': { en: 'Cookie Policy', es: 'Política de cookies', pt: 'Política de cookies' },
+    'cookies.banner.accept': { en: 'Accept', es: 'Aceptar', pt: 'Aceitar' },
+    'cookies.banner.reject': { en: 'Reject', es: 'Rechazar', pt: 'Rejeitar' },
     'cookies.badge': { en: 'Legal', es: 'Legal', pt: 'Legal' },
     'cookies.title': { en: 'Cookie Policy', es: 'Política de Cookies', pt: 'Política de Cookies' },
     'cookies.updated': { en: 'Last updated: March 2026', es: 'Última actualización: Marzo 2026', pt: 'Última atualização: março de 2026' },

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { ABRIR_AVISO_COOKIES } from '@/components/legal/ConsentimientoCookies';
 
 export default function Cookies() {
   const { t } = useLanguage();
@@ -105,6 +106,13 @@ export default function Cookies() {
               {t('cookies.s4.title')}
             </h2>
             <div className="text-secondary text-sm leading-relaxed whitespace-pre-line">{t('cookies.s4.text')}</div>
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(ABRIR_AVISO_COOKIES))}
+              className="mt-5 rounded-xl border border-white/30 px-5 py-2.5 text-sm font-bold text-white transition-all hover:border-white"
+            >
+              {t('footer.legal.cookieSettings')}
+            </button>
           </section>
 
           {/* Changes */}
