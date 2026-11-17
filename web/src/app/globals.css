@@ -225,7 +225,7 @@ textarea:focus-visible {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 22px;
-  font-family: var(--font-display);
+  font-family: var(--font-outfit), sans-serif;
   position: relative;
   z-index: 1;
 }
@@ -333,9 +333,72 @@ textarea:focus-visible {
 
 /* ─── WordPress Content — Inline styles cleanup ──────────────── */
 
-/* Override WP inline font-family/line-height on paragraphs */
+/* Override WP inline font-family/line-height on paragraphs.
+   The font goes straight to the next/font variable: `--font-ui` lives in
+   `@theme inline`, which Tailwind inlines into its utilities and never emits
+   as a CSS variable, so `var(--font-ui)` here resolved to nothing and the
+   text fell back to whatever the article's own stylesheet set (system
+   fonts: Segoe UI, Roboto, San Francisco depending on the device). */
+.wp-content p,
+.wp-content li,
+.wp-content h1,
+.wp-content h2,
+.wp-content h3,
+.wp-content h4,
+.wp-content h5,
+.wp-content h6 {
+  font-family: var(--font-inter), sans-serif !important;
+}
+
+/* Two-line subheadings were spaced like body text (the templates' own
+   line-height), splitting one heading into two floating lines. */
+.wp-content h2,
+.wp-content h3 {
+  line-height: 1.3 !important;
+}
+
+/* Reading comfort: the article column is 42rem (ArticleView), ~75
+   characters per line instead of ~110, a slightly larger size and body text
+   a notch below pure white to cut the glare of white-on-navy over long
+   stretches. Headings stay pure white. */
+.wp-content p,
+.wp-content li {
+  font-size: 1.0625rem !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+@media (min-width: 768px) {
+  .wp-content p,
+  .wp-content li {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* The blogcast sits under the cover image: same width (the article column)
+   and corners, so the two read as one block. */
+.wp-content [class^="procorp-audio-container"] {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: 12px !important;
+}
+
+/* The templates' wrapper pads the text 15px on each side, so on mobile the
+   paragraphs sat indented from the image and the blogcast above them. */
+.wp-content [class^="pccontent"][class$="-wrapper"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Article templates draw a light-grey rule under their headings, meant for
+   a white page; on navy it reads as a stray white line. */
+.wp-content [class*="-heading"] {
+  border-bottom: none !important;
+}
+
 .wp-content p {
-  font-family: var(--font-ui) !important;
   line-height: 1.75 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -352,12 +415,40 @@ textarea:focus-visible {
   text-align: left !important;
 }
 
+/* From tablet up, a straight right edge flush with the image and the
+   blogcast. Hyphenation keeps justified lines from opening wide gaps; phones
+   stay ragged-right, where lines are too short to justify well. */
+@media (min-width: 768px) {
+  .wp-content p {
+    text-align: justify !important;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
+
+/* Subheadings never justify or hyphenate. The blog editor writes them as a
+   paragraph holding one large bold <span>, so those count as headings too
+   (and get a heading's line-height instead of the body's 1.75). */
+.wp-content h1,
+.wp-content h2,
+.wp-content h3,
+.wp-content h4,
+.wp-content [class*="-heading"],
+.wp-content p:has(> span[style*="font-weight: 700"]:only-child) {
+  text-align: left !important;
+  hyphens: manual !important;
+  -webkit-hyphens: manual !important;
+}
+
+.wp-content p:has(> span[style*="font-weight: 700"]:only-child) {
+  line-height: 1.3 !important;
+}
+
 /* Subheadings without a class of their own: the ones promoted from bold
    paragraphs (normalizeArticleHtml) and plain <h2>/<h3> from the editor.
    Headings that bring their own template class keep its styling. */
 .wp-content h2:not([class]),
 .wp-content h3:not([class]) {
-  font-family: var(--font-ui);
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.01em;

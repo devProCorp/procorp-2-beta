@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import RelatedArticles from "./RelatedArticles";
+import InvestCta from "./InvestCta";
 import { T, CategoryName, PostDate } from "./Txt";
 import {
   getFeaturedImageUrl,
@@ -11,6 +12,7 @@ import {
   type WPPost,
 } from "@/lib/wordpress-presentation";
 import { articleJsonLd } from "@/lib/og/journal-cards";
+import { getAuthorDetails } from "@/lib/journal-authors";
 
 /**
  * Article body, shared by the prebuilt /journal/[slug] page and the live
@@ -30,6 +32,7 @@ export default function ArticleView({
   const imageAlt = getFeaturedImageAlt(post);
   const categories = getPostCategories(post);
   const author = getPostAuthor(post);
+  const authorDetails = author ? getAuthorDetails(author.name) : null;
 
   return (
     <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">
@@ -44,7 +47,7 @@ export default function ArticleView({
           ),
         }}
       />
-      <article className="max-w-4xl mx-auto">
+      <article className="max-w-[42rem] mx-auto">
         {/* Back link */}
         <Link
           href="/blog"
@@ -93,10 +96,16 @@ export default function ArticleView({
                 <span className="block text-sm font-semibold text-white font-ui">
                   {author.name}
                 </span>
-                {author.description && (
-                  <span className="block text-xs text-white/40 font-ui">
-                    {author.description}
+                {authorDetails ? (
+                  <span className="block text-xs text-white/60 font-ui">
+                    <T k={authorDetails.role} /> · <T k={authorDetails.office} />
                   </span>
+                ) : (
+                  author.description && (
+                    <span className="block text-xs text-white/40 font-ui">
+                      {author.description}
+                    </span>
+                  )
                 )}
               </div>
             </div>
@@ -111,13 +120,13 @@ export default function ArticleView({
 
         {/* Featured image */}
         {imageUrl && (
-          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-sm bg-white/10 mb-14">
+          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-white/10 mb-14">
             <Image
               src={imageUrl}
               alt={imageAlt || stripHtml(post.title.rendered)}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 896px"
+              sizes="(max-width: 768px) 100vw, 672px"
               priority
             />
           </div>
@@ -128,12 +137,14 @@ export default function ArticleView({
           className="wp-content max-w-none font-ui"
           dangerouslySetInnerHTML={{ __html: post.content.rendered }}
         />
+
+        <InvestCta slug={post.slug} />
       </article>
 
       <RelatedArticles posts={related} />
 
       {/* Bottom nav */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-[42rem] mx-auto">
         <div className="border-t border-white/10 mt-20 pt-10">
           <Link
             href="/blog"
