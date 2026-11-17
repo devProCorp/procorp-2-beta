@@ -354,6 +354,7 @@ const translations: Record<string, Partial<Record<Language, string>>> = {
     'journal.readMore': { en: 'Read more', es: 'Leer más', pt: 'Ler mais' },
     'journal.loadError': { en: 'The blog could not be loaded. Please try again in a moment.', es: 'No se pudo cargar el blog. Intenta de nuevo en un momento.', pt: 'Não foi possível carregar o blog. Tente novamente em instantes.' },
     'journal.keepReading': { en: 'Keep reading', es: 'Sigue leyendo', pt: 'Continue lendo' },
+    'journal.forYou': { en: 'Recommended for you', es: 'Recomendado para ti', pt: 'Recomendado para você' },
     'journal.viewAll': { en: 'View all articles', es: 'Ver todos los artículos', pt: 'Ver todos os artigos' },
     'journal.back': { en: 'Back to the blog', es: 'Volver al blog', pt: 'Voltar ao blog' },
     'journal.author.lawyer.m': { en: 'Lawyer', es: 'Abogado', pt: 'Advogado' },

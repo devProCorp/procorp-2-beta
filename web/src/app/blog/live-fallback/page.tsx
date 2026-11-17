@@ -5,7 +5,7 @@ import Link from "next/link";
 import ArticleView from "@/components/journal/ArticleView";
 import { T } from "@/components/journal/Txt";
 import { fetchLivePostById, fetchLivePosts } from "@/lib/journal-live";
-import { pickRelatedPosts, stripHtml } from "@/lib/wordpress-presentation";
+import { pickRecommendationPool, stripHtml } from "@/lib/wordpress-presentation";
 import type { WPPost } from "@/lib/wordpress-presentation";
 
 function setMetaTag(name: string, content: string) {
@@ -60,7 +60,7 @@ export default function LiveArticlePage() {
           // "Sigue leyendo" is a nice-to-have: if the list fails, the article still shows.
           fetchLivePosts()
             .then((posts) => {
-              if (!cancelled) setRelated(pickRelatedPosts(post, posts));
+              if (!cancelled) setRelated(pickRecommendationPool(post, posts));
             })
             .catch(() => {});
         }
