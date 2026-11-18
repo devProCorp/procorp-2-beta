@@ -11,8 +11,8 @@ interface PaginationProps {
 }
 
 const BTN =
-  "inline-flex h-11 items-center gap-2 rounded-full border border-surface-border px-5 text-sm font-medium text-gray-200 transition-colors hover:border-white/30 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light";
-const BTN_OFF = "inline-flex h-11 items-center gap-2 rounded-full border border-surface-border/60 px-5 text-sm font-medium text-gray-500";
+  "inline-flex h-11 items-center gap-2 rounded-full border border-blog-control px-5 text-sm font-medium text-blog-text transition-colors hover:border-blog-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light";
+const BTN_OFF = "inline-flex h-11 items-center gap-2 rounded-full border border-blog-border px-5 text-sm font-medium text-blog-meta opacity-70";
 
 /** Enlaces reales (no botones): se abren en otra pestaña y los buscadores los siguen. */
 export default function Pagination({ currentPage, totalPages }: PaginationProps) {
@@ -33,7 +33,7 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
   const next = currentPage < totalPages;
 
   return (
-    <nav aria-label={t("journal.pagination")} className="mt-4 mb-20 flex items-center justify-center gap-4">
+    <nav aria-label={t("journal.pagination")} className="mt-12 mb-16 flex flex-wrap items-center justify-center gap-4">
       {prev ? (
         <Link href={href(currentPage - 1)} rel="prev" className={BTN}>
           <ArrowLeft size={16} aria-hidden="true" /> {t("journal.prev")}
@@ -44,7 +44,7 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
         </span>
       )}
 
-      <span className="text-sm text-gray-300 tabular-nums" aria-current="page">
+      <span className="text-sm text-blog-meta tabular-nums" aria-current="page">
         {t("journal.pageOf").replace("{n}", String(currentPage)).replace("{total}", String(totalPages))}
       </span>
 

@@ -26,7 +26,6 @@ export default function ArticleTracker({ id, categories }: { id: number; categor
     };
     document.addEventListener("visibilitychange", onVisibility);
 
-    const content = document.querySelector(".wp-content");
     const end = document.getElementById("fin-del-articulo");
     // «Read» = the end of the text is on screen after at least 20 s of visible
     // time (scrolling straight to the bottom isn't reading). Checked when the
@@ -53,13 +52,14 @@ export default function ArticleTracker({ id, categories }: { id: number; categor
     const onPlay = (e: Event) => {
       if ((e.target as HTMLElement)?.tagName === "AUDIO") trackArticle(id, "audio");
     };
-    content?.addEventListener("play", onPlay, true);
+    // En el documento: el reproductor propio (BlogcastPlayer) está fuera de .wp-content.
+    document.addEventListener("play", onPlay, true);
 
     return () => {
       document.removeEventListener("visibilitychange", onVisibility);
       observer?.disconnect();
       window.clearInterval(timer);
-      content?.removeEventListener("play", onPlay, true);
+      document.removeEventListener("play", onPlay, true);
     };
   }, [id, categories]);
 

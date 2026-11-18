@@ -12,7 +12,7 @@ interface CategoryFilterProps {
 const CHIP =
   "flex h-11 shrink-0 items-center rounded-full border px-4 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light";
 const CHIP_ON = "border-primary bg-primary text-white";
-const CHIP_OFF = "border-surface-border bg-surface-dark text-gray-300 hover:border-white/30 hover:text-white";
+const CHIP_OFF = "border-blog-border-strong bg-blog-surface text-blog-text hover:border-blog-control";
 
 export default function CategoryFilter({ categories }: CategoryFilterProps) {
   const router = useRouter();
@@ -30,7 +30,7 @@ export default function CategoryFilter({ categories }: CategoryFilterProps) {
   }
 
   return (
-    <div className="sticky top-20 z-40 -mx-4 mb-10 border-b border-surface-border bg-background-dark px-4 py-4 md:mx-0 md:px-0">
+    <div className="mb-10 border-b border-blog-border pb-7">
       <div
         role="group"
         aria-label={t("journal.filter.by").replace(/:$/, "")}

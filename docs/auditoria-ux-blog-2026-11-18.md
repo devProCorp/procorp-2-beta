@@ -106,3 +106,47 @@ suscripción y el tiempo de lectura.
   foco en el primer error y confirmación final con el payload correcto.
 - `tsc` sin errores, lint sin errores nuevos y `next build` correcto (376 rutas de artículo, ninguna con el
   404 de Next).
+
+## Rediseño aplicado: propuesta B «Oscuro refinado» (2026-11-18)
+
+El cliente vio las maquetas A (revista, fondo claro) y B (oscuro refinado), y se eligió la B. Mantiene el
+azul marino de la web y aplica el sistema de diseño de Pro Corp (tokens del tema oscuro, títulos en
+Montserrat y texto en Geist, solo dentro de `/blog`).
+
+**Portada (`/blog/`)**
+- Primera página sin filtro: artículo destacado en horizontal (imagen + entradilla + «Leer el artículo»),
+  «Lo más reciente» con tres tarjetas y «Más artículos» en filas a dos columnas.
+- Con filtro o en páginas siguientes: un título («Inversiones», «Página 2 de 21») y la rejilla de tarjetas.
+- Los filtros dejan de ir fijos al desplazarse. El boletín ocupa una franja a todo el ancho.
+- La entradilla del destacado sale de la descripción SEO, el extracto o el comienzo del artículo
+  (`getArticleDescription`), calculada antes de que el listado descarte el contenido.
+
+**Artículo**
+- Columna de lectura de 40 rem (~75 caracteres) e imagen más ancha (hasta 1080 px).
+- Reproductor propio del blogcast (`BlogcastPlayer`): reproducir y pausar, barra de posición, tiempo y
+  velocidad (1×, 1,25×, 1,5× y 2×). Por dentro sigue siendo un `<audio>`, así que se puede usar con el teclado y
+  `ArticleTracker` sigue contando las escuchas, ahora en todo el documento. El reproductor que trae el HTML
+  del artículo se oculta (`.con-reproductor`).
+- Índice «En este artículo» a partir de los subtítulos, si hay tres o más. `normalizeArticleHtml` convierte
+  en `<h2>` los subtítulos que el editor escribía como párrafo con un `<span>` en negrita, y
+  `withHeadingIds` les da un id.
+- Fila «Comparte este análisis» (LinkedIn, WhatsApp y copiar enlace), invitación al diagnóstico de inversión
+  en superficie plana y «Sigue leyendo» con las tarjetas nuevas.
+
+**Medición con impeccable** (mismas reglas que el cliente)
+
+| | Producción | Rama |
+|---|---|---|
+| Portada del blog | 36 | 2 |
+| Artículo | 19 | 2 |
+
+Los dos avisos que quedan no son del blog: el brillo rojo del botón «Login» de la cabecera común y «Geist,
+fuente sobreusada». Geist es la fuente del sistema de diseño, como pasaba con Inter.
+
+**Verificación:** auditoría en local a 380 y 1280 px (sin desbordamiento, controles sin nombre ni saltos de
+encabezado en el blog). Probados en el navegador el índice, el reproductor, la velocidad, el filtro y la
+página 2. Sin errores de hidratación en el blog. `tsc` sin errores y `next build` correcto (376 artículos,
+ninguno con el 404 de Next).
+
+**Fuera de alcance, señalado:** el brillo del botón «Login» y el fallo de hidratación de `LiaChat` en la
+portada de la web son anteriores y no están en el blog.

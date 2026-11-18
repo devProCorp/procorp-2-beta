@@ -73,25 +73,22 @@ export default function NewsletterSection() {
   );
 
   return (
-    <section
-      aria-labelledby="boletin-titulo"
-      className="rounded-2xl border border-surface-border bg-surface-dark p-6 md:p-10"
-    >
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,28rem)] lg:items-start">
+    <section aria-labelledby="boletin-titulo" className="border-y border-blog-border bg-blog-surface">
+      <div className="mx-auto grid w-full max-w-[1280px] gap-7 px-4 py-11 md:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,27.5rem)] lg:items-center">
         <div className="min-w-0">
-          <h2 id="boletin-titulo" className="text-2xl md:text-3xl font-bold text-white text-balance">
+          <h2 id="boletin-titulo" className="m-0 font-blog-title text-[1.75rem] font-bold leading-tight text-blog-text text-balance">
             {t('journal.newsletter.title')}
           </h2>
-          <p className="mt-3 max-w-[56ch] text-gray-300 leading-relaxed">{t('journal.newsletter.desc')}</p>
+          <p className="mt-2.5 mb-0 max-w-[52ch] text-base leading-relaxed text-blog-soft">{t('journal.newsletter.desc')}</p>
         </div>
 
         {enviado ? (
-          <p role="status" className="min-w-0 rounded-xl border border-surface-border bg-background-dark p-5 text-gray-100 leading-relaxed">
+          <p role="status" className="m-0 min-w-0 rounded-xl border border-blog-border bg-background-dark p-5 leading-relaxed text-blog-text">
             {t('journal.newsletter.ok')}
           </p>
         ) : (
           <form onSubmit={enviar} noValidate className="relative min-w-0">
-            <label htmlFor="newsletter-email" className="mb-2 block text-sm font-medium text-gray-200">
+            <label htmlFor="newsletter-email" className="mb-2 block text-sm font-medium text-blog-text">
               {t('exit.email')}
             </label>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -109,7 +106,7 @@ export default function NewsletterSection() {
                   setEmail(e.target.value);
                   if (errores.email) setErrores(({ email: _, ...resto }) => resto);
                 }}
-                className="h-12 min-w-0 flex-1 rounded-lg border border-surface-border bg-background-dark px-4 text-white placeholder:text-gray-400 outline-none focus:border-primary-light aria-[invalid=true]:border-red-400"
+                className="h-12 min-w-0 flex-1 rounded-lg border border-blog-control bg-background-dark px-4 text-blog-text placeholder:text-blog-meta outline-none focus:border-blog-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light aria-[invalid=true]:border-red-400"
               />
               <button
                 type="submit"
@@ -145,7 +142,7 @@ export default function NewsletterSection() {
                   if (errores.consentimiento) setErrores(({ consentimiento: _, ...resto }) => resto);
                 }}
               />
-              <span className="text-[13px] leading-relaxed text-gray-300">
+              <span className="text-[13px] leading-relaxed text-blog-soft">
                 {t('contact.consent.1')} {enlace(URL_TRATAMIENTO, t('contact.consent.data'))} {t('contact.consent.2')}{' '}
                 {enlace(URL_PRIVACIDAD, t('contact.privacy.link'))} {t('contact.consent.3')}
               </span>

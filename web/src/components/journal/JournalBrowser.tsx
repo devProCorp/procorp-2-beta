@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/context/LanguageContext";
 import CategoryFilter from "./CategoryFilter";
-import ArticleList from "./ArticleList";
+import ArticleList, { BlogFront } from "./ArticleList";
+import { catName } from "@/lib/blog-categories";
 import Pagination from "./Pagination";
 import type { WPPost, WPCategory } from "@/lib/wordpress-presentation";
 import {
@@ -29,7 +30,7 @@ const PER_PAGE = 9;
  */
 export default function JournalBrowser() {
   const searchParams = useSearchParams();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const catSlug = searchParams.get("cat") ?? "";
   const currentPage = Math.max(1, Number(searchParams.get("page")) || 1);
 
@@ -119,36 +120,54 @@ export default function JournalBrowser() {
   if (!categories || !result) {
     return (
       <div aria-busy="true">
-        <span className="sr-only">{t("journal.loading")}</span>
-        <div className="sticky top-20 z-40 h-[77px] mb-10" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-          {Array.from({ length: PER_PAGE }).map((_, i) => (
-            <div
-              key={i}
-              aria-hidden="true"
-              className="rounded-2xl border border-surface-border bg-surface-dark motion-safe:animate-pulse"
-            >
-              <div className="rounded-t-2xl aspect-[16/10] bg-background-dark" />
-              <div className="p-5 md:p-6">
-                <div className="h-4 w-1/2 bg-background-dark rounded mb-4" />
-                <div className="h-6 w-full bg-background-dark rounded mb-2" />
-                <div className="h-6 w-2/3 bg-background-dark rounded" />
-              </div>
+        <div className="mb-10 h-[77px]" />
+        <div aria-hidden="true" className="flex flex-col gap-14 motion-safe:animate-pulse">
+          <div className="grid overflow-hidden rounded-xl border border-blog-border bg-blog-surface md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+            <div className="aspect-[16/10] bg-blog-panel md:aspect-auto md:min-h-[380px]" />
+            <div className="flex flex-col gap-4 p-6 md:p-10">
+              <div className="h-4 w-1/3 rounded bg-blog-panel" />
+              <div className="h-8 w-full rounded bg-blog-panel" />
+              <div className="h-8 w-2/3 rounded bg-blog-panel" />
+              <div className="h-4 w-full rounded bg-blog-panel" />
             </div>
-          ))}
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="overflow-hidden rounded-xl border border-blog-border bg-blog-surface">
+                <div className="aspect-[16/10] bg-blog-panel" />
+                <div className="flex flex-col gap-3 p-[22px]">
+                  <div className="h-4 w-1/3 rounded bg-blog-panel" />
+                  <div className="h-6 w-full rounded bg-blog-panel" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
   }
 
+  const page = Math.min(currentPage, result.totalPages);
+  const front = !catSlug && page === 1;
+  const activeCategory = categories.find((c) => c.slug === catSlug);
+  const sectionTitle = activeCategory
+    ? catName(activeCategory.slug, activeCategory.name, lang)
+    : t("journal.pageOf").replace("{n}", String(page)).replace("{total}", String(result.totalPages));
+
   return (
     <>
       <CategoryFilter categories={categories} />
-      <ArticleList posts={result.posts} />
-      <Pagination
-        currentPage={Math.min(currentPage, result.totalPages)}
-        totalPages={result.totalPages}
-      />
+      {front ? (
+        <BlogFront posts={result.posts} />
+      ) : (
+        <section aria-labelledby="blog-seccion">
+          <h2 id="blog-seccion" className="m-0 mb-5 font-blog-title text-[22px] font-bold text-blog-text">
+            {sectionTitle}
+          </h2>
+          <ArticleList posts={result.posts} />
+        </section>
+      )}
+      <Pagination currentPage={page} totalPages={result.totalPages} />
     </>
   );
 }

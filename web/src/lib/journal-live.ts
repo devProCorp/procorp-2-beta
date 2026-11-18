@@ -12,6 +12,7 @@
  * sitemap's post list — see wordpress.ts).
  */
 import { normalizeArticleHtml, readingMinutes, type WPCategory, type WPPost } from "./wordpress-presentation";
+import { getArticleDescription } from "./og/journal-cards";
 
 // Same project the snapshot script and next.config.ts's image remotePatterns
 // already point at — this is the project URL, not a secret, safe to inline.
@@ -60,6 +61,13 @@ interface BlogPostRow {
 }
 
 function toWPPost(row: BlogPostRow): WPPost {
+  const post = buildPost(row);
+  // Measured before list views drop content.rendered, so cards show it too.
+  const lead = getArticleDescription(post, 240);
+  return { ...post, ...(lead && { lead }) };
+}
+
+function buildPost(row: BlogPostRow): WPPost {
   const categoryIds = row.category_ids ?? [];
   const categoryNames = row.category_names ?? [];
   const tagIds = row.tag_ids ?? [];

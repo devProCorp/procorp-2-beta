@@ -16,6 +16,17 @@
   --surface-border: #1e293b;
   --neutral-dark: transparent;
   --neutral-gray: #1e293b;
+
+  /* Blog, propuesta B: tokens del sistema de diseño Pro Corp (tema oscuro). */
+  --blog-surface: #131d2b;
+  --blog-panel: #1a2534;
+  --blog-border: #263345;
+  --blog-border-strong: #38485d;
+  --blog-control: #6b7e96;
+  --blog-text: #f2f5f9;
+  --blog-text-soft: rgba(242, 245, 249, 0.78);
+  --blog-text-meta: rgba(242, 245, 249, 0.68);
+  --blog-accent-text: #e5656a;
 }
 
 @theme inline {
@@ -37,6 +48,18 @@
   --font-display: var(--font-outfit), sans-serif;
   --font-ui: var(--font-inter), sans-serif;
   --font-condensed: var(--font-condensed), "Arial Narrow", sans-serif;
+  --font-blog: var(--font-geist), var(--font-inter), sans-serif;
+  --font-blog-title: var(--font-montserrat), var(--font-inter), sans-serif;
+
+  --color-blog-surface: var(--blog-surface);
+  --color-blog-panel: var(--blog-panel);
+  --color-blog-border: var(--blog-border);
+  --color-blog-border-strong: var(--blog-border-strong);
+  --color-blog-control: var(--blog-control);
+  --color-blog-text: var(--blog-text);
+  --color-blog-soft: var(--blog-text-soft);
+  --color-blog-meta: var(--blog-text-meta);
+  --color-blog-accent: var(--blog-accent-text);
 
   /* Typographic scale slightly reduced for a more balanced, elegant look */
   --text-4xl: 1.875rem; /* ~30px */
@@ -360,14 +383,30 @@ textarea:focus-visible {
    text fell back to whatever the article's own stylesheet set (system
    fonts: Segoe UI, Roboto, San Francisco depending on the device). */
 .wp-content p,
-.wp-content li,
+.wp-content li {
+  font-family: var(--font-geist, var(--font-inter)), sans-serif !important;
+}
+
 .wp-content h1,
 .wp-content h2,
 .wp-content h3,
 .wp-content h4,
 .wp-content h5,
 .wp-content h6 {
-  font-family: var(--font-inter), sans-serif !important;
+  font-family: var(--font-montserrat, var(--font-inter)), sans-serif !important;
+}
+
+/* Con el reproductor propio del blog (BlogcastPlayer) sobra el que trae el
+   HTML del artículo. */
+.con-reproductor .wp-content [class^="procorp-audio-container"],
+.con-reproductor .wp-content audio {
+  display: none !important;
+}
+
+/* El índice «En este artículo» salta a cada subtítulo sin que la cabecera
+   fija lo tape. */
+.wp-content h2[id] {
+  scroll-margin-top: 7rem;
 }
 
 /* Two-line subheadings were spaced like body text (the templates' own
@@ -384,7 +423,7 @@ textarea:focus-visible {
 .wp-content p,
 .wp-content li {
   font-size: 1.0625rem !important;
-  color: rgba(255, 255, 255, 0.86) !important;
+  color: rgba(242, 245, 249, 0.88) !important;
 }
 
 @media (min-width: 768px) {
@@ -697,3 +736,29 @@ html.snap-home .site-topbar {
   color: #cbd5e1;
 }
 
+
+/* Barra de progreso del reproductor del blogcast (BlogcastPlayer). */
+.blogcast-range {
+  appearance: none;
+  -webkit-appearance: none;
+  background: linear-gradient(to right, var(--primary) var(--progreso, 0%), var(--blog-border) var(--progreso, 0%));
+  border-radius: 9999px;
+  outline-offset: 6px;
+}
+.blogcast-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--blog-text);
+}
+.blogcast-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--blog-text);
+}
+.blogcast-range:focus-visible {
+  outline: 2px solid var(--primary-light);
+}
