@@ -5,7 +5,8 @@ import Link from "next/link";
 import ArticleView from "@/components/journal/ArticleView";
 import { T } from "@/components/journal/Txt";
 import { fetchLivePostById, fetchLivePosts } from "@/lib/journal-live";
-import { pickRecommendationPool, stripHtml } from "@/lib/wordpress-presentation";
+import { getArticleDescription, getArticleDocumentTitle } from "@/lib/og/journal-cards";
+import { pickRecommendationPool } from "@/lib/wordpress-presentation";
 import type { WPPost } from "@/lib/wordpress-presentation";
 
 function setMetaTag(name: string, content: string) {
@@ -46,8 +47,10 @@ export default function LiveArticlePage() {
           // post is in hand: crawlers that execute JS (Googlebot does) pick
           // this up; those that don't still get the real content once the
           // post is rebuilt into a static page by the deploy pipeline.
-          document.title = stripHtml(post.seo_title ?? post.title.rendered);
-          const description = post.seo_description ?? stripHtml(post.excerpt.rendered).slice(0, 160);
+          // Same rule as the static article page: H1 + « | PRO CORP» while it
+          // fits in 65, otherwise the CMS «Título SEO».
+          document.title = getArticleDocumentTitle(post);
+          const description = getArticleDescription(post);
           if (description) setMetaTag("description", description);
         } else {
           // A genuinely unknown /journal/<id>/ still returns HTTP 200 (static
