@@ -3,13 +3,15 @@ import Link from "next/link";
 import RelatedArticles from "./RelatedArticles";
 import InvestCta from "./InvestCta";
 import ArticleTracker from "./ArticleTracker";
-import { T, CategoryName, PostDate } from "./Txt";
+import { ArrowLeft } from "lucide-react";
+import { T, CategoryName, PostDate, ReadTime } from "./Txt";
 import {
   getFeaturedImageUrl,
   getFeaturedImageAlt,
   getPostCategories,
   getPostAuthor,
   stripHtml,
+  readingMinutes,
   type WPPost,
 } from "@/lib/wordpress-presentation";
 import { articleJsonLd } from "@/lib/og/journal-cards";
@@ -35,6 +37,7 @@ export default function ArticleView({
   const categories = getPostCategories(post);
   const author = getPostAuthor(post);
   const authorDetails = author ? getAuthorDetails(author.name) : null;
+  const minutes = post.reading_minutes ?? readingMinutes(post.content.rendered);
 
   return (
     <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">
@@ -53,21 +56,19 @@ export default function ArticleView({
         {/* Back link */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui mb-12"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors font-ui mb-8"
         >
-          <span className="material-symbols-outlined text-base">
-            arrow_back
-          </span>
-          <T k="journal.eyebrow" />
+          <ArrowLeft size={16} aria-hidden="true" />
+          <T k="journal.back" />
         </Link>
 
         {/* Categories */}
         {categories.length > 0 && (
-          <div className="flex flex-wrap gap-3 mb-6">
+          <div className="flex flex-wrap gap-2 mb-5">
             {categories.map((cat) => (
               <span
                 key={cat.id}
-                className="text-xs font-bold uppercase tracking-widest text-primary font-ui"
+                className="rounded-full border border-surface-border px-3 py-1 text-[13px] font-medium text-gray-200 font-ui"
               >
                 <CategoryName slug={cat.slug} name={cat.name} />
               </span>
@@ -77,12 +78,12 @@ export default function ArticleView({
 
         {/* Title */}
         <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase font-display text-white leading-[0.95] mb-6"
+          className="text-[2rem] md:text-5xl font-bold tracking-tight font-ui text-white leading-[1.12] text-balance mb-8"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
 
         {/* Author + Date */}
-        <div className="flex items-center gap-4 mb-12">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mb-10">
           {author && (
             <div className="flex items-center gap-3">
               {author.avatar_urls["96"] && (
@@ -99,12 +100,12 @@ export default function ArticleView({
                   {author.name}
                 </span>
                 {authorDetails ? (
-                  <span className="block text-xs text-white/60 font-ui">
+                  <span className="block text-[13px] text-gray-300 font-ui">
                     <T k={authorDetails.role} /> · <T k={authorDetails.office} />
                   </span>
                 ) : (
                   author.description && (
-                    <span className="block text-xs text-white/40 font-ui">
+                    <span className="block text-[13px] text-gray-300 font-ui">
                       {author.description}
                     </span>
                   )
@@ -115,9 +116,13 @@ export default function ArticleView({
           {author && (
             <span className="w-px h-8 bg-white/15 hidden sm:block" />
           )}
-          <time className="text-sm text-white/40 font-ui uppercase tracking-widest">
-            <PostDate date={post.date} />
-          </time>
+          <span className="text-sm text-gray-300 font-ui">
+            <time dateTime={post.date}>
+              <PostDate date={post.date} />
+            </time>
+            <span aria-hidden="true"> · </span>
+            <ReadTime minutes={minutes} />
+          </span>
         </div>
 
         {/* Featured image */}
@@ -152,11 +157,9 @@ export default function ArticleView({
         <div className="border-t border-white/10 mt-20 pt-10">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui"
+            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors font-ui"
           >
-            <span className="material-symbols-outlined text-base">
-              arrow_back
-            </span>
+            <ArrowLeft size={16} aria-hidden="true" />
             <T k="journal.back" />
           </Link>
         </div>

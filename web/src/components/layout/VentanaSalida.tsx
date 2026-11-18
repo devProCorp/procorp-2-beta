@@ -17,10 +17,10 @@ import { useCallback, useEffect, useRef, useState, type FormEvent, type ReactNod
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 
-const API_INTERES = `${process.env.NEXT_PUBLIC_INVERSION_URL ?? 'https://inversion.pro-corp.net'}/api/interes`;
+export const API_INTERES = `${process.env.NEXT_PUBLIC_INVERSION_URL ?? 'https://inversion.pro-corp.net'}/api/interes`;
 const URL_PRIVACIDAD = '/politica-de-privacidad/';
 const URL_TRATAMIENTO = '/tratamiento-de-datos-personales/';
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+export const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 const CLAVE = 'pc_ventana_salida';
 const ESPERA_INICIAL_MS = 8_000;
@@ -42,6 +42,10 @@ function guardar(e: Estado) {
   } catch {
     /* sin almacenamiento: solo se pierde el recuerdo */
   }
+}
+/** Tras suscribirse desde otro formulario (boletín del blog), la ventana no vuelve. */
+export function marcarSuscrito() {
+  guardar({ ...leer(), suscrito: true });
 }
 function yaMostradaEnSesion(): boolean {
   try {
@@ -66,7 +70,7 @@ function puedeMostrarse(): boolean {
   return !document.querySelector('dialog[open]');
 }
 
-function origenDeLaVisita(lang: string) {
+export function origenDeLaVisita(lang: string) {
   const q = new URLSearchParams(window.location.search);
   const utm = Object.fromEntries(
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].flatMap((k) => {

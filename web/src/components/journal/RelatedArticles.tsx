@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import ArticleList from "./ArticleList";
 import { T } from "./Txt";
 import type { WPPost } from "@/lib/wordpress-presentation";
@@ -42,29 +43,26 @@ export default function RelatedArticles({ post, pool }: { post: WPPost; pool: WP
   return (
     <section
       aria-labelledby="sigue-leyendo"
-      className="w-full max-w-[1440px] mx-auto border-t border-white/10 mt-20 pt-16 md:px-4 lg:px-14"
+      className="w-full max-w-[1440px] mx-auto border-t border-surface-border mt-20 pt-14 md:px-4 lg:px-14"
     >
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
         <div>
-          <span className="block text-xs font-bold uppercase tracking-widest text-primary font-ui mb-3">
-            <T k="journal.eyebrow" />
-          </span>
           <h2
             id="sigue-leyendo"
-            className="text-3xl md:text-5xl font-bold tracking-tighter uppercase font-display text-white leading-[0.95]"
+            className="text-3xl md:text-4xl font-bold tracking-tight font-ui text-white leading-tight"
           >
             <T k={personal ? "journal.forYou" : "journal.keepReading"} />
           </h2>
         </div>
         <Link
           href="/blog/"
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors font-ui"
         >
           <T k="journal.viewAll" />
-          <span className="material-symbols-outlined text-base">arrow_forward</span>
+          <ArrowRight size={16} aria-hidden="true" />
         </Link>
       </div>
-      <ArticleList posts={posts} />
+      <ArticleList posts={posts} headingLevel="h3" />
     </section>
   );
 }

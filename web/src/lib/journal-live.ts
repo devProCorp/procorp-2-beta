@@ -11,7 +11,7 @@
  * `toWPPost` in scripts/snapshot-supabase.mjs (still used to regenerate the
  * sitemap's post list — see wordpress.ts).
  */
-import { normalizeArticleHtml, type WPCategory, type WPPost } from "./wordpress-presentation";
+import { normalizeArticleHtml, readingMinutes, type WPCategory, type WPPost } from "./wordpress-presentation";
 
 // Same project the snapshot script and next.config.ts's image remotePatterns
 // already point at — this is the project URL, not a secret, safe to inline.
@@ -72,6 +72,8 @@ function toWPPost(row: BlogPostRow): WPPost {
     title: { rendered: row.title ?? "" },
     excerpt: { rendered: row.excerpt_html ?? "" },
     content: { rendered: normalizeArticleHtml(row.content_html ?? "") },
+    // Measured before list views drop content.rendered, so cards show it too.
+    ...(row.content_html && { reading_minutes: readingMinutes(row.content_html) }),
     featured_media: row.featured_image_url ? row.wp_id : 0,
     categories: categoryIds,
     tags: tagIds,

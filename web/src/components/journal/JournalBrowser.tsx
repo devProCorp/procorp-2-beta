@@ -110,7 +110,7 @@ export default function JournalBrowser() {
 
   if (error) {
     return (
-      <p className="text-secondary text-lg py-20 text-center">
+      <p role="alert" className="text-gray-300 text-lg py-20 text-center">
         {t("journal.loadError")}
       </p>
     );
@@ -118,22 +118,26 @@ export default function JournalBrowser() {
 
   if (!categories || !result) {
     return (
-      <>
-        <div className="sticky top-20 z-40 h-[68px] mb-12" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div aria-busy="true">
+        <span className="sr-only">{t("journal.loading")}</span>
+        <div className="sticky top-20 z-40 h-[77px] mb-10" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {Array.from({ length: PER_PAGE }).map((_, i) => (
             <div
               key={i}
-              className="rounded-[2rem] p-4 border border-surface-border/50 animate-pulse"
+              aria-hidden="true"
+              className="rounded-2xl border border-surface-border bg-surface-dark motion-safe:animate-pulse"
             >
-              <div className="rounded-[1.5rem] aspect-[4/3] mb-6 bg-surface-dark" />
-              <div className="h-4 w-1/3 bg-surface-dark rounded mb-4" />
-              <div className="h-6 w-full bg-surface-dark rounded mb-2" />
-              <div className="h-4 w-2/3 bg-surface-dark rounded" />
+              <div className="rounded-t-2xl aspect-[16/10] bg-background-dark" />
+              <div className="p-5 md:p-6">
+                <div className="h-4 w-1/2 bg-background-dark rounded mb-4" />
+                <div className="h-6 w-full bg-background-dark rounded mb-2" />
+                <div className="h-6 w-2/3 bg-background-dark rounded" />
+              </div>
             </div>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 

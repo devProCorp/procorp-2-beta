@@ -33,6 +33,8 @@ export interface WPPost {
   author: number;
   /** Blogcast audio, migrated from WordPress into Supabase — absent on posts without one. */
   audio_url?: string;
+  /** Minutes to read the text, measured from the article itself (readingMinutes). */
+  reading_minutes?: number;
   /** Yoast SEO fields, migrated 1:1 from WordPress — prefer these over derived values when present. */
   seo_title?: string;
   seo_description?: string;
@@ -98,6 +100,20 @@ export function getPostAuthor(post: WPPost): WPAuthor | null {
 
 export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, "").trim();
+}
+
+/**
+ * Real reading time: words of the article text at 200 words a minute (a
+ * calm pace for analysis in Spanish), at least one minute. Inline <style>
+ * and <script> blocks are dropped first so they don't count as words.
+ */
+export function readingMinutes(html: string): number {
+  const text = html
+    .replace(/<(style|script)[^>]*>[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&[a-z#0-9]+;/gi, " ");
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
 }
 
 export function formatDate(dateStr: string, locale = "en-US"): string {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Headphones } from "lucide-react";
+import { ArrowRight, Headphones } from "lucide-react";
 import type { WPPost } from "@/lib/wordpress-presentation";
 import {
   getFeaturedImageUrl,
@@ -8,23 +8,26 @@ import {
   getPostCategories,
   stripHtml,
 } from "@/lib/wordpress-presentation";
-import { T, CategoryName, PostDate, AudioBadgeTitle } from "./Txt";
+import { T, CategoryName, PostDate, ReadTime, AudioBadgeTitle } from "./Txt";
 
 interface ArticleListProps {
   posts: WPPost[];
+  /** h2 en el listado (bajo el h1 «Blog»); h3 en «Sigue leyendo», que ya tiene su h2. */
+  headingLevel?: "h2" | "h3";
 }
 
-export default function ArticleList({ posts }: ArticleListProps) {
+export default function ArticleList({ posts, headingLevel = "h2" }: ArticleListProps) {
+  const Heading = headingLevel;
   if (posts.length === 0) {
     return (
-      <p className="text-secondary text-lg py-20 text-center">
+      <p className="text-gray-300 text-lg py-20 text-center">
         <T k="journal.empty" />
       </p>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
       {posts.map((post) => {
         const imageUrl = getFeaturedImageUrl(post, "medium_large");
         const imageAlt = getFeaturedImageAlt(post);
@@ -35,51 +38,57 @@ export default function ArticleList({ posts }: ArticleListProps) {
           <Link
             key={post.id}
             href={`/blog/${post.slug.trim() || post.id}/`}
-            className="flex flex-col group cursor-pointer glass-panel glass-panel-hover rounded-[2rem] p-4 border border-surface-border/50"
+            className="group flex min-w-0 flex-col rounded-2xl border border-surface-border bg-surface-dark transition-colors hover:border-white/25 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-light"
           >
-            <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3] mb-6 border border-surface-border/50 group-hover:border-primary/30 transition-colors shadow-inner">
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-              {imageUrl ? (
+            <div className="relative aspect-[16/10] overflow-hidden rounded-t-2xl bg-background-dark">
+              {imageUrl && (
                 <Image
                   src={imageUrl}
                   alt={imageAlt || stripHtml(post.title.rendered)}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-              ) : (
-                <div className="w-full h-full bg-surface-dark"></div>
-              )}
-              {categories.length > 0 && (
-                <span className="absolute top-4 left-4 z-20 bg-background-dark/80 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-bold text-white shadow-lg uppercase tracking-[0.15em] hover:bg-primary transition-colors">
-                  <CategoryName slug={categories[0].slug} name={categories[0].name} />
-                </span>
               )}
               {post.audio_url && (
-                <span className="absolute top-4 right-4 z-20 bg-background-dark/80 border border-white/10 backdrop-blur-md p-1.5 rounded-full text-white shadow-lg">
+                <span className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-background-dark/90 text-white">
                   <AudioBadgeTitle>
-                    <Headphones size={14} />
+                    <Headphones size={16} aria-hidden="true" />
                   </AudioBadgeTitle>
                 </span>
               )}
             </div>
-            <div className="flex flex-col gap-4 px-2 pb-2">
-              <div className="flex items-center gap-3 text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-                <span><PostDate date={post.date} /></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-primary-light shadow-[0_0_8px_rgba(206,16,38,0.8)] animate-pulse"></span>
-                <span><T k="journal.readTime" /></span>
+            <div className="flex flex-1 flex-col gap-3 p-5 md:p-6">
+              {categories.length > 0 && (
+                <span className="text-[13px] font-semibold text-gray-200">
+                  <CategoryName slug={categories[0].slug} name={categories[0].name} />
+                </span>
+              )}
+              <div className="-mt-2 flex flex-wrap items-center gap-x-2 text-[13px] text-gray-400">
+                <PostDate date={post.date} />
+                {post.reading_minutes && (
+                  <>
+                    <span aria-hidden="true">·</span>
+                    <ReadTime minutes={post.reading_minutes} />
+                  </>
+                )}
               </div>
-              <h3
-                className="text-2xl font-extrabold text-white group-hover:text-primary-light transition-colors leading-[1.2] tracking-tight drop-shadow-sm"
+              <Heading
+                className="text-xl md:text-[1.375rem] font-bold text-white leading-snug tracking-tight text-balance group-hover:underline decoration-primary-light decoration-2 underline-offset-4"
                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
               />
               {excerpt && (
-                <p className="text-gray-400 text-[14px] leading-relaxed line-clamp-2 font-light">
+                <p className="text-gray-300 text-[15px] leading-relaxed line-clamp-3 text-pretty">
                   {excerpt}
                 </p>
               )}
-              <span className="inline-flex items-center text-primary font-bold text-[11px] uppercase tracking-widest mt-2 hover:text-white transition-colors group/link w-fit">
-                <T k="journal.readMore" /> <span className="material-symbols-outlined text-[16px] ml-1 group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-white">
+                <T k="journal.readMore" />
+                <ArrowRight
+                  size={16}
+                  aria-hidden="true"
+                  className="text-primary-light transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
+                />
               </span>
             </div>
           </Link>

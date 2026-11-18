@@ -1,6 +1,8 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface PaginationProps {
@@ -8,48 +10,53 @@ interface PaginationProps {
   totalPages: number;
 }
 
-export default function Pagination({
-  currentPage,
-  totalPages,
-}: PaginationProps) {
-  const router = useRouter();
+const BTN =
+  "inline-flex h-11 items-center gap-2 rounded-full border border-surface-border px-5 text-sm font-medium text-gray-200 transition-colors hover:border-white/30 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light";
+const BTN_OFF = "inline-flex h-11 items-center gap-2 rounded-full border border-surface-border/60 px-5 text-sm font-medium text-gray-500";
+
+/** Enlaces reales (no botones): se abren en otra pestaña y los buscadores los siguen. */
+export default function Pagination({ currentPage, totalPages }: PaginationProps) {
   const searchParams = useSearchParams();
   const { t } = useLanguage();
 
   if (totalPages <= 1) return null;
 
-  function goToPage(page: number) {
+  function href(page: number) {
     const params = new URLSearchParams(searchParams.toString());
-    if (page <= 1) {
-      params.delete("page");
-    } else {
-      params.set("page", String(page));
-    }
+    if (page <= 1) params.delete("page");
+    else params.set("page", String(page));
     const qs = params.toString();
-    router.push(qs ? `/blog?${qs}` : "/blog");
+    return qs ? `/blog?${qs}` : "/blog";
   }
 
-  return (
-    <div className="flex items-center justify-center gap-4 mt-20 font-ui">
-      <button
-        onClick={() => goToPage(currentPage - 1)}
-        disabled={currentPage <= 1}
-        className="px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white/60 border border-white/20 rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary transition-colors"
-      >
-        {t("journal.prev")}
-      </button>
+  const prev = currentPage > 1;
+  const next = currentPage < totalPages;
 
-      <span className="text-sm text-white/50 tracking-widest">
-        {currentPage} / {totalPages}
+  return (
+    <nav aria-label={t("journal.pagination")} className="mt-4 mb-20 flex items-center justify-center gap-4">
+      {prev ? (
+        <Link href={href(currentPage - 1)} rel="prev" className={BTN}>
+          <ArrowLeft size={16} aria-hidden="true" /> {t("journal.prev")}
+        </Link>
+      ) : (
+        <span aria-disabled="true" className={BTN_OFF}>
+          <ArrowLeft size={16} aria-hidden="true" /> {t("journal.prev")}
+        </span>
+      )}
+
+      <span className="text-sm text-gray-300 tabular-nums" aria-current="page">
+        {t("journal.pageOf").replace("{n}", String(currentPage)).replace("{total}", String(totalPages))}
       </span>
 
-      <button
-        onClick={() => goToPage(currentPage + 1)}
-        disabled={currentPage >= totalPages}
-        className="px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white/60 border border-white/20 rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:border-primary hover:text-primary transition-colors"
-      >
-        {t("journal.next")}
-      </button>
-    </div>
+      {next ? (
+        <Link href={href(currentPage + 1)} rel="next" className={BTN}>
+          {t("journal.next")} <ArrowRight size={16} aria-hidden="true" />
+        </Link>
+      ) : (
+        <span aria-disabled="true" className={BTN_OFF}>
+          {t("journal.next")} <ArrowRight size={16} aria-hidden="true" />
+        </span>
+      )}
+    </nav>
   );
 }
