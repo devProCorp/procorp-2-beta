@@ -12,16 +12,16 @@ export const metadata: Metadata = { alternates: { canonical: "/blog/" } };
 
 export default function Journal() {
   return (
-    <main className="min-h-screen bg-background-dark pb-20">
-      <div className="w-full max-w-[1440px] mx-auto px-4 md:px-10 lg:px-20 py-8">
+    <main className="min-h-screen bg-background-dark text-blog-text">
+      <div className="mx-auto w-full max-w-[1280px] px-4 pt-10 md:px-8 md:pt-14">
         <JournalHeader />
 
         <Suspense fallback={null}>
           <JournalBrowser />
         </Suspense>
-
-        <NewsletterSection />
       </div>
+
+      <NewsletterSection />
     </main>
   );
 }

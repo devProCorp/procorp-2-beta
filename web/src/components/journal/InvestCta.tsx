@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { ArrowRight } from "lucide-react";
 import { trackArticle } from "@/lib/journal-engagement";
 
 /**
@@ -24,15 +25,15 @@ export default function InvestCta({ slug, postId }: { slug: string; postId: numb
   return (
     <section
       aria-labelledby="invertir-con-pro-corp"
-      className="mt-16 rounded-xl border border-white/10 bg-white/[0.03] p-6 md:p-10"
+      className="mt-10 rounded-xl border border-blog-border bg-blog-surface p-6 md:p-8"
     >
       <h2
         id="invertir-con-pro-corp"
-        className="font-ui text-2xl md:text-3xl font-bold tracking-tight text-white leading-tight"
+        className="m-0 font-blog-title text-2xl md:text-[1.625rem] font-bold leading-tight text-blog-text"
       >
         {t("journal.invest.title")}
       </h2>
-      <p className="font-ui mt-4 text-base md:text-lg leading-relaxed text-white/75">
+      <p className="mt-3 mb-0 text-base leading-relaxed text-blog-soft">
         {t("journal.invest.text")}
       </p>
       <a
@@ -40,12 +41,10 @@ export default function InvestCta({ slug, postId }: { slug: string; postId: numb
         onClick={() => trackArticle(postId, "invest")}
         target="_blank"
         rel="noopener"
-        className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary hover:bg-primary-light px-6 py-3 text-sm font-bold text-white transition-colors font-ui"
+        className="mt-6 inline-flex h-[46px] items-center gap-2 rounded-lg bg-primary px-5 text-[15px] font-semibold text-white transition-colors hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-light"
       >
         {t("journal.invest.button")}
-        <span className="material-symbols-outlined text-base" aria-hidden="true">
-          arrow_forward
-        </span>
+        <ArrowRight size={16} aria-hidden="true" />
       </a>
     </section>
   );

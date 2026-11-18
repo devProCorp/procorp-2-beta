@@ -1,27 +1,54 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import RelatedArticles from "./RelatedArticles";
 import InvestCta from "./InvestCta";
 import ArticleTracker from "./ArticleTracker";
-import { T, CategoryName, PostDate } from "./Txt";
+import BlogcastPlayer from "./BlogcastPlayer";
+import ShareRow from "./ShareRow";
+import { T, CategoryName, PostDate, ReadTime } from "./Txt";
 import {
   getFeaturedImageUrl,
   getFeaturedImageAlt,
   getPostCategories,
   getPostAuthor,
   stripHtml,
+  readingMinutes,
+  withHeadingIds,
   type WPPost,
 } from "@/lib/wordpress-presentation";
 import { articleJsonLd } from "@/lib/og/journal-cards";
 import { getAuthorDetails } from "@/lib/journal-authors";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.pro-corp.net";
+
+/** Texto plano para comparar la entradilla con el comienzo del artículo. */
+const plain = (html: string) =>
+  stripHtml(html.replace(/<(style|script)[^>]*>[\s\S]*?<\/\1>/gi, " "))
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+function initials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase())
+    .join("");
+}
+
 /**
- * Article body, shared by the prebuilt /journal/[slug] page and the live
- * fallback at /journal/_live (posts published after the last deploy — see
+ * Article body, shared by the prebuilt /blog/[slug] page and the live
+ * fallback (posts published after the last deploy — see
  * docs/decisions/0004-journal-live-fetch.md). Pure presentation: both
  * callers are responsible for fetching `post` and handling the not-found case.
  * `related` is the pool of candidates for the recommendations at the end
  * (see pickRecommendationPool); the browser picks three of them.
+ *
+ * Layout: propuesta B (2026-11-18) — column of 40rem for reading (~75 characters), wider
+ * cover image, own blogcast player, «En este artículo» index built from the
+ * article's <h2>, share row and the investment invitation.
  */
 export default function ArticleView({
   post,
@@ -35,9 +62,18 @@ export default function ArticleView({
   const categories = getPostCategories(post);
   const author = getPostAuthor(post);
   const authorDetails = author ? getAuthorDetails(author.name) : null;
+  const minutes = post.reading_minutes ?? readingMinutes(post.content.rendered);
+  const { html, toc } = withHeadingIds(post.content.rendered);
+  const titleText = plain(post.title.rendered);
+  const url = `${SITE_URL}/blog/${post.slug}/`;
+
+  // Entradilla solo si aporta: no se repite cuando es el primer párrafo.
+  const excerpt = plain(post.excerpt.rendered);
+  const body = plain(post.content.rendered);
+  const dek = excerpt && !body.includes(excerpt.slice(0, 60)) ? excerpt : "";
 
   return (
-    <main className="min-h-screen bg-background-dark pt-32 pb-20 px-6">
+    <main className="min-h-screen bg-background-dark pt-6 text-blog-text md:pt-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -49,118 +85,124 @@ export default function ArticleView({
           ),
         }}
       />
-      <article className="max-w-[42rem] mx-auto">
-        {/* Back link */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui mb-12"
-        >
-          <span className="material-symbols-outlined text-base">
-            arrow_back
-          </span>
-          <T k="journal.eyebrow" />
-        </Link>
+      <article className={`px-4 pb-16 md:px-8 ${post.audio_url ? "con-reproductor" : ""}`}>
+        <header className="mx-auto max-w-[40rem]">
+          <Link
+            href="/blog"
+            className="inline-flex min-h-11 items-center gap-2 text-sm text-blog-soft transition-colors hover:text-blog-text"
+          >
+            <ArrowLeft size={16} aria-hidden="true" />
+            <T k="journal.back" />
+          </Link>
 
-        {/* Categories */}
-        {categories.length > 0 && (
-          <div className="flex flex-wrap gap-3 mb-6">
-            {categories.map((cat) => (
-              <span
-                key={cat.id}
-                className="text-xs font-bold uppercase tracking-widest text-primary font-ui"
-              >
-                <CategoryName slug={cat.slug} name={cat.name} />
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Title */}
-        <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter uppercase font-display text-white leading-[0.95] mb-6"
-          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-        />
-
-        {/* Author + Date */}
-        <div className="flex items-center gap-4 mb-12">
-          {author && (
-            <div className="flex items-center gap-3">
-              {author.avatar_urls["96"] && (
-                <Image
-                  src={author.avatar_urls["96"]}
-                  alt={author.name}
-                  width={40}
-                  height={40}
-                  className="rounded-full ring-2 ring-white/10"
-                />
-              )}
-              <div>
-                <span className="block text-sm font-semibold text-white font-ui">
-                  {author.name}
+          {categories.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <span
+                  key={cat.id}
+                  className="rounded-full border border-blog-border-strong px-3 py-1 text-[13px] font-medium text-blog-text"
+                >
+                  <CategoryName slug={cat.slug} name={cat.name} />
                 </span>
-                {authorDetails ? (
-                  <span className="block text-xs text-white/60 font-ui">
-                    <T k={authorDetails.role} /> · <T k={authorDetails.office} />
-                  </span>
-                ) : (
-                  author.description && (
-                    <span className="block text-xs text-white/40 font-ui">
-                      {author.description}
-                    </span>
-                  )
-                )}
-              </div>
+              ))}
             </div>
           )}
-          {author && (
-            <span className="w-px h-8 bg-white/15 hidden sm:block" />
-          )}
-          <time className="text-sm text-white/40 font-ui uppercase tracking-widest">
-            <PostDate date={post.date} />
-          </time>
-        </div>
 
-        {/* Featured image */}
+          <h1
+            className="mt-5 mb-0 font-blog-title text-[2rem] font-bold leading-[1.12] tracking-[-0.02em] text-blog-text text-balance md:text-5xl"
+            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+          />
+
+          {dek && (
+            <p className="mt-[18px] mb-0 text-lg leading-relaxed text-blog-soft text-pretty md:text-xl">{dek}</p>
+          )}
+
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+            {author && (
+              <div className="flex items-center gap-3">
+                {author.avatar_urls["96"] ? (
+                  <Image
+                    src={author.avatar_urls["96"]}
+                    alt=""
+                    width={44}
+                    height={44}
+                    className="rounded-full border border-blog-border-strong"
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-blog-border-strong bg-blog-panel text-[15px] font-semibold"
+                  >
+                    {initials(author.name)}
+                  </span>
+                )}
+                <div className="text-sm leading-snug">
+                  <p className="m-0 font-semibold">{author.name}</p>
+                  {authorDetails ? (
+                    <p className="m-0 text-blog-meta">
+                      <T k={authorDetails.role} /> · <T k={authorDetails.office} />
+                    </p>
+                  ) : (
+                    author.description && <p className="m-0 text-blog-meta">{author.description}</p>
+                  )}
+                </div>
+              </div>
+            )}
+            {author && <span aria-hidden="true" className="hidden h-8 w-px bg-blog-border sm:block" />}
+            <p className="m-0 text-sm text-blog-soft">
+              <time dateTime={post.date}>
+                <PostDate date={post.date} />
+              </time>
+              <span aria-hidden="true"> · </span>
+              <ReadTime minutes={minutes} />
+            </p>
+          </div>
+        </header>
+
         {imageUrl && (
-          <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-white/10 mb-14">
+          <div className="relative mx-auto mt-10 aspect-[16/9] w-full max-w-[67.5rem] overflow-hidden rounded-xl bg-blog-panel md:aspect-[2/1]">
             <Image
               src={imageUrl}
-              alt={imageAlt || stripHtml(post.title.rendered)}
+              alt={imageAlt || titleText}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 672px"
+              sizes="(max-width: 1080px) 100vw, 1080px"
               priority
             />
           </div>
         )}
 
-        {/* Content */}
-        <div
-          className="wp-content max-w-none font-ui"
-          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-        />
-        <div id="fin-del-articulo" aria-hidden="true" />
-        <ArticleTracker id={post.id} categories={post.categories} />
+        <div className="mx-auto mt-10 max-w-[40rem]">
+          {post.audio_url && <BlogcastPlayer src={post.audio_url} />}
 
-        <InvestCta slug={post.slug} postId={post.id} />
+          {toc.length >= 3 && (
+            <nav aria-labelledby="indice-titulo" className="mt-5 rounded-xl border border-blog-border p-5">
+              <h2 id="indice-titulo" className="m-0 mb-2.5 font-blog text-[15px] font-semibold text-blog-text">
+                <T k="journal.toc" />
+              </h2>
+              <ol className="m-0 grid list-decimal gap-x-6 pl-5 text-sm leading-snug text-blog-soft marker:text-blog-meta md:grid-cols-2">
+                {toc.map((h) => (
+                  <li key={h.id} className="py-1 text-balance">
+                    <a href={`#${h.id}`} className="text-blog-text/85 hover:text-blog-text hover:underline underline-offset-4">
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+
+          <div className="wp-content mt-10 max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
+          <div id="fin-del-articulo" aria-hidden="true" />
+          <ArticleTracker id={post.id} categories={post.categories} />
+
+          <ShareRow url={url} title={titleText} />
+
+          <InvestCta slug={post.slug} postId={post.id} />
+        </div>
       </article>
 
       <RelatedArticles post={post} pool={related} />
-
-      {/* Bottom nav */}
-      <div className="max-w-[42rem] mx-auto">
-        <div className="border-t border-white/10 mt-20 pt-10">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-white/50 hover:text-primary transition-colors font-ui"
-          >
-            <span className="material-symbols-outlined text-base">
-              arrow_back
-            </span>
-            <T k="journal.back" />
-          </Link>
-        </div>
-      </div>
     </main>
   );
 }

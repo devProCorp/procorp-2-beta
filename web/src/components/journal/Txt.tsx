@@ -21,7 +21,18 @@ export function PostDate({ date }: { date: string }) {
   return <>{formatDate(date, DATE_LOCALE[lang] ?? "es-ES")}</>;
 }
 
+/** «8 min de lectura» (o «8 min» con `short`), medido del propio artículo. */
+export function ReadTime({ minutes, short = false }: { minutes: number; short?: boolean }) {
+  const { t } = useLanguage();
+  return <>{t(short ? "journal.minutes" : "journal.readTime").replace("{n}", String(minutes))}</>;
+}
+
 export function AudioBadgeTitle({ children }: { children: React.ReactNode }) {
   const { t } = useLanguage();
-  return <span title={t("journal.audio")}>{children}</span>;
+  return (
+    <span title={t("journal.audio")} className="inline-flex">
+      {children}
+      <span className="sr-only">{t("journal.audio")}</span>
+    </span>
+  );
 }
